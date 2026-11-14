@@ -7,15 +7,20 @@ const EPOCH = Date.UTC(2000, 0, 1);
 const TYPES = { float64: Float64Array, float32: Float32Array, int32: Int32Array, int16: Int16Array, uint16: Uint16Array, uint8: Uint8Array, int8: Int8Array };
 const D = { man: null, metrics: null, harm: null, cov: null, il: null, pix: null, lab: null, ev: {}, pt: {}, load: {} };
 
-/* Ağ kopmalarına karşı yeniden deneme: bağlantı sıfırlanırsa (ERR_CONNECTION_RESET vb.) 4 kez daha dener. */
-async function fetchRetry(u, tries = 5) {
+/* Ağ kopmalarına karşı yeniden deneme: bağlantı indirme sırasında kesilirse (ERR_CONNECTION_RESET, 503 vb.)
+   dosyanın tamamı baştan, en fazla 6 kez indirilir. 404 = dosya yok, yeniden denenmez. */
+async function fetchData(u, as, tries = 6) {
   for (let i = 0; ; i++) {
-    try { const r = await fetch(u); if (r.ok || r.status === 404 || i >= tries - 1) return r; }
-    catch (e) { if (i >= tries - 1) throw e; }
-    await new Promise(res => setTimeout(res, 400 * (i + 1)));
+    try {
+      const r = await fetch(u, i ? { cache: "reload" } : undefined);
+      if (r.status === 404) return null;
+      if (!r.ok) throw new Error(u + " " + r.status);
+      return as === "json" ? await r.json() : await r.arrayBuffer();
+    } catch (e) { if (i >= tries - 1) throw e; }
+    await new Promise(res => setTimeout(res, 500 * (i + 1)));
   }
 }
-async function getJSON(u) { const r = await fetchRetry(u); if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }
+async function getJSON(u) { const j = await fetchData(u, "json"); if (j === null) throw new Error(u + " 404"); return j; }
 function parseBin(buf, meta) {
   const c = { n: meta.n };
   for (const k of meta.kolon) c[k.ad] = new TYPES[k.tip](buf, k.ofs, meta.n);
@@ -23,7 +28,7 @@ function parseBin(buf, meta) {
 }
 /* İsteğe bağlı bayrak dosyaları (v2.5.2): olayla aynı sıra, uint8. Dosya yoksa/uzunluk uymuyorsa hepsi 0 (bayrak yok). */
 async function loadFlag(name, y, n) {
-  try { const r = await fetchRetry(`data/${name}_${y}.bin`); if (r.ok) { const b = await r.arrayBuffer(); if (b.byteLength === n) return new Uint8Array(b); } } catch (e) { /* yok: sıfır */ }
+  try { const b = await fetchData(`data/${name}_${y}.bin`); if (b && b.byteLength === n) return new Uint8Array(b); } catch (e) { /* yok: sıfır */ }
   return new Uint8Array(n);
 }
 async function loadYear(kind, y) {
@@ -32,12 +37,12 @@ async function loadYear(kind, y) {
   const key = kind + y;
   if (!D.load[key]) {
     const meta = (kind === "ev" ? D.man.events : D.man.points)[y];
-    const main = fetchRetry(`data/${kind === "ev" ? "events" : "points"}_${y}.bin`).then(r => { if (!r.ok) throw new Error("bin " + r.status); return r.arrayBuffer(); });
+    const main = fetchData(`data/${kind === "ev" ? "events" : "points"}_${y}.bin`).then(b => { if (!b) throw new Error("bin 404 " + y); return b; });
     const extra = kind === "ev" ? Promise.all([loadFlag("aniz_il", y, meta.n), loadFlag("sanayi_artik", y, meta.n)]) : Promise.resolve(null);
     D.load[key] = Promise.all([main, extra]).then(([b, fl]) => {
       const o = parseBin(b, meta); if (fl) { o.anizil = fl[0]; o.san = fl[1]; } store[y] = o;
       return o;
-    });
+    }).catch(e => { delete D.load[key]; throw e; });
   }
   return D.load[key];
 }
