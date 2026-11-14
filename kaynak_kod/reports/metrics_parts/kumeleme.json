@@ -1,0 +1,310 @@
+{
+ "metrics": {
+  "events_total": {
+   "value": 471978,
+   "unit": "olay",
+   "tanim": "Toplam olay (girdi: status∈{temiz,aniz} noktalar, D=1 ayakizi_capraz gecis L=3 Hmax=72)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_joint_overlap": {
+   "value": 380975,
+   "unit": "olay",
+   "tanim": "Çakışma döneminde (iki sensör ailesi de gözlüyor) MODIS+VIIRS birlikte kümelenince olay sayısı",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_separate_overlap": {
+   "value": 440176,
+   "unit": "olay",
+   "tanim": "Aynı dönemde sensörler ayrı ayrı kümelenince olay sayısı toplamı",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_double_count_avoided": {
+   "value": 59201,
+   "unit": "olay",
+   "tanim": "Ayrı kümelemede iki kez sayılacak olay (ayrı - ortak)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_ortak": {
+   "value": 35651,
+   "unit": "olay",
+   "tanim": "match_class=ortak (çakışma döneminde iki sensör de gördü)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_yalniz_modis": {
+   "value": 57543,
+   "unit": "olay",
+   "tanim": "match_class=yalniz_modis",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_yalniz_viirs": {
+   "value": 287781,
+   "unit": "olay",
+   "tanim": "match_class=yalniz_viirs",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_tek_sensor_donemi": {
+   "value": 91003,
+   "unit": "olay",
+   "tanim": "Çakışma dışı (yalnız bir sensör ailesi gözlüyor) olaylar",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share": {
+   "value": 0.3825,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS tespiti içeren olayların VIIRS tespiti de içerme oranı (D=1 ayakizi_capraz gecis L=3 Hmax=72)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "clustering_runtime_s": {
+   "value": 3.32,
+   "unit": "s",
+   "tanim": "Varsayılan kuralla 20 yıllık tam veride kümeleme süresi (bu makine)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "clustering_rss_mb": {
+   "value": 676.0,
+   "unit": "MB",
+   "tanim": "Kümeleme sonrası süreç belleği (RSS)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share_sabit": {
+   "value": 0.3547,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS olaylarının VIIRS'te de görülme oranı, eşleştirme modu=sabit, D=1 km, H=24 sa",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_yalniz_modis_sabit": {
+   "value": 63310,
+   "unit": "olay",
+   "tanim": "Çakışmada yalnız MODIS olay sayısı, mod=sabit",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share_ayakizi_capraz": {
+   "value": 0.3767,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS olaylarının VIIRS'te de görülme oranı, eşleştirme modu=ayakizi_capraz, D=1 km, H=24 sa",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_yalniz_modis_ayakizi_capraz": {
+   "value": 58998,
+   "unit": "olay",
+   "tanim": "Çakışmada yalnız MODIS olay sayısı, mod=ayakizi_capraz",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share_ayakizi_tum": {
+   "value": 0.4242,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS olaylarının VIIRS'te de görülme oranı, eşleştirme modu=ayakizi_tum, D=1 km, H=24 sa",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_yalniz_modis_ayakizi_tum": {
+   "value": 47399,
+   "unit": "olay",
+   "tanim": "Çakışmada yalnız MODIS olay sayısı, mod=ayakizi_tum",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_nearest_viirs_within_1km_share": {
+   "value": 0.5315,
+   "unit": "oran",
+   "tanim": "Aqua MODIS tespitlerinden ±60 dk içinde 1 km'de VIIRS tespiti olanların oranı (çakışma dönemi)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_in_footprint_share": {
+   "value": 0.6017,
+   "unit": "oran",
+   "tanim": "Aynı oranın ayak izi (scan×track + tampon) ile ölçülmüşü",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "aniz_points_separate": {
+   "value": 320995,
+   "unit": "nokta",
+   "tanim": "Demo anız olay kuralı, sensörler ayrı kümelenince anız sayılan nokta (karşılaştırma; nihai kural temizlikte)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "aniz_points_joint": {
+   "value": 290799,
+   "unit": "nokta",
+   "tanim": "Aynı kural, ortak (varsayılan) kümelemede anız sayılan nokta",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "clustering_sensitivity_runtime_s": {
+   "value": 329.2,
+   "unit": "s",
+   "tanim": "Tüm ölçümlerle toplam koşu süresi",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  }
+ },
+ "sensitivity": {
+  "D": [
+   {
+    "deger": 0.5,
+    "kural": "D=0.5 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 541338,
+    "en_buyuk_olay": 6736,
+    "tek_tespitli_oran": 0.7307,
+    "olay_demo_donemi": 64429,
+    "modis_viirste_gorulme": 0.363
+   },
+   {
+    "deger": 1,
+    "kural": "D=1 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 471978,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.663,
+    "olay_demo_donemi": 56263,
+    "modis_viirste_gorulme": 0.3825
+   },
+   {
+    "deger": 2,
+    "kural": "D=2 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 383640,
+    "en_buyuk_olay": 6754,
+    "tek_tespitli_oran": 0.5831,
+    "olay_demo_donemi": 47803,
+    "modis_viirste_gorulme": 0.462
+   },
+   {
+    "deger": 3,
+    "kural": "D=3 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 341799,
+    "en_buyuk_olay": 6755,
+    "tek_tespitli_oran": 0.5745,
+    "olay_demo_donemi": 42731,
+    "modis_viirste_gorulme": 0.4767
+   }
+  ],
+  "H": [
+   {
+    "deger": 6,
+    "kural": "D=1 ayakizi_capraz H=6",
+    "olay": 525841,
+    "en_buyuk_olay": 1385,
+    "tek_tespitli_oran": 0.6659,
+    "olay_demo_donemi": 63473,
+    "modis_viirste_gorulme": 0.3591
+   },
+   {
+    "deger": 12,
+    "kural": "D=1 ayakizi_capraz H=12",
+    "olay": 512109,
+    "en_buyuk_olay": 6658,
+    "tek_tespitli_oran": 0.6684,
+    "olay_demo_donemi": 61575,
+    "modis_viirste_gorulme": 0.3617
+   },
+   {
+    "deger": 24,
+    "kural": "D=1 ayakizi_capraz H=24",
+    "olay": 481008,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.666,
+    "olay_demo_donemi": 57673,
+    "modis_viirste_gorulme": 0.3767
+   },
+   {
+    "deger": 48,
+    "kural": "D=1 ayakizi_capraz H=48",
+    "olay": 451483,
+    "en_buyuk_olay": 6742,
+    "tek_tespitli_oran": 0.6571,
+    "olay_demo_donemi": 53929,
+    "modis_viirste_gorulme": 0.4015
+   }
+  ],
+  "L": [
+   {
+    "deger": 1,
+    "kural": "D=1 ayakizi_capraz gecis L=1 Hmax=72",
+    "olay": 506842,
+    "en_buyuk_olay": 6665,
+    "tek_tespitli_oran": 0.6685,
+    "sure_saat_p90": 0.83,
+    "olay_demo_donemi": 61132,
+    "modis_viirste_gorulme": 0.362
+   },
+   {
+    "deger": 2,
+    "kural": "D=1 ayakizi_capraz gecis L=2 Hmax=72",
+    "olay": 499277,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.6664,
+    "sure_saat_p90": 0.85,
+    "olay_demo_donemi": 60595,
+    "modis_viirste_gorulme": 0.3763
+   },
+   {
+    "deger": 3,
+    "kural": "D=1 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 471978,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.663,
+    "sure_saat_p90": 1.57,
+    "olay_demo_donemi": 56263,
+    "modis_viirste_gorulme": 0.3825
+   },
+   {
+    "deger": 4,
+    "kural": "D=1 ayakizi_capraz gecis L=4 Hmax=72",
+    "olay": 468214,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.6611,
+    "sure_saat_p90": 1.65,
+    "olay_demo_donemi": 55962,
+    "modis_viirste_gorulme": 0.3929
+   },
+   {
+    "deger": 6,
+    "kural": "D=1 ayakizi_capraz gecis L=6 Hmax=72",
+    "olay": 460759,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.6587,
+    "sure_saat_p90": 1.67,
+    "olay_demo_donemi": 55206,
+    "modis_viirste_gorulme": 0.4017
+   }
+  ]
+ }
+}

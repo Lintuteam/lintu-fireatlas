@@ -1,0 +1,76 @@
+{
+ "arac": "src/app/tests/olc_klavye_aria.js (gerçek DOM, Claude Browser, 1280x900)",
+ "klavye": {
+  "etkilesimli_toplam": 44,
+  "tab_ile_ulasilabilir": 41,
+  "oran": 0.932,
+  "not": "3 sekme düğmesi bilinçli roving tabindex (ok tuşuyla gezilir); matris hücreleri tek durak + ok tuşları",
+  "matris_ok_tusu": true,
+  "sekme_ok_tusu": true,
+  "atla_baglantisi": true,
+  "odak_gostergesi_css": true,
+  "harita_klavye": true
+ },
+ "aria": {
+  "adsiz_etkilesimli": 0,
+  "oran_adli": 1.0,
+  "roller": {
+   "tablist": true,
+   "tabpanel": 4,
+   "tab": 4,
+   "canli_bolge": 10,
+   "img_grafik": 4
+  },
+  "svg_baslikli_degil": 0,
+  "html_lang": "tr"
+ },
+ "renk_korlugu": {
+  "viridis": {
+   "normal": 28.3,
+   "protan": 19.2,
+   "deutan": 16.8,
+   "tritan": 17.9
+  },
+  "cividis": {
+   "normal": 16.8,
+   "protan": 15.8,
+   "deutan": 17,
+   "tritan": 14.3
+  },
+  "ylorrd": {
+   "normal": 20.4,
+   "protan": 19.5,
+   "deutan": 14,
+   "tritan": 17
+  },
+  "sapma_anomali": {
+   "normal": 29,
+   "protan": 24.2,
+   "deutan": 29.2,
+   "tritan": 32.3
+  },
+  "harita_siniflari": {
+   "normal": 56.7,
+   "protan": 20.7,
+   "deutan": 31.4,
+   "tritan": 36.4
+  },
+  "not": "Deger = secili duzeyler arasindaki en kucuk CIE76 dE (buyuk = ayirt etmek kolay). harita_siniflari ayrica sekille de ayrilir (daire/kare/ucgen/baklava).",
+  "min_palet_dE": 14
+ },
+ "kontrast": {
+  "yazi_on_kart": 15.69,
+  "soluk_on_kart": 8.31,
+  "soluk_on_zemin": 8.85,
+  "vurgu_on_zemin": 13.34,
+  "uyari_on_zemin": 10.84,
+  "dugme_metni_on_vurgu": 11.56,
+  "yazi_on_girdi": 14.74,
+  "matris_hucre_metni_min": 4.59
+ },
+ "kontrast_min": 4.59,
+ "renk_korlugu_arac": "src/app/tests/olc_renk.js",
+ "olcum_tarihi": "2026-11-13",
+ "kapsam_notu": "Harita zemini ve Leaflet iç kontrolleri ölçüm dışı; ekran okuyucuyla elle sınama yapılmadı (doğrulanmadı).",
+ "olcum_notu": "Sadeleştirme sonrası yeniden ölçüldü (Chrome, 1280x800); ham i18n anahtarı taraması: 0"
+}

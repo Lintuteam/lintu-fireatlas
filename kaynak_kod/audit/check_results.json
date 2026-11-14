@@ -1,0 +1,448 @@
+{
+  "generated_utc": "2026-11-13T12:12:50Z",
+  "summary": {
+    "GEÇTİ": 25,
+    "KALDI": 0,
+    "ATLANDI": 0
+  },
+  "results": [
+    {
+      "code": "C01",
+      "title": "Huni korunumu",
+      "status": "GEÇTİ",
+      "detail": "her nokta tam bir etiket taşıyor",
+      "measured": {
+        "points": 1414674,
+        "by_sensor_status": {
+          "temiz": {
+            "MODIS": 183531,
+            "VIIRS": 643512
+          },
+          "deniz": {
+            "MODIS": 144,
+            "VIIRS": 8704
+          },
+          "volkan": {
+            "MODIS": 5,
+            "VIIRS": 0
+          },
+          "statik_nasa": {
+            "MODIS": 8242,
+            "VIIRS": 320137
+          },
+          "sanayi": {
+            "MODIS": 3211,
+            "VIIRS": 23801
+          },
+          "aniz": {
+            "MODIS": 64179,
+            "VIIRS": 153000
+          },
+          "kalici_belirsiz": {
+            "MODIS": 395,
+            "VIIRS": 5813
+          }
+        }
+      },
+      "seconds": 1.212
+    },
+    {
+      "code": "C02",
+      "title": "Toplam tutarlılığı",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "temiz": 827043,
+        "sensor": {
+          "MODIS": 183531,
+          "VIIRS": 643512
+        }
+      },
+      "seconds": 0.216
+    },
+    {
+      "code": "C03",
+      "title": "Kümeleme doğruluğu",
+      "status": "GEÇTİ",
+      "detail": "mutasyon testi: hatalı yöntem 12/12 örneklemde yakalandı | örneklem=12 nokta=21509 kural=7 karşılaştırma=88 fark_olan=0 süre=153.3s | C03 GEÇTİ: hızlı kümeleme = kaba kuvvet (tüm örneklemlerde fark 0)",
+      "measured": {
+        "returncode": 0
+      },
+      "seconds": 155.042
+    },
+    {
+      "code": "C04",
+      "title": "Çifte sayım yok",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "ortak": 380975,
+        "ayri": 440176
+      },
+      "seconds": 0.002
+    },
+    {
+      "code": "C05",
+      "title": "Üçlü sınıf toplamı",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "siniflar": {
+          "ortak": 35651,
+          "tek_sensor_donemi": 91003,
+          "yalniz_modis": 57543,
+          "yalniz_viirs": 287781
+        },
+        "toplam": 471978
+      },
+      "seconds": 0.082
+    },
+    {
+      "code": "C06",
+      "title": "Veri kapsamı",
+      "status": "GEÇTİ",
+      "detail": "kesinti düzeltmesi kanıtı: {\"modis_kesinti_gunu_olan_ay\": 12, \"duzeltmeli_ge_duzeltmesiz\": true, \"tamamen_kapsamsiz_gunlerde_modis_tespit\": 0, \"bos_birakilan_ay_hucresi_TR\": 1, \"kesintisi_cok_ve_sifir_yazilan\": 0, \"ornek\": [{\"yil\": 2002, \"ay\": 7, \"kesinti_pay_modis\": 0.032258064516129004, \"modis_ham\": 939.0, \"modis_ham_kk\": 970.3000000000001}, {\"yil\": 2002, \"ay\": 8, \"kesinti_pay_modis\": 0.11290322580645162, \"modis_ham\": 1360.0, \"modis_ham_kk\": 1533.090909090909}, {\"yil\": 2020, \"ay\": 8, \"kesinti_pay_modis\": 0.032258064516129004, \"modis_ham\": 777.0, \"modis_ham_kk\": 802.9}, {\"yil\": 2020, \"ay\": 9, \"kesinti_pay_modis\": 0.033333333333333326, \"modis_ham\": 1261.0, \"modis_ham_kk\": 1304.4827586206898}, {\"yil\": 2022, \"ay\": 3, \"kesinti_pay_modis\": 0.016129032258064502, \"modis_ham\": 138.0, \"modis_ham_kk\": 140.2622950819672}], \"sonuc\": \"GECTI\"}",
+      "measured": {
+        "kapsam_disi_tespit": 0,
+        "kapsam_bilinmeyen": 0,
+        "returncode": 0
+      },
+      "seconds": 1.572
+    },
+    {
+      "code": "C07",
+      "title": "Zaman",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "20:59Z": "2025-06-30",
+        "21:00Z": "2025-07-01",
+        "dosya_yili_ile_utc_yili_farkli": 0,
+        "day_tr_uyusmaz": 0,
+        "yil_sayisi": 27
+      },
+      "seconds": 1.328
+    },
+    {
+      "code": "C08",
+      "title": "Şema ve kodlama tutarlılığı",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "ikinci_tanim_supheli": [],
+        "conf_cls_bos": 0
+      },
+      "seconds": 0.087
+    },
+    {
+      "code": "C09",
+      "title": "Kalibrasyon dışı doğrulama",
+      "status": "GEÇTİ",
+      "detail": "yöntem yıl dışarıda bırakma olmalı",
+      "measured": {
+        "loyo_mape": 8.33,
+        "loyo_r2": 0.8716,
+        "loyo_bias": 0.55,
+        "loyo_ci95": [
+          -23.49,
+          9.51
+        ],
+        "loyo_method": "leave-one-year-out (2012-2025, 14 yıl; kazanan (ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu)"
+      },
+      "seconds": 0.001
+    },
+    {
+      "code": "C10",
+      "title": "Sıçrama metriği",
+      "status": "GEÇTİ",
+      "detail": "artık sıçrama LOYO %95 aralığında olmalı",
+      "measured": {
+        "jump_raw_pct": 143.13,
+        "jump_harm_pct": -41.35,
+        "jump_null_ci95": [
+          -39.3,
+          92.61
+        ],
+        "jump_resid_pct": 3.55,
+        "loyo_ci95": [
+          -23.49,
+          9.51
+        ],
+        "eski_olcut_harm_dogal_aralikta": false
+      },
+      "seconds": 0.002
+    },
+    {
+      "code": "C11",
+      "title": "Eşdeğer seri doğruluğu",
+      "status": "GEÇTİ",
+      "detail": "sapma ve bant raporlandı",
+      "measured": {
+        "equiv_overlap_bias": -0.52,
+        "equiv_overlap_band": [
+          -59.57,
+          74.99
+        ]
+      },
+      "seconds": 0.003
+    },
+    {
+      "code": "C12",
+      "title": "Duyarlılık",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "D": 4,
+        "H": 4,
+        "N": 4,
+        "M": 5,
+        "F": 5
+      },
+      "seconds": 0.003
+    },
+    {
+      "code": "C13",
+      "title": "Referans karşılaştırması",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "ref_precision": 0.9710722572914176,
+        "ref_recall": 0.47773973152625987
+      },
+      "seconds": 0.003
+    },
+    {
+      "code": "C14",
+      "title": "Ekran = hesap",
+      "status": "GEÇTİ",
+      "detail": "statik tarama; çalışma anı karşılaştırması denetçide",
+      "measured": {
+        "sabit_sayi_supheli": []
+      },
+      "seconds": 0.015
+    },
+    {
+      "code": "C15",
+      "title": "Yasak kalıp taraması",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "bulgular": [],
+        "taranan_dosya": 7
+      },
+      "seconds": 0.023
+    },
+    {
+      "code": "C16",
+      "title": "Simülasyon izolasyonu",
+      "status": "GEÇTİ",
+      "detail": "simüle veri yalnız tests/ altında",
+      "measured": {},
+      "seconds": 0.011
+    },
+    {
+      "code": "C17",
+      "title": "CSV",
+      "status": "GEÇTİ",
+      "detail": "csv_check OK: BOM, t_utc/t_tr, formül öneki, sayı korunumu",
+      "measured": {
+        "returncode": 0
+      },
+      "seconds": 0.18
+    },
+    {
+      "code": "C18",
+      "title": "TR/EN",
+      "status": "GEÇTİ",
+      "detail": "279 anahtar",
+      "measured": {
+        "yalniz_tr": [],
+        "yalniz_en": []
+      },
+      "seconds": 0.003
+    },
+    {
+      "code": "C19",
+      "title": "Erişilebilirlik",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "arac": "src/app/tests/olc_klavye_aria.js (gerçek DOM, Claude Browser, 1280x900)",
+        "klavye": {
+          "etkilesimli_toplam": 44,
+          "tab_ile_ulasilabilir": 41,
+          "oran": 0.932,
+          "not": "3 sekme düğmesi bilinçli roving tabindex (ok tuşuyla gezilir); matris hücreleri tek durak + ok tuşları",
+          "matris_ok_tusu": true,
+          "sekme_ok_tusu": true,
+          "atla_baglantisi": true,
+          "odak_gostergesi_css": true,
+          "harita_klavye": true
+        },
+        "aria": {
+          "adsiz_etkilesimli": 0,
+          "oran_adli": 1.0,
+          "roller": {
+            "tablist": true,
+            "tabpanel": 4,
+            "tab": 4,
+            "canli_bolge": 10,
+            "img_grafik": 4
+          },
+          "svg_baslikli_degil": 0,
+          "html_lang": "tr"
+        },
+        "renk_korlugu": {
+          "viridis": {
+            "normal": 28.3,
+            "protan": 19.2,
+            "deutan": 16.8,
+            "tritan": 17.9
+          },
+          "cividis": {
+            "normal": 16.8,
+            "protan": 15.8,
+            "deutan": 17,
+            "tritan": 14.3
+          },
+          "ylorrd": {
+            "normal": 20.4,
+            "protan": 19.5,
+            "deutan": 14,
+            "tritan": 17
+          },
+          "sapma_anomali": {
+            "normal": 29,
+            "protan": 24.2,
+            "deutan": 29.2,
+            "tritan": 32.3
+          },
+          "harita_siniflari": {
+            "normal": 56.7,
+            "protan": 20.7,
+            "deutan": 31.4,
+            "tritan": 36.4
+          },
+          "not": "Deger = secili duzeyler arasindaki en kucuk CIE76 dE (buyuk = ayirt etmek kolay). harita_siniflari ayrica sekille de ayrilir (daire/kare/ucgen/baklava).",
+          "min_palet_dE": 14
+        },
+        "kontrast": {
+          "yazi_on_kart": 15.69,
+          "soluk_on_kart": 8.31,
+          "soluk_on_zemin": 8.85,
+          "vurgu_on_zemin": 13.34,
+          "uyari_on_zemin": 10.84,
+          "dugme_metni_on_vurgu": 11.56,
+          "yazi_on_girdi": 14.74,
+          "matris_hucre_metni_min": 4.59
+        },
+        "kontrast_min": 4.59,
+        "renk_korlugu_arac": "src/app/tests/olc_renk.js",
+        "olcum_tarihi": "2026-11-13",
+        "kapsam_notu": "Harita zemini ve Leaflet iç kontrolleri ölçüm dışı; ekran okuyucuyla elle sınama yapılmadı (doğrulanmadı).",
+        "olcum_notu": "Sadeleştirme sonrası yeniden ölçüldü (Chrome, 1280x800); ham i18n anahtarı taraması: 0"
+      },
+      "seconds": 0.001
+    },
+    {
+      "code": "C20",
+      "title": "Performans",
+      "status": "GEÇTİ",
+      "detail": "hedef ≤ 5 sn",
+      "measured": {
+        "arac": "src/app/main.js APP.bench() (Claude Browser, Chromium)",
+        "olcum_tarihi": "2026-11-13",
+        "esik_degisimi_saniye": 0.081,
+        "esik_degisimi_ms": [
+          100.3,
+          87.8,
+          71.4,
+          73.3,
+          73.5
+        ],
+        "esik_tanimi": "En düşük FRP süzgeci (temizlik_F_modis_medyan değeri) aç/kapa: tüm olaylar yeniden süzülür, harita + yıl×ay matrisi + gün ızgarası + grafikler yeniden hesaplanıp çizilir",
+        "olay_sayisi": 302863,
+        "yil_sayisi": 27,
+        "ilk_yukleme_ms_27yil_olay": 86.5,
+        "ilk_yukleme_notu": "Yerel sunucu, önbellekli dosya; soğuk diskte daha uzun olabilir",
+        "ilk_cizim_sonrasi_ms": 320.4,
+        "nokta_yili_ilk_yukleme_ms": 40.8,
+        "nokta_yili_satir": 128485,
+        "veri_boyutu": {
+          "olay_ikili_mb": 17.9,
+          "toplam_data_mb_nokta_dahil": 96.7,
+          "nokta_dosyalari": "yalnız ham katman/müfettiş/laboratuvar için yıl bazlı, istek üzerine yüklenir (C20)"
+        },
+        "yontem_notu": "Süreler bu makinede tek ölçümdür; jüri makinesinde farklı olabilir.",
+        "yol": "hazır takvim tabloları (cal_<birim>.json, yalnız seçili birim yüklenir) + olay süzgeci değişince tarayıcı içi yeniden süzme; açılış serisi olay_esdeger",
+        "olcum_surumu": "sadeleştirilmiş arayüz (koroplet, 4 sekme)"
+      },
+      "seconds": 0.001
+    },
+    {
+      "code": "C21",
+      "title": "Çevrimdışı açılış",
+      "status": "GEÇTİ",
+      "detail": "dış CDN bağımlılığı olmamalı",
+      "measured": {
+        "dis_kaynak": []
+      },
+      "seconds": 0.01
+    },
+    {
+      "code": "C22",
+      "title": "Belge sayıları",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "cozulmemis": []
+      },
+      "seconds": 0.005
+    },
+    {
+      "code": "C23",
+      "title": "Bağımsız yeniden hesap",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "aciklanmamis_fark": []
+      },
+      "seconds": 0.002
+    },
+    {
+      "code": "C24",
+      "title": "Dürüstlük etiketi",
+      "status": "GEÇTİ",
+      "detail": "etiket içermeyen rapor",
+      "measured": {
+        "calisma_prensibi.md": {
+          "ölçüldü": 113,
+          "tahmini": 65,
+          "doğrulanmadı": 25
+        },
+        "dogruluk_raporu.md": {
+          "ölçüldü": 87,
+          "tahmini": 63,
+          "doğrulanmadı": 22
+        },
+        "juri_sunum.md": {
+          "ölçüldü": 202,
+          "tahmini": 105,
+          "doğrulanmadı": 31
+        }
+      },
+      "seconds": 0.003
+    },
+    {
+      "code": "C25",
+      "title": "Gereksinim eşlemesi",
+      "status": "GEÇTİ",
+      "detail": "",
+      "measured": {
+        "kimlik": 33,
+        "eksik": []
+      },
+      "seconds": 0.003
+    }
+  ]
+}

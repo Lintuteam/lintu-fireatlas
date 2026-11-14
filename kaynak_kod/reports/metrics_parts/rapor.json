@@ -1,0 +1,560 @@
+{
+ "metrics": {
+  "veri_toplam_nokta": {
+   "value": 1414674,
+   "unit": "nokta",
+   "tanim": "points.parquet satır sayısı (ham tespit; hiçbiri silinmedi, K3)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_modis_nokta": {
+   "value": 259707,
+   "unit": "nokta",
+   "tanim": "MODIS (Terra+Aqua) tespit sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_viirs_nokta": {
+   "value": 1154967,
+   "unit": "nokta",
+   "tanim": "VIIRS (SNPP, N20, N21) tespit sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_yil_bas": {
+   "value": 2000,
+   "unit": "yıl",
+   "tanim": "veri dosyalarının ilk yılı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_yil_bit": {
+   "value": 2026,
+   "unit": "yıl",
+   "tanim": "veri dosyalarının son yılı (kısmi yıl, NRT içerir)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_son_gun": {
+   "value": "2026-11-12",
+   "unit": "TR günü",
+   "tanim": "veride görülen son TR günü",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_nrt_nokta": {
+   "value": 61147,
+   "unit": "nokta",
+   "tanim": "NRT (type=-1) tespit sayısı: bu noktalarda NASA type etiketi yok",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_ilk_viirs_yili": {
+   "value": 2012,
+   "unit": "yıl",
+   "tanim": "ilk VIIRS tespitinin TR yılı (sensör geçiş yılı)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_kumeleme_girdi": {
+   "value": 1044222,
+   "unit": "nokta",
+   "tanim": "kümelemeye giren nokta: status temiz veya aniz",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_temiz_pay": {
+   "value": 58.5,
+   "unit": "%",
+   "tanim": "status=temiz noktaların ham toplamdaki payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_aniz_pay": {
+   "value": 15.4,
+   "unit": "%",
+   "tanim": "status=aniz noktaların ham toplamdaki payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_nasa_etiket_pay": {
+   "value": 23.8,
+   "unit": "%",
+   "tanim": "NASA etiketiyle (deniz, volkan, statik kaynak) ayrılan nokta payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_kural_etiket_pay": {
+   "value": 2.3,
+   "unit": "%",
+   "tanim": "bizim kuralımızla (sanayi, kalıcı belirsiz) ayrılan nokta payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_olay_sayisi": {
+   "value": 471978,
+   "unit": "olay",
+   "tanim": "events.parquet satır sayısı (temiz + anız noktalardan)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_tek_tespitli_olay": {
+   "value": 312936,
+   "unit": "olay",
+   "tanim": "tek tespitten oluşan olay sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_en_buyuk_olay_tespit": {
+   "value": 6740,
+   "unit": "tespit",
+   "tanim": "en büyük olayın tespit sayısı (gerçek mega yangın; zincir hatası değil, bkz. docs/kumeleme_yontemi.md)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_gun": {
+   "value": "2021-07-28",
+   "unit": "TR günü",
+   "tanim": "S1: o gün başlayan olayların tespit sayısı / olay sayısı en büyük gün (en az 500 tespit)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_tespit": {
+   "value": 8568,
+   "unit": "tespit",
+   "tanim": "S1 gününde başlayan olayların toplam tespiti",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_olay": {
+   "value": 75,
+   "unit": "olay",
+   "tanim": "S1 gününde başlayan olay sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_oran": {
+   "value": 114.2,
+   "unit": "tespit/olay",
+   "tanim": "S1 günü: tespit sayısının olay sayısına oranı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_il": {
+   "value": "Antalya",
+   "unit": "il",
+   "tanim": "S1 gününün en büyük olayının ili",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_en_buyuk_olay_tespit": {
+   "value": 6740,
+   "unit": "tespit",
+   "tanim": "S1 gününde başlayan en büyük olayın tespit sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_en_buyuk_olay_sure": {
+   "value": 218.6,
+   "unit": "saat",
+   "tanim": "S1 gününün en büyük olayının süresi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_il": {
+   "value": "İzmir",
+   "unit": "il",
+   "tanim": "S2: 'sanayi' etiketli nokta sayısı en çok il",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_sanayi_nokta": {
+   "value": 3488,
+   "unit": "nokta",
+   "tanim": "S2 ilindeki sanayi etiketli nokta",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_il_nokta_pay": {
+   "value": 5.3,
+   "unit": "%",
+   "tanim": "S2 ilinde sanayi etiketli noktaların il toplamındaki payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_hucre": {
+   "value": 40,
+   "unit": "hücre",
+   "tanim": "S2 ilinde sanayi noktalarının düştüğü 0,01° hücre sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_yil_sayisi": {
+   "value": 27,
+   "unit": "yıl",
+   "tanim": "S2 ilinde sanayi noktası görülen farklı yıl",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_gun": {
+   "value": "2021-07-11",
+   "unit": "TR günü",
+   "tanim": "S4: yalnız-VIIRS sınıfında en çok VIIRS noktalı olayın günü",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_il": {
+   "value": "Manisa",
+   "unit": "il",
+   "tanim": "S4 olayının ili",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_n_viirs": {
+   "value": 202,
+   "unit": "nokta",
+   "tanim": "S4 olayındaki VIIRS nokta sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_frp": {
+   "value": 270.7,
+   "unit": "MW",
+   "tanim": "S4 olayının toplam FRP'si",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_olay_id": {
+   "value": 307053,
+   "unit": "kimlik",
+   "tanim": "S4 olayının event_id değeri",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "yh_girdi": {
+   "value": 97,
+   "unit": "karşılaştırma",
+   "tanim": "audit/yeniden_hesap.json içinde beklenen/bulunan karşılaştırması olan girdi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "yh_fark_sifir": {
+   "value": 93,
+   "unit": "karşılaştırma",
+   "tanim": "bağımsız yeniden hesapla fark = 0 olan girdi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "yh_aciklanmis_fark": {
+   "value": 4,
+   "unit": "karşılaştırma",
+   "tanim": "fark ≠ 0 / karşılaştırılamaz ama açıklaması yazılı (bilgi) girdi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "dogrulama_sanayi_tesis": {
+   "value": 26,
+   "unit": "tesis",
+   "tanim": "doğrulama setinde kullanılan sanayi tesisi (OSM)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "dogrulama_bilinen_yangin": {
+   "value": 8,
+   "unit": "yangın",
+   "tanim": "doğrulama setinde kullanılan bilinen yangın (Wikipedia + OSM ilçe merkezi)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "dogrulama_ayiklanan": {
+   "value": 3,
+   "unit": "kayıt",
+   "tanim": "çakışma/belirsizlik nedeniyle ayıklanan kayıt (F2-06)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_klavye_oran": {
+   "value": 0.884,
+   "unit": "oran",
+   "tanim": "Tab ile ulaşılabilir etkileşimli öğe payı (audit/erisilebilirlik.json)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_aria_adli_oran": {
+   "value": 1.0,
+   "unit": "oran",
+   "tanim": "erişilebilir adı olan etkileşimli öğe payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_kontrast_min": {
+   "value": 4.59,
+   "unit": "oran",
+   "tanim": "ölçülen en düşük yazı/zemin kontrast oranı (WCAG AA 4,5)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_palet_min_de": {
+   "value": 14,
+   "unit": "CIE76 dE",
+   "tanim": "renk körlüğü simülasyonunda paletler arası en küçük ayırt edilebilirlik eşiği",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "perf_esik_degisimi_sn": {
+   "value": 0.253,
+   "unit": "s",
+   "tanim": "eşik değişince tüm görünümlerin yeniden çizim süresi (tek ölçüm, bu makine)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "perf_olay_sayisi": {
+   "value": 302863,
+   "unit": "olay",
+   "tanim": "performans ölçümünde arayüze yüklü olay sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "kapsam_kesinti_uydu_gunu": {
+   "value": 129,
+   "unit": "uydu-gün",
+   "tanim": "çıkarımla kesinti işaretli uydu-günü (NASA geçiş listesi değil; etiket tahmini)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "veri_dosya_sayisi": {
+   "value": 27,
+   "unit": "dosya",
+   "tanim": "ham FIRMS xlsx dosyası sayısı (SHA-256 envanteri)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_orneklem": {
+   "value": 12,
+   "unit": "örneklem",
+   "tanim": "kaba kuvvet karşılaştırmasında kullanılan örneklem sayısı; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_nokta": {
+   "value": 21509,
+   "unit": "nokta",
+   "tanim": "kaba kuvvet örneklemlerindeki toplam nokta; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_kural": {
+   "value": 7,
+   "unit": "kural çeşidi",
+   "tanim": "denenen kümeleme kuralı çeşidi; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_karsilastirma": {
+   "value": 88,
+   "unit": "karşılaştırma",
+   "tanim": "hızlı kümeleme ile kaba kuvvet arası karşılaştırma sayısı; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_fark_olan": {
+   "value": 0,
+   "unit": "karşılaştırma",
+   "tanim": "bu karşılaştırmalardan fark çıkan; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_mutasyon_yakalanan": {
+   "value": 12,
+   "unit": "örneklem",
+   "tanim": "kasten hatalı yöntemin yakalandığı örneklem; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_mutasyon_toplam": {
+   "value": 12,
+   "unit": "örneklem",
+   "tanim": "mutasyon testi örneklem sayısı; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_yildiz_aylar": {
+   "value": [
+    6,
+    9,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "ranking.parquet: TR, modis_temiz, ★ (top=True) aylar, sıra sırasıyla",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_yildiz_medyanlar": {
+   "value": [
+    1214,
+    1103,
+    998
+   ],
+   "unit": "tespit",
+   "tanim": "aynı ayların tarihsel medyanı (tespit/ay)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_ayirt_edilemez_aylar": {
+   "value": [
+    6,
+    9,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "★ aylardan ayırt edilemez bayraklı olanlar (ekranda ≈)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_bas": {
+   "value": "2026-11-01",
+   "unit": "TR günü",
+   "tanim": "current_month.parquet: mevcut ay başlangıcı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_bit": {
+   "value": "2026-11-12",
+   "unit": "TR günü",
+   "tanim": "mevcut ay bitişi (son veri günü)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_gun": {
+   "value": 12,
+   "unit": "gün",
+   "tanim": "mevcut ayda veri günü (kısmi ay)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_deger": {
+   "value": 26,
+   "unit": "tespit",
+   "tanim": "mevcut ay MODIS temiz değeri",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_medyan": {
+   "value": 204.0,
+   "unit": "tespit",
+   "tanim": "geçmiş yılların aynı ilk günlerinin medyanı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_oran": {
+   "value": 0.127,
+   "unit": "kat",
+   "tanim": "mevcut ay / tarihsel medyan",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_viirs_oran": {
+   "value": 0.243,
+   "unit": "kat",
+   "tanim": "aynı oran VIIRS (uydu başına) için",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_bas": {
+   "value": "2026-10-01",
+   "unit": "TR günü",
+   "tanim": "son tam ayın başlangıcı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_deger": {
+   "value": 507,
+   "unit": "tespit",
+   "tanim": "son tam ay MODIS temiz değeri",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_medyan": {
+   "value": 579.0,
+   "unit": "tespit",
+   "tanim": "son tam ay tarihsel medyanı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_oran": {
+   "value": 0.876,
+   "unit": "kat",
+   "tanim": "son tam ay / tarihsel medyan",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  }
+ }
+}

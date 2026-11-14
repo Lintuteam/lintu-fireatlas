@@ -1,0 +1,1108 @@
+{
+ "toplam_satir_xlsx": {
+  "beklenen": 1414674,
+  "bulunan": 1414674,
+  "fark": 0,
+  "aciklama": "openpyxl ile 27 xlsx ilk sayfa satırı vs inventory.raw_rows_total"
+ },
+ "toplam_satir_points": {
+  "beklenen": 1414674,
+  "bulunan": 1414674,
+  "fark": 0,
+  "aciklama": "points.parquet satırı vs bağımsız xlsx sayımı"
+ },
+ "sensor_MODIS": {
+  "beklenen": 259707,
+  "bulunan": 259707,
+  "fark": 0,
+  "aciklama": "inventory.json / data/README.md / docs/04"
+ },
+ "sensor_VIIRS": {
+  "beklenen": 1154967,
+  "bulunan": 1154967,
+  "fark": 0,
+  "aciklama": "inventory.json / data/README.md / docs/04"
+ },
+ "_ham_satellite_degerleri": [
+  {
+   "satellite": "Aqua",
+   "len": 123081
+  },
+  {
+   "satellite": "NOAA-20",
+   "len": 360942
+  },
+  {
+   "satellite": "NOAA-21",
+   "len": 156430
+  },
+  {
+   "satellite": "Suomi NPP",
+   "len": 637595
+  },
+  {
+   "satellite": "Terra",
+   "len": 136626
+  }
+ ],
+ "_ham_satellite_raw_degerleri": [
+  {
+   "satellite_raw": "Aqua",
+   "len": 123081
+  },
+  {
+   "satellite_raw": "N",
+   "len": 605609
+  },
+  {
+   "satellite_raw": "N20",
+   "len": 360942
+  },
+  {
+   "satellite_raw": "N21",
+   "len": 156430
+  },
+  {
+   "satellite_raw": "SNPP",
+   "len": 31986
+  },
+  {
+   "satellite_raw": "Terra",
+   "len": 136626
+  }
+ ],
+ "uydu_Terra": {
+  "beklenen": 136626,
+  "bulunan": 136626,
+  "fark": 0,
+  "aciklama": "inventory.json / data/README.md / docs/04"
+ },
+ "uydu_Aqua": {
+  "beklenen": 123081,
+  "bulunan": 123081,
+  "fark": 0,
+  "aciklama": "inventory.json / data/README.md / docs/04"
+ },
+ "uydu_SNPP": {
+  "beklenen": 637595,
+  "bulunan": 637595,
+  "fark": 0,
+  "aciklama": "inventory.json / data/README.md / docs/04"
+ },
+ "uydu_N20": {
+  "beklenen": 360942,
+  "bulunan": 360942,
+  "fark": 0,
+  "aciklama": "inventory.json / data/README.md / docs/04"
+ },
+ "uydu_N21": {
+  "beklenen": 156430,
+  "bulunan": 156430,
+  "fark": 0,
+  "aciklama": "inventory.json / data/README.md / docs/04"
+ },
+ "nrt_satir": {
+  "beklenen": 61147,
+  "bulunan": 61147,
+  "fark": 0,
+  "aciklama": "version içinde 'NRT'"
+ },
+ "nrt_VIIRS": {
+  "beklenen": 58465,
+  "bulunan": 58465,
+  "fark": 0,
+  "aciklama": "docs/04 §1"
+ },
+ "nrt_MODIS": {
+  "beklenen": 2682,
+  "bulunan": 2682,
+  "fark": 0,
+  "aciklama": "docs/04 §1"
+ },
+ "_nrt_ilk_gun": {
+  "MODIS": "2026-09-01T06:03:00Z",
+  "VIIRS": "2026-08-01T00:43:00Z"
+ },
+ "_arsiv_son_gun": {
+  "MODIS": "2026-08-31T18:05:00Z",
+  "VIIRS": "2026-07-31T23:58:00Z"
+ },
+ "bt_ornek_esleme_satir": {
+  "beklenen": 184902,
+  "bulunan": 184902,
+  "fark": 0,
+  "aciklama": "docs/04 §1, README"
+ },
+ "type_bos_satir": {
+  "beklenen": 61147,
+  "bulunan": 61147,
+  "fark": 0,
+  "aciklama": "ham type boş; belgeler 61.147"
+ },
+ "type_bos_ve_nrt_degil": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "type boş ama NRT olmayan"
+ },
+ "type_-1": {
+  "beklenen": 61147,
+  "bulunan": 61147,
+  "fark": 0,
+  "aciklama": "data/README.md type dağılımı"
+ },
+ "type_0": {
+  "beklenen": 1029262,
+  "bulunan": 1029262,
+  "fark": 0,
+  "aciklama": "data/README.md type dağılımı"
+ },
+ "type_1": {
+  "beklenen": 5,
+  "bulunan": 5,
+  "fark": 0,
+  "aciklama": "data/README.md type dağılımı"
+ },
+ "type_2": {
+  "beklenen": 315439,
+  "bulunan": 315439,
+  "fark": 0,
+  "aciklama": "data/README.md type dağılımı"
+ },
+ "type_3": {
+  "beklenen": 8821,
+  "bulunan": 8821,
+  "fark": 0,
+  "aciklama": "data/README.md type dağılımı"
+ },
+ "tam_yinelenen": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "20 sütunda tam yinelenen"
+ },
+ "yinelenen_zaman_konum_uydu": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "docs/04 §1"
+ },
+ "tekil_source_file": {
+  "beklenen": null,
+  "bulunan": 59,
+  "fark": null,
+  "aciklama": "bilgi: build_points docstring '59 ham kaynak dosyası' diyor"
+ },
+ "readme_yil_uydu_tablosu_uyusmayan_satir": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "README 27 yıl satırı tarandı; uyuşmayanlar: []"
+ },
+ "tz_hatali_parse": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "acq_datetime_utc biçim hatası"
+ },
+ "utc_yili_dosya_yilindan_farkli": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "docs/04 §1 'fark 0'"
+ },
+ "_aralik_Terra": [
+  "2000-11-01 08:15:00+00:00",
+  "2026-11-12 06:58:00+00:00"
+ ],
+ "_aralik_Aqua": [
+  "2002-07-04 11:05:00+00:00",
+  "2026-11-12 13:03:00+00:00"
+ ],
+ "_aralik_SNPP": [
+  "2012-01-20 10:54:00+00:00",
+  "2026-11-02 11:59:00+00:00"
+ ],
+ "_aralik_N20": [
+  "2018-04-01 09:34:00+00:00",
+  "2026-11-12 10:51:00+00:00"
+ ],
+ "_aralik_N21": [
+  "2023-03-01 01:01:00+00:00",
+  "2026-11-12 11:34:00+00:00"
+ ],
+ "pid_eslesmeyen": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "pid = yıl*1e7 + xlsx veri satırı no (openpyxl sırası)"
+ },
+ "orneklem_1000_uyusmayan_alan": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "tohum 20261113, alan bazlı: {'t_utc': 0, 'lat': 0, 'lon': 0, 'frp': 0, 'sat': 0, 'sensor': 0, 'src_product': 0, 'day_tr': 0, 'src_year': 0, 'conf_cls': 0}"
+ },
+ "tum_satirlar_uyusmayan_t_utc": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_lat": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_lon": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_frp": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_sat": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_sensor": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_src_product": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_day_tr": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "tum_satirlar_uyusmayan_src_year": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1.414.674 satırın tamamı pid ile birleştirildi"
+ },
+ "guven_eslemesi_uyusmayan_tekil_kombinasyon": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "bağımsız FIRMS kuralı vs conf_cls, 104 tekil (sensör, ham) kombinasyonu"
+ },
+ "_gun_siniri_ornek_21Z": [
+  {
+   "pid": "20060007649",
+   "t": "2006-09-20 21:02:00+00:00",
+   "day_tr": "2006-09-21"
+  }
+ ],
+ "pre2016_21Z_saatinde_tespit": {
+  "beklenen": null,
+  "bulunan": 88,
+  "fark": null,
+  "aciklama": "bilgi: 2016 öncesi kışın yerel saat UTC+2 idi; 21:00-21:59Z tespitleri sabit +3 ile ertesi güne düşer"
+ },
+ "il_disi_orneklem_bagimsiz_ile_icerde": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1500 (dışı) örneğinden bağımsız PIP'in bir ile koyduğu"
+ },
+ "il_atanmis_orneklem_bagimsiz_farkli": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "aciklama": "1500 il atanmış örnek, ad karşılaştırması"
+ },
+ "_il_disi_profil": {
+  "satir": 14042,
+  "type": {
+   "0": 8021,
+   "3": 2485,
+   "2": 3162,
+   "-1": 374
+  },
+  "sensor": {
+   "MODIS": 1247,
+   "VIIRS": 12795
+  },
+  "en_yogun_0.1_hucre": [
+   {
+    "lat": 40.7,
+    "lon": 29.5,
+    "n": 2181
+   },
+   {
+    "lat": 40.7,
+    "lon": 29.7,
+    "n": 1561
+   },
+   {
+    "lat": 38.7,
+    "lon": 26.9,
+    "n": 1008
+   },
+   {
+    "lat": 36.7,
+    "lon": 36.1,
+    "n": 804
+   },
+   {
+    "lat": 35.8,
+    "lon": 36.0,
+    "n": 536
+   },
+   {
+    "lat": 37.0,
+    "lon": 44.2,
+    "n": 260
+   },
+   {
+    "lat": 36.7,
+    "lon": 38.6,
+    "n": 258
+   },
+   {
+    "lat": 35.8,
+    "lon": 36.1,
+    "n": 253
+   },
+   {
+    "lat": 39.7,
+    "lon": 44.6,
+    "n": 198
+   },
+   {
+    "lat": 37.2,
+    "lon": 43.8,
+    "n": 186
+   }
+  ]
+ },
+ "type3_deniz_ama_il_atanmis": {
+  "beklenen": null,
+  "bulunan": 6336,
+  "fark": null,
+  "aciklama": "bilgi"
+ },
+ "type3_deniz_toplam": {
+  "beklenen": null,
+  "bulunan": 8821,
+  "fark": null,
+  "aciklama": "bilgi"
+ },
+ "_coverage": {
+  "satir": 28308,
+  "sutunlar": [
+   "sat",
+   "day_tr",
+   "observed",
+   "n_overpass",
+   "source"
+  ],
+  "source": [
+   "çıkarım"
+  ],
+  "observed_false": 0,
+  "n_overpass_dolu": 0
+ },
+ "_coverage_vs_tespitli_gun": [
+  {
+   "sat": "N21",
+   "tespitli_gun": "1344",
+   "ilk": "2023-03-01",
+   "son": "2026-11-12",
+   "cov_gun": "1353"
+  },
+  {
+   "sat": "Aqua",
+   "tespitli_gun": "6830",
+   "ilk": "2002-07-04",
+   "son": "2026-11-12",
+   "cov_gun": "8898"
+  },
+  {
+   "sat": "SNPP",
+   "tespitli_gun": "5304",
+   "ilk": "2012-01-20",
+   "son": "2026-11-02",
+   "cov_gun": "5401"
+  },
+  {
+   "sat": "Terra",
+   "tespitli_gun": "6939",
+   "ilk": "2000-11-01",
+   "son": "2026-11-12",
+   "cov_gun": "9508"
+  },
+  {
+   "sat": "N20",
+   "tespitli_gun": "3126",
+   "ilk": "2018-04-01",
+   "son": "2026-11-12",
+   "cov_gun": "3148"
+  }
+ ],
+ "f2_huni_ham": {
+  "beklenen": 1414674,
+  "bulunan": 1414674,
+  "fark": 0,
+  "tanim": "points satırı = ham"
+ },
+ "f2_huni_status_bos": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "status atanmamış nokta (K3)"
+ },
+ "f2_huni_status_temiz": {
+  "beklenen": 827043,
+  "bulunan": 827043,
+  "fark": 0,
+  "tanim": "status=temiz nokta sayısı vs metrics"
+ },
+ "f2_huni_status_deniz": {
+  "beklenen": 8848,
+  "bulunan": 8848,
+  "fark": 0,
+  "tanim": "status=deniz nokta sayısı vs metrics"
+ },
+ "f2_huni_status_volkan": {
+  "beklenen": 5,
+  "bulunan": 5,
+  "fark": 0,
+  "tanim": "status=volkan nokta sayısı vs metrics"
+ },
+ "f2_huni_status_statik_nasa": {
+  "beklenen": 328379,
+  "bulunan": 328379,
+  "fark": 0,
+  "tanim": "status=statik_nasa nokta sayısı vs metrics"
+ },
+ "f2_huni_status_sanayi": {
+  "beklenen": 27012,
+  "bulunan": 27012,
+  "fark": 0,
+  "tanim": "status=sanayi nokta sayısı vs metrics"
+ },
+ "f2_huni_status_kalici_belirsiz": {
+  "beklenen": 6208,
+  "bulunan": 6208,
+  "fark": 0,
+  "tanim": "status=kalici_belirsiz nokta sayısı vs metrics"
+ },
+ "f2_huni_status_dusuk_guven": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "status=dusuk_guven nokta sayısı vs metrics"
+ },
+ "f2_huni_status_aniz": {
+  "beklenen": 217179,
+  "bulunan": 217179,
+  "fark": 0,
+  "tanim": "status=aniz nokta sayısı vs metrics"
+ },
+ "f2_huni_status_toplam": {
+  "beklenen": 1414674,
+  "bulunan": 1414674,
+  "fark": 0,
+  "tanim": "status kırılımı toplamı = ham (C01)"
+ },
+ "f2_huni_MODIS_kirilim": {
+  "temiz": 183531,
+  "aniz": 64179,
+  "statik_nasa": 8242,
+  "sanayi": 3211,
+  "kalici_belirsiz": 395,
+  "deniz": 144,
+  "volkan": 5,
+  "dusuk_guven": 0
+ },
+ "f2_huni_VIIRS_kirilim": {
+  "temiz": 643512,
+  "statik_nasa": 320137,
+  "aniz": 153000,
+  "sanayi": 23801,
+  "deniz": 8704,
+  "kalici_belirsiz": 5813,
+  "volkan": 0,
+  "dusuk_guven": 0
+ },
+ "f2_huni_kumelenen_nokta": {
+  "beklenen": 1044222,
+  "bulunan": 1044222,
+  "fark": 0,
+  "tanim": "event_id>=0 nokta = temiz+aniz nokta"
+ },
+ "f2_huni_disarida_eventli": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "temiz/aniz olmayan ama olaya giren nokta"
+ },
+ "f2_huni_olay_toplam": {
+  "beklenen": 471978,
+  "bulunan": 471978,
+  "fark": 0,
+  "tanim": "points_event'teki tekil olay = metrics events_total"
+ },
+ "f2_huni_olay_tablo": {
+  "beklenen": 471978,
+  "bulunan": 471978,
+  "fark": 0,
+  "tanim": "events.parquet satırı"
+ },
+ "f2_olay_n_modis_uyusmaz": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "events.n_modis vs noktalardan sayım"
+ },
+ "f2_olay_n_viirs_uyusmaz": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "events.n_viirs vs noktalardan sayım"
+ },
+ "f2_olay_gun0_uyusmaz": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "day_tr_start vs min(day_tr)"
+ },
+ "f2_match_ortak": {
+  "beklenen": 35651,
+  "bulunan": 35651,
+  "fark": 0,
+  "tanim": "match_class=ortak bağımsız"
+ },
+ "f2_match_yalniz_modis": {
+  "beklenen": 57543,
+  "bulunan": 57543,
+  "fark": 0,
+  "tanim": "match_class=yalniz_modis bağımsız"
+ },
+ "f2_match_yalniz_viirs": {
+  "beklenen": 287781,
+  "bulunan": 287781,
+  "fark": 0,
+  "tanim": "match_class=yalniz_viirs bağımsız"
+ },
+ "f2_match_tek_sensor_donemi": {
+  "beklenen": 91003,
+  "bulunan": 91003,
+  "fark": 0,
+  "tanim": "match_class=tek_sensor_donemi bağımsız"
+ },
+ "f2_match_class_satir_uyusmaz": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "satır bazında match_class farkı"
+ },
+ "f2_c05_uclu_toplam": {
+  "beklenen": 380975,
+  "bulunan": 380975,
+  "fark": 0,
+  "tanim": "ortak+yalnız M+yalnız V = çakışma olayı"
+ },
+ "f2_c04_joint_overlap": {
+  "beklenen": 380975,
+  "bulunan": 380975,
+  "fark": 0,
+  "tanim": "çakışma dönemi olay sayısı"
+ },
+ "f2_olay_status_dagilim": {
+  "temiz": 302863,
+  "aniz": 169115
+ },
+ "f2_olay_karisik_status": 0,
+ "f2_tr_yillik_temiz_tespit": {
+  "2000": {
+   "MODIS": 110,
+   "VIIRS": 0
+  },
+  "2001": {
+   "MODIS": 3329,
+   "VIIRS": 0
+  },
+  "2002": {
+   "MODIS": 4401,
+   "VIIRS": 0
+  },
+  "2003": {
+   "MODIS": 5058,
+   "VIIRS": 0
+  },
+  "2004": {
+   "MODIS": 4955,
+   "VIIRS": 0
+  },
+  "2005": {
+   "MODIS": 5283,
+   "VIIRS": 0
+  },
+  "2006": {
+   "MODIS": 6395,
+   "VIIRS": 0
+  },
+  "2007": {
+   "MODIS": 6051,
+   "VIIRS": 0
+  },
+  "2008": {
+   "MODIS": 4017,
+   "VIIRS": 0
+  },
+  "2009": {
+   "MODIS": 13806,
+   "VIIRS": 0
+  },
+  "2010": {
+   "MODIS": 9173,
+   "VIIRS": 0
+  },
+  "2011": {
+   "MODIS": 12045,
+   "VIIRS": 0
+  },
+  "2012": {
+   "MODIS": 5622,
+   "VIIRS": 19406
+  },
+  "2013": {
+   "MODIS": 8561,
+   "VIIRS": 29579
+  },
+  "2014": {
+   "MODIS": 5114,
+   "VIIRS": 16871
+  },
+  "2015": {
+   "MODIS": 13920,
+   "VIIRS": 44066
+  },
+  "2016": {
+   "MODIS": 10278,
+   "VIIRS": 35751
+  },
+  "2017": {
+   "MODIS": 7144,
+   "VIIRS": 23491
+  },
+  "2018": {
+   "MODIS": 5814,
+   "VIIRS": 37672
+  },
+  "2019": {
+   "MODIS": 5846,
+   "VIIRS": 42654
+  },
+  "2020": {
+   "MODIS": 6646,
+   "VIIRS": 48132
+  },
+  "2021": {
+   "MODIS": 7858,
+   "VIIRS": 48828
+  },
+  "2022": {
+   "MODIS": 3905,
+   "VIIRS": 23872
+  },
+  "2023": {
+   "MODIS": 6763,
+   "VIIRS": 64873
+  },
+  "2024": {
+   "MODIS": 8648,
+   "VIIRS": 87935
+  },
+  "2025": {
+   "MODIS": 7079,
+   "VIIRS": 65763
+  },
+  "2026": {
+   "MODIS": 5710,
+   "VIIRS": 54619
+  }
+ },
+ "f2_monthly_TR_yillik_modis_temiz_abs_fark": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "monthly.parquet TR modis_temiz yıllık toplamı vs bağımsız"
+ },
+ "f2_monthly_TR_yillik_viirs_temiz_abs_fark": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "monthly.parquet TR viirs_temiz yıllık toplamı vs bağımsız (ham sayım)"
+ },
+ "f2_monthly_il_olay_abs_fark_toplam": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "tüm il×yıl×ay olay (status=temiz, başlangıç günü) farkı"
+ },
+ "f2_olay_Antalya_2021_08": {
+  "beklenen": 12.0,
+  "bulunan": 12,
+  "fark": 0,
+  "tanim": "Antalya 2021-08 temiz olay"
+ },
+ "f2_olay_Muğla_2021_08": {
+  "beklenen": 32.0,
+  "bulunan": 32,
+  "fark": 0,
+  "tanim": "Muğla 2021-08 temiz olay"
+ },
+ "f2_olay_Adana_2023_06": {
+  "beklenen": 75.0,
+  "bulunan": 75,
+  "fark": 0,
+  "tanim": "Adana 2023-06 temiz olay"
+ },
+ "f2_olay_Şanlıurfa_2019_06": {
+  "beklenen": 328.0,
+  "bulunan": 328,
+  "fark": 0,
+  "tanim": "Şanlıurfa 2019-06 temiz olay"
+ },
+ "f2_olay_İzmir_2025_07": {
+  "beklenen": 77.0,
+  "bulunan": 77,
+  "fark": 0,
+  "tanim": "İzmir 2025-07 temiz olay"
+ },
+ "f2_normal_modis_yillari": [
+  2003,
+  2004,
+  2005,
+  2006,
+  2007,
+  2008,
+  2009,
+  2010,
+  2011,
+  2012,
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "f2_tr_medyan_modis_temiz_ay01": {
+  "beklenen": 140.0,
+  "bulunan": 140.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 123.0
+ },
+ "f2_tr_medyan_modis_temiz_ay02": {
+  "beklenen": 116.00000000000001,
+  "bulunan": 116.00000000000001,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 116.0
+ },
+ "f2_tr_medyan_modis_temiz_ay03": {
+  "beklenen": 136.0,
+  "bulunan": 136.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 136.0
+ },
+ "f2_tr_medyan_modis_temiz_ay04": {
+  "beklenen": 124.00000000000001,
+  "bulunan": 124.00000000000001,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 120.0
+ },
+ "f2_tr_medyan_modis_temiz_ay05": {
+  "beklenen": 211.0,
+  "bulunan": 211.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 211.0
+ },
+ "f2_tr_medyan_modis_temiz_ay06": {
+  "beklenen": 1214.0,
+  "bulunan": 1214.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 1214.0
+ },
+ "f2_tr_medyan_modis_temiz_ay07": {
+  "beklenen": 816.0,
+  "bulunan": 816.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 816.0
+ },
+ "f2_tr_medyan_modis_temiz_ay08": {
+  "beklenen": 998.0,
+  "bulunan": 998.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 998.0
+ },
+ "f2_tr_medyan_modis_temiz_ay09": {
+  "beklenen": 1103.793103448276,
+  "bulunan": 1103.793103448276,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 1067.0
+ },
+ "f2_tr_medyan_modis_temiz_ay10": {
+  "beklenen": 579.0,
+  "bulunan": 579.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 579.0
+ },
+ "f2_tr_medyan_modis_temiz_ay11": {
+  "beklenen": 400.0,
+  "bulunan": 400.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 400.0
+ },
+ "f2_tr_medyan_modis_temiz_ay12": {
+  "beklenen": 168.0,
+  "bulunan": 168.0,
+  "fark": 0,
+  "tanim": "profile medyan vs bağımsız (monthly _kk sütunu üstünden, normal yıllar)",
+  "ham_sayim_medyan": 168.0
+ },
+ "f2_jump_modis_gercek": {
+  "beklenen": -44.9,
+  "bulunan": -44.9,
+  "fark": 0,
+  "tanim": "gerçek MODIS (temiz) 2009-11 vs 2012-14"
+ },
+ "f2_jump_raw_MplusV": {
+  "beklenen": 143.13,
+  "bulunan": 143.13,
+  "fark": 0,
+  "tanim": "saf birleştirme M+V (temiz) sıçrama"
+ },
+ "f2_jump_raw_viirs_only": {
+  "beklenen": 88.03,
+  "bulunan": 88.03,
+  "fark": 0,
+  "tanim": "MODIS→yalnız VIIRS geçiş sıçraması"
+ },
+ "f2_jump_tum_ham_MplusV_bilgi": 180.8,
+ "f2_jump_tum_ham_modis_bilgi": -51.13,
+ "f2_jump_harm": {
+  "beklenen": -41.35,
+  "bulunan": -41.35,
+  "fark": 0,
+  "tanim": "harmonized.parquet yil_TR modis_esdeger ile sıçrama"
+ },
+ "f2_harm_yil_modis_gercek_uyusmaz": {
+  "beklenen": 0,
+  "bulunan": 0,
+  "fark": 0,
+  "tanim": "harmonized yil_TR modis_gercek vs bağımsız MODIS temiz"
+ },
+ "f2_jump_null_ci95_alt": {
+  "beklenen": -39.3,
+  "bulunan": -39.3,
+  "fark": 0,
+  "tanim": "doğal değişim %2,5"
+ },
+ "f2_jump_null_ci95_ust": {
+  "beklenen": 92.61,
+  "bulunan": 92.61,
+  "fark": 0,
+  "tanim": "doğal değişim %97,5"
+ },
+ "f2_jump_null_n": 17,
+ "f2_loyo_i0_yillik_mape": {
+  "beklenen": 42.12,
+  "bulunan": 42.12,
+  "fark": 0,
+  "tanim": "sabit oran (efor yok) LOYO yıllık MAPE"
+ },
+ "f2_loyo_ii_yillik_mape_parquet": {
+  "beklenen": 8.33,
+  "bulunan": 8.33,
+  "fark": 0,
+  "tanim": "harmonized.parquet modis_esdeger vs gerçek MODIS, 2012-2025"
+ },
+ "f2_loyo_ii_yillik_hata_pct": {
+  "2012": 9.28,
+  "2013": 5.05,
+  "2014": 5.69,
+  "2015": -11.47,
+  "2016": 4.02,
+  "2017": 1.19,
+  "2018": 4.76,
+  "2019": 9.12,
+  "2020": 9.61,
+  "2021": -29.28,
+  "2022": -4.05,
+  "2023": 8.12,
+  "2024": 5.33,
+  "2025": -9.7
+ },
+ "f2_c10_artik": 3.55,
+ "f2_loyo_ci95": [
+  -23.49,
+  9.51
+ ],
+ "f2_k8_esdeger_TR_olay_gt_tespit": {
+  "hucre": 312,
+  "olay>tespit": 6
+ },
+ "f2_k8_esdeger_bolge_olay_gt_tespit": {
+  "hucre": 0,
+  "olay>tespit": 0
+ },
+ "f2_k8_esdeger_il_olay_gt_tespit": {
+  "hucre": 0,
+  "olay>tespit": 0
+ },
+ "f2_k8_ham_TR_olay_gt_tespit": {
+  "hucre": 313,
+  "olay>tespit": 173
+ },
+ "f2_k8_ham_bolge_olay_gt_tespit": {
+  "hucre": 2191,
+  "olay>tespit": 1223
+ },
+ "f2_k8_ham_il_olay_gt_tespit": {
+  "hucre": 25353,
+  "olay>tespit": 10168
+ },
+ "f2_k8_TR_ornek_olay_gt": [
+  {
+   "yil": 2014,
+   "ay": 4,
+   "olay_esdeger": 129.0,
+   "modis_esdeger": 125.0
+  },
+  {
+   "yil": 2015,
+   "ay": 4,
+   "olay_esdeger": 63.0,
+   "modis_esdeger": 61.0
+  },
+  {
+   "yil": 2017,
+   "ay": 5,
+   "olay_esdeger": 70.0,
+   "modis_esdeger": 67.0
+  },
+  {
+   "yil": 2023,
+   "ay": 4,
+   "olay_esdeger": 49.0,
+   "modis_esdeger": 47.0
+  },
+  {
+   "yil": 2026,
+   "ay": 4,
+   "olay_esdeger": 73.0,
+   "modis_esdeger": 71.0
+  },
+  {
+   "yil": 2026,
+   "ay": 5,
+   "olay_esdeger": 63.0,
+   "modis_esdeger": 62.0
+  }
+ ],
+ "f2_kasim_ilk12_modis_ham_uyduya_gore": {
+  "2019": {
+   "Aqua": 454,
+   "Terra": 272
+  },
+  "2020": {
+   "Aqua": 324,
+   "Terra": 161
+  },
+  "2021": {
+   "Aqua": 349,
+   "Terra": 390
+  },
+  "2022": {
+   "Aqua": 319,
+   "Terra": 171
+  },
+  "2023": {
+   "Aqua": 396,
+   "Terra": 218
+  },
+  "2024": {
+   "Aqua": 635,
+   "Terra": 310
+  },
+  "2025": {
+   "Aqua": 350,
+   "Terra": 227
+  },
+  "2026": {
+   "Aqua": 43,
+   "Terra": 24
+  }
+ },
+ "f2_2026_ekim_kasim_gunluk_modis_ham": {
+  "2026-10-21": 22,
+  "2026-10-22": 73,
+  "2026-10-23": 23,
+  "2026-10-24": 21,
+  "2026-10-25": 71,
+  "2026-10-26": 12,
+  "2026-10-27": 9,
+  "2026-10-28": 1,
+  "2026-10-30": 3,
+  "2026-10-31": 2,
+  "2026-11-01": 3,
+  "2026-11-02": 6,
+  "2026-11-03": 6,
+  "2026-11-04": 5,
+  "2026-11-05": 2,
+  "2026-11-07": 3,
+  "2026-11-08": 1,
+  "2026-11-09": 13,
+  "2026-11-11": 18,
+  "2026-11-12": 10
+ },
+ "f2_ekim_modis_temiz_2019_2026": {
+  "2019": 882,
+  "2020": 1158,
+  "2021": 363,
+  "2022": 375,
+  "2023": 858,
+  "2024": 1504,
+  "2025": 278,
+  "2026": 507
+ }
+}

@@ -1,0 +1,186 @@
+{
+ "temizlik_wc_aniz_ekili_alan_pay": {
+  "value": 0.7935,
+  "unit": "oran",
+  "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_aniz_yapilasmis_pay": {
+  "value": 0.03,
+  "unit": "oran",
+  "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_aniz_agac_pay": {
+  "value": 0.039,
+  "unit": "oran",
+  "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_aniz_cali_pay": {
+  "value": 0.0005,
+  "unit": "oran",
+  "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_aniz_cayir_pay": {
+  "value": 0.128,
+  "unit": "oran",
+  "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_buyuk_temiz_ekili_alan_pay": {
+  "value": 0.503,
+  "unit": "oran",
+  "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_buyuk_temiz_yapilasmis_pay": {
+  "value": 0.004,
+  "unit": "oran",
+  "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_buyuk_temiz_agac_pay": {
+  "value": 0.321,
+  "unit": "oran",
+  "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_buyuk_temiz_cali_pay": {
+  "value": 0.021,
+  "unit": "oran",
+  "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_buyuk_temiz_cayir_pay": {
+  "value": 0.141,
+  "unit": "oran",
+  "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_kural_kalici_ekili_alan_pay": {
+  "value": 0.0895,
+  "unit": "oran",
+  "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_kural_kalici_yapilasmis_pay": {
+  "value": 0.5595,
+  "unit": "oran",
+  "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021) (sanayi kuralı beklentisi: yapılaşmış)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_kural_kalici_agac_pay": {
+  "value": 0.0625,
+  "unit": "oran",
+  "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_kural_kalici_cali_pay": {
+  "value": 0.0025,
+  "unit": "oran",
+  "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_kural_kalici_cayir_pay": {
+  "value": 0.1205,
+  "unit": "oran",
+  "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_statik_nasa_ekili_alan_pay": {
+  "value": 0.018,
+  "unit": "oran",
+  "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_statik_nasa_yapilasmis_pay": {
+  "value": 0.812,
+  "unit": "oran",
+  "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_statik_nasa_agac_pay": {
+  "value": 0.03,
+  "unit": "oran",
+  "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_statik_nasa_cali_pay": {
+  "value": 0.0,
+  "unit": "oran",
+  "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_statik_nasa_cayir_pay": {
+  "value": 0.036,
+  "unit": "oran",
+  "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_aniz_arazi_ortusu": {
+  "value": 0.7935,
+  "unit": "oran",
+  "tanim": "Olay düzeyi anız noktalarının WorldCover 2021 'ekili alan' sınıfına düşme payı (bağımsız doğrulama; karşılaştırma: temizlik_wc_buyuk_temiz_ekili_alan_pay). ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_buyuk_temiz_dogal_ortu_pay": {
+  "value": 0.483,
+  "unit": "oran",
+  "tanim": "Büyük temiz olay noktalarında ağaç+çalı+çayır payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "ölçüldü"
+ },
+ "temizlik_wc_trafik_mb": {
+  "value": 34.2,
+  "unit": "MB",
+  "tanim": "Okunan blok sayısı × ortalama blok boyu (tahmini üst sınır); 520 blok",
+  "betik": "src/cleaning/worldcover.py",
+  "veri_surumu": "points v1",
+  "etiket": "tahmini"
+ }
+}

@@ -1,0 +1,380 @@
+{
+ "metrics": {
+  "takvim_top3_ay_modis_esdeger_TR": {
+   "value": [
+    8,
+    9,
+    6
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), modis_esdeger (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_modis_esdeger_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR modis_esdeger: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_modis_esdeger": {
+   "value": 23,
+   "unit": "yıl",
+   "tanim": "modis_esdeger ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_top3_ay_modis_ham_TR": {
+   "value": [
+    6,
+    9,
+    10
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), modis_ham (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_ayirt_edilemez_modis_ham_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR modis_ham: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_n_normal_yil_modis_ham": {
+   "value": 23,
+   "unit": "yıl",
+   "tanim": "modis_ham ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_top3_ay_modis_temiz_TR": {
+   "value": [
+    6,
+    9,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), modis_temiz (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_ayirt_edilemez_modis_temiz_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR modis_temiz: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_n_normal_yil_modis_temiz": {
+   "value": 23,
+   "unit": "yıl",
+   "tanim": "modis_temiz ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_top3_ay_viirs_ham_ub_TR": {
+   "value": [
+    9,
+    10,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), viirs_ham_ub (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_viirs_ham_ub_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR viirs_ham_ub: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_viirs_ham_ub": {
+   "value": 11,
+   "unit": "yıl",
+   "tanim": "viirs_ham_ub ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_top3_ay_viirs_temiz_ub_TR": {
+   "value": [
+    8,
+    9,
+    10
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), viirs_temiz_ub (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_viirs_temiz_ub_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR viirs_temiz_ub: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_viirs_temiz_ub": {
+   "value": 11,
+   "unit": "yıl",
+   "tanim": "viirs_temiz_ub ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_top3_ay_olay_TR": {
+   "value": [
+    9,
+    8,
+    10
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), olay (sıra: ay payı medyanı)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_olay_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR olay: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_olay": {
+   "value": 21,
+   "unit": "yıl",
+   "tanim": "olay ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ham_temiz_top3_degisen_il_payi": {
+   "value": 79.0,
+   "unit": "%",
+   "tanim": "İl × sensör birimlerinde ham ve temiz (anız hariç) en yoğun 3 ayın sırası/üyeliği değişen pay (VIIRS kısmı uydu başına, tahmini)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ham_temiz_TR_modis": {
+   "value": "ham 6,9,10 -> temiz 6,9,8",
+   "unit": "ay no",
+   "tanim": "TR modis: ham ve temiz en yoğun 3 ay",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_ham_temiz_TR_viirs": {
+   "value": "ham 9,10,8 -> temiz 8,9,10",
+   "unit": "ay no",
+   "tanim": "TR viirs: ham ve temiz en yoğun 3 ay",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_anomali_isaret_orani_esdeger": {
+   "value": 8.96,
+   "unit": "%",
+   "tanim": "Eşdeğer seri, yıl dışarıda bırakmalı normale göre |z| ≥ eşik olan hücre payı (LOYO; K4)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_anomali_belirsiz_bant_payi_esdeger": {
+   "value": 33.53,
+   "unit": "%",
+   "tanim": "Anomali işareti harmonizasyon belirsizlik bandında değişen hücre payı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_oran_modis_temiz_TR": {
+   "value": 0.127,
+   "unit": "kat",
+   "tanim": "2026-11-01..2026-11-12 (12 gün, KISMİ AY) / geçmiş yılların aynı günlerinin medyanı, modis_temiz, TR",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_oran_viirs_temiz_ub_TR": {
+   "value": 0.243,
+   "unit": "kat",
+   "tanim": "2026-11-01..2026-11-12 (12 gün, KISMİ AY) / geçmiş yılların aynı günlerinin medyanı, viirs_temiz_ub, TR",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_kismi_gun_TR": {
+   "value": 12,
+   "unit": "gün",
+   "tanim": "Mevcut ayın karşılaştırmaya giren gün sayısı (kısmi ay)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_mevcut_ay_nrt_payi_TR": {
+   "value": 100.0,
+   "unit": "%",
+   "tanim": "Mevcut ayda TR tespitlerinin NRT (hızlı) üründen gelen payı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_mevcut_ay_aqua_yorunge_kaymasi": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "Mevcut ay harmonizasyon bayrağında Aqua yörünge kayması var mı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_ayrisma_yorum_TR": {
+   "value": "MODIS'e_ozgu_ek_dusus: sensor omru sonu/NRT/yorunge kaymasi suphesi",
+   "unit": "",
+   "tanim": "MODIS ve VIIRS oranı yan yana: düşüş iki sensörde mi (hava/gerçek) yoksa yalnız MODIS'te mi (sensör şüphesi)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_kesintili_ay_hucresi": {
+   "value": 12,
+   "unit": "hücre",
+   "tanim": "TR için MODIS tarafında kesinti günü düzeltmesi uygulanan ay sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_bos_hucre_kismi_ay": {
+   "value": 1,
+   "unit": "hücre",
+   "tanim": "TR: ham sayısı var ama kısmi/kesinti-çok olduğundan düzeltmeli değeri BOŞ bırakılan MODIS ay hücresi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_olay_tespitle_kirpildi_hucre": {
+   "value": 1723,
+   "unit": "hücre",
+   "tanim": "Eşdeğer seride olay_tespitle_kirpildi bayrağı taşıyan ay hücresi (uyarılı)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_son_tam_ay_oran_modis_esdeger_TR": {
+   "value": 1.697,
+   "unit": "kat",
+   "tanim": "2026-10-01..2026-10-31 modis_esdeger / aynı ayın tarihsel medyanı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_son_tam_ay_guvenilmez_modis_esdeger_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "Eşdeğer oran iki ölçülmüş orandan (MODIS temiz, VIIRS uydu başına) eşikten fazla sapıyor mu",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_birincil_modis_esdeger_TR": {
+   "value": "modis_temiz",
+   "unit": "",
+   "tanim": "Birincil gösterim serisi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_oran_olay_esdeger_TR": {
+   "value": 1.85,
+   "unit": "kat",
+   "tanim": "2026-10-01..2026-10-31 olay_esdeger / aynı ayın tarihsel medyanı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_son_tam_ay_guvenilmez_olay_esdeger_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "Eşdeğer oran iki ölçülmüş orandan (MODIS temiz, VIIRS uydu başına) eşikten fazla sapıyor mu",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_birincil_olay_esdeger_TR": {
+   "value": "modis_temiz",
+   "unit": "",
+   "tanim": "Birincil gösterim serisi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_oran_modis_temiz_TR": {
+   "value": 0.876,
+   "unit": "kat",
+   "tanim": "Son tam ay, MODIS temiz oranı (ölçülmüş)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_son_tam_ay_oran_viirs_temiz_ub_TR": {
+   "value": 0.944,
+   "unit": "kat",
+   "tanim": "Son tam ay, VIIRS uydu başına temiz oranı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_birim_sayisi": {
+   "value": 89,
+   "unit": "birim",
+   "tanim": "TR + bölge + il",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_bolgesiz_il": {
+   "value": 0,
+   "unit": "il",
+   "tanim": "7 bölge eşlemesinde olmayan il sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_son_gun": {
+   "value": "2026-11-12",
+   "unit": "",
+   "tanim": "Günlük kapsamdaki son gün (mevcut ay buna göre)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_sure_sn": {
+   "value": 12.5,
+   "unit": "sn",
+   "tanim": "Tüm takvim hattı süresi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  }
+ }
+}

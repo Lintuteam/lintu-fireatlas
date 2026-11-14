@@ -1,0 +1,1066 @@
+{
+ "metrics": {
+  "loyo_method": {
+   "value": "leave-one-year-out (2012-2025, 14 yıl; kazanan (ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu)",
+   "unit": "",
+   "tanim": "Doğrulama yöntemi: her yıl dışarıda bırakılıp kalan yıllarla öğrenilir",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_mape": {
+   "value": 8.33,
+   "unit": "%",
+   "tanim": "Yıllık ülke toplamı MODIS-eşdeğer tahmininin gerçek MODIS'e (Terra+Aqua) ortalama mutlak yüzde hatası, LOYO",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_r2": {
+   "value": 0.8716,
+   "unit": "",
+   "tanim": "Yıllık ülke toplamında R² (LOYO, 14 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_bias": {
+   "value": 0.55,
+   "unit": "%",
+   "tanim": "Yıllık ortalama işaretli yüzde hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_ci95": {
+   "value": [
+    -23.49,
+    9.51
+   ],
+   "unit": "%",
+   "tanim": "Yıllık yüzde hataların %2,5-%97,5 yüzdelikleri (14 değer, kaba)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "loyo_ay_bolge_wape": {
+   "value": 30.63,
+   "unit": "%",
+   "tanim": "Ay × 7 bölge düzeyinde ağırlıklı mutlak yüzde hata (seçim ölçütü)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_ay_bolge_r2": {
+   "value": 0.8607,
+   "unit": "",
+   "tanim": "Ay × bölge düzeyinde R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_kazanan_yontem": {
+   "value": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu",
+   "unit": "",
+   "tanim": "Ana yöntem: en düşük ay × bölge WAPE (uygulamanın kullanım birimi). (i) uydu-normalize sabit oranla ay × bölgede AYIRT EDİLEMEZ (bkz. harm_ii_eksi_i_wape_ci95); (i) yıllık toplamda daha iyi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_raw_pct": {
+   "value": 143.13,
+   "unit": "%",
+   "tanim": "Ham seri (2012 öncesi MODIS, sonrası MODIS+VIIRS tüm tespitler) geçiş sıçraması: sonraki 3 yıl / önceki 3 yıl ortalaması - 1",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_raw_viirs_only_pct": {
+   "value": 88.03,
+   "unit": "%",
+   "tanim": "Ham seri (2012 sonrası yalnız VIIRS tespitleri) geçiş sıçraması",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_harm_pct": {
+   "value": -41.35,
+   "unit": "%",
+   "tanim": "Harmonize seri (2012 sonrası VIIRS'ten LOYO MODIS-eşdeğer) geçiş sıçraması",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_modis_gercek_pct": {
+   "value": -44.9,
+   "unit": "%",
+   "tanim": "Aynı pencerede gerçek MODIS serisinin değişimi (harmonize sıçramanın hedefi)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_harm_eksi_modis_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "Harmonizasyonun eklediği sıçrama = harmonize sıçrama - gerçek MODIS değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_resid_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "C10 (koordinatör kararı): artık sıçrama = harmonize sıçrama - aynı penceredeki (2009-2011 -> 2012-2014) gerçek MODIS değişimi; loyo_ci95 içinde olmalı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_modis_real_pct": {
+   "value": -44.9,
+   "unit": "%",
+   "tanim": "Aynı pencerede (2009-2011 -> 2012-2014) gerçek MODIS (Terra+Aqua) serisinin değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_null_ci95": {
+   "value": [
+    -39.3,
+    92.61
+   ],
+   "unit": "%",
+   "tanim": "Geçiş dışı 17 adet 3+3 yıl penceresinde MODIS doğal değişiminin %2,5-%97,5 yüzdelikleri",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_harm_dogal_aralikta": {
+   "value": false,
+   "unit": "",
+   "tanim": "Harmonize sıçrama doğal değişim %95 aralığında mı (C10 ölçütü; tahmini harmonize değerden türer)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_n20_2018_ham_pct": {
+   "value": 24.34,
+   "unit": "%",
+   "tanim": "NOAA-20 eklenişinde ham VIIRS toplamının sıçraması (3+3 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n20_2018_eforlu_pct": {
+   "value": -37.31,
+   "unit": "%",
+   "tanim": "NOAA-20 eklenişinde uydu başına (eforlu) VIIRS değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n20_2018_modis_pct": {
+   "value": -41.59,
+   "unit": "%",
+   "tanim": "Aynı pencerede gerçek MODIS değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n21_2023_ham_pct": {
+   "value": 110.19,
+   "unit": "%",
+   "tanim": "NOAA-21 eklenişinde ham VIIRS sıçraması (2+2 yıl; 2026 kısmi dışarıda)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n21_2023_eforlu_pct": {
+   "value": 44.29,
+   "unit": "%",
+   "tanim": "NOAA-21 eklenişinde eforlu VIIRS değişimi (2+2 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n21_2023_modis_pct": {
+   "value": 31.01,
+   "unit": "%",
+   "tanim": "Aynı pencerede gerçek MODIS değişimi (2+2 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "equiv_overlap_bias": {
+   "value": -0.52,
+   "unit": "%",
+   "tanim": "Çakışma döneminde (2012-2025) VIIRS'ten türetilen MODIS-eşdeğer toplamın gerçek MODIS'e göre sapması, LOYO tahminleri",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "equiv_overlap_band": {
+   "value": [
+    -59.57,
+    74.99
+   ],
+   "unit": "%",
+   "tanim": "Aylık ülke toplamında LOYO yüzde hatasının %2,5-%97,5 yüzdelikleri",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "equiv_band_kapsama_ay_bolge": {
+   "value": 0.9557,
+   "unit": "oran",
+   "tanim": "Ay × bölge %95 bandının, bant diğer yıllardan kurulduğunda gerçek MODIS'i kapsama oranı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "equiv_band_kapsama_ay_tr": {
+   "value": 0.9226,
+   "unit": "oran",
+   "tanim": "Ay × ülke %95 bandının LOYO kapsama oranı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_ay_bolge_wape": {
+   "value": 52.68,
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_mape": {
+   "value": 42.12,
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_r2": {
+   "value": -1.7204,
+   "unit": "",
+   "tanim": "(i0) sabit oran, efor yok: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_ay_bolge_wape": {
+   "value": 30.64,
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_yillik_mape": {
+   "value": 4.83,
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_yillik_r2": {
+   "value": 0.9675,
+   "unit": "",
+   "tanim": "(i) sabit oran, eforlu: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_ay_bolge_wape": {
+   "value": 30.63,
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_yillik_mape": {
+   "value": 8.33,
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_yillik_r2": {
+   "value": 0.8716,
+   "unit": "",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_ay_bolge_wape": {
+   "value": 31.91,
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_yillik_mape": {
+   "value": 10.91,
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_yillik_r2": {
+   "value": 0.7644,
+   "unit": "",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "modis_frp50_genel_mw": {
+   "value": 64.88,
+   "unit": "MW",
+   "tanim": "Aqua'nın bir VIIRS hücresini %50 olasılıkla gördüğü hücre toplam FRP'si (genel; eşzamanlı geçişler, şerit vekilli, etkin sınır)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "modis_frp50_gunduz_mw": {
+   "value": 73.98,
+   "unit": "MW",
+   "tanim": "Aqua'nın bir VIIRS hücresini %50 olasılıkla gördüğü hücre toplam FRP'si (gunduz; eşzamanlı geçişler, şerit vekilli, etkin sınır)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "modis_frp50_gece_mw": {
+   "value": 20.54,
+   "unit": "MW",
+   "tanim": "Aqua'nın bir VIIRS hücresini %50 olasılıkla gördüğü hücre toplam FRP'si (gece; eşzamanlı geçişler, şerit vekilli, etkin sınır)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "mcell_viirs_modis_izinde": {
+   "value": 174203,
+   "unit": "nokta",
+   "tanim": "MODIS ayak izine bağlanan VIIRS noktası",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_viirs_toplam": {
+   "value": 1154967,
+   "unit": "nokta",
+   "tanim": "Toplam VIIRS noktası",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_viirs_coklu_iz": {
+   "value": 81418,
+   "unit": "nokta",
+   "tanim": "Birden çok (kenar/üst üste binen) MODIS izine düşen VIIRS noktası; kural ile teke indirildi",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_iz_basina_viirs": {
+   "value": 3.349,
+   "unit": "nokta",
+   "tanim": "VIIRS içeren MODIS izi başına ortalama VIIRS noktası ('1 MODIS 4 VIIRS' sorunu)",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_iz_basina_izgara": {
+   "value": 1.764,
+   "unit": "hücre",
+   "tanim": "Aynı MODIS izi içindeki VIIRS noktalarının sabit 0,01° ızgarada dağıldığı ortalama hücre sayısı",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_izgarada_bolunen_oran": {
+   "value": 0.4655,
+   "unit": "oran",
+   "tanim": "Sabit ızgara kullanılsaydı birden çok hücreye bölünecek MODIS izi oranı",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_cift_sayisi": {
+   "value": 40368,
+   "unit": "çift",
+   "tanim": "Aqua-VIIRS eşzamanlı güven çifti",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_ogrenilen_sinirlar": {
+   "value": [
+    35,
+    82
+   ],
+   "unit": "MODIS %",
+   "tanim": "Öğrenilmiş MODIS sınırları: düşük <= c1 < nominal <= c2 < yüksek",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "guven_loyo_c1_aralik": {
+   "value": [
+    34,
+    36
+   ],
+   "unit": "MODIS %",
+   "tanim": "Yıl dışarıda bırakmada c1 aralığı",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_loyo_c2_aralik": {
+   "value": [
+    81,
+    82
+   ],
+   "unit": "MODIS %",
+   "tanim": "Yıl dışarıda bırakmada c2 aralığı",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_loyo_kappa_ogrenilen": {
+   "value": 0.1765,
+   "unit": "",
+   "tanim": "Dışarıda bırakılan yılda öğrenilmiş sınıfla VIIRS sınıfı uyumu (Cohen kappa ort.)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_loyo_kappa_firms": {
+   "value": 0.1918,
+   "unit": "",
+   "tanim": "Aynı sınamada FIRMS sınıfı (0-29/30-79/80-100) kappa ort.",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_spearman": {
+   "value": 0.2138,
+   "unit": "",
+   "tanim": "Tespit düzeyinde MODIS yüzdesi ile VIIRS sınıfı sıra ilişkisi",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_viirs_dusuk_modis_medyan": {
+   "value": 72.0,
+   "unit": "MODIS %",
+   "tanim": "VIIRS 'dusuk' iken aynı yangında MODIS güveninin medyanı (çeyrekler 61.0-82.0)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_viirs_nominal_modis_medyan": {
+   "value": 67.0,
+   "unit": "MODIS %",
+   "tanim": "VIIRS 'nominal' iken aynı yangında MODIS güveninin medyanı (çeyrekler 55.0-77.0)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_viirs_yuksek_modis_medyan": {
+   "value": 79.0,
+   "unit": "MODIS %",
+   "tanim": "VIIRS 'yuksek' iken aynı yangında MODIS güveninin medyanı (çeyrekler 65.0-93.0)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harmonize_seri_satir": {
+   "value": 38295,
+   "unit": "satır",
+   "tanim": "harmonized.parquet satır sayısı",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_bias": {
+   "value": 5.03,
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_ci95": {
+   "value": [
+    -46.83,
+    86.91
+   ],
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_i0_jump_resid_pct": {
+   "value": -23.06,
+   "unit": "yüzde puan",
+   "tanim": "(i0) sabit oran, efor yok: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_i_yillik_bias": {
+   "value": 0.15,
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_yillik_ci95": {
+   "value": [
+    -7.81,
+    9.46
+   ],
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_i_jump_resid_pct": {
+   "value": 1.24,
+   "unit": "yüzde puan",
+   "tanim": "(i) sabit oran, eforlu: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_ii_yillik_bias": {
+   "value": 0.55,
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_yillik_ci95": {
+   "value": [
+    -23.49,
+    9.51
+   ],
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_ii_jump_resid_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_iii_yillik_bias": {
+   "value": 3.76,
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_yillik_ci95": {
+   "value": [
+    -13.0,
+    31.69
+   ],
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_iii_jump_resid_pct": {
+   "value": -0.36,
+   "unit": "yüzde puan",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_ii_eksi_i_wape": {
+   "value": -0.01,
+   "unit": "yüzde puan",
+   "tanim": "Ay × bölge WAPE farkı (ii) - (i), LOYO",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_eksi_i_wape_ci95": {
+   "value": [
+    -2.97,
+    4.26
+   ],
+   "unit": "yüzde puan",
+   "tanim": "Aynı farkın yıl bootstrap'ı (2000 tekrar) %95 aralığı; 0'ı içeriyorsa ayırt edilemez",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_yillik_mape": {
+   "value": 8.33,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_yillik_r2": {
+   "value": 0.8716,
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_ay_bolge_wape": {
+   "value": 30.63,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_yillik_ci95": {
+   "value": [
+    -23.49,
+    9.51
+   ],
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_jump_raw_pct": {
+   "value": 143.13,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) ham sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_jump_harm_pct": {
+   "value": -41.35,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_jump_modis_gercek_pct": {
+   "value": -44.9,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_jump_resid_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "(birim=tespit, küme=temiz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_yillik_mape": {
+   "value": 7.51,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_yillik_r2": {
+   "value": 0.8443,
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_ay_bolge_wape": {
+   "value": 32.8,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_ay_il_wape": {
+   "value": 46.27,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) ay × il WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_yillik_ci95": {
+   "value": [
+    -15.36,
+    13.73
+   ],
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_jump_raw_pct": {
+   "value": 51.72,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) ham sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_jump_harm_pct": {
+   "value": -54.23,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_jump_modis_gercek_pct": {
+   "value": -53.45,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_jump_resid_pct": {
+   "value": -0.78,
+   "unit": "yüzde puan",
+   "tanim": "(birim=olay, küme=temiz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz_aniz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_yillik_mape": {
+   "value": 8.27,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_yillik_r2": {
+   "value": 0.8988,
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz_aniz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_ay_bolge_wape": {
+   "value": 30.88,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_yillik_ci95": {
+   "value": [
+    -20.95,
+    13.19
+   ],
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_jump_raw_pct": {
+   "value": 113.44,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) ham sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_jump_harm_pct": {
+   "value": -49.17,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_jump_modis_gercek_pct": {
+   "value": -52.29,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_jump_resid_pct": {
+   "value": 3.12,
+   "unit": "yüzde puan",
+   "tanim": "(birim=tespit, küme=temiz_aniz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz_aniz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_yillik_mape": {
+   "value": 7.53,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_yillik_r2": {
+   "value": 0.8718,
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz_aniz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_ay_bolge_wape": {
+   "value": 32.48,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_ay_il_wape": {
+   "value": 44.44,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) ay × il WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_yillik_ci95": {
+   "value": [
+    -14.54,
+    18.05
+   ],
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_jump_raw_pct": {
+   "value": 42.1,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) ham sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_jump_harm_pct": {
+   "value": -58.65,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_jump_modis_gercek_pct": {
+   "value": -59.01,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_jump_resid_pct": {
+   "value": 0.36,
+   "unit": "yüzde puan",
+   "tanim": "(birim=olay, küme=temiz_aniz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_tespitle_kirpilan_temiz_ay_bolge": {
+   "value": 98,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_ay_bolge, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_ay_TR": {
+   "value": 6,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_ay_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_yil_TR": {
+   "value": 0,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_yil_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_aniz_ay_bolge": {
+   "value": 93,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_aniz_ay_bolge, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_aniz_ay_TR": {
+   "value": 6,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_aniz_ay_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_aniz_yil_TR": {
+   "value": 0,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_aniz_yil_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_2026_bant_kapsama": {
+   "value": 0.545,
+   "unit": "oran",
+   "tanim": "2026 (eğitim dışı, NRT, Aqua kayması) ay × ülke bandının gerçek MODIS'i kapsama oranı (11 ay)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_gunduz_gecis_utc_2015": {
+   "value": 10.7,
+   "unit": "saat (UTC)",
+   "tanim": "Aqua gündüz tespitlerinin medyan geçiş saati, 2015",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_esz_cift_payi_2015": {
+   "value": 0.839,
+   "unit": "oran",
+   "tanim": "Aqua-VIIRS aday çiftlerinden |Δt| <= kalibrasyon penceresi olanların payı, 2015",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_gunduz_gecis_utc_2025": {
+   "value": 11.92,
+   "unit": "saat (UTC)",
+   "tanim": "Aqua gündüz tespitlerinin medyan geçiş saati, 2025",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_esz_cift_payi_2025": {
+   "value": 0.487,
+   "unit": "oran",
+   "tanim": "Aqua-VIIRS aday çiftlerinden |Δt| <= kalibrasyon penceresi olanların payı, 2025",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_gunduz_gecis_utc_2026": {
+   "value": 12.65,
+   "unit": "saat (UTC)",
+   "tanim": "Aqua gündüz tespitlerinin medyan geçiş saati, 2026",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_esz_cift_payi_2026": {
+   "value": 0.182,
+   "unit": "oran",
+   "tanim": "Aqua-VIIRS aday çiftlerinden |Δt| <= kalibrasyon penceresi olanların payı, 2026",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c10_ana_varyant": {
+   "value": "jump_resid_pct (birim=tespit, küme=temiz) loyo_ci95 içinde",
+   "unit": "",
+   "tanim": "C10 ana ölçütü (koordinatör kararı); diğer varyantlar bilgi amaçlı",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_sure_sn": {
+   "value": 25.1,
+   "unit": "s",
+   "tanim": "run_all toplam süresi (bu makine)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_config_uyumlu": {
+   "value": true,
+   "unit": "",
+   "tanim": "esikler.json'daki öğrenilmiş sınırlar yeniden hesaplananla aynı mı",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  }
+ },
+ "sensitivity": {}
+}

@@ -1,0 +1,28 @@
+{
+ "arac": "src/app/main.js APP.bench() (Claude Browser, Chromium)",
+ "olcum_tarihi": "2026-11-13",
+ "esik_degisimi_saniye": 0.081,
+ "esik_degisimi_ms": [
+  100.3,
+  87.8,
+  71.4,
+  73.3,
+  73.5
+ ],
+ "esik_tanimi": "En düşük FRP süzgeci (temizlik_F_modis_medyan değeri) aç/kapa: tüm olaylar yeniden süzülür, harita + yıl×ay matrisi + gün ızgarası + grafikler yeniden hesaplanıp çizilir",
+ "olay_sayisi": 302863,
+ "yil_sayisi": 27,
+ "ilk_yukleme_ms_27yil_olay": 86.5,
+ "ilk_yukleme_notu": "Yerel sunucu, önbellekli dosya; soğuk diskte daha uzun olabilir",
+ "ilk_cizim_sonrasi_ms": 320.4,
+ "nokta_yili_ilk_yukleme_ms": 40.8,
+ "nokta_yili_satir": 128485,
+ "veri_boyutu": {
+  "olay_ikili_mb": 17.9,
+  "toplam_data_mb_nokta_dahil": 96.7,
+  "nokta_dosyalari": "yalnız ham katman/müfettiş/laboratuvar için yıl bazlı, istek üzerine yüklenir (C20)"
+ },
+ "yontem_notu": "Süreler bu makinede tek ölçümdür; jüri makinesinde farklı olabilir.",
+ "yol": "hazır takvim tabloları (cal_<birim>.json, yalnız seçili birim yüklenir) + olay süzgeci değişince tarayıcı içi yeniden süzme; açılış serisi olay_esdeger",
+ "olcum_surumu": "sadeleştirilmiş arayüz (koroplet, 4 sekme)"
+}

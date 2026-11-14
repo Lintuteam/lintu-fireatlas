@@ -1,0 +1,1075 @@
+{
+ "aciklama": "Türkiye 2021 ve 2025 büyük orman yangınları için doküman-tabanlı referans listesi (uydu olay ürününün RECALL ölçümü için). Her kayıt açılan bir sayfadan gelir; ilçe merkezi koordinatları Wikipedia (en/tr) API'sinden alındı ve 'ilce_merkezi' olarak işaretlidir (yangın sınırı değil). Alanlar kaynaklar arasında çelişkili olabilir; çelişkiler 'not' alanında belirtilmiştir ve 'yanan_alan_ha' bu durumda 'min-maks' aralığı string'idir. Liste tam değildir: bkz. resmi_yangin_listesi.md. [2026-11-14 güncellemesi: her satıra kaynak_turu/resmi_kaynaklar/ikincil_kaynaklar eklendi; resmî kaynak bulunamayanlar 'resmî kaynak bulunamadı' olarak işaretli.]",
+ "kaynaklar_genel": [
+  {
+   "ad": "tr.wikipedia 2021",
+   "url": "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları"
+  },
+  {
+   "ad": "tr.wikipedia 2025",
+   "url": "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+  },
+  {
+   "ad": "en.wikipedia 2025 Turkey wildfires",
+   "url": "https://en.wikipedia.org/wiki/2025_Turkey_wildfires",
+   "durum": "HTTP 404"
+  },
+  {
+   "ad": "Bartın Orman Fakültesi Dergisi 2026, 28(1) – 2021 yazı büyük yangınları (OGM verisi derlemesi)",
+   "url": "https://dergipark.org.tr/tr/download/article-file/4867209"
+  },
+  {
+   "ad": "bianet – GTÜ uydu çalışması 2021",
+   "url": "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires"
+  },
+  {
+   "ad": "Daily Sabah – 2025 yangınları (OGM ~80.000 ha, 2021 rekoru 139.503 ha)",
+   "url": "https://www.dailysabah.com/turkiye/2025-forest-fires-reach-second-highest-burned-area-in-turkiye/news"
+  },
+  {
+   "ad": "EFFIS/Copernicus EMS EMSR numaraları: Türkiye için açılan sayfalarda bulunamadı",
+   "url": null
+  },
+  {
+   "ad": "OGM 2025 Faaliyet Raporu, Tablo 16-17 (2021-2025 yangın sayısı ve alan)",
+   "url": "https://www.ogm.gov.tr/tr/e-kutuphane-sitesi/FaaliyetRaporu/2025%20-%20Orman%20Genel%20M%C3%BCd%C3%BCrl%C3%BC%C4%9F%C3%BC%20Faaliyet%20Raporu.pdf",
+   "tur": "resmi"
+  },
+  {
+   "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+   "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+   "tur": "resmi"
+  },
+  {
+   "ad": "Copernicus EMS: Türkiye 2021/2025 yangınları için EMSR aktivasyonu bulunamadı; EFFIS istatistik sayfası dinamik yüklendiğinden okunamadı",
+   "url": null
+  }
+ ],
+ "yanginlar": [
+  {
+   "yil": 2021,
+   "il": "Antalya",
+   "ilce": "Manavgat (Serik, Taşağıl'a da yayıldı)",
+   "yer": "Manavgat batısı / Çolaklı–Yeniköy",
+   "baslangic": "2021-07-28",
+   "kontrol": null,
+   "yanan_alan_ha": "26903-56663",
+   "yaklasik_lat": 36.7833,
+   "yaklasik_lon": 31.4333,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://www.copernicus.eu/en/media/image-day-gallery/violent-wildfires-turkey",
+    "https://science.nasa.gov/earth/earth-observatory/fires-rage-in-turkey-148650",
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları"
+   ],
+   "not": "Türkiye'nin en büyük orman yangını. Kaynaklar çelişiyor: 26.903 ha (OGM verisi, Çamalan vd. aktarımıyla Bartın makalesi), 56.663 ha (GTÜ uydu çalışması, bianet), 52.000+ ha (Erkan vd. 2022, Bartın makalesi). Kontrol tarihi açılan sayfalarda yok (tr.wikipedia foto altyazısı ~10 gün sonra diyor).",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Yıldız Z. (2026) 2021 Yılı Yazında Dünya'da ve Türkiye'de Meydana Gelen Büyük Orman Yangınları, Bartın Orman Fakültesi Dergisi 28(1):1-15 (OGM verilerine dayanır; DOI 10.24011/barofd.1698659)",
+     "url": "https://dergipark.org.tr/tr/download/article-file/4867209",
+     "tur": "bilimsel",
+     "kurum": "Hakemli dergi",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Manavgat'ta 28 Temmuz 2021'de başlayan yangında 26.903 ha orman zarar gördü (Çamalan vd. 2023 atfıyla); Antalya geneli 278 yangın/71.106 ha; OGM il toplamı Antalya 60.366 ha. Not: GTÜ uydu analizi (56.663 ha) farklı yöntem/kapsam."
+    },
+    {
+     "ad": "Copernicus Image of the Day: Violent wildfires in Türkiye (Sentinel-3, 29 Temmuz 2021)",
+     "url": "https://www.copernicus.eu/en/media/image-day-gallery/violent-wildfires-turkey",
+     "tur": "resmi",
+     "kurum": "Copernicus (AB)",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Yangınlar 28 Temmuz 2021'de başladı; Manavgat ve ~50 km kuzeyindeki Akseki anılıyor. Yanan alan rakamı yok; EMS aktivasyonu belirtilmiyor."
+    },
+    {
+     "ad": "NASA Earth Observatory: Fires Rage in Turkey (4 Ağustos 2021)",
+     "url": "https://science.nasa.gov/earth/earth-observatory/fires-rage-in-turkey-148650",
+     "tur": "resmi",
+     "kurum": "NASA Earth Observatory",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Landsat 8 (31 Temmuz 2021): Alanya-Manavgat yangınları; MODIS/Aqua: Antalya ve Marmaris; EFFIS'e atfen Türkiye'de o tarihe dek >136.000 ha."
+    }
+   ],
+   "kaynak_turu": "resmi+bilimsel",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Antalya",
+   "ilce": "Gündoğmuş",
+   "yer": "Ortakonuş",
+   "baslangic": "2021-07-29",
+   "kontrol": null,
+   "yanan_alan_ha": 685,
+   "yaklasik_lat": 36.8122,
+   "yaklasik_lon": 31.9992,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları"
+   ],
+   "not": "Alan GTÜ uydu çalışmasından (bianet). Kontrol tarihi bulunamadı.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Antalya",
+   "ilce": "Akseki",
+   "yer": "bilinmiyor",
+   "baslangic": "2021-07-29",
+   "kontrol": null,
+   "yanan_alan_ha": null,
+   "yaklasik_lat": 37.0486,
+   "yaklasik_lon": 31.79,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.copernicus.eu/en/media/image-day-gallery/violent-wildfires-turkey",
+    "https://www.copernicus.eu/en/node/11137"
+   ],
+   "not": "Copernicus sayfası Manavgat'tan sonraki gece Akseki'de ikinci yangını anıyor; alan ve tam tarih sayfada yok (başlangıç 'ertesi gece' ifadesinden çıkarım: 29 Temmuz). Alan bilinmediği için ≥500 ha sayılmadı.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Copernicus Image of the Day: Violent wildfires in Türkiye (Sentinel-3, 29 Temmuz 2021)",
+     "url": "https://www.copernicus.eu/en/media/image-day-gallery/violent-wildfires-turkey",
+     "tur": "resmi",
+     "kurum": "Copernicus (AB)",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Yangınlar 28 Temmuz 2021'de başladı; Manavgat ve ~50 km kuzeyindeki Akseki anılıyor. Yanan alan rakamı yok; EMS aktivasyonu belirtilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.copernicus.eu/en/node/11137"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Marmaris",
+   "yer": "kaynakta belirtilmemiş",
+   "baslangic": "2021-07-29",
+   "kontrol": null,
+   "yanan_alan_ha": "12935-13600",
+   "yaklasik_lat": 36.8533,
+   "yaklasik_lon": 28.2708,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "not": "GTÜ: 12.935 ha. Muğla Büyükşehir Belediyesi ilçe toplamı (16 Ağustos, CHP raporu/Sözcü): 13.600 ha. Bartın makalesi: yangın 29 Temmuz'da Marmaris'te başlamış. Kontrol tarihi bulunamadı.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Marmaris-MP işletmesi, çıkış 29.07.2021, 9.051,6 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Bodrum",
+   "yer": "İçmeler, Kızılağaç; Dereköy–Gümüşlük",
+   "baslangic": "2021-07-31",
+   "kontrol": null,
+   "yanan_alan_ha": "9325-11898",
+   "yaklasik_lat": 37.0333,
+   "yaklasik_lon": 27.4333,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları",
+    "https://www.ntv.com.tr/turkiye/orman-yanginlarinda-son-durum,0VZ3JpgU9ky-ieeG_4wg_A"
+   ],
+   "not": "GTÜ: 11.898 ha; Muğla BB ilçe toplamı: 9.325 ha. Başlangıç tr.wikipedia'daki 31 Temmuz fotoğraf bilgisinden; Dereköy–Gümüşlük yangını 10 Ağustos'ta kontrol altında deniyor (NTV) fakat bu yangının aynı olay olup olmadığı doğrulanmadı.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları",
+    "https://www.ntv.com.tr/turkiye/orman-yanginlarinda-son-durum,0VZ3JpgU9ky-ieeG_4wg_A"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Milas",
+   "yer": "Kemerköy termik santrali, Kıyıkışlacık çevresi",
+   "baslangic": null,
+   "kontrol": "2021-08-10",
+   "yanan_alan_ha": "8480-16009",
+   "yaklasik_lat": 37.3167,
+   "yaklasik_lon": 27.7833,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://bianet.org/haber/milas-taki-yanginlarda-toplam-16-bin-hektarlik-alan-yandi-248349",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://www.ntv.com.tr/turkiye/orman-yanginlarinda-son-durum,0VZ3JpgU9ky-ieeG_4wg_A"
+   ],
+   "not": "Milas Belediyesi: 5 Ağustos 23.08 itibarıyla 16.009 ha; Muğla BB (16 Ağustos): 8.480 ha. Başlangıç tarihi açılan sayfalarda yok (Bartın makalesi Muğla yangınlarının 29 Temmuz'da Marmaris'te başlayıp Milas'a genişlediğini yazıyor). NTV 10 Ağustos'ta Milas'ta alevlerin kontrol altında olduğunu yazıyor.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Milas Karacahisar işletmesi, çıkış 31.07.2021, 12.764,0 ha (Bodrum'a yayılan kol bu kayıtta)."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://bianet.org/haber/milas-taki-yanginlarda-toplam-16-bin-hektarlik-alan-yandi-248349",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://www.ntv.com.tr/turkiye/orman-yanginlarinda-son-durum,0VZ3JpgU9ky-ieeG_4wg_A"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Köyceğiz",
+   "yer": "Çövmen yaylası–Çiçekbaba",
+   "baslangic": "2021-07-28",
+   "kontrol": "2021-08-12",
+   "yanan_alan_ha": "1629-12373",
+   "yaklasik_lat": 36.9714,
+   "yaklasik_lon": 28.6889,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://www.ntv.com.tr/turkiye/orman-yanginlarinda-son-durum,0VZ3JpgU9ky-ieeG_4wg_A",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları"
+   ],
+   "not": "Çok büyük çelişki: GTÜ 1.629 ha, Muğla BB ilçe toplamı 12.373 ha. NTV (10 Ağustos): yangın ~13 gündür sürüyor (başlangıç buradan çıkarım ~28 Temmuz), müdahale devam ediyor; tr.wikipedia: 12 Ağustos'a kadar söndürüldü (kontrol tarihi 'en geç').",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Köyceğiz işletmesi, çıkış 29.07.2021, 10.737,0 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458",
+    "https://www.ntv.com.tr/turkiye/orman-yanginlarinda-son-durum,0VZ3JpgU9ky-ieeG_4wg_A",
+    "https://tr.wikipedia.org/wiki/2021_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Menteşe",
+   "yer": "Muğla yangın kompleksi (ilçe toplamı)",
+   "baslangic": null,
+   "kontrol": null,
+   "yanan_alan_ha": 11369,
+   "yaklasik_lat": null,
+   "yaklasik_lon": null,
+   "koordinat_tipi": null,
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "not": "Muğla BB ilçe toplamı (16 Ağustos); ayrı bir yangın mı yoksa Marmaris/Milas/Köyceğiz kompleksinin parçası mı olduğu doğrulanmadı. Koordinat bulunamadı (ilçe merkezi kaynağı açılmadı).",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Kavaklıdere/Menteşe 02.08.2021: 5.511,7 ha; Yılanlı/Şenyayla 04.08.2021: 2.523,0 ha; Yatağan/Menteşeçayı 04.08.2021: 2.086,5 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Kavaklıdere",
+   "yer": "Muğla yangın kompleksi (ilçe toplamı)",
+   "baslangic": null,
+   "kontrol": null,
+   "yanan_alan_ha": 7568,
+   "yaklasik_lat": 37.446,
+   "yaklasik_lon": 28.365,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "not": "Muğla BB ilçe toplamı (16 Ağustos); ayrı yangın olup olmadığı doğrulanmadı. Koordinat tr.wikipedia ilçe sayfasından.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Kavaklıdere/Menteşe 02.08.2021: 5.511,7 ha; Yılanlı/Şenyayla 04.08.2021: 2.523,0 ha; Yatağan/Menteşeçayı 04.08.2021: 2.086,5 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Yatağan",
+   "yer": "Muğla yangın kompleksi (ilçe toplamı)",
+   "baslangic": null,
+   "kontrol": null,
+   "yanan_alan_ha": 2012,
+   "yaklasik_lat": 37.3425,
+   "yaklasik_lon": 28.1392,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "not": "Muğla BB ilçe toplamı; ayrı yangın olup olmadığı doğrulanmadı. Koordinat tr.wikipedia.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Muğla",
+   "ilce": "Seydikemer",
+   "yer": "Muğla yangın kompleksi (ilçe toplamı)",
+   "baslangic": null,
+   "kontrol": null,
+   "yanan_alan_ha": 2011,
+   "yaklasik_lat": 36.648,
+   "yaklasik_lon": 29.3617,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "not": "Muğla BB ilçe toplamı; ayrı yangın olup olmadığı doğrulanmadı. Koordinat tr.wikipedia.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.sozcu.com.tr/chp-orman-yanginlari-raporunu-acikladi-wp6627458"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Mersin",
+   "ilce": "Aydıncık",
+   "yer": "orman (enerji nakil hattı kaynaklı)",
+   "baslangic": "2021-07-15",
+   "kontrol": "2021-08-17",
+   "yanan_alan_ha": 6396.7,
+   "yaklasik_lat": 36.1417,
+   "yaklasik_lon": 33.3178,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "not": "Makale: 15 Temmuz 08:40'ta başladı, 17 Ağustos ~20:20'de kontrol altına alındı, 6.396,7 ha (Bartın makalesi, başka çalışmaya atıfla).",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Yıldız Z. (2026) 2021 Yılı Yazında Dünya'da ve Türkiye'de Meydana Gelen Büyük Orman Yangınları, Bartın Orman Fakültesi Dergisi 28(1):1-15 (OGM verilerine dayanır; DOI 10.24011/barofd.1698659)",
+     "url": "https://dergipark.org.tr/tr/download/article-file/4867209",
+     "tur": "bilimsel",
+     "kurum": "Hakemli dergi",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Aydıncık (15 Temmuz 2021 başlangıç) 6.396,7 ha; Silifke (29 Temmuz) ~3.230 ha; Mersin ili 2021 toplam 14.408 ha (Şahin 2022 atfıyla); OGM il toplamı Mersin 9.661 ha."
+    }
+   ],
+   "kaynak_turu": "bilimsel",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Mersin",
+   "ilce": "Silifke",
+   "yer": "iki ayrı noktada",
+   "baslangic": "2021-07-29",
+   "kontrol": "2021-08-01",
+   "yanan_alan_ha": 3230,
+   "yaklasik_lat": 36.3761,
+   "yaklasik_lon": 33.9322,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "not": "29 Temmuz'da başladı, 30 Temmuz'da hızlandı, 1 Ağustos'ta kontrol altına alındı; toplam ~3.230 ha (Bartın makalesi, Şahin 2022'ye atıf).",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Yıldız Z. (2026) 2021 Yılı Yazında Dünya'da ve Türkiye'de Meydana Gelen Büyük Orman Yangınları, Bartın Orman Fakültesi Dergisi 28(1):1-15 (OGM verilerine dayanır; DOI 10.24011/barofd.1698659)",
+     "url": "https://dergipark.org.tr/tr/download/article-file/4867209",
+     "tur": "bilimsel",
+     "kurum": "Hakemli dergi",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Aydıncık (15 Temmuz 2021 başlangıç) 6.396,7 ha; Silifke (29 Temmuz) ~3.230 ha; Mersin ili 2021 toplam 14.408 ha (Şahin 2022 atfıyla); OGM il toplamı Mersin 9.661 ha."
+    }
+   ],
+   "kaynak_turu": "bilimsel",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Adana",
+   "ilce": "Kozan (Karaisalı, Ceyhan, Feke, İmamoğlu'na da yayıldı)",
+   "yer": "21 ayrı noktada çıkan yangınlar",
+   "baslangic": "2021-07-28",
+   "kontrol": "2021-08-02",
+   "yanan_alan_ha": 4150,
+   "yaklasik_lat": 37.45,
+   "yaklasik_lon": 35.8,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "not": "28 Temmuz–2 Ağustos arası 21 noktada başlayan yangınlar toplam 4.150 ha (TTB 2022'ye atıfla Bartın makalesi). Koordinat Kozan ilçe merkezi; çok ilçeli olay.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Yıldız Z. (2026) 2021 Yılı Yazında Dünya'da ve Türkiye'de Meydana Gelen Büyük Orman Yangınları, Bartın Orman Fakültesi Dergisi 28(1):1-15 (OGM verilerine dayanır; DOI 10.24011/barofd.1698659)",
+     "url": "https://dergipark.org.tr/tr/download/article-file/4867209",
+     "tur": "bilimsel",
+     "kurum": "Hakemli dergi",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Adana'da 28 Temmuz-2 Ağustos 2021, 21 noktada başlayan yangınlar 4.150 ha (TTB 2022 atfıyla); OGM il toplamı Adana 4.919 ha."
+    }
+   ],
+   "kaynak_turu": "bilimsel",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2021,
+   "il": "Osmaniye",
+   "ilce": "Merkez (Kazmaca/Kazmacılı); Kadirli (Karatepe)'ye yayıldı",
+   "yer": "Kazmaca köyü",
+   "baslangic": "2021-07-28",
+   "kontrol": "2021-07-31",
+   "yanan_alan_ha": 1500,
+   "yaklasik_lat": 37.075,
+   "yaklasik_lon": 36.25,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://www.turkiyegazetesi.com.tr/yasam/doga-yaralarini-sariyor-iki-ayda-siyahtan-yesile-donus-804522",
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "not": "Türkiye Gazetesi: ~1.500 ha, 3 günde kontrol (kontrol tarihi '3 gün' ifadesinden). Çelişki: Bartın makalesi Adana+Osmaniye toplamını ~8.375 ha veriyor; Adana 4.150 ise Osmaniye ima edilen ~4.225 ha. Aynı gazete Kadirli-Karatepe için de ~1.500 ha yazıyor, Kazmaca ile aynı yangın olup olmadığı belirsiz. Koordinat Osmaniye ilçe merkezi.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Yıldız Z. (2026) 2021 Yılı Yazında Dünya'da ve Türkiye'de Meydana Gelen Büyük Orman Yangınları, Bartın Orman Fakültesi Dergisi 28(1):1-15 (OGM verilerine dayanır; DOI 10.24011/barofd.1698659)",
+     "url": "https://dergipark.org.tr/tr/download/article-file/4867209",
+     "tur": "bilimsel",
+     "kurum": "Hakemli dergi",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "OGM il toplamı Osmaniye 3.149 ha (2021); Adana+Osmaniye ~8.375 ha. Kazmaca/Kazmacılı yangını için ayrı rakam yok."
+    }
+   ],
+   "kaynak_turu": "bilimsel",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.turkiyegazetesi.com.tr/yasam/doga-yaralarini-sariyor-iki-ayda-siyahtan-yesile-donus-804522",
+    "https://dergipark.org.tr/tr/download/article-file/4867209"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "İzmir",
+   "ilce": "Seferihisar, Menderes",
+   "yer": "Orhanlı–Kuyucak arası orman",
+   "baslangic": "2025-06-29",
+   "kontrol": "2025-07-02",
+   "yanan_alan_ha": "8500-9677",
+   "yaklasik_lat": 38.2,
+   "yaklasik_lon": 26.8333,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+    "https://www.ogm.gov.tr/izmirobm/haberler/seferihisar-kavakderede-cikan-yangin-sonrasi-agaclandirma-calismalari-suruyor",
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "Uydu çalışmaları: İTÜ UHUZAM ~8.500 ha (Seferihisar, NTV); TJTSI makalesi 9.677 ha; Uzaktan Algılama makalesi (Seferihisar-Menderes) 9.613 ha. 2 Temmuz'da tamamen kontrol altı (kureansiklopedi). tr.wikipedia İzmir ili için 1 Haziran–7 Temmuz'da 26.260 ha veriyor (il toplamı). Menderes merkez koordinatı 38.254, 27.134.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı'dan Orman Yangınlarına Karşı Toplumsal Duyarlılık Çağrısı (1.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Devam eden yangınlar: Manisa Akhisar/Kula/Ahmetli, İzmir Seferihisar/Menderes, Hatay Antakya; yanan alan (ha) verilmiyor."
+    },
+    {
+     "ad": "OGM İzmir OBM: Seferihisar Kavakdere'de Çıkan Yangın Sonrası Ağaçlandırma Çalışmaları Sürüyor (24.02.2026)",
+     "url": "https://www.ogm.gov.tr/izmirobm/haberler/seferihisar-kavakderede-cikan-yangin-sonrasi-agaclandirma-calismalari-suruyor",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Seferihisar Kavakdere'de yangın 29.06.2025'te başladı; yanan alan belirtilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "İzmir",
+   "ilce": "Çeşme (Urla'ya da etkisi var)",
+   "yer": "Ildır mahallesi (tarım arazisinden ormana sıçradı)",
+   "baslangic": "2025-07-02",
+   "kontrol": "2025-07-04",
+   "yanan_alan_ha": "9385-9500",
+   "yaklasik_lat": 38.3244,
+   "yaklasik_lon": 26.3031,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.earthdata.nasa.gov/news/worldview-image-archive/wildfires-izmir-province-turkey",
+    "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "İTÜ UHUZAM ~9.500 ha; TJTSI 9.385 ha. 4 Temmuz'da tamamen kontrol altında (kureansiklopedi). Alanlar şüpheli derecede büyük görünüyor (tek bir yangın için); yine de kaynakta bu şekilde. Ayrı bir akademik çalışma olayı Çeşme-Urla 2–4 Temmuz diye adlandırıyor.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "NASA Earthdata Worldview: Wildfires in Izmir Province, Turkey (3 Temmuz 2025)",
+     "url": "https://www.earthdata.nasa.gov/news/worldview-image-archive/wildfires-izmir-province-turkey",
+     "tur": "resmi",
+     "kurum": "NASA Earthdata",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "VIIRS/S-NPP 3 Temmuz 2025: Çeşme yakınında ve Ödemiş yakınında büyük yangın nokta kümeleri; alan rakamı yok."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Ülkemizde Devam Eden Orman Yangınlarının Son Durumuna İlişkin Açıklamalarda Bulundu (4.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "İzmir Çeşme, Ödemiş ve Buca yangınları anılıyor; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "İzmir",
+   "ilce": "Ödemiş",
+   "yer": "Tosunlar, Suçıktı",
+   "baslangic": "2025-07-02",
+   "kontrol": "2025-07-05",
+   "yanan_alan_ha": "2500-2538",
+   "yaklasik_lat": 38.2311,
+   "yaklasik_lon": 27.9719,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.earthdata.nasa.gov/news/worldview-image-archive/wildfires-izmir-province-turkey",
+    "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "İTÜ ~2.500 ha; TJTSI 2.538 ha. Kontrol: tr.wikipedia 5 Temmuz; kureansiklopedi 4 Temmuz'da hâlâ sürüyor diyor. 3 ölü (tr.wikipedia).",
+   "resmi_kaynaklar": [
+    {
+     "ad": "NASA Earthdata Worldview: Wildfires in Izmir Province, Turkey (3 Temmuz 2025)",
+     "url": "https://www.earthdata.nasa.gov/news/worldview-image-archive/wildfires-izmir-province-turkey",
+     "tur": "resmi",
+     "kurum": "NASA Earthdata",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "VIIRS/S-NPP 3 Temmuz 2025: Çeşme yakınında ve Ödemiş yakınında büyük yangın nokta kümeleri; alan rakamı yok."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Ülkemizde Devam Eden Orman Yangınlarının Son Durumuna İlişkin Açıklamalarda Bulundu (4.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "İzmir Çeşme, Ödemiş ve Buca yangınları anılıyor; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "İzmir",
+   "ilce": "Buca (Gaziemir, Menderes'e yayıldı)",
+   "yer": "Zafer mahallesi",
+   "baslangic": "2025-07-03",
+   "kontrol": "2025-07-04",
+   "yanan_alan_ha": 2507,
+   "yaklasik_lat": 38.35,
+   "yaklasik_lon": 27.1667,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "Alan TJTSI makalesi (25,07 km2). Çelişki: tr.wikipedia 4 Temmuz'da kontrol; kureansiklopedi 4 Temmuz'da hâlâ tam kontrol altında değil.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Ülkemizde Devam Eden Orman Yangınlarının Son Durumuna İlişkin Açıklamalarda Bulundu (4.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "İzmir Çeşme, Ödemiş ve Buca yangınları anılıyor; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://dergipark.org.tr/tr/pub/tjtsi/article/1770102",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Hatay",
+   "ilce": "Antakya (kaynakta yalnız 'Hatay'; Antakya Uzaktan Algılama makalesinden)",
+   "yer": "bilinmiyor",
+   "baslangic": null,
+   "kontrol": null,
+   "yanan_alan_ha": 2800,
+   "yaklasik_lat": 36.2025,
+   "yaklasik_lon": 36.1606,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391"
+   ],
+   "not": "İTÜ UHUZAM Hatay için ~2.800 ha (28 km2) veriyor; ilçe belirtilmiyor. Uzaktan Algılama makalesi büyük 2025 yangınları arasında 'Antakya'yı sayıyor ama alan vermiyor. İlçe ataması çıkarımdır. Başlangıç tarihi açılan sayfalarda yok (tr.wikipedia: Dörtyol'da 4 Temmuz'da ayrı bir yangın).",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı'dan Orman Yangınlarına Karşı Toplumsal Duyarlılık Çağrısı (1.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Devam eden yangınlar: Manisa Akhisar/Kula/Ahmetli, İzmir Seferihisar/Menderes, Hatay Antakya; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Sakarya; Bilecik",
+   "ilce": "Geyve, Taraklı; Gölpazarı, Osmaneli",
+   "yer": "Geyve Hacılar mah.; Borçak, Kazancı, Büyükyenice; Gölpazarı Karaağaç",
+   "baslangic": "2025-07-20",
+   "kontrol": null,
+   "yanan_alan_ha": 6131,
+   "yaklasik_lat": 40.5089,
+   "yaklasik_lon": 30.29,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391",
+    "https://www.yeniasir.com.tr/yasam/2025/07/22/bilecikte-yangin-faciasi-bilecik-tarihinin-en-buyuk-yanginini-yasiyor-4-koy-bosaltildi",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "6.131 ha değeri 'Taraklı-Geyve-Gölpazarı' yangını için (Uzaktan Algılama makalesi, tarih vermiyor). Geyve yangını 20 Temmuz ~17:00'de başladı (Yeni Asır, alan yok). Haziran sonunda (tr.wikipedia 26 Haz Gölpazarı Dokuzlar) ayrı yangınlar da var; makalenin hangi olayı kastettiği kesin değil. Koordinat Geyve; Gölpazarı 40.2847, 30.3172.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Orman Yangınlarıyla İlgili Açıklama Yaptı (25.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Geyve (Sakarya)-Osmaneli (Bilecik) Bozören yangını ve Bayat yangını tamamen kontrol altında; Seyitgazi (Eskişehir)-Afyon sınırı yangını kontrol altında; Safranbolu/Ovacık (Karabük) devam ediyor; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391",
+    "https://www.yeniasir.com.tr/yasam/2025/07/22/bilecikte-yangin-faciasi-bilecik-tarihinin-en-buyuk-yanginini-yasiyor-4-koy-bosaltildi",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Bursa",
+   "ilce": "Orhaneli, Harmancık (Gürsu, Kestel'e de sıçradı)",
+   "yer": "Yakuplar, Çakmak mahalleleri",
+   "baslangic": "2025-07-26",
+   "kontrol": null,
+   "yanan_alan_ha": "2312-3000",
+   "yaklasik_lat": 39.9028,
+   "yaklasik_lon": 28.9875,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6684/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlarindaki-Son-Durumu-Paylasti",
+    "https://www.tarimorman.gov.tr/Haber/6685/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+    "https://dergipark.org.tr/tr/pub/turkjforsci/article/1774187",
+    "https://www.ekonomigazetesi.com.tr/sehirler/bursadaki-orman-yanginina-yogun-mudahale-yayilim-hizi-kontrol-altinda-55058",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "Sentinel-2 çalışması: 23,12 km2 (2.312 ha), yangın tarihi 27 Temmuz. Bursa Büyükşehir Belediye Başkanı: ~3.000 ha (27 Temmuz, 'daha fazla olabilir'). tr.wikipedia Gürsu yangınını 26 Temmuz 17:42 diyor. Kontrol tarihi güvenilir biçimde bulunamadı.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Orman Yangınlarındaki Son Durumu Paylaştı (26.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6684/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlarindaki-Son-Durumu-Paylasti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Bursa Harmancık (16:06) ve Kestel yangınları, Karabük Safranbolu anılıyor; yanan alan (ha) verilmiyor."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı Orman Yangınlarıyla İlgili Açıklama Yaptı (27.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6685/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Bursa Orhaneli (Yakuplar) büyük ölçüde kontrol altında; Gürsu-Kestel devam; Karabük Safranbolu devam; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://dergipark.org.tr/tr/pub/turkjforsci/article/1774187",
+    "https://www.ekonomigazetesi.com.tr/sehirler/bursadaki-orman-yanginina-yogun-mudahale-yayilim-hizi-kontrol-altinda-55058",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Eskişehir (Afyonkarahisar'a taştı)",
+   "ilce": "Seyitgazi (Afyonkarahisar İhsaniye)",
+   "yer": "Fethiye mah.–Sarıcaova köyü hattı",
+   "baslangic": "2025-07-22",
+   "kontrol": null,
+   "yanan_alan_ha": 715,
+   "yaklasik_lat": 39.4456,
+   "yaklasik_lon": 30.6939,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+    "https://www.ttb.org.tr/userfiles/files/eskisehir_orman_yangini_inceleme_raporu.pdf",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "TTB inceleme raporu: 715 ha orman, 10 görevli öldü. Çelişki: TTB başlangıcı 22.07.2025 sabah yazıyor, tr.wikipedia 23 Temmuz. Kontrol tarihi raporda yok.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Orman Yangınlarıyla İlgili Açıklama Yaptı (25.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Geyve (Sakarya)-Osmaneli (Bilecik) Bozören yangını ve Bayat yangını tamamen kontrol altında; Seyitgazi (Eskişehir)-Afyon sınırı yangını kontrol altında; Safranbolu/Ovacık (Karabük) devam ediyor; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.ttb.org.tr/userfiles/files/eskisehir_orman_yangini_inceleme_raporu.pdf",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Karabük",
+   "ilce": "Safranbolu (Ovacık'a da yayıldı)",
+   "yer": "Çavuşlar köyü Mezarlık mevkii",
+   "baslangic": "2025-07-23",
+   "kontrol": "2025-07-29",
+   "yanan_alan_ha": null,
+   "yaklasik_lat": 41.2494,
+   "yaklasik_lon": 32.6833,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+    "https://www.tarimorman.gov.tr/Haber/6685/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+    "https://www.haberturk.com/orman-yanginlarinda-son-durum-karabuk-te-18-koy-ve-50-mahalle-tahliye-edildi-son-dakika-3810303",
+    "https://www.ntv.com.tr/turkiye/galeri-karabukte-aci-bilanco-onlarca-ev-hasar-gordu,eFy4RsF-FEGT7SkzxuQsMw"
+   ],
+   "not": "Başlangıç 23 Temmuz 14:42 (Habertürk). NTV 30 Temmuz: 6 günlük müdahale sonrası kontrol altına alındı (kontrol tarihi yaklaşık/çıkarım). Açılan sayfalarda alan yok; arama özetlerinde 250–500 ha geçiyor ama o sayfalar açılmadı, bu yüzden değer yazılmadı. Kamış köyünde 39 ev hasarlı.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Orman Yangınlarıyla İlgili Açıklama Yaptı (25.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Geyve (Sakarya)-Osmaneli (Bilecik) Bozören yangını ve Bayat yangını tamamen kontrol altında; Seyitgazi (Eskişehir)-Afyon sınırı yangını kontrol altında; Safranbolu/Ovacık (Karabük) devam ediyor; yanan alan (ha) verilmiyor."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı Orman Yangınlarıyla İlgili Açıklama Yaptı (27.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6685/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Bursa Orhaneli (Yakuplar) büyük ölçüde kontrol altında; Gürsu-Kestel devam; Karabük Safranbolu devam; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.haberturk.com/orman-yanginlarinda-son-durum-karabuk-te-18-koy-ve-50-mahalle-tahliye-edildi-son-dakika-3810303",
+    "https://www.ntv.com.tr/turkiye/galeri-karabukte-aci-bilanco-onlarca-ev-hasar-gordu,eFy4RsF-FEGT7SkzxuQsMw"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Çanakkale",
+   "ilce": "Gelibolu, Eceabat",
+   "yer": "Tayfur–Cumalı köyleri arası (Gelibolu Tarihi Alan)",
+   "baslangic": "2025-08-16",
+   "kontrol": "2025-08-18",
+   "yanan_alan_ha": null,
+   "yaklasik_lat": 40.4139,
+   "yaklasik_lon": 26.6703,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.diken.com.tr/?p=1622171",
+    "https://sabah.com.tr/gundem/2025/08/19/geliboluda-aci-tablo"
+   ],
+   "not": "16 Ağustos 16.28'de başladı, Bakan 18 Ağustos'ta tamamen kontrol altına alındığını duyurdu; 7 köy tahliye. Açılan sayfalarda alan yok (arama özetlerinde 340/575 ha geçiyor, doğrulanmadı).",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.diken.com.tr/?p=1622171",
+    "https://sabah.com.tr/gundem/2025/08/19/geliboluda-aci-tablo"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Muğla",
+   "ilce": "Köyceğiz",
+   "yer": "Akköprü, Sazak, Çayhisar, Pınar mahalleleri",
+   "baslangic": "2025-09-19",
+   "kontrol": "2025-09-21",
+   "yanan_alan_ha": "2403-3000",
+   "yaklasik_lat": 36.9714,
+   "yaklasik_lon": 28.6889,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.ntv.com.tr/turkiye/63-saat-surdu-koycegizdeki-tahribat-havadan-goruntulendi,C4lTgRBf1k-E5jdunY-8Dg",
+    "https://yerel-haberler.haberturk.com/mugla-haberleri/koycegiz-ve-milastaki-yanginlarda-2-bin-403-hektar-alan-zarar-gordu-39257712",
+    "https://www.dailysabah.com/turkiye/2025-forest-fires-reach-second-highest-burned-area-in-turkiye/news"
+   ],
+   "not": "NTV: 3.000+ ha, 63 saatte kontrol (19 Eylül 00.30 başlangıç; kontrol tarihi 63 saatten hesaplandı). Muğla Valisi: Köyceğiz+Milas toplam 2.403 ha. Daily Sabah: Köyceğiz ~2.500 ha (Ekim 2025).",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.ntv.com.tr/turkiye/63-saat-surdu-koycegizdeki-tahribat-havadan-goruntulendi,C4lTgRBf1k-E5jdunY-8Dg",
+    "https://yerel-haberler.haberturk.com/mugla-haberleri/koycegiz-ve-milastaki-yanginlarda-2-bin-403-hektar-alan-zarar-gordu-39257712",
+    "https://www.dailysabah.com/turkiye/2025-forest-fires-reach-second-highest-burned-area-in-turkiye/news"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Muğla",
+   "ilce": "Milas",
+   "yer": "Kıyıkışlacık",
+   "baslangic": "2025-09-19",
+   "kontrol": null,
+   "yanan_alan_ha": null,
+   "yaklasik_lat": 37.3167,
+   "yaklasik_lon": 27.7833,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://yerel-haberler.haberturk.com/mugla-haberleri/koycegiz-ve-milastaki-yanginlarda-2-bin-403-hektar-alan-zarar-gordu-39257712"
+   ],
+   "not": "Aynı gün Köyceğiz ile birlikte yayılan ikinci yangın; ayrı alan açıklanmadı (iki yangının toplamı 2.403 ha).",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://yerel-haberler.haberturk.com/mugla-haberleri/koycegiz-ve-milastaki-yanginlarda-2-bin-403-hektar-alan-zarar-gordu-39257712"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "İzmir",
+   "ilce": "Aliağa, Foça",
+   "yer": "Bozköy yakını orman",
+   "baslangic": "2025-06-25",
+   "kontrol": null,
+   "yanan_alan_ha": null,
+   "yaklasik_lat": 38.8008,
+   "yaklasik_lon": 26.9728,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391"
+   ],
+   "not": "tr.wikipedia: 25 Haz 12:30'da başladı. Uzaktan Algılama makalesi büyük 2025 yangınları arasında sayıyor, alan vermiyor. Foça koordinatı 38.6667, 26.7667.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "yil": 2025,
+   "il": "Manisa",
+   "ilce": "Akhisar",
+   "yer": "bilinmiyor",
+   "baslangic": null,
+   "kontrol": null,
+   "yanan_alan_ha": null,
+   "yaklasik_lat": 38.9239,
+   "yaklasik_lon": 27.84,
+   "koordinat_tipi": "ilce_merkezi",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/izmirobm/haberler/manisa-akhisar-musacada-yangin-sonrasi-agaclandirma-ve-genclestirme-calismalari",
+    "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "not": "Uzaktan Algılama makalesi büyük 2025 yangınları arasında sayıyor; alan/tarih açılan sayfalarda yok. Manisa-Akhisar tr.wikipedia'da 27 Temmuz'da Turgutlu yangını ayrı geçiyor.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM İzmir OBM: Manisa Akhisar Musaca'da Yangın Sonrası Ağaçlandırma ve Gençleştirme Çalışmaları (29.01.2026)",
+     "url": "https://www.ogm.gov.tr/izmirobm/haberler/manisa-akhisar-musacada-yangin-sonrasi-agaclandirma-ve-genclestirme-calismalari",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Akhisar Musaca Mah. yangını 28.06.2025; yanan alan belirtilmiyor."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı'dan Orman Yangınlarına Karşı Toplumsal Duyarlılık Çağrısı (1.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Devam eden yangınlar: Manisa Akhisar/Kula/Ahmetli, İzmir Seferihisar/Menderes, Hatay Antakya; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://dergipark.org.tr/en/pub/rsgis/article/1751391",
+    "https://tr.wikipedia.org/wiki/2025_Türkiye_orman_yangınları"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  }
+ ]
+}

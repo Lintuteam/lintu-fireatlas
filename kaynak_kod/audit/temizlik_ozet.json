@@ -1,0 +1,449 @@
+{
+ "koruma_G": {
+  "n_nokta": 336173,
+  "pay_ge_G": {
+   "1": 0.011729079967754697,
+   "2": 0.003429781689784724,
+   "3": 0.0017074541976898798,
+   "4": 0.000987586748489617,
+   "5": 0.0006217037061274998,
+   "6": 0.00043727485550594487,
+   "8": 0.0003242378180282176,
+   "10": 0.0002944912292182894,
+   "15": 0.00019930214502651908,
+   "20": 0.00016658089733559805,
+   "30": 8.329044866779902e-05,
+   "50": 2.9746588809928223e-05
+  },
+  "secilen_G": 2,
+  "hedef_pay": 0.01
+ },
+ "referans": {
+  "n_sanayi_nokta": 127918,
+  "n_yangin_nokta": 8352,
+  "n_site": 26,
+  "n_yangin": 8,
+  "n_ayiklanan_kayit": 3,
+  "sistem": {
+   "nokta_precision": 0.999880947656653,
+   "nokta_recall": 0.9848496693194078,
+   "tp": 125980,
+   "fp_yangin": 15,
+   "yangin_koruma": 0.9982040229885057,
+   "makro_tesis_recall": 0.47773973152625987,
+   "makro_yangin_fpr": 0.014231620697111065,
+   "dengeli_precision": 0.9710722572914176,
+   "site_recall": 0.4782608695652174,
+   "n_site_tespitli": 23,
+   "n_yangin_tespitli": 7
+  },
+  "kural": {
+   "nokta_precision": 1.0,
+   "nokta_recall": 0.9708797823605747,
+   "tp": 124193,
+   "fp_yangin": 0,
+   "yangin_koruma": 1.0,
+   "makro_tesis_recall": 0.3829359856645842,
+   "makro_yangin_fpr": 0.0,
+   "dengeli_precision": 1.0,
+   "site_recall": 0.391304347826087,
+   "n_site_tespitli": 23,
+   "n_yangin_tespitli": 7
+  },
+  "nasa": {
+   "nokta_precision": 0.9998730696001692,
+   "nokta_recall": 0.9237167560468426,
+   "tp": 118160,
+   "fp_yangin": 15,
+   "yangin_koruma": 0.9982040229885057,
+   "makro_tesis_recall": 0.29110614161538917,
+   "makro_yangin_fpr": 0.014231620697111065,
+   "dengeli_precision": 0.9533905646346303,
+   "site_recall": 0.2608695652173913,
+   "n_site_tespitli": 23,
+   "n_yangin_tespitli": 7
+  },
+  "siteler": [
+   {
+    "id": "S01",
+    "ad": "Tüpraş İzmit Rafinerisi A sahası (Körfez Kocaeli)",
+    "tur": "sanayi",
+    "n": 3753,
+    "kalici_pay": 0.9997335464961364,
+    "status": {
+     "statik_nasa": 3196,
+     "sanayi": 487,
+     "kalici_belirsiz": 69,
+     "temiz": 1
+    }
+   },
+   {
+    "id": "S03",
+    "ad": "Tüpraş İzmir Rafinerisi (Aliağa)",
+    "tur": "sanayi",
+    "n": 215,
+    "kalici_pay": 0.8930232558139535,
+    "status": {
+     "sanayi": 128,
+     "statik_nasa": 40,
+     "kalici_belirsiz": 24,
+     "temiz": 23
+    }
+   },
+   {
+    "id": "S04",
+    "ad": "STAR Rafineri (Aliağa)",
+    "tur": "sanayi",
+    "n": 1543,
+    "kalici_pay": 0.9935191186001296,
+    "status": {
+     "sanayi": 949,
+     "statik_nasa": 447,
+     "kalici_belirsiz": 137,
+     "temiz": 9,
+     "deniz": 1
+    }
+   },
+   {
+    "id": "S05",
+    "ad": "Petkim (Aliağa)",
+    "tur": "sanayi",
+    "n": 355,
+    "kalici_pay": 0.819718309859155,
+    "status": {
+     "kalici_belirsiz": 124,
+     "sanayi": 103,
+     "temiz": 64,
+     "statik_nasa": 64
+    }
+   },
+   {
+    "id": "S06",
+    "ad": "Habaş Demir Çelik (Aliağa)",
+    "tur": "sanayi",
+    "n": 38755,
+    "kalici_pay": 0.9819378144755515,
+    "status": {
+     "statik_nasa": 36068,
+     "sanayi": 1985,
+     "temiz": 700,
+     "kalici_belirsiz": 2
+    }
+   },
+   {
+    "id": "S07",
+    "ad": "Aliağa Gemi Söküm Tesisleri",
+    "tur": "sanayi",
+    "n": 107,
+    "kalici_pay": 0.9252336448598131,
+    "status": {
+     "kalici_belirsiz": 99,
+     "temiz": 8
+    }
+   },
+   {
+    "id": "S08",
+    "ad": "İsdemir İskenderun Demir Çelik (Payas Hatay)",
+    "tur": "sanayi",
+    "n": 30885,
+    "kalici_pay": 1.0,
+    "status": {
+     "statik_nasa": 29603,
+     "sanayi": 1282
+    }
+   },
+   {
+    "id": "S09",
+    "ad": "İskenderun Atlas Termik Santrali",
+    "tur": "sanayi",
+    "n": 2298,
+    "kalici_pay": 0.9495213228894691,
+    "status": {
+     "statik_nasa": 1862,
+     "sanayi": 310,
+     "temiz": 104,
+     "deniz": 12,
+     "kalici_belirsiz": 10
+    }
+   },
+   {
+    "id": "S10",
+    "ad": "İsken Sugözü Termik Santrali (Yumurtalık Adana)",
+    "tur": "sanayi",
+    "n": 22,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 22
+    }
+   },
+   {
+    "id": "S11",
+    "ad": "Tüpraş Batman Rafinerisi",
+    "tur": "sanayi",
+    "n": 18,
+    "kalici_pay": 0.1111111111111111,
+    "status": {
+     "temiz": 16,
+     "statik_nasa": 2
+    }
+   },
+   {
+    "id": "S12",
+    "ad": "Tüpraş Kırıkkale Rafinerisi",
+    "tur": "sanayi",
+    "n": 227,
+    "kalici_pay": 0.8546255506607929,
+    "status": {
+     "sanayi": 194,
+     "temiz": 33
+    }
+   },
+   {
+    "id": "S13",
+    "ad": "Ereğli Demir ve Çelik Fabrikaları (Zonguldak)",
+    "tur": "sanayi",
+    "n": 30524,
+    "kalici_pay": 0.9997706722578954,
+    "status": {
+     "statik_nasa": 29469,
+     "sanayi": 1027,
+     "kalici_belirsiz": 21,
+     "temiz": 6,
+     "deniz": 1
+    }
+   },
+   {
+    "id": "S14",
+    "ad": "Kardemir (Karabük)",
+    "tur": "sanayi",
+    "n": 18118,
+    "kalici_pay": 0.9988409316701623,
+    "status": {
+     "statik_nasa": 17228,
+     "sanayi": 830,
+     "kalici_belirsiz": 39,
+     "temiz": 21
+    }
+   },
+   {
+    "id": "S15",
+    "ad": "Afşin-Elbistan A Termik Santrali",
+    "tur": "sanayi",
+    "n": 28,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 28
+    }
+   },
+   {
+    "id": "S16",
+    "ad": "Afşin-Elbistan B Termik Santrali",
+    "tur": "sanayi",
+    "n": 209,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 209
+    }
+   },
+   {
+    "id": "S17",
+    "ad": "Yatağan Termik Santrali (Muğla)",
+    "tur": "sanayi",
+    "n": 0,
+    "kalici_pay": null,
+    "status": {}
+   },
+   {
+    "id": "S18",
+    "ad": "Kemerköy Termik Santrali (Milas Muğla)",
+    "tur": "sanayi",
+    "n": 63,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 63
+    }
+   },
+   {
+    "id": "S19",
+    "ad": "Yeniköy Termik Santrali (Milas Muğla)",
+    "tur": "sanayi",
+    "n": 10,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 10
+    }
+   },
+   {
+    "id": "S20",
+    "ad": "Soma A Termik Santrali (Manisa)",
+    "tur": "sanayi",
+    "n": 64,
+    "kalici_pay": 0.09375,
+    "status": {
+     "temiz": 58,
+     "statik_nasa": 6
+    }
+   },
+   {
+    "id": "S22",
+    "ad": "Seyitömer Termik Santrali (Kütahya)",
+    "tur": "sanayi",
+    "n": 571,
+    "kalici_pay": 0.30472854640980734,
+    "status": {
+     "temiz": 397,
+     "statik_nasa": 174
+    }
+   },
+   {
+    "id": "S23",
+    "ad": "Tunçbilek Termik Santrali (Kütahya)",
+    "tur": "sanayi",
+    "n": 127,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 127
+    }
+   },
+   {
+    "id": "S24",
+    "ad": "Çayırhan Termik Santrali (Ankara)",
+    "tur": "sanayi",
+    "n": 0,
+    "kalici_pay": null,
+    "status": {}
+   },
+   {
+    "id": "S25",
+    "ad": "Kangal Termik Santrali (Sivas)",
+    "tur": "sanayi",
+    "n": 5,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 5
+    }
+   },
+   {
+    "id": "S26",
+    "ad": "Çatalağzı Termik Santrali (Zonguldak)",
+    "tur": "sanayi",
+    "n": 0,
+    "kalici_pay": null,
+    "status": {}
+   },
+   {
+    "id": "S27",
+    "ad": "Orhaneli Termik Santrali (Bursa)",
+    "tur": "sanayi",
+    "n": 16,
+    "kalici_pay": 0.0625,
+    "status": {
+     "temiz": 15,
+     "statik_nasa": 1
+    }
+   },
+   {
+    "id": "S28",
+    "ad": "18 Mart Çan Termik Santrali (Çanakkale)",
+    "tur": "sanayi",
+    "n": 5,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 5
+    }
+   },
+   {
+    "id": "Y01",
+    "ad": "Manavgat yangını 2021",
+    "tur": "yangin",
+    "n": 6669,
+    "kalici_pay": 0.000449842555105713,
+    "status": {
+     "temiz": 6666,
+     "statik_nasa": 3
+    }
+   },
+   {
+    "id": "Y03",
+    "ad": "Bördübet (Marmaris) yangını 2022",
+    "tur": "yangin",
+    "n": 20,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 20
+    }
+   },
+   {
+    "id": "Y04",
+    "ad": "Datça yangını 2022",
+    "tur": "yangin",
+    "n": 91,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 91
+    }
+   },
+   {
+    "id": "Y05",
+    "ad": "İzmir Seferihisar-Menderes yangınları 2025",
+    "tur": "yangin",
+    "n": 1018,
+    "kalici_pay": 0.0029469548133595285,
+    "status": {
+     "temiz": 1015,
+     "statik_nasa": 3
+    }
+   },
+   {
+    "id": "Y06",
+    "ad": "Dörtyol orman yangını 2025",
+    "tur": "yangin",
+    "n": 64,
+    "kalici_pay": 0.078125,
+    "status": {
+     "temiz": 59,
+     "statik_nasa": 5
+    }
+   },
+   {
+    "id": "Y07",
+    "ad": "Seyitgazi yangını 2025",
+    "tur": "yangin",
+    "n": 0,
+    "kalici_pay": null,
+    "status": {}
+   },
+   {
+    "id": "Y08",
+    "ad": "Gelibolu yangını 2025",
+    "tur": "yangin",
+    "n": 269,
+    "kalici_pay": 0.0,
+    "status": {
+     "temiz": 269
+    }
+   },
+   {
+    "id": "Y09",
+    "ad": "Belen (Hatay) Sarımazı yangını 2020",
+    "tur": "yangin",
+    "n": 221,
+    "kalici_pay": 0.01809954751131222,
+    "status": {
+     "temiz": 217,
+     "statik_nasa": 4
+    }
+   }
+  ]
+ },
+ "status": {
+  "temiz": 827043,
+  "statik_nasa": 328379,
+  "aniz": 217179,
+  "sanayi": 27012,
+  "deniz": 8848,
+  "kalici_belirsiz": 6208,
+  "volkan": 5
+ },
+ "sure_sn": 82.3
+}

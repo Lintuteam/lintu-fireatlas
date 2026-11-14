@@ -1,0 +1,177 @@
+{
+ "arazi": {
+  "kolonlar": [
+   {
+    "ad": "wc_maj",
+    "tip": "uint8",
+    "kolon_no": 0
+   },
+   {
+    "ad": "p_tree",
+    "tip": "uint8",
+    "kolon_no": 1
+   },
+   {
+    "ad": "p_shrub",
+    "tip": "uint8",
+    "kolon_no": 2
+   },
+   {
+    "ad": "p_grass",
+    "tip": "uint8",
+    "kolon_no": 3
+   },
+   {
+    "ad": "p_crop",
+    "tip": "uint8",
+    "kolon_no": 4
+   },
+   {
+    "ad": "p_built",
+    "tip": "uint8",
+    "kolon_no": 5
+   },
+   {
+    "ad": "osm",
+    "tip": "uint8",
+    "kolon_no": 6
+   }
+  ],
+  "ofset_kurali": "kolon j baslangic bayti = j * n (n = manifest.json events[yil].n); sira events_<yil>.bin ile ayni",
+  "yillar": {
+   "2000": {
+    "n": 438
+   },
+   "2001": {
+    "n": 4361
+   },
+   "2002": {
+    "n": 5628
+   },
+   "2003": {
+    "n": 6290
+   },
+   "2004": {
+    "n": 6561
+   },
+   "2005": {
+    "n": 6868
+   },
+   "2006": {
+    "n": 7649
+   },
+   "2007": {
+    "n": 7087
+   },
+   "2008": {
+    "n": 4728
+   },
+   "2009": {
+    "n": 15574
+   },
+   "2010": {
+    "n": 11091
+   },
+   "2011": {
+    "n": 14684
+   },
+   "2012": {
+    "n": 15385
+   },
+   "2013": {
+    "n": 23579
+   },
+   "2014": {
+    "n": 13898
+   },
+   "2015": {
+    "n": 30614
+   },
+   "2016": {
+    "n": 26784
+   },
+   "2017": {
+    "n": 19255
+   },
+   "2018": {
+    "n": 23285
+   },
+   "2019": {
+    "n": 27719
+   },
+   "2020": {
+    "n": 28315
+   },
+   "2021": {
+    "n": 20771
+   },
+   "2022": {
+    "n": 17982
+   },
+   "2023": {
+    "n": 34974
+   },
+   "2024": {
+    "n": 42195
+   },
+   "2025": {
+    "n": 29700
+   },
+   "2026": {
+    "n": 26563
+   }
+  },
+  "wc_siniflari": {
+   "10": "agac",
+   "20": "cali",
+   "30": "cayir",
+   "40": "ekili_alan",
+   "50": "yapilasmis",
+   "60": "ciplak",
+   "70": "kar_buz",
+   "80": "su",
+   "90": "sulak",
+   "95": "mangrov",
+   "100": "yosun_liken",
+   "255": "veri_yok"
+  },
+  "pay_kolonlari": "p_* = olay merkezi +-250 m penceredeki piksel yuzdesi 0-100; diger = 100 - toplam; 255 = veri yok",
+  "osm_kodlari": {
+   "0": "yok",
+   "1": "sanayi/isletme/flare",
+   "2": "tas ocagi",
+   "3": "cop sahasi",
+   "4": "enerji santrali"
+  },
+  "osm_kurali": "merkez poligon icinde veya ~300 m icinde (0.001 derece izgara, enlem 3/boylam 4 hucre tampon); oncelik 4>3>2>1",
+  "osm_ogeleri": {
+   "1": 19945,
+   "2": 5407,
+   "3": 1866,
+   "4": 2561
+  },
+  "kaynaklar": [
+   {
+    "ad": "ESA WorldCover 10 m v200 (2021)",
+    "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_{t}_Map.tif",
+    "lisans": "CC BY 4.0",
+    "atif": "© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium"
+   },
+   {
+    "ad": "OpenStreetMap (Overpass API)",
+    "url": "https://overpass-api.de/api/interpreter",
+    "lisans": "ODbL",
+    "atif": "© OpenStreetMap contributors, ODbL"
+   }
+  ],
+  "olusturma_tarihi": "2026-11-14",
+  "indirilen_wc_mb": 1303,
+  "sinirlar": [
+   "Tek yil (2021) arazi ortusu; 2000-2026 olaylari icin degisim yok sayilir",
+   "Olay merkezi +-250 m penceresi; buyuk olaylarin tamamini temsil etmez",
+   "Karo kenarinda pencere kirpilir",
+   "OSM tamligi bolgeye gore degisir; bos = 'sanayi degil' demek degildir",
+   "OSM cokgenlerinin ic bosluklari (inner) doldurulur"
+  ]
+ }
+}

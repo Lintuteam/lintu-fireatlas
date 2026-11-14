@@ -1,0 +1,22 @@
+[
+ {"baslik": "Sorun: iki sensör, bir yapay sıçrama", "mesaj": "MODIS 2000'den, VIIRS {{veri_ilk_viirs_yili}}'den beri yangın tespit ediyor; VIIRS daha hassas, bu yüzden ham seri geçişte {{jump_raw_pct|t}} sıçrıyor.",
+  "metrikler": ["veri_ilk_viirs_yili", "jump_raw_pct", "jump_raw_viirs_only_pct"]},
+ {"baslik": "Veri: çok yıllı Türkiye arşivi", "mesaj": "{{veri_toplam_nokta}} ham tespit, MODIS {{veri_modis_nokta}}, VIIRS {{veri_viirs_nokta}}; hiçbir nokta silinmez, her nokta bir etiket alır.",
+  "metrikler": ["veri_toplam_nokta", "veri_modis_nokta", "veri_viirs_nokta", "veri_yil_bas", "veri_yil_bit", "veri_nrt_nokta"]},
+ {"baslik": "Temizlik: yangın olmayan ısı kaynakları", "mesaj": "Noktaların {{huni_nasa_etiket_pay|t}} NASA etiketiyle, {{huni_kural_etiket_pay|t}} kendi kuralımızla (sanayi) ayrılır; anız olay düzeyinde etiketlenir. Kural tabanlıdır.",
+  "metrikler": ["temizlik_status_temiz", "temizlik_status_aniz", "temizlik_status_sanayi", "huni_nasa_etiket_pay", "huni_kural_etiket_pay", "temizlik_ref_yangin_koruma"]},
+ {"baslik": "Kümeleme: aynı yangını bir kez say", "mesaj": "{{huni_kumeleme_girdi}} noktadan {{events_total}} olay; ortak kümeleme çakışma döneminde {{events_double_count_avoided}} çifte sayımı önler.",
+  "metrikler": ["huni_kumeleme_girdi", "events_total", "events_double_count_avoided", "events_joint_overlap", "events_separate_overlap"]},
+ {"baslik": "Üçlü sınıf: ortak / yalnız MODIS / yalnız VIIRS", "mesaj": "VIIRS ayrıntısı korunur; MODIS olaylarının yalnız {{events_modis_seen_by_viirs_share|yuzde}} kadarını VIIRS de görür (çoğu fark gerçek gözlem farkı).",
+  "metrikler": ["events_match_ortak", "events_match_yalniz_modis", "events_match_yalniz_viirs", "events_modis_seen_by_viirs_share", "mcell_iz_basina_viirs"]},
+ {"baslik": "Harmonizasyon: VIIRS'i MODIS'in diline çevir", "mesaj": "Gözlem eforu (uydu sayısı) düzeltmesi asıl kazanç: ay×bölge hata {{harm_i0_ay_bolge_wape|t}} → {{harm_ii_ay_bolge_wape|t}}; (i) ve (ii) ayırt edilemez.",
+  "metrikler": ["harm_i0_ay_bolge_wape", "harm_i_ay_bolge_wape", "harm_ii_ay_bolge_wape", "harm_ii_eksi_i_wape_ci95", "harm_kazanan_yontem"]},
+ {"baslik": "Sonuç: sıçrama gerçek MODIS düşüşünü izliyor", "mesaj": "Ham {{jump_raw_pct|t}} → harmonize {{jump_harm_pct|t}}; gerçek MODIS {{jump_modis_gercek_pct|t}}; fark {{jump_resid_pct|t}}. 'Çözüldü' değil, 'izliyor'.",
+  "metrikler": ["jump_raw_pct", "jump_harm_pct", "jump_modis_gercek_pct", "jump_resid_pct", "loyo_ci95", "jump_harm_dogal_aralikta"]},
+ {"baslik": "Doğrulama: bir yılı saklayıp tahmin etmek (LOYO)", "mesaj": "Yıllık MAPE {{loyo_mape|t}}, R² {{loyo_r2|t}}; aylık ülke bandı ayların {{equiv_band_kapsama_ay_tr|yuzde}} kadarını kapsıyor; denetçi {{yh_girdi}} sayıyı bağımsız yeniden hesapladı.",
+  "metrikler": ["loyo_mape", "loyo_r2", "loyo_bias", "equiv_band_kapsama_ay_tr", "yh_girdi", "yh_fark_sifir"]},
+ {"baslik": "Takvim: en yoğun aylar ve anomali", "mesaj": "MODIS temiz seride ilk üç ay {{takvim_top3_ay_modis_temiz_TR|ay}}; aylar arasında ayırt edilemezlik bayrağı var. Aktivite = tarihsel hotspot yoğunluğu, tehlike tahmini değil.",
+  "metrikler": ["takvim_top3_ay_modis_temiz_TR", "takvim_top3_ay_modis_esdeger_TR", "takvim_ayirt_edilemez_modis_temiz_TR", "takvim_mevcut_ay_oran_modis_temiz_TR", "takvim_mevcut_ay_oran_viirs_temiz_ub_TR"]},
+ {"baslik": "Dürüst sınırlar", "mesaj": "2026 eşdeğer bandı gerçek MODIS'i ayların yalnız {{harm_2026_bant_kapsama|yuzde}} kadarında kapsıyor; tesis yakalama {{ref_recall|t}}; anız için yer doğrulaması yok; ekran okuyucu testi yok.",
+  "metrikler": ["harm_2026_bant_kapsama", "ref_recall", "temizlik_aniz_loyo_kaldirac", "aqua_viirs_esz_cift_payi_2026", "a11y_klavye_oran", "temizlik_sta_maskesi_karsilastirma"]}
+]

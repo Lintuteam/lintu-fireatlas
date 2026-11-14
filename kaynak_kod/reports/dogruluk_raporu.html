@@ -1,0 +1,251 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>dogruluk_raporu</title><style>:root{--bg:#070b10;--card:#0d141b;--line:#1b2630;--tx:#e6edf3;--dim:#7b8794;--ac:#5eead4}
+body{background:var(--bg);color:var(--tx);font:15px/1.6 Inter,system-ui,sans-serif;margin:0}
+main{max-width:980px;margin:0 auto;padding:24px 16px}
+h1,h2,h3{font-weight:500}h2{border-top:1px solid var(--line);padding-top:18px;margin-top:28px}
+h1{font-size:1.7em}code{font:12.5px ui-monospace,monospace;background:var(--card);padding:1px 5px;border-radius:4px;color:var(--ac)}
+table{border-collapse:collapse;width:100%;margin:12px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top;font-size:13.5px}
+th{background:var(--card);color:var(--dim);font:600 11.5px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}
+blockquote{border-left:3px solid var(--ac);margin:12px 0;padding:2px 14px;color:var(--dim);background:var(--card)}
+strong{color:#fff}
+@media print{:root{--bg:#fff;--card:#f3f5f7;--line:#c9d1d9;--tx:#111;--dim:#444;--ac:#0b6b5f}strong{color:#000}}
+</style></head><body><main><h1>Doğruluk Raporu</h1>
+<p>Veri sürümü: FIRMS MODIS C6.1 + VIIRS 375 m, 2000–2026 (son gün 2026-11-12), 1.414.674 nokta, veri şeması v1, <code>reports/metrics.json</code> üretimi 2026-11-13T09:07:17Z · Üretim tarihi: 2026-11-13 09:42 UTC Denetçi durumu: check_all: 25 geçti, 0 kaldı, 0 atlandı; denetçi bulguları: açık yüksek 0, açık orta 0, açık düşük 5 — denetçi kapısı açık yüksek bulgu içermiyor</p>
+<blockquote>Bu rapor "ne kadar doğru, neyi doğrulayamadık" sorusunu cevaplar. Her sayı <code>reports/metrics.json</code> kimliğiyle izlenir; yanındaki etiket <strong>ölçüldü</strong> (veriden sayıldı), <strong>tahmini</strong> (model/kural/çıkarım) veya <strong>doğrulanmadı</strong> (bağımsız kanıt yok) anlamına gelir (K5). Her bölüm önce <strong>Basitçe</strong>, sonra <strong>Teknik olarak</strong> anlatır.</blockquote>
+<h2>1. Özet</h2>
+<p><strong>Basitçe:</strong> Sayıları iki kez saydık: bir kez üretim koduyla, bir kez de üretimi yazmayan bağımsız bir denetçiyle. Uyuştular. Yöntemi, test ettiği yılı hiç görmeden sınadık. Sonuç iyi ama kusursuz değil: 2026 için eşdeğer seriye güvenilmez, bazı tesisler kaçıyor ve bazı şeyleri hiç doğrulayamadık; hepsi §9'da açıkça yazılıdır.</p>
+<p><strong>Teknik olarak:</strong> Kabul kriterleri C01–C25: geçen 25 / 25, kalan 0, atlanan 0 (§8). Bağımsız yeniden hesap (C23): 97 (ölçüldü) karşılaştırmanın 93 tanesinde bağımsız yeniden hesapla fark 0; 4 girdi açıklamalı bilgi kaydıdır (fark değil). C23 sonucu: GEÇTİ. Açık bulgular: yüksek 0, orta 0, düşük 5; kapanan 23 (§10).</p>
+<p>Ana sonuçlar (tamamı aşağıda ayrıntılı):</p>
+<table><thead><tr><th>Ölçü</th><th>Değer</th><th>Not</th></tr></thead><tbody>
+<tr><td>Yıllık MAPE (LOYO)</td><td>8,33 % (ölçüldü)</td><td>kalibrasyon dışı yıllarda</td></tr>
+<tr><td>Yıllık R² (LOYO)</td><td>0,8716 (ölçüldü)</td><td></td></tr>
+<tr><td>Artık sıçrama (harmonize − gerçek MODIS)</td><td>3,55 yüzde puan (tahmini)</td><td>LOYO %95 aralığı [−23,49 ; 9,51] % (tahmini) içinde</td></tr>
+<tr><td>Bağımsız yeniden hesapta fark 0 olan girdi</td><td>93 karşılaştırma (ölçüldü) / 97</td><td>denetçi, farklı yöntem</td></tr>
+<tr><td>Referans dengeli kesinlik</td><td>0,9711 (tahmini)</td><td>tesis yakalama 0,4777 (tahmini)</td></tr>
+</tbody></table>
+<h2>2. Doğrulama yöntemi: sınav sorusunu önceden görmemek (K4)</h2>
+<p><strong>Basitçe:</strong> Öğrenciye sınav sorusunun cevabını verip aynı soruyla notlamak olmaz. Her yılı sırayla "saklıyoruz", kalan yıllardan oran öğreniyoruz, saklanan yılı tahmin edip gerçek MODIS ile karşılaştırıyoruz. <strong>Teknik olarak:</strong> Test: leave-one-year-out (2012-2025, 14 yıl; kazanan (ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu) (ölçüldü). Kalibrasyon yıllarında yapılan test geçerli sayılmaz (C09). Eşik seçimleri (sanayi N, M, Y, S) de LOYO ile yapıldı. 2026 kısmi yıl ve NRT olduğu için test dışıdır ve düşük güven etiketlidir.</p>
+<h2>3. Harmonizasyon doğruluğu (C09, C11)</h2>
+<p><strong>Basitçe:</strong> Hassas termometrenin ölçümünü eski termometrenin diline çevirdik. "Eski termometre görseydi kaç sayardı?" tahminimiz, saklanan yıllarda gerçekle ortalama bu kadar yüzde sapıyor.</p>
+<table><thead><tr><th>Ölçü</th><th>Değer</th><th>Etiket</th></tr></thead><tbody>
+<tr><td>Dışarıdaki yıllarda yıllık MAPE</td><td>8,33 %</td><td>ölçüldü</td></tr>
+<tr><td>Yıllık R²</td><td>0,8716</td><td>ölçüldü</td></tr>
+<tr><td>Yıllık sapma (bias)</td><td>0,55 %</td><td>ölçüldü</td></tr>
+<tr><td>Yıllık %95 hata aralığı</td><td>[−23,49 ; 9,51] %</td><td>tahmini</td></tr>
+<tr><td>Ay×bölge WAPE</td><td>30,63 %</td><td>ölçüldü</td></tr>
+<tr><td>Ay×bölge R²</td><td>0,8607</td><td>ölçüldü</td></tr>
+<tr><td>Çakışma döneminde toplam sapma (bias)</td><td>−0,52 %</td><td>tahmini</td></tr>
+<tr><td>Aylık ülke %95 hata bandı</td><td>[−59,57 ; 74,99] %</td><td>tahmini</td></tr>
+<tr><td>Bant kapsaması ay×bölge</td><td>%95,6</td><td>ölçüldü</td></tr>
+<tr><td>Bant kapsaması ay×ülke</td><td>%92,3</td><td>ölçüldü</td></tr>
+<tr><td><strong>2026</strong> bant kapsaması</td><td>%54,5</td><td>ölçüldü</td></tr>
+</tbody></table>
+<p><strong>Teknik olarak:</strong> Yöntem yarışı (hedef: Terra+Aqua tespiti, LOYO 2012–2025):</p>
+<table><thead><tr><th>Yöntem</th><th>Ay×bölge WAPE %</th><th>Yıllık MAPE %</th><th>Yıllık R²</th><th>Sapma %</th><th>Yıllık %95 aralık</th></tr></thead><tbody>
+<tr><td>(i0) tek sabit oran, efor yok (B-04 tuzağı, yalnız kıyas)</td><td>52,68</td><td>42,12</td><td>−1,7204</td><td>5,03</td><td>[−46,83 ; 86,91]</td></tr>
+<tr><td>(i) tek sabit oran, eforlu</td><td>30,64</td><td>4,83</td><td>0,9675</td><td>0,15</td><td>[−7,81 ; 9,46]</td></tr>
+<tr><td>(ii) bölge × mevsim × FRP büyüklüğü, eforlu (kazanan)</td><td>30,63</td><td>8,33</td><td>0,8716</td><td>0,55</td><td>[−23,49 ; 9,51]</td></tr>
+<tr><td>(iii) FRP eşik eğrisi, eforlu</td><td>31,91</td><td>10,91</td><td>0,7644</td><td>3,76</td><td>[−13 ; 31,69]</td></tr>
+</tbody></table>
+<p>Tüm bu sayılar ölçüldü (aralıklar tahmini). <strong>Dürüst okuma (K5):</strong> (ii) ile (i) ay×bölgede <strong>ayırt edilemez</strong> (WAPE farkı %95 aralığı [−2,97 ; 4,26] yüzde puan (tahmini)); yıllık toplamda (i) daha iyi. Yani asıl kazanç gözlem eforu (uydu sayısı) düzeltmesidir (WAPE 52,68 % (ölçüldü) → 30,64 % (ölçüldü)), (ii)'nin (i)'den üstün olduğu iddia edilmez. (ii) uygulamanın birimi (ay×bölge) için seçildi; seçim LOYO sonuçları üzerinde yapıldığından hata hafif iyimser olabilir. Etiket: kazanan seçimi (ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu (tahmini).</p>
+<p>Birim ve küme varyantları (aynı LOYO ve sıçrama tanımı):</p>
+<table><thead><tr><th>Varyant</th><th>Yıllık MAPE %</th><th>Yıllık R²</th><th>Ham sıçrama %</th><th>Harmonize %</th><th>Gerçek MODIS %</th><th>Artık (puan)</th></tr></thead><tbody>
+<tr><td>tespit, temiz (ana)</td><td>8,33</td><td>0,8716</td><td>143,13</td><td>−41,35</td><td>−44,9</td><td>3,55</td></tr>
+<tr><td>olay, temiz</td><td>7,51</td><td>0,8443</td><td>51,72</td><td>−54,23</td><td>−53,45</td><td>−0,78</td></tr>
+<tr><td>tespit, temiz+anız</td><td>8,27</td><td>0,8988</td><td>113,44</td><td>−49,17</td><td>−52,29</td><td>3,12</td></tr>
+<tr><td>olay, temiz+anız</td><td>7,53</td><td>0,8718</td><td>42,1</td><td>−58,65</td><td>−59,01</td><td>0,36</td></tr>
+</tbody></table>
+<p>(Hepsi ölçüldü; harmonize sütunu tahmini.) Olay eşdeğeri, tespit eşdeğerini aşamaz (K8, B-04 kontrolü): aşan hücreler kırpıldı (ay×bölge 98 hücre (ölçüldü), ay×ülke 6 hücre (ölçüldü), yıl×ülke 0 hücre (ölçüldü)).</p>
+<h2>4. Sıçrama metriği (C10, U-15)</h2>
+<p><strong>Basitçe:</strong> 2012'de ham seri bir anda fırlıyor. Soru: harmonize seri bu yapay fırlamayı gideriyor mu, ama gerçek bir değişimi de saklamıyor mu? Cevap için "gerçek MODIS aynı pencerede ne yaptı?" ile kıyaslıyoruz.</p>
+<table><thead><tr><th>Seri (geçiş 2012, 3+3 yıl)</th><th>Sıçrama</th><th>Etiket</th></tr></thead><tbody>
+<tr><td>Ham (MODIS → MODIS+VIIRS)</td><td>143,13 %</td><td>ölçüldü</td></tr>
+<tr><td>Ham (MODIS → yalnız VIIRS)</td><td>88,03 %</td><td>ölçüldü</td></tr>
+<tr><td>Harmonize (LOYO MODIS-eşdeğer)</td><td>−41,35 %</td><td>tahmini</td></tr>
+<tr><td><strong>Gerçek MODIS (aynı pencere)</strong></td><td>−44,9 %</td><td>ölçüldü</td></tr>
+<tr><td>Harmonizasyonun eklediği (harmonize − gerçek MODIS)</td><td>3,55 puan</td><td>tahmini</td></tr>
+<tr><td>NOAA-20 eklenişi 2018: ham / eforlu / gerçek MODIS</td><td>24,34 / −37,31 / −41,59 %</td><td>ölçüldü</td></tr>
+<tr><td>NOAA-21 eklenişi 2023: ham / eforlu / gerçek MODIS</td><td>110,19 / 44,29 / 31,01 %</td><td>ölçüldü</td></tr>
+</tbody></table>
+<p><strong>Teknik olarak ve dürüstlük notu (C10 inceltildi):</strong> Başlangıçtaki ölçüt "harmonize sıçrama, geçiş dışı yıllık değişimlerin %95 aralığında olmalı" idi. İlk sonuç görüldüğünde gerçek MODIS'in kendisi de bu doğal aralığın dışına düştüğü anlaşıldı (2009–2011 MODIS'te olağandışı yüksek yıllar): ölçüt, gerçek yangın değişimini sensör sıçramasından ayıramıyordu. Bu yüzden ana ölçüt <strong>artık sıçrama</strong> olarak değiştirildi: harmonize − aynı penceredeki gerçek MODIS değişimi, yıllık LOYO %95 hata aralığında olmalı. Bu değişiklik <strong>sonuç görüldükten sonra</strong> yapıldı (<code>audit/degisim_gunlugu.md</code>); bu nedenle ölçütün kendisi sonuca göre seçilmiş olabilir. Bağımsız denetçi, artık sıçramayı ayrıca 3+3 yıllık pencerelerle sınadı ve dağılımının 3,55 puanlık artığı kapsadığını buldu (<code>audit/bulgular.md</code> F2-07), yani sonuç ölçüt seçiminden bağımsız olarak sağlam görünüyor.</p>
+<p>Güncel sonuç: artık 3,55 yüzde puan (tahmini); LOYO aralığı [−23,49 ; 9,51] % (tahmini); C10 ana ölçütü: jump_resid_pct (birim=tespit, küme=temiz) loyo_ci95 içinde (ölçüldü). Eski ölçüt (bilgi): doğal değişim aralığı [−39,3 ; 92,61] % (tahmini); harmonize sıçrama bu aralıkta mı: hayır (tahmini) (gerçek MODIS −44,9 % (ölçüldü) de dışarıda).</p>
+<p><strong>Sonuç (K5, dürüst dil):</strong> "Sensör farkını çözdük" <strong>denmez</strong>. Doğru cümle: <em>harmonize seri, gerçek MODIS düşüşünü 3,55 yüzde puan (tahmini) farkla izliyor; bu fark yıllık hata aralığı içinde, ama aralığın kendisi geniştir ([−23,49 ; 9,51] % (tahmini)).</em> Aynı fark olay biriminde −0,78 yüzde puan (tahmini).</p>
+<h2>5. Temizlik doğruluğu (C13)</h2>
+<p><strong>Basitçe:</strong> Kuralımız "bu baca" dediğinde ne sıklıkla haklı, bilinen tesislerin ne kadarını yakalıyor ve gerçek yangını yanlışlıkla silmiyor mu? FIRMS'ten bağımsız bir listeyle sorduk. Anız içinse elimizde yalnız dolaylı kanıt var.</p>
+<p><strong>Teknik olarak:</strong> Doğrulama seti <code>audit/dogrulama_seti.csv</code>: 26 tesis (ölçüldü) sanayi tesisi (OpenStreetMap), 8 yangın (ölçüldü) bilinen yangın (Wikipedia + ilçe merkezi), 3 (ölçüldü) kayıt çakışmadan ayıklandı. Sınıflar eşit ağırlıklı (her tesise ve her yangına eşit oy).</p>
+<table><thead><tr><th>Ölçü</th><th>Değer</th><th>Etiket</th></tr></thead><tbody>
+<tr><td>Dengeli kesinlik (precision)</td><td>0,9711</td><td>tahmini</td></tr>
+<tr><td>Makro tesis yakalama (recall)</td><td>0,4777</td><td>tahmini</td></tr>
+<tr><td>Tesis düzeyi yakalama</td><td>0,4783</td><td>tahmini</td></tr>
+<tr><td>Yangın başına yanlış işaret</td><td>0,0142</td><td>tahmini</td></tr>
+<tr><td>Gerçek yangın noktası korunması</td><td>0,9982</td><td>tahmini</td></tr>
+<tr><td>Yalnız kural (NASA type'sız), makro yakalama</td><td>0,3829</td><td>tahmini</td></tr>
+<tr><td>Yalnız NASA statik etiketi, makro yakalama</td><td>0,2911</td><td>tahmini</td></tr>
+<tr><td>Nokta düzeyi kesinlik / yakalama (şişkin, sunumda kullanılmaz)</td><td>0,9999 / 0,9848</td><td>tahmini</td></tr>
+<tr><td>Sanayi LOYO uyuşması (NASA type=2): kesinlik / duyarlılık</td><td>0,9199 / 0,9712</td><td>ölçüldü (uyuşma, doğruluk değil)</td></tr>
+<tr><td>aynı, VIIRS dönemi: kesinlik / duyarlılık</td><td>0,924 / 0,9722</td><td>ölçüldü</td></tr>
+<tr><td>aynı, MODIS dönemi: kesinlik / duyarlılık</td><td>0,2278 / 0,5679</td><td>ölçüldü</td></tr>
+<tr><td>MODIS dönemi 'sanayi' noktalarının bilinen tesise yakınlığı</td><td>%66,6</td><td>ölçüldü</td></tr>
+<tr><td>Anız LOYO kapsama / taban / kaldıraç</td><td>0,749 / 0,8071 / 0,928</td><td>ölçüldü</td></tr>
+<tr><td>Anız ayları ile ulusal hasat penceresi uyumu</td><td>%74,2</td><td>tahmini</td></tr>
+</tbody></table>
+<p><strong>WorldCover (bağımsız arazi örtüsü, 2021, örneklem):</strong></p>
+<table><thead><tr><th>Grup</th><th>Ekili alan</th><th>Yapılaşmış</th><th>Ağaç</th><th>Çayır</th></tr></thead><tbody>
+<tr><td>Anız</td><td>%79,3</td><td>%3</td><td>%3,9</td><td>%12,8</td></tr>
+<tr><td>Büyük temiz olaylar</td><td>%50,3</td><td>%0,4</td><td>%32,1</td><td>%14,1</td></tr>
+<tr><td>Sanayi + kalıcı (kural)</td><td>%8,9</td><td>%56</td><td>%6,2</td><td>%12</td></tr>
+<tr><td>NASA statik kaynak</td><td>%1,8</td><td>%81,2</td><td>%3</td><td>%3,6</td></tr>
+</tbody></table>
+<p>(Hepsi ölçüldü; ama yalnız kural etiketiyle arazi örtüsü <strong>uyumu</strong>dur, yer doğrulaması değil.) Static Thermal Anomalies maskesi karşılaştırması: yok (doğrulanmadı). Anız takviminin saha/yanmış alan ile bağımsız doğrulaması: <strong>yapılmadı (doğrulanmadı)</strong>.</p>
+<h2>6. Kümeleme doğruluğu (C03, C04, C05, C12)</h2>
+<p><strong>Basitçe:</strong> Kümelemeyi hızlı yapan kodun, çok yavaş ama kesin "her noktayı her noktayla karşılaştır" yöntemiyle aynı sonucu verdiğini gösterdik; ayrıca kasten bozuk bir yöntemi testin yakalayıp yakalayamadığına baktık. <strong>Teknik olarak:</strong> Hızlı kümeleme = kaba kuvvet: 12 örneklem (ölçüldü) (21.509 nokta), 7 kural çeşidi, 88 karşılaştırmanın hepsinde fark 0 karşılaştırma (ölçüldü); kasten hatalı yöntem 12/12 örneklemde yakalandı (C03, <code>src/clustering/bruteforce_check.py</code>). Çifte sayım: çakışma döneminde ortak 380.975 olay (ölçüldü) ≤ ayrı 440.176 olay (ölçüldü); önlenen 59.201 olay (ölçüldü) (C04). Sınıf toplamı: ortak 35.651 olay (ölçüldü) + yalnız MODIS 57.543 olay (ölçüldü) + yalnız VIIRS 287.781 olay (ölçüldü) + tek sensör dönemi 91.003 olay (ölçüldü) = 471.978 olay (ölçüldü) (C05). Süre 3,32 s (ölçüldü), bellek 676 MB (ölçüldü) (ölçüldü). D/H/L duyarlılığı (olay sayısı kuralla birlikte okunmalı):</p>
+<p><strong>D</strong> (en az 4 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>olay</th><th>en_buyuk_olay</th><th>tek_tespitli_oran</th><th>olay_demo_donemi</th><th>modis_viirste_gorulme</th></tr></thead><tbody>
+<tr><td>0,5</td><td>541.338</td><td>6.736</td><td>0,7307</td><td>64.429</td><td>0,363</td></tr>
+<tr><td>1</td><td>471.978</td><td>6.740</td><td>0,663</td><td>56.263</td><td>0,3825</td></tr>
+<tr><td>2</td><td>383.640</td><td>6.754</td><td>0,5831</td><td>47.803</td><td>0,462</td></tr>
+<tr><td>3</td><td>341.799</td><td>6.755</td><td>0,5745</td><td>42.731</td><td>0,4767</td></tr>
+</tbody></table>
+<p><strong>H</strong> (en az 4 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>olay</th><th>en_buyuk_olay</th><th>tek_tespitli_oran</th><th>olay_demo_donemi</th><th>modis_viirste_gorulme</th></tr></thead><tbody>
+<tr><td>6</td><td>525.841</td><td>1.385</td><td>0,6659</td><td>63.473</td><td>0,3591</td></tr>
+<tr><td>12</td><td>512.109</td><td>6.658</td><td>0,6684</td><td>61.575</td><td>0,3617</td></tr>
+<tr><td>24</td><td>481.008</td><td>6.740</td><td>0,666</td><td>57.673</td><td>0,3767</td></tr>
+<tr><td>48</td><td>451.483</td><td>6.742</td><td>0,6571</td><td>53.929</td><td>0,4015</td></tr>
+</tbody></table>
+<p><strong>L</strong> (en az 5 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>olay</th><th>en_buyuk_olay</th><th>tek_tespitli_oran</th><th>sure_saat_p90</th><th>olay_demo_donemi</th><th>modis_viirste_gorulme</th></tr></thead><tbody>
+<tr><td>1</td><td>506.842</td><td>6.665</td><td>0,6685</td><td>0,83</td><td>61.132</td><td>0,362</td></tr>
+<tr><td>2</td><td>499.277</td><td>6.740</td><td>0,6664</td><td>0,85</td><td>60.595</td><td>0,3763</td></tr>
+<tr><td>3</td><td>471.978</td><td>6.740</td><td>0,663</td><td>1,57</td><td>56.263</td><td>0,3825</td></tr>
+<tr><td>4</td><td>468.214</td><td>6.740</td><td>0,6611</td><td>1,65</td><td>55.962</td><td>0,3929</td></tr>
+<tr><td>6</td><td>460.759</td><td>6.740</td><td>0,6587</td><td>1,67</td><td>55.206</td><td>0,4017</td></tr>
+</tbody></table>
+<p>Ayak izi eşleştirmesinin etkisi: yalnız-MODIS olay 63.310 olay (ölçüldü) (sabit 1 km) → 58.998 olay (ölçüldü) (ayak izi). Anız etkileşimi (tahmini): ortak kümelemede anız sayılan nokta 290.799 nokta (tahmini), ayrı kümelemede 320.995 nokta (tahmini).</p>
+<h2>7. Bağımsız yeniden hesap (C23)</h2>
+<p><strong>Basitçe:</strong> Aşçı yemeğin tuzunu kendisi tadarsa körleşir; başka birine tattırdık. Denetçi, üretim kodunu kullanmadan sayıları yeniden üretti. <strong>Teknik olarak:</strong> 97 (ölçüldü) karşılaştırmanın 93 tanesinde bağımsız yeniden hesapla fark 0; 4 girdi açıklamalı bilgi kaydıdır (fark değil). C23 sonucu: GEÇTİ.</p>
+<p>Denetçi bu sayıları üretim kodundan bağımsız (openpyxl, polars, pandas) yeniden hesapladı (<code>audit/f1/</code>, <code>audit/f2/</code>). Aşağıda örnek satırlar; tamamı <code>audit/yeniden_hesap.json</code>. Etiket: ölçüldü.</p>
+<table><thead><tr><th>Girdi</th><th>Beklenen (üretim hattı)</th><th>Bulunan (bağımsız)</th><th>Fark</th></tr></thead><tbody>
+<tr><td>toplam_satir_xlsx</td><td>1.414.674</td><td>1.414.674</td><td>0</td></tr>
+<tr><td>toplam_satir_points</td><td>1.414.674</td><td>1.414.674</td><td>0</td></tr>
+<tr><td>sensor_MODIS</td><td>259.707</td><td>259.707</td><td>0</td></tr>
+<tr><td>sensor_VIIRS</td><td>1.154.967</td><td>1.154.967</td><td>0</td></tr>
+<tr><td>uydu_Terra</td><td>136.626</td><td>136.626</td><td>0</td></tr>
+<tr><td>uydu_Aqua</td><td>123.081</td><td>123.081</td><td>0</td></tr>
+<tr><td>uydu_SNPP</td><td>637.595</td><td>637.595</td><td>0</td></tr>
+<tr><td>uydu_N20</td><td>360.942</td><td>360.942</td><td>0</td></tr>
+<tr><td>uydu_N21</td><td>156.430</td><td>156.430</td><td>0</td></tr>
+<tr><td>nrt_satir</td><td>61.147</td><td>61.147</td><td>0</td></tr>
+<tr><td>f2_huni_ham</td><td>1.414.674</td><td>1.414.674</td><td>0</td></tr>
+<tr><td>f2_huni_status_bos</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>f2_huni_status_temiz</td><td>827.043</td><td>827.043</td><td>0</td></tr>
+<tr><td>f2_huni_status_deniz</td><td>8.848</td><td>8.848</td><td>0</td></tr>
+<tr><td>f2_huni_status_volkan</td><td>5</td><td>5</td><td>0</td></tr>
+<tr><td>f2_huni_status_statik_nasa</td><td>328.379</td><td>328.379</td><td>0</td></tr>
+<tr><td>f2_huni_status_sanayi</td><td>27.012</td><td>27.012</td><td>0</td></tr>
+<tr><td>f2_huni_status_kalici_belirsiz</td><td>6.208</td><td>6.208</td><td>0</td></tr>
+<tr><td>f2_huni_status_dusuk_guven</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>f2_huni_status_aniz</td><td>217.179</td><td>217.179</td><td>0</td></tr>
+</tbody></table>
+<h2>8. Kabul kriterleri C01–C25</h2>
+<table><thead><tr><th>Kod</th><th>Kontrol</th><th>Durum</th><th>Not</th></tr></thead><tbody>
+<tr><td>C01</td><td>Huni korunumu</td><td>GEÇTİ</td><td>her nokta tam bir etiket taşıyor</td></tr>
+<tr><td>C02</td><td>Toplam tutarlılığı</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C03</td><td>Kümeleme doğruluğu</td><td>GEÇTİ</td><td>mutasyon testi: hatalı yöntem 12/12 örneklemde yakalandı / örneklem=12 nokta=21509 kural=7 karşılaştırma=88 fark_olan=0 süre=108.2s / C03...</td></tr>
+<tr><td>C04</td><td>Çifte sayım yok</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C05</td><td>Üçlü sınıf toplamı</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C06</td><td>Veri kapsamı</td><td>GEÇTİ</td><td>kesinti düzeltmesi kanıtı: {"modis_kesinti_gunu_olan_ay": 12, "duzeltmeli_ge_duzeltmesiz": true, "tamamen_kapsamsiz_gunlerde_modis_tespit...</td></tr>
+<tr><td>C07</td><td>Zaman</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C08</td><td>Şema ve kodlama tutarlılığı</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C09</td><td>Kalibrasyon dışı doğrulama</td><td>GEÇTİ</td><td>yöntem yıl dışarıda bırakma olmalı</td></tr>
+<tr><td>C10</td><td>Sıçrama metriği</td><td>GEÇTİ</td><td>artık sıçrama LOYO %95 aralığında olmalı</td></tr>
+<tr><td>C11</td><td>Eşdeğer seri doğruluğu</td><td>GEÇTİ</td><td>sapma ve bant raporlandı</td></tr>
+<tr><td>C12</td><td>Duyarlılık</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C13</td><td>Referans karşılaştırması</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C14</td><td>Ekran = hesap</td><td>GEÇTİ</td><td>statik tarama; çalışma anı karşılaştırması denetçide</td></tr>
+<tr><td>C15</td><td>Yasak kalıp taraması</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C16</td><td>Simülasyon izolasyonu</td><td>GEÇTİ</td><td>simüle veri yalnız tests/ altında</td></tr>
+<tr><td>C17</td><td>CSV</td><td>GEÇTİ</td><td>csv_check OK: BOM, t_utc/t_tr, formül öneki, sayı korunumu</td></tr>
+<tr><td>C18</td><td>TR/EN</td><td>GEÇTİ</td><td>279 anahtar</td></tr>
+<tr><td>C19</td><td>Erişilebilirlik</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C20</td><td>Performans</td><td>GEÇTİ</td><td>hedef ≤ 5 sn</td></tr>
+<tr><td>C21</td><td>Çevrimdışı açılış</td><td>GEÇTİ</td><td>dış CDN bağımlılığı olmamalı</td></tr>
+<tr><td>C22</td><td>Belge sayıları</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C23</td><td>Bağımsız yeniden hesap</td><td>GEÇTİ</td><td></td></tr>
+<tr><td>C24</td><td>Dürüstlük etiketi</td><td>GEÇTİ</td><td>etiket içermeyen rapor</td></tr>
+<tr><td>C25</td><td>Gereksinim eşlemesi</td><td>GEÇTİ</td><td></td></tr>
+</tbody></table>
+<p>C14 kontrolü kodda "statik tarama"dır; çalışma anı karşılaştırması denetçi tarafından arayüz üzerinde ayrıca yapıldı (örneklenen ekran değerleri agg tablolarıyla ve metrics.json ile birebir, fark 0; <code>audit/bulgular.md</code> F4). Performans: eşik değişimi 0,253 s (ölçüldü) (tek ölçüm, bu makine). Erişilebilirlik: klavye %88,4, adlı öğe %100, en düşük kontrast 4,59 (ölçüldü).</p>
+<h2>9. Doğrulanmayanlar ve bilinen sınırlar</h2>
+<p><strong>Basitçe:</strong> Burası "bilmediğimiz şeyler" listesidir; güzelleştirilmedi. Jüri sorarsa ilk önce buradan cevap verilir.</p>
+<table><thead><tr><th>#</th><th>Konu</th><th>Etiket</th><th>Açıklama</th><th>Kaynak</th></tr></thead><tbody>
+<tr><td>1</td><td>2026 için MODIS-eşdeğer seri güvenilmez</td><td>doğrulanmadı</td><td>Aqua öğle geçişi 10,7 UTC (2015) iken 12,65 UTC'ye (2026) kaydı; Aqua ile VIIRS'in eşzamanlı çift payı 0,839 iken 0,182 değerine düştü. Eşdeğer bandın 2026'da gerçek MODIS'i kapsama oranı 0,545 (ölçüldü); LOYO döneminde 0,9226 (ölçüldü). Son tam ayda eşdeğer seri oranı 1,697 kat (tahmini) verirken iki sensörün kendi ölçümü 0,876 kat (ölçüldü) (MODIS) ve 0,944 kat (tahmini) (VIIRS): çelişki. Yörünge kaymasını gidermeyen ('kaymasız') bir kalibrasyon varyantı ölçülmedi.</td><td>docs/harmonizasyon_yontemi.md §4; audit/bulgular.md F4-01</td></tr>
+<tr><td>2</td><td>MODIS bittikten sonra serinin doğruluğu</td><td>doğrulanmadı</td><td>Terra/Aqua sona erince seri yalnız 2012–2025 kalibrasyonuna dayanır. Bu rejimin bağımsız doğrulaması yoktur; çünkü karşılaştırılacak gerçek MODIS kalmayacak. Aylık ülke hata bandı [−59,57 ; 74,99] % (tahmini) geniştir.</td><td>audit/juri_sorulari.md soru 12</td></tr>
+<tr><td>3</td><td>Sensör farkı çözüldü iddiası yok</td><td>tahmini</td><td>Harmonize seri, gerçek MODIS'in aynı penceredeki değişimini 3,55 yüzde puan (tahmini) farkla izliyor. Bu fark LOYO yıllık %95 hata aralığı [−23,49 ; 9,51] % (tahmini) içinde; ama harmonize sıçrama, geçiş dışı doğal yıllık değişim aralığı [−39,3 ; 92,61] % (tahmini) içinde değil (içinde mi: hayır (tahmini)), çünkü gerçek MODIS de bu aralığın dışında. C10 ölçütü ilk sonuç görüldükten sonra inceltildi (audit/degisim_gunlugu.md); bu bir yöntem seçimidir ve sonuca göre ayarlanmış olabileceği kabul edilir.</td><td>docs/03_KABUL_KRITERLERI.md C10; audit/degisim_gunlugu.md; audit/bulgular.md F2-07</td></tr>
+<tr><td>4</td><td>(ii) ile (i) yöntemleri ayırt edilemez</td><td>ölçüldü</td><td>Ay×bölge WAPE: (i) 30,64 % (ölçüldü), (ii) 30,63 % (ölçüldü); fark %95 aralığı [−2,97 ; 4,26] yüzde puan (tahmini). Yıllık toplamda (i) daha iyi (MAPE 4,83 % (ölçüldü) karşı 8,33 % (ölçüldü)). Asıl kazanç gözlem eforu (uydu sayısı) normalizasyonudur; (ii)'nin (i)'den üstün olduğu iddia edilmez. Kazanan seçimi LOYO sonuçları üzerinde yapıldığı için hata hafif iyimser olabilir.</td><td>docs/harmonizasyon_yontemi.md §5</td></tr>
+<tr><td>5</td><td>Anız için yer doğrulaması yok</td><td>doğrulanmadı</td><td>Anız etiketi kural tabanlıdır ve yalnız dolaylı kanıtla sınandı: ESA WorldCover'da anız noktalarının %79,3 ekili alanda (ölçüldü), kaba ulusal hasat penceresiyle uyum %74,2 (tahmini). Saha, yanmış alan (MCD64A1) veya AFAD/OGM kaydıyla karşılaştırma yapılmadı. Ay tek başına anızı ayırmaz (LOYO kaldıraç 0,928 (ölçüldü)).</td><td>docs/temizlik_yontemi.md §6, §10</td></tr>
+<tr><td>6</td><td>Static Thermal Anomalies (STA) maskesi karşılaştırılmadı</td><td>doğrulanmadı</td><td>FIRMS STA maskesi için toplu indirme bulunamadı; karşılaştırma sonucu: yok (doğrulanmadı). Yerine NASA arşivindeki type=2 ile uyum ölçüldü; bu aynı şey değildir ve type=2 yer gerçeği değil bir maskedir.</td><td>docs/ek_kaynaklar.md; docs/temizlik_yontemi.md §5</td></tr>
+<tr><td>7</td><td>Sanayi kuralı MODIS döneminde zayıf uyuşuyor</td><td>ölçüldü</td><td>NASA type=2 ile uyuşma VIIRS döneminde kesinlik 0,924 (ölçüldü), MODIS döneminde 0,2278 (ölçüldü). Referans seyrek olduğu için; kuralın 'sanayi' dediği MODIS noktalarının %66,6 bilinen bir tesise yakın. Bu 'uyuşma' ölçüsüdür, doğruluk değil.</td><td>audit/bulgular.md F2-09</td></tr>
+<tr><td>8</td><td>Referans doğrulama seti küçük ve tesis yakalaması düşük</td><td>tahmini</td><td>Set: 26 sanayi tesisi (OpenStreetMap) ve 8 bilinen yangın (Wikipedia + ilçe merkezi); 3 kayıt çakışma nedeniyle ayıklandı. Dengeli kesinlik 0,9711 (tahmini), tesis yakalama 0,4777 (tahmini) (tesis düzeyinde 0,4783 (tahmini)): bazı tesisler (özellikle termik santraller) kaçıyor. Yangın pencereleri ve yarıçapları yaklaşık. Nokta düzeyi kesinlik (0,9999 (tahmini)) sınıf dengesizliğinden şişkindir ve sunumda kullanılmaz.</td><td>audit/dogrulama_seti.csv; docs/temizlik_yontemi.md §8</td></tr>
+<tr><td>9</td><td>Gözlem kapsamı (swath) çıkarımdır</td><td>tahmini</td><td>NASA uydu geçiş şeridi (swath) verisi toplu indirilemedi; kesinti günleri tespit sayılarından çıkarıldı (129 uydu-gün (tahmini)). Geçiş pencereleri tespit saatlerinin yüzdeliklerinden türetildi. Gerçek geçiş listesiyle doğrulanmadı.</td><td>docs/ek_kaynaklar.md; audit/bulgular.md F1-01</td></tr>
+<tr><td>10</td><td>Ekran okuyucu testi yapılmadı</td><td>doğrulanmadı</td><td>Klavyeyle ulaşılabilir etkileşimli öğe payı %88,4, adı olan öğe payı %100, en düşük kontrast 4,59 (ölçüldü) (ölçüldü); renk körlüğü ayırt edilebilirliği ölçüldü. Ekran okuyucuyla elle sınama ve harita zemini/Leaflet iç kontrolleri ölçüm dışıdır.</td><td>audit/erisilebilirlik.json (kapsam_notu)</td></tr>
+<tr><td>11</td><td>İl düzeyinde MODIS-eşdeğer seri yok</td><td>doğrulanmadı</td><td>Eşdeğer seri yalnız ülke ve 7 bölge düzeyinde LOYO ile doğrulandı (olay biriminde ay×il WAPE 46,27 % (ölçüldü) ile daha yüksek). İl düzeyi için ayrı bir doğrulama yoktur.</td><td>docs/takvim_yontemi.md; docs/harmonizasyon_yontemi.md §8</td></tr>
+<tr><td>12</td><td>Güven sınıfı eşlemesi zayıf ilişkili</td><td>tahmini</td><td>Öğrenilen MODIS eşiği [35 ; 82] MODIS % (tahmini) FIRMS cetveline yakın; ama iki uydunun tek yangındaki güveni zayıf ilişkili (Spearman 0,2138 (ölçüldü)) ve öğrenilmiş eşleme FIRMS'i geçmedi (kappa 0,1765 (ölçüldü) karşı 0,1918 (ölçüldü)). Arayüzde varsayılan ham FIRMS sınıfıdır.</td><td>docs/harmonizasyon_yontemi.md §2</td></tr>
+<tr><td>13</td><td>Anomali bandı geniştir</td><td>tahmini</td><td>Eşdeğer seride anomali işareti, belirsizlik bandı yüzünden 33,53 % (tahmini) oranında 'belirsiz'e düşüyor. Ağu–Eyl ay medyanları istatistiksel olarak ayırt edilemez (ayırt edilemez bayrağı: 1 (ölçüldü)).</td><td>docs/takvim_yontemi.md</td></tr>
+<tr><td>14</td><td>WorldCover tek yıl ve örneklem</td><td>tahmini</td><td>ESA WorldCover 2021 tek yıldır; 2000–2026 noktalarında arazi değişimi yok sayıldı, WorldCover'ın kendi sınıflandırma hatası ölçülmedi, örneklem tabanlıdır.</td><td>docs/temizlik_yontemi.md §6, §10</td></tr>
+<tr><td>15</td><td>FIRMS API ile otomatik çekme çalıştırılmadı</td><td>doğrulanmadı</td><td><code>src/pipeline/firms_api.py</code> betiği hazır (kota 5000 işlem/10 dk'ya uygun) fakat API anahtarı yok ve çalıştırılmadı. Veri, elle indirilmiş 1.414.674 satırlık arşivden gelir; son gün 2026-11-12.</td><td>docs/ek_kaynaklar.md</td></tr>
+<tr><td>16</td><td>Terra'nın 2026 durumu belirsiz</td><td>doğrulanmadı</td><td>Mevcut durum belgesindeki 'Mart 2026'da beklemeye alındı' iddiası doğrulanamadı; veride Terra tespiti son güne kadar sürüyor. Planlı bitiş tarihleri ikincil kaynaktan, doğrulanmadı.</td><td>docs/ek_kaynaklar.md</td></tr>
+<tr><td>17</td><td>Zaman: sabit UTC+3</td><td>tahmini</td><td>TR günü her yıl için sabit UTC+3 alınır; 2016 öncesi kış saati (UTC+2) etkisi 21:00–21:59 UTC tespitlerini ertesi güne kaydırır, etkisi küçük kabul edildi (denetçi örneklemle ölçebilir).</td><td>audit/degisim_gunlugu.md F1</td></tr>
+<tr><td>18</td><td>Mevcut ay kutusu ve 2026 kısmi yıl</td><td>doğrulanmadı</td><td>Son veri günü 2026-11-12; mevcut ay 12 gün (ölçüldü) kısmidir ve NRT payı 100 % (ölçüldü). Mevcut ay oranı MODIS 0,127 kat (tahmini), VIIRS 0,243 kat (tahmini); MODIS'in ek düşüşünün nedeni (sensör ömrü sonu, NRT, yörünge kayması) doğrulanmadı.</td><td>audit/juri_sorulari.md soru 13</td></tr>
+<tr><td>19</td><td>Harita zemini çevrimiçi</td><td>ölçüldü</td><td>Uygulama internet olmadan açılır (C21, kütüphaneler yerelde); yalnız isteğe bağlı çevrimiçi harita zemini internet ister, yoksa il sınırları görünür.</td><td>src/app/i18n/tr.json map.tilewarn; check_all C21</td></tr>
+<tr><td>20</td><td>Hotspot yangın değildir; risk tahmini yoktur</td><td>ölçüldü</td><td>Gösterilen şey tarihsel hotspot/olay aktivitesidir. Gelecekteki yangın riski veya tehlikesi tahmin edilmez (K14). Nokta sayısı yangın sayısı değildir: 1.414.674 noktadan 471.978 olay çıkar.</td><td>CLAUDE.md K14</td></tr>
+</tbody></table>
+<p><code>metrics.json</code> içinde <strong>doğrulanmadı</strong> etiketli 6 metrik var:</p>
+<table><thead><tr><th>Metrik kimliği</th><th>Değer</th><th>Tanım</th></tr></thead><tbody>
+<tr><td>takvim_mevcut_ay_ayrisma_yorum_TR</td><td>MODIS'e özgü ek düşüş: sensör ömrü sonu, NRT veya yörünge kayması şüphesi</td><td>MODIS ve VIIRS oranı yan yana: düşüş iki sensörde mi (hava/gerçek) yoksa yalnız MODIS'te mi (sensör şüphesi)</td></tr>
+<tr><td>takvim_son_tam_ay_guvenilmez_modis_esdeger_TR</td><td>1</td><td>Eşdeğer oran iki ölçülmüş orandan (MODIS temiz, VIIRS uydu başına) eşikten fazla sapıyor mu</td></tr>
+<tr><td>takvim_son_tam_ay_birincil_modis_esdeger_TR</td><td>modis temiz</td><td>Birincil gösterim serisi</td></tr>
+<tr><td>takvim_son_tam_ay_guvenilmez_olay_esdeger_TR</td><td>1</td><td>Eşdeğer oran iki ölçülmüş orandan (MODIS temiz, VIIRS uydu başına) eşikten fazla sapıyor mu</td></tr>
+<tr><td>takvim_son_tam_ay_birincil_olay_esdeger_TR</td><td>modis temiz</td><td>Birincil gösterim serisi</td></tr>
+<tr><td>temizlik_sta_maskesi_karsilastirma</td><td>yok</td><td>FIRMS Static Thermal Anomalies maskesi deneysel; toplu indirme/API bulunamadı -&gt; karşılaştırma yapılmadı</td></tr>
+</tbody></table>
+<p>Otomatik eklenenler:</p>
+<ul>
+<li>Açık denetim bulgusu <strong>F2-10</strong> (düşük, açık): Sabit yıl/saat sabitleri (K9, K11) (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F2-11</strong> (düşük, açık): Belge tutarsızlıkları (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F2-12</strong> (düşük, açık): Kontrol zayıflıkları — <code>tools/check_all.py</code> (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F4-04</strong> (düşük, kısmen): Görüntü kusurları (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F5-03</strong> (düşük, açık): Etiket (C24) — türetilmiş sonuç "ölçüldü" (doğrulanmadı)</li>
+</ul>
+<h2>10. Bulgular (denetçi)</h2>
+<p>Açık yüksek: 0 · Açık orta: 0 · Açık düşük: 5 · Kapanan: 23 (kaynak: <code>audit/bulgular.md</code>).</p>
+<table><thead><tr><th>Kimlik</th><th>Seviye</th><th>Durum</th><th>Başlık</th></tr></thead><tbody>
+<tr><td>F1-01</td><td>yüksek</td><td>kapandı</td><td><code>data/processed/coverage.parquet</code>, <code>src/pipeline/build_coverage.py</code>, <code>tools/check_all.py</code> C06</td></tr>
+<tr><td>F1-02</td><td>orta</td><td>kapandı</td><td><code>points.parquet</code> <code>il</code>, <code>data/README.md</code>, <code>audit/veri_envanteri.md</code></td></tr>
+<tr><td>F1-03</td><td>orta</td><td>kapandı</td><td><code>tools/check_all.py</code> C07</td></tr>
+<tr><td>F1-04</td><td>düşük</td><td>kapandı</td><td><code>src/pipeline/build_points.py:129</code>, <code>:116</code></td></tr>
+<tr><td>F1-05</td><td>düşük</td><td>kapandı</td><td><code>src/pipeline/timeutil.py</code>, <code>docs/04</code> §2</td></tr>
+<tr><td>F1-06</td><td>düşük</td><td>kapandı</td><td>belgeler</td></tr>
+<tr><td>F1-07</td><td>düşük</td><td>kapandı</td><td><code>src/pipeline/test_pipeline.py</code></td></tr>
+<tr><td>F2-01</td><td>yüksek</td><td>kapandı</td><td><code>data/processed/agg/harmonized.parquet</code>, <code>monthly.parquet</code> (olay eşdeğeri vs tespit eşdeğeri) — K8</td></tr>
+<tr><td>F2-02</td><td>orta</td><td>kapandı</td><td><code>src/config/esikler.json → harmonizasyon.ogrenilen_guven_esleme</code></td></tr>
+<tr><td>F2-03</td><td>orta</td><td>kapandı</td><td>Yöntem seçimi (ii) vs (i) — <code>src/harmonize/seri.py:main</code>, <code>docs/harmonizasyon_yontemi.md §5, §9</code></td></tr>
+<tr><td>F2-04</td><td>orta</td><td>kapandı</td><td>2026 rejimi ve "mevcut ay 0,127" — <code>agg/current_month.parquet</code>, <code>monthly.parquet</code>, `docs/harmonizasyon_yontemi</td></tr>
+<tr><td>F2-05</td><td>orta</td><td>kapandı</td><td>Dürüstlük etiketleri — <code>reports/metrics.json</code> (K5)</td></tr>
+<tr><td>F2-06</td><td>orta</td><td>kapandı</td><td>Referans doğrulama — <code>audit/dogrulama_seti.csv</code>, <code>ref_precision</code> 0,9997 (C13)</td></tr>
+<tr><td>F2-07</td><td>düşük</td><td>kapandı</td><td>C10 inceltmesi (koordinatör kararı) — <code>docs/03</code> C10, <code>audit/degisim_gunlugu.md</code></td></tr>
+<tr><td>F2-08</td><td>düşük</td><td>kapandı</td><td>Tarım zinciri "33 olay" — <code>docs/kumeleme_yontemi.md:110</code>, <code>src/clustering/build_events.py:458</code></td></tr>
+<tr><td>F2-09</td><td>düşük</td><td>kapandı</td><td>Temizlik MODIS dönemi kesinlik 0,228 — <code>metrics.temizlik_sanayi_loyo_precision_modis_donemi</code></td></tr>
+<tr><td>F2-10</td><td>düşük</td><td>açık</td><td>Sabit yıl/saat sabitleri (K9, K11)</td></tr>
+<tr><td>F2-11</td><td>düşük</td><td>açık</td><td>Belge tutarsızlıkları</td></tr>
+<tr><td>F2-12</td><td>düşük</td><td>açık</td><td>Kontrol zayıflıkları — <code>tools/check_all.py</code></td></tr>
+<tr><td>F4-01</td><td>yüksek</td><td>kapandı</td><td>TR "son tam ay" kutusu 2026'da eşdeğer seriyi gösteriyor, iki sensörün kendi verisiyle çelişiyor — `src/app/co</td></tr>
+<tr><td>F4-02</td><td>orta</td><td>kapandı</td><td>Mevcut ay kutusu matristeki seriyi izlemiyor — <code>core.js:160</code></td></tr>
+<tr><td>F4-03</td><td>düşük</td><td>kapandı</td><td>Aynı büyüklük ekranda iki farklı değer — <code>main.js:230</code></td></tr>
+<tr><td>F4-04</td><td>düşük</td><td>kısmen</td><td>Görüntü kusurları</td></tr>
+<tr><td>F5-01</td><td>orta</td><td>kapandı</td><td>Jüri demo senaryoları 2 ve 5 uygulamada yazıldığı gibi yürümüyor</td></tr>
+<tr><td>F5-02</td><td>orta</td><td>kapandı</td><td>Ham kod metni ve EN ondalık raporda ve ekranda</td></tr>
+<tr><td>F5-03</td><td>düşük</td><td>açık</td><td>Etiket (C24) — türetilmiş sonuç "ölçüldü"</td></tr>
+<tr><td>F5-04</td><td>düşük</td><td>kapandı</td><td>F4-04 kalıntıları</td></tr>
+<tr><td>F3-01</td><td>düşük</td><td>kapandı</td><td><code>docs/arayuz_yontemi.md:150</code> (C18 anahtar sayısı belge uyuşmazlığı)</td></tr>
+</tbody></table></main></body></html>

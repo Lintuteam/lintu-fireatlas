@@ -1,0 +1,295 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>calisma_prensibi</title><style>:root{--bg:#070b10;--card:#0d141b;--line:#1b2630;--tx:#e6edf3;--dim:#7b8794;--ac:#5eead4}
+body{background:var(--bg);color:var(--tx);font:15px/1.6 Inter,system-ui,sans-serif;margin:0}
+main{max-width:980px;margin:0 auto;padding:24px 16px}
+h1,h2,h3{font-weight:500}h2{border-top:1px solid var(--line);padding-top:18px;margin-top:28px}
+h1{font-size:1.7em}code{font:12.5px ui-monospace,monospace;background:var(--card);padding:1px 5px;border-radius:4px;color:var(--ac)}
+table{border-collapse:collapse;width:100%;margin:12px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top;font-size:13.5px}
+th{background:var(--card);color:var(--dim);font:600 11.5px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}
+blockquote{border-left:3px solid var(--ac);margin:12px 0;padding:2px 14px;color:var(--dim);background:var(--card)}
+strong{color:#fff}
+@media print{:root{--bg:#fff;--card:#f3f5f7;--line:#c9d1d9;--tx:#111;--dim:#444;--ac:#0b6b5f}strong{color:#000}}
+</style></head><body><main><h1>Çalışma Prensibi Raporu</h1>
+<p>Veri sürümü: FIRMS MODIS C6.1 + VIIRS 375 m, 2000–2026 (son gün 2026-11-12), 1.414.674 nokta, veri şeması v1, <code>reports/metrics.json</code> üretimi 2026-11-13T09:07:17Z · Üretim tarihi: 2026-11-13 09:42 UTC Denetim durumu: check_all: 25 geçti, 0 kaldı, 0 atlandı; denetçi bulguları: açık yüksek 0, açık orta 0, açık düşük 5 — denetçi kapısı açık yüksek bulgu içermiyor</p>
+<blockquote>Bu rapor, uygulamanın nasıl çalıştığını <strong>öğrenmek</strong> içindir. Her kural iki katmanda anlatılır: önce <strong>Basitçe</strong> (benzetme), sonra <strong>Teknik olarak</strong> (tanım, formül, eşik, gerekçe, kodda nerede). Tüm sayılar <code>reports/metrics.json</code> dosyasından gelir; yanlarındaki parantez dürüstlük etiketidir: <strong>ölçüldü</strong> (veriden sayıldı/hesaplandı), <strong>tahmini</strong> (modele/kurala/çıkarıma dayanır), <strong>doğrulanmadı</strong> (bağımsız kanıt yok). "Aktivite" her yerde tarihsel hotspot yoğunluğu demektir; yangın riski veya tehlike tahmini değildir.</blockquote>
+<h2>1. Uygulama ne yapar?</h2>
+<p><strong>Basitçe:</strong> Elimizde iki farklı termometre var. Eski olan (MODIS, 2000'den beri) kaba, yeni olan (VIIRS, 2012'den beri) çok hassas. Yeni termometre geldiği yıl, "yangın sayısı" kâğıt üzerinde bir anda patlıyor; oysa yangınlar artmadı, yalnızca daha çok şey görmeye başladık. Bu uygulama (1) yangın olmayan sıcak yerleri (fabrika bacası, deniz, volkan) ayırır, (2) aynı yangının birçok fotoğrafını tek yangın sayar, (3) yeni termometrenin ölçümünü eski termometrenin diline çevirip 20+ yıllık karşılaştırılabilir bir seri yapar, (4) bunun üstünde yıl×ay yangın aktivite takvimi gösterir.</p>
+<p><strong>Teknik olarak:</strong> NASA FIRMS MODIS (Terra, Aqua) ve VIIRS 375 m (Suomi NPP, NOAA-20, NOAA-21) aktif yangın tespitleri Türkiye için 2000–2026 arasında 1.414.674 nokta (ölçüldü) satırdır (MODIS 259.707 nokta (ölçüldü), VIIRS 1.154.967 nokta (ölçüldü); son gün 2026-11-12; 61.147 (ölçüldü) nokta NRT, yani NASA <code>type</code> etiketi yok). Hat şudur:</p>
+<p><code>ham veri → ortak şema (points) → temizlik etiketi (status) → MODIS ayak izine eşleştirme (mcell) → olay kümeleme (events) → harmonizasyon (MODIS-eşdeğer seri) → takvim/anomali (agg) → arayüz</code></p>
+<p>Kurallar (CLAUDE.md): K1 sayılar betikle hesaplanır; K3 hiçbir nokta silinmez, etiketlenir; K4 kalibrasyon ve test ayrıdır (yıl dışarıda bırakma); K5 her iddia etiketlenir; K11 depolama UTC, gün TR (UTC+3), yıl kırpılmaz.</p>
+<h3>Sözlük (Yusuf için)</h3>
+<table><thead><tr><th>Terim</th><th>Basitçe</th><th>Teknik</th></tr></thead><tbody>
+<tr><td>Hotspot / tespit</td><td>Uydunun "burada sıcak bir şey var" dediği nokta; yangın olduğunu kanıtlamaz</td><td>Tek piksel tespiti (satır)</td></tr>
+<tr><td>Olay</td><td>Aynı yangına ait tespitlerin toplandığı kutu</td><td>Kümeleme sonucu (<code>event_id</code>)</td></tr>
+<tr><td>MODIS / VIIRS</td><td>Eski kaba / yeni hassas termometre</td><td>1 km / 375 m piksel</td></tr>
+<tr><td>FRP</td><td>Yangının gücü (megavat)</td><td>Fire Radiative Power, MW</td></tr>
+<tr><td>NRT</td><td>Henüz "kesin" onaylanmamış hızlı veri</td><td><code>type = -1</code>, NASA sınıf etiketi yok</td></tr>
+<tr><td>LOYO</td><td>Bir yılı sakla, kalan yıllarla öğren, saklanan yılı tahmin et</td><td>Leave-one-year-out çapraz doğrulama (K4)</td></tr>
+<tr><td>MAPE / WAPE</td><td>Ortalama yüzde hata</td><td>Mutlak yüzde hata (WAPE: ağırlıklı)</td></tr>
+<tr><td>Efor</td><td>Kaç uydunun baktığı</td><td>Gözleyen uydu sayısı (2018'de 2., 2023'te 3. VIIRS)</td></tr>
+</tbody></table>
+<h2>2. Veri hattı</h2>
+<p><strong>Basitçe:</strong> 27 ayrı Excel dosyası tek bir temiz tabloya çevrilir: her satır bir tespit. Hangi satırın hangi dosyadan geldiği ve ham değerin kendisi saklanır; ham veriye dokunulmaz.</p>
+<p><strong>Teknik olarak:</strong> Şema <code>docs/04_VERI_SOZLESMESI_TASLAK.md</code> (kesin v1); <code>pid</code> kalıcı satır kimliğidir. Güven kodlaması tek yerdedir (K10): MODIS 0–100 sayısal (düşük 0–29, nominal 30–79, yüksek 80–100), VIIRS harf (l/n/h → düşük/nominal/yüksek); <code>src/config/esikler.json → guven</code>, okuyan <code>src/config/config.py</code>. Zaman <code>t_utc</code> olarak saklanır, <code>day_tr</code> sabit UTC+3 ile hesaplanır ve yıl kırpılmaz (C07). Bağımsız denetçi ham xlsx'i farklı bir yöntemle yeniden saydı: beklenen 1.414.674 = bulunan, fark 0 (<code>audit/yeniden_hesap.json</code>, ölçüldü). Gözlem kapsamı (hangi uydu hangi gün çalıştı) NASA geçiş listesi değil, tespit sayılarından <strong>çıkarımdır</strong>; 129 uydu-gün (tahmini). Kod: <code>src/pipeline/</code>.</p>
+<h2>3. Temizlik: satır silinmez, etiketlenir</h2>
+<p><strong>Basitçe:</strong> Gelen sıcak noktaların hepsi orman yangını değil. Bacalar, deniz üstündeki gemiler/platformlar, volkanlar ve tarla yakmaları da var. Hiçbirini çöpe atmıyoruz; her birine "bu bir baca", "bu anız" gibi bir etiket yapıştırıyoruz. İsteyen etiketi kapatıp hepsini görebilir.</p>
+<p><strong>Teknik olarak</strong> (<code>docs/temizlik_yontemi.md</code>, <code>src/cleaning/</code>): sonuç etiketler (<code>points_status.parquet</code>):</p>
+<table><thead><tr><th>Etiket</th><th>Nokta</th><th>Etiket durumu</th></tr></thead><tbody>
+<tr><td><strong>Ham toplam</strong></td><td>1.414.674</td><td>ölçüldü</td></tr>
+<tr><td>temiz (yangın olarak sayılır)</td><td>827.043</td><td>ölçüldü</td></tr>
+<tr><td>anız (olay düzeyinde etiket)</td><td>217.179</td><td>ölçüldü</td></tr>
+<tr><td>NASA statik kaynak (type=2)</td><td>328.379</td><td>ölçüldü</td></tr>
+<tr><td>deniz (type=3)</td><td>8.848</td><td>ölçüldü</td></tr>
+<tr><td>volkan (type=1)</td><td>5</td><td>ölçüldü</td></tr>
+<tr><td>sanayi (bizim kural)</td><td>27.012</td><td>ölçüldü</td></tr>
+<tr><td>kalıcı ısı kaynağı, belirsiz</td><td>6.208</td><td>ölçüldü</td></tr>
+</tbody></table>
+<p>Temiz + anız noktalar (1.044.222 nokta (ölçüldü)) kümelemeye girer; ham noktaların 23,8 % (ölçüldü) NASA etiketiyle, 2,3 % (ölçüldü) kendi kuralımızla ayrılmıştır. Yöntem <strong>kural tabanlıdır</strong>; makine öğrenmesi kullanılmadı. Eşikler yıl dışarıda bırakma (LOYO) ile seçildi.</p>
+<h3>3.1 NASA etiketleri korunur (U-07)</h3>
+<p><strong>Basitçe:</strong> NASA bazı noktalara zaten "volkan", "deniz", "sabit kara kaynağı" demiş. Ona güveniyoruz. <strong>Teknik olarak:</strong> <code>type=1 → volkan</code>, <code>type=3 → deniz</code>, <code>type=2 → statik_nasa</code>. NRT'de bu etiket yok; arşivdeki komşu noktalardan miras alınır (<code>nasa_miras_payi</code>): 12.940 (ölçüldü) nokta. NRT deniz telafisi zayıf ve doğrulanmadı.</p>
+<h3>3.2 Sanayi kuralı: yıllarca aynı yerde yanan baca (U-08)</h3>
+<p><strong>Basitçe:</strong> Bir orman yangını beş farklı yılda, yılın sekiz ayında aynı 1 km'lik karede sürmez. Sürüyorsa orası fabrika, rafineri ya da meşaledir. <strong>Teknik olarak:</strong> 0,01° hücrede, iki sensör birlikte: farklı yıl ≥ Y, farklı takvim ayı ≥ M, farklı gün ≥ N ve aktif yıllarda yıl içi ay sayısı medyanı ≥ S → <code>sanayi</code>. Eşikler (N, M, Y, S) LOYO'da NASA type=2'ye karşı F1 enbüyüklenerek seçildi (eşik tablosu §10). LOYO uyuşması: kesinlik 0,9199 (ölçüldü), duyarlılık 0,9712 (ölçüldü). <strong>Dikkat:</strong> NASA type=2 yer gerçeği değil bir maskedir; bu sayılar "uyuşma"dır. VIIRS döneminde kesinlik 0,924 (ölçüldü), MODIS döneminde 0,2278 (ölçüldü): referans seyrek olduğu için; kuralın 'sanayi' dediği MODIS noktalarının %66,6 bilinen bir tesise yakın.</p>
+<h3>3.3 Kalıcı ısı kaynağı (belirsiz)</h3>
+<p><strong>Basitçe:</strong> Düzenli ama bacadan farklı davranan yerler (kömür ocağı, çöplük). "Baca" demeden ayrı sepete koyarız: 6.208 (ölçüldü) nokta. <strong>Teknik olarak:</strong> Y ve M koşulunu sağlayan, N veya S'yi sağlamayan ve tespitlerinin en az <code>kalici_gece_payi</code> kadarı gece olan hücre (gece şartı: tarla yakması gündüz yoğundur).</p>
+<h3>3.4 Gerçek yangını silmeme: yangın koruması</h3>
+<p><strong>Basitçe:</strong> Rafineri yanında gerçek orman yangını çıkarsa rafineri karesindeki noktaları da "baca" diye atmak yanlış olur. O gün çevrede normal karelerde de ateş varsa noktayı temiz bırakırız. <strong>Teknik olarak:</strong> Kural-sanayi/kalıcı noktası, aynı TR gününde komşuluktaki kalıcı olmayan hücrelerde en az G tespit varsa <code>temiz</code> kalır: 1.748 (ölçüldü) nokta. Referans yangınlardaki noktaların %99,8 kadarı korunur (tahmini; küçük set).</p>
+<h3>3.5 Anız takvimi (U-09)</h3>
+<p><strong>Basitçe:</strong> Hasattan sonra tarlada sap yakılır; küçük, kısa, zayıf ateşlerdir ve her yıl aşağı yukarı aynı aylarda olur, ama bölgeden bölgeye değişir. Hangi bölgede hangi ayların "anız ayı" olduğunu 20 yıllık veriden öğreniyoruz. Hile olmasın diye bir yılın anız aylarını hep <strong>o yıl hariç</strong> öğreniyoruz. <strong>Teknik olarak</strong> (<code>src/cleaning/aniz_takvim.py</code>, <code>olay_aniz.py</code>): küçük aday = FRP &lt; F (MODIS ölçeğinde 15 MW (ölçüldü); VIIRS eşdeğeri sabit oranla değil yüzdelik eşleştirmeyle 4,4 MW (ölçüldü), K8) ve çevresinde az tespit. Profil: 7 bölge × ay payları. <strong>Nihai karar olay düzeyindedir</strong>: olay ≤ 3 tespit (MODIS ölçeğinde tekil eşleştirme birimi <code>n_mcell</code> sayılır, çünkü VIIRS aynı ateşi 3–4 nokta görür), ≤ 12 saat, düşük FRP ve olayın bölgesinin o yıl hariç öğrenilmiş anız ayında → olay <code>aniz</code>. Sonuç 217.179 (ölçüldü) nokta. <strong>Dürüst bulgu:</strong> LOYO kaldıraç 0,928 (ölçüldü): "ay" tek başına küçük ateşi büyükten ayırmaz; ayırıcı olan büyüklük/süre/FRP koşuludur.</p>
+<p><strong>Bağımsız doğrulama (döngüsellik önlemi):</strong> (a) ESA WorldCover 2021 (veriden bağımsız arazi haritası): anız noktalarının %79,3 ekili alanda; büyük temiz yangınların %50,3 ekili, %32,1 ağaçlı alanda; sanayi/kalıcı noktaların %56 yapılaşmış alanda. (b) Kaba ulusal hasat penceresiyle uyum %74,2 (tahmini). <strong>Doğrulanmadı:</strong> saha, yanmış alan veya resmi yangın kaydıyla karşılaştırma yok.</p>
+<h3>3.6 Referans (bağımsız) doğrulama (C13)</h3>
+<p><strong>Basitçe:</strong> Kuralı, FIRMS'ten bağımsız bir listeyle sınadık: 26 bilinen sanayi tesisi (OpenStreetMap) ve 8 bilinen yangın. Tesis sayısı yangından çok olduğu için "her tesise ve her yangına eşit oy" verdik. <strong>Teknik olarak:</strong> Dengeli kesinlik 0,9711 (tahmini), tesis yakalama (makro duyarlılık) 0,4777 (tahmini), tesis düzeyi 0,4783 (tahmini), yangın başına yanlış işaret 0,0142 (tahmini). Yani <strong>bazı tesisler kaçıyor</strong> (özellikle termik santraller). Static Thermal Anomalies maskesiyle karşılaştırma yapılamadı (yok (doğrulanmadı)).</p>
+<h2>4. Eşleştirme: MODIS'in ayak izi (U-02)</h2>
+<p><strong>Basitçe:</strong> MODIS'in bir pikseli yerde büyük bir kare; VIIRS aynı yere 3–4 küçük kare düşürür. "MODIS'te 1, VIIRS'te 4 yangın" sorunu bundandır. Çözüm: her VIIRS noktasını, kendisini kaplayan MODIS karesine bağlamak. <strong>Teknik olarak</strong> (<code>src/harmonize/eslestirme.py</code>): ayak izi = MODIS merkezinde <code>scan × track</code> km dikdörtgen + yarım VIIRS pikseli tamponu (0,375 km). Bir VIIRS noktası birden çok ize düşerse sırasıyla eşzamanlı iz, en küçük normalize uzaklık, en küçük zaman farkı, en küçük alan seçilir; nokta tek hücreye gider ve FRP bölünmez. İze düşmeyen VIIRS noktası (yalnız VIIRS) 0,01° ızgara yedeğine gider. Ölçüm: 1.154.967 nokta (ölçüldü) VIIRS noktasının 174.203 nokta (ölçüldü) tanesi MODIS izinde; MODIS izi başına ortalama 3,349 nokta (ölçüldü) VIIRS noktası; sabit ızgara aynı izi 1,764 (ölçüldü) hücreye bölerdi (bölünen iz oranı %46,6).</p>
+<h2>5. Kümeleme: aynı yangını bir kez say (U-10, U-11, U-12)</h2>
+<p><strong>Basitçe:</strong> Uydular aynı yangının birçok fotoğrafını çeker. İki fotoğraf yakın yerde ve yakın zamandaysa aynı yangındır; A–B yakın, B–C yakınsa üçü de aynıdır (zincir). MODIS ve VIIRS fotoğrafları <strong>birlikte</strong> değerlendirilir; böylece aynı yangın iki kez sayılmaz. <strong>Teknik olarak</strong> (<code>src/clustering/</code>, <code>docs/kumeleme_yontemi.md</code>): olay = bağ grafiğinin bağlı bileşeni (union-find). Bağ: mesafe ≤ D <strong>veya</strong> MODIS–VIIRS çiftinde VIIRS merkezi MODIS ayak izinin içinde; ve zaman koşulu. D = 1 km, eşleştirme modu ayakizi_capraz, boşluk kuralı gecis (L = 3 geçiş penceresi, Hmax = 72 saat; kaynak <code>src/config/esikler.json</code>).</p>
+<p><strong>Boşluk kuralı (U-11), basitçe:</strong> "14 saattir görmedim, söndü mü?" sorusunun cevabı uydunun o sürede gerçekten geçip geçmediğine bağlıdır. Boşluğu saatle değil <strong>kaçırılan geçişle</strong> sayarız: uydu geçti ve görmediyse "kaçırma", hiç geçmediyse beklenir. Teknik: |Δt| ≤ Hmax ve aradaki gözlenmiş geçiş penceresi ≤ L (eşik tablosu §10). Günlük geçiş saati ~3 saat kaydığı için sabit H=24 bir yangını gereksiz bölerdi; geçiş kuralı bunu düzeltir (swath verisi olmadığı için pencereler çıkarım, tahmini).</p>
+<p>Sonuç: 471.978 (ölçüldü) olay; ortak kümeleme çakışma döneminde 380.975 (ölçüldü) olay verir, sensörler ayrı kümelenseydi 440.176 olay (ölçüldü) olurdu: <strong>59.201 olay (ölçüldü) çifte sayım önlenir</strong>. Üçlü sınıf: ortak 35.651 olay (ölçüldü), yalnız MODIS 57.543 olay (ölçüldü), yalnız VIIRS 287.781 olay (ölçüldü), tek sensör dönemi 91.003 olay (ölçüldü). MODIS olaylarının VIIRS'te de görülme payı %38,2; ayak izi eşleştirmesi bunu sabit 1 km kuralına göre (%35,5) artırır ama asıl neden eşleştirme değil, Terra'nın sabah geçişinin VIIRS'le eşzamanlı olmamasıdır (Aqua ile eşzamanlıyken bile 1 km içinde VIIRS payı %53,1).</p>
+<p><strong>Zincirleme riski:</strong> Bitişik bağımsız küçük yangınlar köprülenip dev olaya dönüşebilir. En büyük olay 6.740 (ölçüldü) tespit (gerçek mega yangın, 2021 Manavgat); temiz olmayan nokta zincire köprü olamaz. Kümeleme algoritması, tam O(n²) kaba kuvvetle 88 (ölçüldü) karşılaştırmada, 0 karşılaştırma (ölçüldü) farkla birebir aynı sonucu verdi (C03).</p>
+<h2>6. Harmonizasyon: VIIRS'i MODIS'in diline çevirmek (U-01, U-04, U-05)</h2>
+<p><strong>Basitçe:</strong> "MODIS bu ayı görseydi kaç sayardı?" sorusunu cevaplıyoruz. Hassas termometrenin ölçümünü eski termometrenin diline çeviriyoruz; hassas ölçüm de çöpe gitmiyor, yanında ayrı bir katman olarak duruyor (iki çıktı: karşılaştırma için eşdeğer seri, ayrıntı için ham VIIRS).</p>
+<p><strong>Soru 3 bilimsel seri kararı (<code>docs/01_ISTEKLER.md</code> §E):</strong> Çok yıllı karşılaştırma, yıl×ay matrisi, trend ve anomalide varsayılan ana seri <strong>MODIS-eşdeğer seri</strong> (<code>olay_esdeger</code> / <code>modis_esdeger</code> + LOYO %95 belirsizlik bandı) olarak belirlenmiştir; çünkü 2000–2011 döneminde VIIRS yoktu ve sensör geçişlerinden doğan sıçramalar gerçek yangın eğilimiyle karıştırılmamalıdır. Buna karşılık 375 m ham VIIRS noktaları ve üçlü sınıf (<code>ortak</code>, <code>yalniz_viirs</code>, <code>yalniz_modis</code>) katmanları harita, laboratuvar ve müfettişte yan yana eksiksiz sunulur. Kullanıcı üst bardaki <code>#sciModeBtn</code> düğmesinden ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") veya gelişmiş süzgeçlerdeki <code>#seriesSel</code> menüsünden (<code>src/app/main.js</code> <code>S.aggSeries</code>) bu seçimi tek tıkla değiştirebilir.</p>
+<p><strong>Teknik olarak</strong> (<code>src/harmonize/</code>, <code>docs/harmonizasyon_yontemi.md</code>):</p>
+<ol>
+<li><strong>Gözlem eforu.</strong> VIIRS toplamı, o gün gözleyen VIIRS uydu sayısına bölünür (2018'de N20, 2023'te N21 eklendi). Etkisi: N20 geçişinde ham VIIRS 24,34 % (ölçüldü), eforlu −37,31 % (ölçüldü), gerçek MODIS −41,59 % (ölçüldü).</li>
+<li><strong>MODIS etkin tespit sınırı (FRP50).</strong> Aqua'nın bir VIIRS hücresini yarı olasılıkla gördüğü toplam FRP: genel 64,88 MW (tahmini), gündüz 73,98 MW (tahmini), gece 20,54 MW (tahmini) (etkin sınır; fiziksel algılama sınırından büyüktür, tahmini).</li>
+<li><strong>Güven sınıfı çevirisi (S1).</strong> Aynı yangına aynı anda bakan Aqua–VIIRS 40.368 (ölçüldü) çiftiyle VIIRS düşük/nominal/yüksek payları MODIS yüzdesine eşlendi: öğrenilen MODIS sınırları [35 ; 82] MODIS % (tahmini) (FIRMS'in kendi cetveline yakın), yıl dışarıda bırakmada çok kararlı ([34 ; 36] MODIS % (ölçüldü) ve [81 ; 82] MODIS % (ölçüldü)). Ama iki uydunun tek yangındaki güveni zayıf ilişkili (Spearman 0,2138 (ölçüldü)) ve öğrenilmiş eşleme FIRMS'i geçemedi (kappa 0,1765 (ölçüldü) karşı 0,1918 (ölçüldü)). Bu yüzden arayüzde varsayılan ham FIRMS sınıfıdır.</li>
+<li><strong>Yöntem yarışı (K8, sabit oran tuzağı).</strong> Üç yöntem LOYO ile yarıştı (hedef: gerçek MODIS tespiti, ay×bölge): (i0) tek sabit oran, efor yok (WAPE 52,68 % (ölçüldü), yıllık MAPE 42,12 % (ölçüldü), R² −1,7204 (ölçüldü)); (i) tek sabit oran, eforlu (WAPE 30,64 % (ölçüldü), MAPE 4,83 % (ölçüldü)); (ii) bölge×mevsim×FRP büyüklüğü oranı, eforlu (WAPE 30,63 % (ölçüldü), MAPE 8,33 % (ölçüldü)); (iii) FRP eşik eğrisi (WAPE 31,91 % (ölçüldü)). <strong>Dürüst okuma:</strong> asıl kazanç efor düzeltmesidir; (ii) ile (i) ay×bölgede ayırt edilemez (fark %95 aralığı [−2,97 ; 4,26] yüzde puan (tahmini)). (ii) uygulamanın birimi (ay×bölge) için seçildi, üstünlük iddiası değildir. Kazanan: (ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu (tahmini).</li>
+<li><strong>Belirsizlik bandı.</strong> LOYO artıklarının yüzdeliklerinden: aylık ülke toplamı için %95 hata bandı [−59,57 ; 74,99] % (tahmini); bant gerçek MODIS'i ay×ülkede %92,3, ay×bölgede %95,6 oranında kapsadı. Eski dönem (2000–Temmuz 2002, yalnız Terra) düzeltilmez, düşük güven bayraklıdır.</li>
+<li><strong>Sıçrama ölçütü.</strong> Sıçrama = geçiş sonrası 3 yıl ortalaması / geçiş öncesi 3 yıl ortalaması − 1. Ham 143,13 % (ölçüldü); harmonize −41,35 % (tahmini); aynı pencerede gerçek MODIS −44,9 % (ölçüldü); harmonizasyonun eklediği fark 3,55 yüzde puan (tahmini). 2012 sonrası harmonize değerler LOYO tahminleridir (o yıl öğrenmede yoktu).</li>
+<li><strong>Yörünge kayması.</strong> Aqua öğle geçişi 10,7 saat (UTC) (ölçüldü) (2015) → 12,65 saat (UTC) (ölçüldü) (2026) kaydı; Aqua–VIIRS eşzamanlı çift payı %83,9 → %18,2. Bu yüzden <strong>2026 eşdeğer değerleri eğitim rejiminin dışındadır</strong>, düşük güven bayraklıdır (bant kapsaması %54,5, doğrulanmadı).</li>
+</ol>
+<h2>7. Takvim ve anomali (U-16, N-05, N-06, N-07)</h2>
+<p><strong>Basitçe:</strong> Her ilin her günü için "kaç sıcak nokta / kaç olay" defteri tutulur, yanına "o gün uydular gerçekten bakabildi mi?" yazılır. Bakılamayan gün "sıfır yangın" demek değildir. "En yoğun ay", geçmiş yılların o ayının <strong>medyanı</strong> en yüksek olan aydır; iki ay birbirine çok yakınsa "ayırt edilemez" denir. Anomali: bir yılın bir ayı, o yıl hariç diğer yılların aynı ayıyla kıyaslanır.</p>
+<p><strong>Teknik olarak</strong> (<code>docs/takvim_yontemi.md</code>, <code>src/analytics/</code>): aylık sayım, kesinti günleri paydadan düşülerek ölçeklenir (C06); ay yarımsa veya neredeyse hiç bakılamadıysa hücre boş kalır, sıfır yazılmaz. Birim: 89 birim (ölçüldü) (ülke, bölge, il). Medyan ve sıralama; ayırt edilemezlik için komşu ay göreli fark eşiği + yıl bootstrap'ı. Anomali: log1p ölçeğinde sağlam z = (x − medyan)/max(1,4826·MAD, taban), normal yıllar ve test yılı hariç, |z| ≥ 2. Sonuçlar: MODIS ham serisinde ilk üç ay Haz &gt; Eyl &gt; Eki (ölçüldü), temiz serisinde Haz &gt; Eyl &gt; Ağu (ölçüldü), MODIS-eşdeğer seride Ağu &gt; Eyl &gt; Haz (tahmini), olay serisinde Eyl &gt; Ağu &gt; Eki (tahmini). Temizliğin etkisi: ham ve temiz sıralamalar il düzeyinde ilk üç ayın 79 % (tahmini) oranında değişiyor. Mevcut ay, geçmiş yılların <strong>aynı ilk günleriyle</strong> kıyaslanır (kısmi ay açıkça yazılır): son veri günü 2026-11-12, kısmi gün 12 gün (ölçüldü), NRT payı 100 % (ölçüldü), MODIS oranı 0,127 kat (tahmini), VIIRS oranı 0,243 kat (tahmini); MODIS'e özgü ek düşüşün nedeni MODIS'e özgü ek düşüş: sensör ömrü sonu, NRT veya yörünge kayması şüphesi (doğrulanmadı). Eşdeğer serilerde anomali işaretlerinin 33,53 % (tahmini) oranı belirsiz banda düşer.</p>
+<h2>8. Arayüz</h2>
+<p><strong>Basitçe:</strong> Tek sayfalık, internetsiz açılan bir uygulama: harita, takvim, sıçrama grafiği, birleştirme laboratuvarı, piksel büyümesi ve dışa aktarma. <strong>Teknik olarak</strong> (<code>src/app/</code>): kütüphaneler yerelde (C21); ekrandaki her sayı <code>metrics.json</code> veya agg tablolarından gelir (C14), sabit metrik/<code>Math.random</code> yoktur (C15); TR/EN (C18); CSV UTF-8 BOM ile (C17). Varsayılan takvim/trend serisi <code>olay_esdeger</code>dir (Soru 3 bilimsel kararı); üst bardaki <code>#sciModeBtn</code> ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") veya gelişmiş süzgeçlerdeki <code>#seriesSel</code> menüsü (<code>src/app/main.js</code> <code>S.aggSeries</code>) üzerinden tek tıkla değiştirilebilir, ayrıca <code>#quickExportBtn</code> ile süzülmüş olaylar anında CSV indirilir. Performans: eşik değişince tüm görünümler 0,253 s (ölçüldü) içinde yeniden çizilir (302.863 (ölçüldü) olay; tek ölçüm, bu makine). Erişilebilirlik: klavye %88,4, adlı öğe %100, en düşük kontrast 4,59 (ölçüldü); ekran okuyucu testi yapılmadı (doğrulanmadı). Stil: <code>referans/STIL_NOTU.md</code>.</p>
+<h2>9. Duyarlılık: eşikler değişirse sonuç ne kadar oynar? (C12)</h2>
+<p><strong>Basitçe:</strong> Cetveli biraz kaydırınca cevap ne kadar kayıyor? Çok kayıyorsa o sayıyı kuralıyla birlikte söylemek zorundayız. <strong>Teknik olarak:</strong> Her eşik için en az üç değer denendi.</p>
+<p><strong>D</strong> (en az 4 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>olay</th><th>en_buyuk_olay</th><th>tek_tespitli_oran</th><th>olay_demo_donemi</th><th>modis_viirste_gorulme</th></tr></thead><tbody>
+<tr><td>0,5</td><td>541.338</td><td>6.736</td><td>0,7307</td><td>64.429</td><td>0,363</td></tr>
+<tr><td>1</td><td>471.978</td><td>6.740</td><td>0,663</td><td>56.263</td><td>0,3825</td></tr>
+<tr><td>2</td><td>383.640</td><td>6.754</td><td>0,5831</td><td>47.803</td><td>0,462</td></tr>
+<tr><td>3</td><td>341.799</td><td>6.755</td><td>0,5745</td><td>42.731</td><td>0,4767</td></tr>
+</tbody></table>
+<p><strong>H</strong> (en az 4 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>olay</th><th>en_buyuk_olay</th><th>tek_tespitli_oran</th><th>olay_demo_donemi</th><th>modis_viirste_gorulme</th></tr></thead><tbody>
+<tr><td>6</td><td>525.841</td><td>1.385</td><td>0,6659</td><td>63.473</td><td>0,3591</td></tr>
+<tr><td>12</td><td>512.109</td><td>6.658</td><td>0,6684</td><td>61.575</td><td>0,3617</td></tr>
+<tr><td>24</td><td>481.008</td><td>6.740</td><td>0,666</td><td>57.673</td><td>0,3767</td></tr>
+<tr><td>48</td><td>451.483</td><td>6.742</td><td>0,6571</td><td>53.929</td><td>0,4015</td></tr>
+</tbody></table>
+<p><strong>L</strong> (en az 5 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>olay</th><th>en_buyuk_olay</th><th>tek_tespitli_oran</th><th>sure_saat_p90</th><th>olay_demo_donemi</th><th>modis_viirste_gorulme</th></tr></thead><tbody>
+<tr><td>1</td><td>506.842</td><td>6.665</td><td>0,6685</td><td>0,83</td><td>61.132</td><td>0,362</td></tr>
+<tr><td>2</td><td>499.277</td><td>6.740</td><td>0,6664</td><td>0,85</td><td>60.595</td><td>0,3763</td></tr>
+<tr><td>3</td><td>471.978</td><td>6.740</td><td>0,663</td><td>1,57</td><td>56.263</td><td>0,3825</td></tr>
+<tr><td>4</td><td>468.214</td><td>6.740</td><td>0,6611</td><td>1,65</td><td>55.962</td><td>0,3929</td></tr>
+<tr><td>6</td><td>460.759</td><td>6.740</td><td>0,6587</td><td>1,67</td><td>55.206</td><td>0,4017</td></tr>
+</tbody></table>
+<p><strong>N</strong> (en az 4 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>sanayi</th><th>kalici_belirsiz</th><th>temiz</th><th>yangin_korumasi</th><th>ref_precision</th><th>ref_recall</th><th>yangin_koruma</th><th>loyo_precision_type2</th><th>loyo_recall_type2</th></tr></thead><tbody>
+<tr><td>10</td><td>27.090</td><td>6.130</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9221</td><td>0,9699</td></tr>
+<tr><td>20</td><td>27.090</td><td>6.130</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9221</td><td>0,9699</td></tr>
+<tr><td>40</td><td>27.012</td><td>6.208</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9221</td><td>0,9698</td></tr>
+<tr><td>80</td><td>26.769</td><td>6.360</td><td>1.044.313</td><td>1.747</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9229</td><td>0,9689</td></tr>
+</tbody></table>
+<p><strong>M</strong> (en az 5 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>sanayi</th><th>kalici_belirsiz</th><th>temiz</th><th>yangin_korumasi</th><th>ref_precision</th><th>ref_recall</th><th>yangin_koruma</th><th>loyo_precision_type2</th><th>loyo_recall_type2</th></tr></thead><tbody>
+<tr><td>4</td><td>28.840</td><td>37.727</td><td>1.010.875</td><td>26.738</td><td>0,9715</td><td>0,4853</td><td>0,9982</td><td>0,9173</td><td>0,9728</td></tr>
+<tr><td>6</td><td>28.717</td><td>14.151</td><td>1.034.574</td><td>8.772</td><td>0,9714</td><td>0,4836</td><td>0,9982</td><td>0,9177</td><td>0,9728</td></tr>
+<tr><td>8</td><td>27.012</td><td>6.208</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9221</td><td>0,9698</td></tr>
+<tr><td>10</td><td>26.096</td><td>3.402</td><td>1.047.944</td><td>727</td><td>0,9701</td><td>0,461</td><td>0,9982</td><td>0,9242</td><td>0,9667</td></tr>
+<tr><td>12</td><td>22.387</td><td>1.530</td><td>1.053.525</td><td>1.080</td><td>0,9645</td><td>0,3869</td><td>0,9982</td><td>0,9318</td><td>0,9528</td></tr>
+</tbody></table>
+<p><strong>Y</strong> (en az 4 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>sanayi</th><th>kalici_belirsiz</th><th>temiz</th><th>yangin_korumasi</th><th>ref_precision</th><th>ref_recall</th><th>yangin_koruma</th><th>loyo_precision_type2</th><th>loyo_recall_type2</th></tr></thead><tbody>
+<tr><td>2</td><td>28.962</td><td>6.918</td><td>1.041.562</td><td>1.813</td><td>0,9727</td><td>0,5079</td><td>0,9982</td><td>0,9185</td><td>0,9732</td></tr>
+<tr><td>3</td><td>28.625</td><td>6.856</td><td>1.041.961</td><td>1.848</td><td>0,9712</td><td>0,4794</td><td>0,9982</td><td>0,9196</td><td>0,9727</td></tr>
+<tr><td>5</td><td>27.012</td><td>6.208</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9221</td><td>0,9698</td></tr>
+<tr><td>8</td><td>24.823</td><td>5.234</td><td>1.047.385</td><td>1.892</td><td>0,9711</td><td>0,4774</td><td>0,9982</td><td>0,9279</td><td>0,9487</td></tr>
+</tbody></table>
+<p><strong>S</strong> (en az 4 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>sanayi</th><th>kalici_belirsiz</th><th>temiz</th><th>yangin_korumasi</th><th>ref_precision</th><th>ref_recall</th><th>yangin_koruma</th><th>loyo_precision_type2</th><th>loyo_recall_type2</th></tr></thead><tbody>
+<tr><td>1</td><td>33.441</td><td>2.271</td><td>1.041.730</td><td>4.723</td><td>0,9715</td><td>0,4847</td><td>0,9982</td><td>0,9033</td><td>0,9753</td></tr>
+<tr><td>2</td><td>32.247</td><td>2.741</td><td>1.042.454</td><td>3.631</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9062</td><td>0,9747</td></tr>
+<tr><td>4</td><td>27.012</td><td>6.208</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9221</td><td>0,9698</td></tr>
+<tr><td>6</td><td>22.682</td><td>9.773</td><td>1.044.987</td><td>1.739</td><td>0,9711</td><td>0,4777</td><td>0,9982</td><td>0,9329</td><td>0,9486</td></tr>
+</tbody></table>
+<p><strong>F</strong> (en az 5 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>F_viirs_esdeger</th><th>yuzdelik</th><th>aniz_adayi</th><th>kucuk_temiz</th><th>loyo_kapsama</th><th>loyo_kaldirac</th></tr></thead><tbody>
+<tr><td>5</td><td>0,67</td><td>0,0443</td><td>21.071</td><td>28.682</td><td>0,7219</td><td>0,9655</td></tr>
+<tr><td>10</td><td>2,75</td><td>0,3102</td><td>138.679</td><td>199.649</td><td>0,7049</td><td>0,903</td></tr>
+<tr><td>15</td><td>4,4</td><td>0,4993</td><td>247.112</td><td>336.943</td><td>0,749</td><td>0,928</td></tr>
+<tr><td>20</td><td>5,79</td><td>0,6152</td><td>306.266</td><td>414.117</td><td>0,7589</td><td>0,917</td></tr>
+<tr><td>30</td><td>8,41</td><td>0,7495</td><td>369.564</td><td>494.731</td><td>0,7714</td><td>0,9126</td></tr>
+</tbody></table>
+<p><strong>koruma_G</strong> (en az 5 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>sanayi</th><th>kalici_belirsiz</th><th>temiz</th><th>yangin_korumasi</th><th>ref_precision</th><th>ref_recall</th><th>yangin_koruma</th></tr></thead><tbody>
+<tr><td>1</td><td>26.259</td><td>5.399</td><td>1.045.784</td><td>3.310</td><td>0,9704</td><td>0,4672</td><td>0,9982</td></tr>
+<tr><td>2</td><td>27.012</td><td>6.208</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td></tr>
+<tr><td>3</td><td>27.161</td><td>6.542</td><td>1.043.739</td><td>1.265</td><td>0,9711</td><td>0,4785</td><td>0,9982</td></tr>
+<tr><td>5</td><td>27.286</td><td>6.911</td><td>1.043.245</td><td>771</td><td>0,9712</td><td>0,4799</td><td>0,9982</td></tr>
+<tr><td>10</td><td>27.321</td><td>7.248</td><td>1.042.873</td><td>399</td><td>0,9712</td><td>0,4801</td><td>0,9982</td></tr>
+</tbody></table>
+<p><strong>kalici_gece</strong> (en az 3 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>sanayi</th><th>kalici_belirsiz</th><th>temiz</th><th>yangin_korumasi</th><th>ref_precision</th><th>ref_recall</th><th>yangin_koruma</th></tr></thead><tbody>
+<tr><td>0,3</td><td>27.020</td><td>9.574</td><td>1.040.848</td><td>5.184</td><td>0,9715</td><td>0,4847</td><td>0,9982</td></tr>
+<tr><td>0,5</td><td>27.012</td><td>6.208</td><td>1.044.222</td><td>1.748</td><td>0,9711</td><td>0,4777</td><td>0,9982</td></tr>
+<tr><td>0,7</td><td>26.925</td><td>4.823</td><td>1.045.694</td><td>912</td><td>0,9711</td><td>0,4776</td><td>0,9982</td></tr>
+</tbody></table>
+<p><strong>aniz_olay_max_tespit</strong> (en az 5 değer; ölçüldü, <code>ref_*</code> sütunları tahmini)</p>
+<table><thead><tr><th>deger</th><th>olay_n_mcell</th><th>nokta_n_mcell</th><th>olay_sensor_max</th><th>nokta_sensor_max</th><th>olay_toplam</th><th>nokta_toplam</th></tr></thead><tbody>
+<tr><td>1</td><td>154.841</td><td>175.406</td><td>141.104</td><td>142.768</td><td>139.440</td><td>139.440</td></tr>
+<tr><td>2</td><td>167.540</td><td>209.564</td><td>160.706</td><td>182.937</td><td>159.838</td><td>180.236</td></tr>
+<tr><td>3</td><td>169.115</td><td>217.179</td><td>165.347</td><td>197.172</td><td>164.997</td><td>195.713</td></tr>
+<tr><td>5</td><td>169.464</td><td>219.864</td><td>168.170</td><td>209.575</td><td>168.092</td><td>209.093</td></tr>
+<tr><td>10</td><td>169.475</td><td>220.032</td><td>169.322</td><td>217.908</td><td>169.311</td><td>217.780</td></tr>
+</tbody></table>
+<p>Okuma: olay sayısı D ve H'ye güçlü bağlıdır; bu yüzden "olay sayısı" her zaman kuralıyla birlikte verilmelidir.</p>
+<h2>10. Eşik tablosu (K9: tek yapılandırma dosyası)</h2>
+<table><thead><tr><th>Eşik</th><th>Değer</th><th>Birim</th><th>Gerekçe (<code>src/config/esikler.json</code>)</th></tr></thead><tbody>
+<tr><td>N</td><td>40</td><td>farklı gün (tüm yıllar)</td><td>Sanayi kuralı: 0,01° hücrede tüm yıllar boyunca en az N farklı TR gününde tespit. Demo 10 (13 aylık veri) idi; 20 yılla LOYO seçimi (27 katın 20'si aynı (N,M,Y,S)'yi seçti)</td></tr>
+<tr><td>M</td><td>8</td><td>farklı takvim ayı (1-12)</td><td>Sanayi kuralı: hücrede tespit görülen farklı TAKVİM ayı sayısı (yıllar birleşik; 'kaç farklı mevsimde'). Demo M=4 (yıl-ay) idi; anlam 20 yıl için takvim ayına çevrildi</td></tr>
+<tr><td>F</td><td>15</td><td>MW (MODIS ölçeği)</td><td>Anız adayı: FRP bu değerin altında (küçük ateş). 15 MW = MODIS arşiv type=0 FRP medyanı (ölçüldü, metrics: temizlik_F_modis_medyan). VIIRS eşdeğeri sabit oranla değil yüzdelik eşleştirmeyle hesaplanır (K8)</td></tr>
+<tr><td>D</td><td>1</td><td>km</td><td>Olay kümeleme mesafesi</td></tr>
+<tr><td>H</td><td>24</td><td>saat</td><td>Olay kümeleme zaman boşluğu</td></tr>
+<tr><td>aniz_aylari</td><td>[8 ; 9 ; 10 ; 11 ; 12]</td><td></td><td>Demo'nun tek, ülke çapı anız mevsimi (Ağustos–Aralık). v2'de etkin anız ayları bölgeye göre veriden öğrenilir (temizlik.aniz_ay_kurali; çıktı audit/aniz_takvimi.json, yıl dışarıda bırakmalı). Bu değer yalnız duyarlılık karşılaştır…</td></tr>
+<tr><td>eslesme_tamponu_km</td><td>0,375</td><td>km</td><td>VIIRS yarım piksel (375 m / 2 ≈ 0,19 km; 375 m tam piksel tampon olarak başlangıç)</td></tr>
+<tr><td>G</td><td>3</td><td>gün</td><td>Kesinti tespiti: bir uydu Türkiye'de ardışık en az G gün sıfır tespit verirse aday kesinti. Türkiye'de gündüz tespiti yapan uydunun 3 gün üst üste sıfır vermesi, tek bir geçişin kaçmasından (1-2 gün) uzun; duyarlılık G=2/3/5 cover…</td></tr>
+<tr><td>K</td><td>50</td><td>tespit</td><td>Kesinti tespiti: aynı günlerde aynı sensör ailesindeki kardeş uydular toplamda en az K tespit verdiyse bölgede yangın vardı, sıfır tespit yangınsızlık değil uydu kesintisidir</td></tr>
+<tr><td>B</td><td>5</td><td>km</td><td>Kıyı tamponu: il çokgeni dışındaki tespit Türkiye sınırına en çok B km ise 'kiyi' (il = en yakın il). MODIS piksel yarı genişliği (~0,5-2 km) + kaba il çokgeni + kıyı sanayisi (İzmit, Aliağa, İskenderun)</td></tr>
+<tr><td>temizlik.hucre_derece</td><td>0,01</td><td>derece</td><td>Kalıcılık hücresi ~1,1 km × ~0,85 km: MODIS nadir pikseli (1 km) ölçeğinde, VIIRS 375 m konum saçılımını tek hücrede toplar</td></tr>
+<tr><td>temizlik.Y</td><td>5</td><td>farklı yıl</td><td>Sanayi kuralı: hücrede tespit olan en az Y farklı takvim yılı (bir yangın yıllarca sürmez, U-08)</td></tr>
+<tr><td>temizlik.S</td><td>4</td><td>ay/yıl (medyan)</td><td>Sanayi kuralı: aktif yıllarda yıl içi farklı ay sayısının medyanı en az S (aynı yıl içinde süreklilik; mevsimlik tarım yakmasını ayırır)</td></tr>
+<tr><td>temizlik.koruma_yanlis_pay</td><td>0,01</td><td>oran</td><td>koruma_G seçimi: NASA type=2 çoğunluklu kalıcı hücrelerdeki noktaların en çok bu payı 'yangın koruması' alacak şekilde en küçük G</td></tr>
+<tr><td>temizlik.hasat_penceresi</td><td>[6 ; 7 ; 8 ; 9 ; 10]</td><td>ay</td><td>Bağımsız kaba kontrol: hasat sonrası anız penceresi. Hububat hasadı Mayıs sonu başlar (TMO alımları 21 Mayıs 2026), kışlık buğday/arpa hasadı Eylül başında bitmiş (FAO GIEWS, 7 Eylül 2026), mısır hasadı Ağustos ortasında başlar (F…</td></tr>
+<tr><td>temizlik.nasa_miras_payi</td><td>0,5</td><td>oran</td><td>NRT (type yok) noktası, hücresindeki arşiv noktalarının en az bu payı NASA type=2 ise statik_nasa mirası alır (çoğunluk kuralı)</td></tr>
+<tr><td>temizlik.kalici_gece_payi</td><td>0,5</td><td>oran</td><td>kalici_belirsiz: sanayi kuralının Y (yıl) ve M (takvim ayı) koşulunu sağlayıp N veya S koşulunu sağlamayan hücre, tespitlerinin en az bu payı gece ise (çoğunluk gece). Tarla yakması gündüz yoğun; baca/maden/çöplük gece de görülür</td></tr>
+<tr><td>temizlik.kalici_alfa</td><td>0,001</td><td>olasılık</td><td>YALNIZ BAYRAK (status değişmez): hücrenin aktif yıl sayısı, ilin yıllık aktif-hücre oranından kurulan Poisson-binom rastlantı modeline göre P(X&gt;=gözlenen) &lt; alfa ise status_neden'e 'yillik_tekrar' yazılır</td></tr>
+<tr><td>temizlik.kalici_min_yil</td><td>3</td><td>farklı yıl</td><td>yillik_tekrar bayrağı için alt sınır: tek/iki yılda tekrar 'yıllar boyu' sayılmaz</td></tr>
+<tr><td>temizlik.koruma_komsu_k</td><td>2</td><td>hücre</td><td>Yangın koruması komşuluğu: (2k+1)^2 hücre (~5 km) içinde aynı gün kalıcı olmayan hücrelerdeki tespit</td></tr>
+<tr><td>temizlik.koruma_G</td><td>2</td><td>tespit</td><td>Yangın koruması: aynı gün komşulukta kalıcı olmayan hücrelerde en az G tespit varsa kalıcı hücredeki nokta gerçek yangın olabilir, temiz kalır. G, NASA-statik ∩ kural-sanayi hücrelerinde yanlış koruma payı &lt;= koruma_yanlis_pay ola…</td></tr>
+<tr><td>temizlik.aniz_kucuk_komsu</td><td>3</td><td>tespit</td><td>Nokta düzeyi anız adayı: aynı gün 3x3 hücre komşuluğunda en çok bu kadar tespit (demo olay kuralı &lt;=3 tespit ile aynı)</td></tr>
+<tr><td>temizlik.aniz_olay_max_tespit</td><td>3</td><td>tespit</td><td>Olay düzeyi anız: olaydaki temiz tespit sayısı en çok bu (küçük)</td></tr>
+<tr><td>temizlik.aniz_olay_max_sure_saat</td><td>12</td><td>saat</td><td>Olay düzeyi anız: ilk-son tespit arası en çok bu (kısa)</td></tr>
+<tr><td>temizlik.aniz_olay_sayim</td><td>n_mcell</td><td></td><td>aniz_olay_max_tespit hangi büyüklükle sayılır: n_mcell (MODIS ölçeğinde eşleştirme birimi sayısı; sözleşme §5). İki sensörü toplamak (n) VIIRS döneminde aynı ateşi 'büyük' gösterir; sensor_max = max(n_modis, n_viirs) VIIRS'in 375 …</td></tr>
+<tr><td>temizlik.aniz_ay_kurali</td><td>uniform_ustu</td><td></td><td>Bölge × ay profilinde payı 1/12'den büyük aylar anız ayıdır (ortalamanın üstü)</td></tr>
+<tr><td>temizlik.dusuk_guven_etiketle</td><td>hayır</td><td></td><td>Demo varsayılanı 'Güven: Tümü': düşük güven nokta etiketi status'a yazılmaz, status_neden'de bayrak olarak durur (arayüz süzebilir)</td></tr>
+<tr><td>temizlik.wc_ornek_sayisi</td><td>2.000</td><td>nokta/grup</td><td>WorldCover doğrulama örneklemi (statik_nasa grubu bunun dörtte biri)</td></tr>
+<tr><td>temizlik.wc_tohum</td><td>20.261.113</td><td></td><td>Örneklem seçimi tekrar üretilebilsin (rastgelelik yalnız seçimde, veri üretmez)</td></tr>
+<tr><td>temizlik.wc_overview_duzey</td><td>1</td><td></td><td>COG iç genel görünüm düzeyi 1 = 4× küçültme (~37 m piksel); VIIRS 375 m pikselinden çok ince, okunacak blok sayısını ~16 kat azaltır</td></tr>
+<tr><td>temizlik.wc_pencere_px</td><td>3</td><td>piksel</td><td>Nokta çevresinde ±3 genel görünüm pikseli (~±110 m) pencerede en sık sınıf (konum belirsizliği)</td></tr>
+<tr><td>temizlik.wc_trafik_mb</td><td>200</td><td>MB</td><td>Toplam okuma trafiği üst sınırı; aşılacaksa okuma durur</td></tr>
+<tr><td>temizlik.wc_buyuk_olay_mcell</td><td>10</td><td>eşleştirme birimi</td><td>Doğrulama karşı grubu 'büyük temiz olay': n_mcell en az bu (anız sınırının açıkça üstü)</td></tr>
+<tr><td>temizlik.viirs_baslangic_yili</td><td>2.012</td><td>yıl</td><td>Temizlik dönem kırılımı: bu yıldan önce yalnız MODIS (SNPP VIIRS ilk tespit 2012-01-20). Anız sayım karşılaştırmasında bu geçiş yılı dışarıda bırakılır</td></tr>
+<tr><td>temizlik.modis_donemi_tesis_km</td><td>3</td><td>km</td><td>F2-09 bağımsız kontrol: VIIRS öncesi 'sanayi' MODIS noktasının doğrulama setindeki bir tesise uzaklık sınırı (MODIS pikseli ~1-4,8 km + tesis yarıçapı)</td></tr>
+<tr><td>harmonizasyon.mcell_zaman_penceresi_saat</td><td>4</td><td>saat</td><td>VIIRS noktası, bu süre içindeki bir MODIS (Terra veya Aqua) tespitinin ayak izine düşerse o MODIS hücresine bağlanır. Terra gündüz ~08:30 UTC, VIIRS ~10:35 UTC; Terra gece ~19:25 UTC, VIIRS ~23:00 UTC (veride ölçülen medyanlar) -&gt;…</td></tr>
+<tr><td>harmonizasyon.kalibrasyon_zaman_penceresi_dk</td><td>60</td><td>dakika</td><td>Kalibrasyon çiftleri yalnız Aqua (13:30) ile VIIRS (13:30) eşzamanlı geçişlerinden kurulur; /Δt/ bu değerden küçük olmalı (yangın bu sürede az değişir). Ölçülen Aqua-VIIRS /Δt/ dağılımı yontem belgesinde</td></tr>
+<tr><td>harmonizasyon.izgara_derece</td><td>0,01</td><td>derece</td><td>MODIS izine düşmeyen (yalnız VIIRS) noktalar için yedek ve karşılaştırma ızgarası (~1 km)</td></tr>
+<tr><td>harmonizasyon.hucre_baglanti_km</td><td>1</td><td>km</td><td>Aynı geçişteki VIIRS noktaları bu mesafeyle zincirlenince 'MODIS büyüklüğünde sözde hücre' olur (MODIS nadir pikseli ~1 km)</td></tr>
+<tr><td>harmonizasyon.frp_sinif_sinirlari_mw</td><td>[10 ; 50]</td><td>MW</td><td>Yöntem (ii) için büyüklük sınıfları: küçük &lt;10, orta 10-50, büyük &gt;=50 MW (hücre toplam FRP / MODIS tespit FRP)</td></tr>
+<tr><td>harmonizasyon.frp_egri_kutu_sayisi</td><td>12</td><td>kutu</td><td>Yöntem (iii) beklenen MODIS tespiti eğrisi log10(FRP) eşit-sayılı kutularla öğrenilir</td></tr>
+<tr><td>harmonizasyon.min_ornek</td><td>200</td><td>hücre</td><td>Bir tabaka (bölge × mevsim × gündüz/gece) bundan az örnekle öğrenilirse üst tabakaya (mevsim × gündüz/gece, sonra gündüz/gece) düşülür</td></tr>
+<tr><td>harmonizasyon.loyo_test_yillari</td><td>[2.012 ; 2.025]</td><td>yıl aralığı</td><td>Çakışma dönemi (MODIS + VIIRS) tam yılları. 2026 kısmi yıl ve NRT (type yok) olduğu için testte değil, ayrı ve 'düşük güven' etiketli</td></tr>
+<tr><td>harmonizasyon.eski_donem_yillari</td><td>[2.000 ; 2.002]</td><td>yıl aralığı</td><td>Yalnız Terra (Aqua 2002-07-04'te başlar). Çarpanla düzeltilmez; bayrak + genişletilmiş belirsizlik</td></tr>
+<tr><td>harmonizasyon.sicrama_pencere_yil</td><td>3</td><td>yıl</td><td>C10: geçiş öncesi 3 yıl ile sonrası 3 yıl ortalaması</td></tr>
+<tr><td>harmonizasyon.gecis_ayirma_dk</td><td>45</td><td>dakika</td><td>Aynı uydunun ardışık tespitleri arasında bundan uzun boşluk varsa yeni yörünge geçişi başlar. Türkiye'yi tek geçiş birkaç dakikada tarar; ardışık yörüngeler ~100 dk arayla gelir</td></tr>
+<tr><td>kumeleme.km_derece</td><td>111</td><td>km/derece</td><td>Enlem derecesi başına km (demo ile aynı yaklaşık değer; boylamda cos(ortalama enlem) ile çarpılır)</td></tr>
+<tr><td>kumeleme.eslestirme_modu</td><td>ayakizi_capraz</td><td></td><td>sabit: yalnız mesafe &lt;= D. ayakizi_capraz: ayrıca MODIS–VIIRS çiftinde VIIRS merkezi, MODIS piksel dikdörtgeni (scan x track) + eslesme_tamponu_km içindeyse aynı yangın (sözleşme §5). ayakizi_tum: ayrıca iki MODIS pikselinin dikdö…</td></tr>
+<tr><td>kumeleme.bosluk_kurali</td><td>gecis</td><td></td><td>sabit: iki tespit arası &lt;= H saat. gecis: arada kaçırılan GÖZLENMİŞ geçiş penceresi sayısı &lt;= L ve süre &lt;= Hmax (uydu geçmediyse bekle). gecis seçildi: sabit H=24, ertesi gün geçişi birkaç saat geç gelince her gün görülen yangını …</td></tr>
+<tr><td>kumeleme.L</td><td>3</td><td>geçiş penceresi</td><td>gecis kuralında yangın, arada en çok L gözlenmiş geçiş penceresi boş geçtiyse sürüyor sayılır. 2002-07 sonrası günde 4 pencere var (Terra gündüz/gece, Aqua+VIIRS gündüz/gece); öğle geçişinden ertesi öğle geçişine arada 3 pencere k…</td></tr>
+<tr><td>kumeleme.Hmax</td><td>72</td><td>saat</td><td>gecis kuralında uydu hiç geçmese de bu süreden uzun boşluk birleştirilmez (sonsuz bekleme olmasın)</td></tr>
+<tr><td>kumeleme.gecis_pencere_yuzdelik</td><td>[1 ; 99]</td><td>yüzdelik</td><td>Geçiş penceresinin başı/sonu: o yıl o uydu grubunun (Terra / Aqua+VIIRS) gündüz veya gece tespit saatlerinin 1. ve 99. yüzdeliği (UTC dakika)</td></tr>
+<tr><td>kumeleme.demo_donemi_yillari</td><td>[2.025 ; 2.026]</td><td>yıl aralığı</td><td>Duyarlılık tablosunda demo (../demo, 2025–2026 verisi) ile kıyas sütunu; olay başlangıcının TR yılı</td></tr>
+<tr><td>takvim.min_yil_medyan</td><td>5</td><td>yıl</td><td>Ay medyanı ve anomali normali için en az bu kadar tam, sensör-tutarlı yıl gerekir; altında medyan 'yetersiz' etiketli. 5 yıl: çeyrekler ve MAD için en küçük anlamlı örnek (kural, ölçüm değil)</td></tr>
+<tr><td>takvim.kesinti_pay_max</td><td>0,5</td><td>oran</td><td>Bir ayda gözlem kesintisi (observed=false) payı bunu aşarsa o ay hücresi boş (NaN) bırakılır; altında kesinti günleri paydan çıkarılıp ay uzunluğuna ölçeklenir (C06)</td></tr>
+<tr><td>takvim.min_kapsam_orani</td><td>0,5</td><td>oran</td><td>Serbest aralık sorgusunda gözlenen gün ağırlığı / istenen gün bunun altındaysa değer boş</td></tr>
+<tr><td>takvim.pencere_min_gun</td><td>15</td><td>gün</td><td>Kısa aralıkta (1 gün gibi) yıllar arası gürültü büyük; tarihsel pencere en az bu uzunluğa, aralığın merkezi çevresinde simetrik genişletilir</td></tr>
+<tr><td>takvim.z_esik</td><td>2</td><td>sapma</td><td>Anomali işareti için /z/ eşiği (sağlam z: medyan/MAD, log1p ölçeğinde)</td></tr>
+<tr><td>takvim.olcek_taban</td><td>0,05</td><td>log1p birimi</td><td>MAD'in sıfıra yakın olduğu hücrelerde z'nin patlamasını önleyen alt ölçek</td></tr>
+<tr><td>takvim.ayirt_edilemez_tol</td><td>0,1</td><td>oran</td><td>Sıradaki iki ayın medyanı arasındaki göreli fark bundan küçükse 'ayırt edilemez' uyarısı (ek olarak bootstrap top-3 olasılığı)</td></tr>
+<tr><td>takvim.bootstrap_B</td><td>300</td><td>yineleme</td><td>Yıl yeniden örnekleme sayısı (top-3 kararlılığı)</td></tr>
+<tr><td>takvim.bootstrap_tohum</td><td>20.260.101</td><td></td><td>Tekrarlanabilirlik için sabit tohum (analiz yeniden örneklemesi; veri simülasyonu değil)</td></tr>
+<tr><td>takvim.top_n</td><td>3</td><td>ay</td><td>Raporlanan en yoğun ay sayısı</td></tr>
+<tr><td>takvim.ayrisma_oran_esigi</td><td>1,5</td><td>kat</td><td>MODIS oranı VIIRS oranının bu katı kadar daha düşükse düşüş 'MODIS'e özgü' (sensör/yörünge kayması/NRT şüphesi) diye işaretlenir; bu yorum doğrulanmamıştır</td></tr>
+<tr><td>takvim.dusuk_oran_esigi</td><td>0,5</td><td>kat</td><td>Mevcut ay oranı bunun altındaysa 'düşük aktivite' yorumu üretilir (iki sensörde birlikte mi ayrı mı diye bakılır)</td></tr>
+<tr><td>takvim.yorunge_kaymasi_bayragi</td><td>aqua_yorunge_kaymasi</td><td></td><td>harmonized.parquet bayrak sözcüğü; takvim bunu aylık hücrelere ve mevcut-ay satırına taşır</td></tr>
+<tr><td>takvim.esdeger_sapma_esigi</td><td>0,25</td><td>göreli</td><td>Eşdeğer seri oranı, ölçülmüş MODIS-temiz VE VIIRS-uydu-başına oranlarının İKİSİNDEN de bu göreli farktan fazla sapıyorsa seri güvenilmez sayılır ve birincil gösterim ölçülmüş seriye düşer (F4-01: Ekim 2026'da eşdeğer ölçümlerle çe…</td></tr>
+</tbody></table>
+<h2>11. Sınırlar ve yapılmayanlar</h2>
+<ol>
+<li><strong>2026 için MODIS-eşdeğer seri güvenilmez</strong> [doğrulanmadı]: Aqua öğle geçişi 10,7 UTC (2015) iken 12,65 UTC'ye (2026) kaydı; Aqua ile VIIRS'in eşzamanlı çift payı 0,839 iken 0,182 değerine düştü. Eşdeğer bandın 2026'da gerçek MODIS'i kapsama oranı 0,545 (ölçüldü); LOYO döneminde 0,9226 (ölçüldü). Son tam ayda eşdeğer seri oranı 1,697 kat (tahmini) verirken iki sensörün kendi ölçümü 0,876 kat (ölçüldü) (MODIS) ve 0,944 kat (tahmini) (VIIRS): çelişki. Yörünge kaymasını gidermeyen ('kaymasız') bir kalibrasyon varyantı ölçülmedi.</li>
+<li><strong>MODIS bittikten sonra serinin doğruluğu</strong> [doğrulanmadı]: Terra/Aqua sona erince seri yalnız 2012–2025 kalibrasyonuna dayanır. Bu rejimin bağımsız doğrulaması yoktur; çünkü karşılaştırılacak gerçek MODIS kalmayacak. Aylık ülke hata bandı [−59,57 ; 74,99] % (tahmini) geniştir.</li>
+<li><strong>Sensör farkı çözüldü iddiası yok</strong> [tahmini]: Harmonize seri, gerçek MODIS'in aynı penceredeki değişimini 3,55 yüzde puan (tahmini) farkla izliyor. Bu fark LOYO yıllık %95 hata aralığı [−23,49 ; 9,51] % (tahmini) içinde; ama harmonize sıçrama, geçiş dışı doğal yıllık değişim aralığı [−39,3 ; 92,61] % (tahmini) içinde değil (içinde mi: hayır (tahmini)), çünkü gerçek MODIS de bu aralığın dışında. C10 ölçütü ilk sonuç görüldükten sonra inceltildi (audit/degisim_gunlugu.md); bu bir yöntem seçimidir ve sonuca göre ayarlanmış olabileceği kabul edilir.</li>
+<li><strong>(ii) ile (i) yöntemleri ayırt edilemez</strong> [ölçüldü]: Ay×bölge WAPE: (i) 30,64 % (ölçüldü), (ii) 30,63 % (ölçüldü); fark %95 aralığı [−2,97 ; 4,26] yüzde puan (tahmini). Yıllık toplamda (i) daha iyi (MAPE 4,83 % (ölçüldü) karşı 8,33 % (ölçüldü)). Asıl kazanç gözlem eforu (uydu sayısı) normalizasyonudur; (ii)'nin (i)'den üstün olduğu iddia edilmez. Kazanan seçimi LOYO sonuçları üzerinde yapıldığı için hata hafif iyimser olabilir.</li>
+<li><strong>Anız için yer doğrulaması yok</strong> [doğrulanmadı]: Anız etiketi kural tabanlıdır ve yalnız dolaylı kanıtla sınandı: ESA WorldCover'da anız noktalarının %79,3 ekili alanda (ölçüldü), kaba ulusal hasat penceresiyle uyum %74,2 (tahmini). Saha, yanmış alan (MCD64A1) veya AFAD/OGM kaydıyla karşılaştırma yapılmadı. Ay tek başına anızı ayırmaz (LOYO kaldıraç 0,928 (ölçüldü)).</li>
+<li><strong>Static Thermal Anomalies (STA) maskesi karşılaştırılmadı</strong> [doğrulanmadı]: FIRMS STA maskesi için toplu indirme bulunamadı; karşılaştırma sonucu: yok (doğrulanmadı). Yerine NASA arşivindeki type=2 ile uyum ölçüldü; bu aynı şey değildir ve type=2 yer gerçeği değil bir maskedir.</li>
+<li><strong>Sanayi kuralı MODIS döneminde zayıf uyuşuyor</strong> [ölçüldü]: NASA type=2 ile uyuşma VIIRS döneminde kesinlik 0,924 (ölçüldü), MODIS döneminde 0,2278 (ölçüldü). Referans seyrek olduğu için; kuralın 'sanayi' dediği MODIS noktalarının %66,6 bilinen bir tesise yakın. Bu 'uyuşma' ölçüsüdür, doğruluk değil.</li>
+<li><strong>Referans doğrulama seti küçük ve tesis yakalaması düşük</strong> [tahmini]: Set: 26 sanayi tesisi (OpenStreetMap) ve 8 bilinen yangın (Wikipedia + ilçe merkezi); 3 kayıt çakışma nedeniyle ayıklandı. Dengeli kesinlik 0,9711 (tahmini), tesis yakalama 0,4777 (tahmini) (tesis düzeyinde 0,4783 (tahmini)): bazı tesisler (özellikle termik santraller) kaçıyor. Yangın pencereleri ve yarıçapları yaklaşık. Nokta düzeyi kesinlik (0,9999 (tahmini)) sınıf dengesizliğinden şişkindir ve sunumda kullanılmaz.</li>
+<li><strong>Gözlem kapsamı (swath) çıkarımdır</strong> [tahmini]: NASA uydu geçiş şeridi (swath) verisi toplu indirilemedi; kesinti günleri tespit sayılarından çıkarıldı (129 uydu-gün (tahmini)). Geçiş pencereleri tespit saatlerinin yüzdeliklerinden türetildi. Gerçek geçiş listesiyle doğrulanmadı.</li>
+<li><strong>Ekran okuyucu testi yapılmadı</strong> [doğrulanmadı]: Klavyeyle ulaşılabilir etkileşimli öğe payı %88,4, adı olan öğe payı %100, en düşük kontrast 4,59 (ölçüldü) (ölçüldü); renk körlüğü ayırt edilebilirliği ölçüldü. Ekran okuyucuyla elle sınama ve harita zemini/Leaflet iç kontrolleri ölçüm dışıdır.</li>
+<li><strong>İl düzeyinde MODIS-eşdeğer seri yok</strong> [doğrulanmadı]: Eşdeğer seri yalnız ülke ve 7 bölge düzeyinde LOYO ile doğrulandı (olay biriminde ay×il WAPE 46,27 % (ölçüldü) ile daha yüksek). İl düzeyi için ayrı bir doğrulama yoktur.</li>
+<li><strong>Güven sınıfı eşlemesi zayıf ilişkili</strong> [tahmini]: Öğrenilen MODIS eşiği [35 ; 82] MODIS % (tahmini) FIRMS cetveline yakın; ama iki uydunun tek yangındaki güveni zayıf ilişkili (Spearman 0,2138 (ölçüldü)) ve öğrenilmiş eşleme FIRMS'i geçmedi (kappa 0,1765 (ölçüldü) karşı 0,1918 (ölçüldü)). Arayüzde varsayılan ham FIRMS sınıfıdır.</li>
+<li><strong>Anomali bandı geniştir</strong> [tahmini]: Eşdeğer seride anomali işareti, belirsizlik bandı yüzünden 33,53 % (tahmini) oranında 'belirsiz'e düşüyor. Ağu–Eyl ay medyanları istatistiksel olarak ayırt edilemez (ayırt edilemez bayrağı: 1 (ölçüldü)).</li>
+<li><strong>WorldCover tek yıl ve örneklem</strong> [tahmini]: ESA WorldCover 2021 tek yıldır; 2000–2026 noktalarında arazi değişimi yok sayıldı, WorldCover'ın kendi sınıflandırma hatası ölçülmedi, örneklem tabanlıdır.</li>
+<li><strong>FIRMS API ile otomatik çekme çalıştırılmadı</strong> [doğrulanmadı]: <code>src/pipeline/firms_api.py</code> betiği hazır (kota 5000 işlem/10 dk'ya uygun) fakat API anahtarı yok ve çalıştırılmadı. Veri, elle indirilmiş 1.414.674 satırlık arşivden gelir; son gün 2026-11-12.</li>
+<li><strong>Terra'nın 2026 durumu belirsiz</strong> [doğrulanmadı]: Mevcut durum belgesindeki 'Mart 2026'da beklemeye alındı' iddiası doğrulanamadı; veride Terra tespiti son güne kadar sürüyor. Planlı bitiş tarihleri ikincil kaynaktan, doğrulanmadı.</li>
+<li><strong>Zaman: sabit UTC+3</strong> [tahmini]: TR günü her yıl için sabit UTC+3 alınır; 2016 öncesi kış saati (UTC+2) etkisi 21:00–21:59 UTC tespitlerini ertesi güne kaydırır, etkisi küçük kabul edildi (denetçi örneklemle ölçebilir).</li>
+<li><strong>Mevcut ay kutusu ve 2026 kısmi yıl</strong> [doğrulanmadı]: Son veri günü 2026-11-12; mevcut ay 12 gün (ölçüldü) kısmidir ve NRT payı 100 % (ölçüldü). Mevcut ay oranı MODIS 0,127 kat (tahmini), VIIRS 0,243 kat (tahmini); MODIS'in ek düşüşünün nedeni (sensör ömrü sonu, NRT, yörünge kayması) doğrulanmadı.</li>
+<li><strong>Harita zemini çevrimiçi</strong> [ölçüldü]: Uygulama internet olmadan açılır (C21, kütüphaneler yerelde); yalnız isteğe bağlı çevrimiçi harita zemini internet ister, yoksa il sınırları görünür.</li>
+<li><strong>Hotspot yangın değildir; risk tahmini yoktur</strong> [ölçüldü]: Gösterilen şey tarihsel hotspot/olay aktivitesidir. Gelecekteki yangın riski veya tehlikesi tahmin edilmez (K14). Nokta sayısı yangın sayısı değildir: 1.414.674 noktadan 471.978 olay çıkar.</li>
+</ol>
+<p>Otomatik eklenenler (<code>audit/check_results.json</code> ve <code>audit/bulgular.md</code>; güzelleştirilemez):</p>
+<ul>
+<li>Açık denetim bulgusu <strong>F2-10</strong> (düşük, açık): Sabit yıl/saat sabitleri (K9, K11) (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F2-11</strong> (düşük, açık): Belge tutarsızlıkları (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F2-12</strong> (düşük, açık): Kontrol zayıflıkları — <code>tools/check_all.py</code> (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F4-04</strong> (düşük, kısmen): Görüntü kusurları (doğrulanmadı)</li>
+<li>Açık denetim bulgusu <strong>F5-03</strong> (düşük, açık): Etiket (C24) — türetilmiş sonuç "ölçüldü" (doğrulanmadı)</li>
+</ul>
+<h2>12. Kodda nerede?</h2>
+<table><thead><tr><th>Konu</th><th>Kod</th><th>Belge</th></tr></thead><tbody>
+<tr><td>Veri hattı, şema, kapsam</td><td>src/pipeline/build_points.py, build_coverage.py, timeutil.py</td><td>docs/04_VERI_SOZLESMESI_TASLAK.md</td></tr>
+<tr><td>Eşikler ve güven kodlaması (K9, K10)</td><td>src/config/esikler.json, src/config/config.py</td><td>—</td></tr>
+<tr><td>Temizlik (sanayi, anız, NASA etiketi)</td><td>src/cleaning/kalibrasyon.py, build_status.py, olay_aniz.py, worldcover.py</td><td>docs/temizlik_yontemi.md</td></tr>
+<tr><td>Kümeleme (olay)</td><td>src/clustering/core.py, build_events.py, bruteforce_check.py</td><td>docs/kumeleme_yontemi.md</td></tr>
+<tr><td>Harmonizasyon</td><td>src/harmonize/eslestirme.py, guven_esleme.py, seri.py, olay.py</td><td>docs/harmonizasyon_yontemi.md</td></tr>
+<tr><td>Takvim ve anomali</td><td>src/analytics/build_monthly.py, analiz.py, query.py</td><td>docs/takvim_yontemi.md</td></tr>
+<tr><td>Arayüz</td><td>src/app/index.html, main.js, core.js, mapview.js, lab.js, charts.js, csv.js</td><td>referans/STIL_NOTU.md</td></tr>
+<tr><td>Metrik ve rapor üretimi</td><td>tools/build_metrics.py, build_rapor_metrikleri.py, build_reports.py</td><td>reports/metrics.json</td></tr>
+<tr><td>Kontroller</td><td>tools/check_all.py, audit/f1/, audit/f2/</td><td>docs/03_KABUL_KRITERLERI.md</td></tr>
+</tbody></table>
+<h2>13. Yusuf için on cümlelik özet</h2>
+<ol>
+<li>Veri 1.414.674 sıcak noktadır; bunların hepsi yangın değildir, hiçbiri silinmez.</li>
+<li>Önce temizlik: deniz/volkan/sanayi/anız etiketlenir, gerçek yangın korunur.</li>
+<li>Aynı yangının fotoğrafları kümelenerek 471.978 olaya iner.</li>
+<li>VIIRS, MODIS'in ayak izine bağlanır; böylece 1'e 4 sorunu aynı hücrede toplanır.</li>
+<li>Uydu sayısı değişince (efor) sayılar değişir; önce buna göre düzeltilir.</li>
+<li>Harmonizasyon, hassas VIIRS'i eski MODIS diline çevirir; yöntem bir yılı saklayıp tahmin ederek (LOYO) sınanır.</li>
+<li>Sıçrama 143,13 % (ölçüldü) iken harmonize seri gerçek MODIS düşüşünü 3,55 yüzde puan (tahmini) farkla izler; "çözdük" denmez.</li>
+<li>Takvim medyan ve anomaliyle çalışır; yakın aylar "ayırt edilemez" denir.</li>
+<li>Her sayının yanında etiket vardır: ölçüldü / tahmini / doğrulanmadı.</li>
+<li>Doğrulanmayanlar (2026 eşdeğer, anız yer doğrulaması, ekran okuyucu, swath) açıkça yazılıdır.</li>
+</ol></main></body></html>

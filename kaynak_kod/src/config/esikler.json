@@ -1,0 +1,579 @@
+{
+  "_aciklama": "Tüm eşikler tek yerde (K9). Her girdi {value, gerekce, kaynak}. Güven eşlemesi (K10) yalnız burada tanımlıdır; src/config/config.py okur.",
+  "sema_surumu": "v1",
+  "guven": {
+    "MODIS": {
+      "tur": "sayisal_aralik",
+      "siniflar": [
+        {
+          "cls": "dusuk",
+          "min": 0,
+          "max": 29
+        },
+        {
+          "cls": "nominal",
+          "min": 30,
+          "max": 79
+        },
+        {
+          "cls": "yuksek",
+          "min": 80,
+          "max": 100
+        }
+      ],
+      "gerekce": "MODIS güven yüzdesi: FIRMS düşük/nominal/yüksek kuralı.",
+      "kaynak": "FIRMS MODIS Collection 6.1 kullanım kılavuzu (kural veride birebir doğrulandı: docs/04 §1)"
+    },
+    "VIIRS": {
+      "tur": "harf",
+      "esleme": {
+        "l": "dusuk",
+        "n": "nominal",
+        "h": "yuksek"
+      },
+      "gerekce": "VIIRS 375 m güven alanı üç harflidir (low/nominal/high).",
+      "kaynak": "FIRMS VIIRS 375 m aktif yangın ürünü kullanım kılavuzu"
+    },
+    "siniflar_sirali": [
+      "dusuk",
+      "nominal",
+      "yuksek"
+    ],
+    "bilinmeyen_etiket": "bilinmeyen",
+    "ogrenilen_esleme": null,
+    "ogrenilen_esleme_not": "harmonizasyon ajanı doldurur (K4: yıl dışarıda bırakma ile)"
+  },
+  "uydu_kodlari": {
+    "esleme": {
+      "Terra": "Terra",
+      "Aqua": "Aqua",
+      "Suomi NPP": "SNPP",
+      "NOAA-20": "N20",
+      "NOAA-21": "N21"
+    },
+    "sensor": {
+      "Terra": "MODIS",
+      "Aqua": "MODIS",
+      "SNPP": "VIIRS",
+      "N20": "VIIRS",
+      "N21": "VIIRS"
+    },
+    "bilinmeyen_etiket": "bilinmeyen",
+    "gerekce": "Ham 'satellite' adından kısa kod. Eşlemede olmayan ad sayılır ve raporlanır, satır atılmaz.",
+    "kaynak": "docs/04 §2"
+  },
+  "N": {
+    "value": 40,
+    "unit": "farklı gün (tüm yıllar)",
+    "gerekce": "Sanayi kuralı: 0,01° hücrede tüm yıllar boyunca en az N farklı TR gününde tespit. Demo 10 (13 aylık veri) idi; 20 yılla LOYO seçimi (27 katın 20'si aynı (N,M,Y,S)'yi seçti)",
+    "kaynak": "src/cleaning/kalibrasyon.py -> audit/temizlik_kalibrasyon.json (LOYO, NASA type=2'ye karşı F1)"
+  },
+  "M": {
+    "value": 8,
+    "unit": "farklı takvim ayı (1-12)",
+    "gerekce": "Sanayi kuralı: hücrede tespit görülen farklı TAKVİM ayı sayısı (yıllar birleşik; 'kaç farklı mevsimde'). Demo M=4 (yıl-ay) idi; anlam 20 yıl için takvim ayına çevrildi",
+    "kaynak": "src/cleaning/kalibrasyon.py LOYO seçimi"
+  },
+  "F": {
+    "value": 15,
+    "unit": "MW (MODIS ölçeği)",
+    "gerekce": "Anız adayı: FRP bu değerin altında (küçük ateş). 15 MW = MODIS arşiv type=0 FRP medyanı (ölçüldü, metrics: temizlik_F_modis_medyan). VIIRS eşdeğeri sabit oranla değil yüzdelik eşleştirmeyle hesaplanır (K8)",
+    "kaynak": "demo değeri; veride MODIS medyanına eşit olduğu ölçüldü; duyarlılık tablosu sensitivity.F"
+  },
+  "D": {
+    "value": 1,
+    "unit": "km",
+    "gerekce": "Olay kümeleme mesafesi",
+    "kaynak": "../demo varsayılanı, F2'de sınanacak"
+  },
+  "H": {
+    "value": 24,
+    "unit": "saat",
+    "gerekce": "Olay kümeleme zaman boşluğu",
+    "kaynak": "../demo varsayılanı, F2'de sınanacak"
+  },
+  "aniz_aylari": {
+    "value": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "gerekce": "Demo'nun tek, ülke çapı anız mevsimi (Ağustos–Aralık). v2'de etkin anız ayları bölgeye göre veriden öğrenilir (temizlik.aniz_ay_kurali; çıktı audit/aniz_takvimi.json, yıl dışarıda bırakmalı). Bu değer yalnız duyarlılık karşılaştırmasında ('demo' satırı) kullanılır",
+    "kaynak": "../demo varsayılanı; sensitivity.aniz_aylari"
+  },
+  "eslesme_tamponu_km": {
+    "value": 0.375,
+    "unit": "km",
+    "gerekce": "VIIRS yarım piksel (375 m / 2 ≈ 0,19 km; 375 m tam piksel tampon olarak başlangıç)",
+    "kaynak": "docs/04 §5 başlangıç değeri, harmonizasyon ajanı sınar"
+  },
+  "G": {
+    "value": 3,
+    "unit": "gün",
+    "gerekce": "Kesinti tespiti: bir uydu Türkiye'de ardışık en az G gün sıfır tespit verirse aday kesinti. Türkiye'de gündüz tespiti yapan uydunun 3 gün üst üste sıfır vermesi, tek bir geçişin kaçmasından (1-2 gün) uzun; duyarlılık G=2/3/5 coverage_duyarlilik bölümünde (data/README.md) ölçüldü",
+    "kaynak": "F1-01 denetim bulgusu; duyarlılık ölçümü build_coverage.py"
+  },
+  "K": {
+    "value": 50,
+    "unit": "tespit",
+    "gerekce": "Kesinti tespiti: aynı günlerde aynı sensör ailesindeki kardeş uydular toplamda en az K tespit verdiyse bölgede yangın vardı, sıfır tespit yangınsızlık değil uydu kesintisidir",
+    "kaynak": "F1-01 denetim bulgusu; SNPP 2022-07-26..08-11 kesintisinde kardeş N20 17 günde 1.112 tespit verdi"
+  },
+  "B": {
+    "value": 5,
+    "unit": "km",
+    "gerekce": "Kıyı tamponu: il çokgeni dışındaki tespit Türkiye sınırına en çok B km ise 'kiyi' (il = en yakın il). MODIS piksel yarı genişliği (~0,5-2 km) + kaba il çokgeni + kıyı sanayisi (İzmit, Aliağa, İskenderun)",
+    "kaynak": "F1-02 denetim bulgusu"
+  },
+  "temizlik": {
+    "_aciklama": "temizlik ajanının eşikleri (K9). N, M, F üst düzeyde; burada yardımcılar. Değerler src/cleaning/kalibrasyon.py çıktısından (audit/temizlik_kalibrasyon.json) elle aktarılır; betik bu dosyayı yazmaz.",
+    "hucre_derece": {
+      "value": 0.01,
+      "unit": "derece",
+      "gerekce": "Kalıcılık hücresi ~1,1 km × ~0,85 km: MODIS nadir pikseli (1 km) ölçeğinde, VIIRS 375 m konum saçılımını tek hücrede toplar",
+      "kaynak": "../demo/pipeline/build_data.py CELL[MODIS]=0.01"
+    },
+    "Y": {
+      "value": 5,
+      "unit": "farklı yıl",
+      "gerekce": "Sanayi kuralı: hücrede tespit olan en az Y farklı takvim yılı (bir yangın yıllarca sürmez, U-08)",
+      "kaynak": "src/cleaning/kalibrasyon.py LOYO seçimi"
+    },
+    "S": {
+      "value": 4,
+      "unit": "ay/yıl (medyan)",
+      "gerekce": "Sanayi kuralı: aktif yıllarda yıl içi farklı ay sayısının medyanı en az S (aynı yıl içinde süreklilik; mevsimlik tarım yakmasını ayırır)",
+      "kaynak": "src/cleaning/kalibrasyon.py LOYO seçimi (ızgara 1,2,3,4,6,8; iç değer)"
+    },
+    "koruma_yanlis_pay": {
+      "value": 0.01,
+      "unit": "oran",
+      "gerekce": "koruma_G seçimi: NASA type=2 çoğunluklu kalıcı hücrelerdeki noktaların en çok bu payı 'yangın koruması' alacak şekilde en küçük G",
+      "kaynak": "temizlik; build_status.py ölçer"
+    },
+    "hasat_penceresi": {
+      "value": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unit": "ay",
+      "gerekce": "Bağımsız kaba kontrol: hasat sonrası anız penceresi. Hububat hasadı Mayıs sonu başlar (TMO alımları 21 Mayıs 2026), kışlık buğday/arpa hasadı Eylül başında bitmiş (FAO GIEWS, 7 Eylül 2026), mısır hasadı Ağustos ortasında başlar (FAO GIEWS). Ekim sonrası mısır/pamuk anızı doğrulanmadı",
+      "kaynak": "https://www.fao.org/giews/countrybrief/country.jsp?code=TUR ; https://www.dunya.com/ekonomi/toprak-mahsulleri-ofisi-duyurdu-bugday-ve-arpa-alimlari-21-mayista-basliyor-haberi-825835 (erişim 2026-11-13)"
+    },
+    "nasa_miras_payi": {
+      "value": 0.5,
+      "unit": "oran",
+      "gerekce": "NRT (type yok) noktası, hücresindeki arşiv noktalarının en az bu payı NASA type=2 ise statik_nasa mirası alır (çoğunluk kuralı)",
+      "kaynak": "çoğunluk tanımı; LOYO ile ölçülür"
+    },
+    "kalici_gece_payi": {
+      "value": 0.5,
+      "unit": "oran",
+      "gerekce": "kalici_belirsiz: sanayi kuralının Y (yıl) ve M (takvim ayı) koşulunu sağlayıp N veya S koşulunu sağlamayan hücre, tespitlerinin en az bu payı gece ise (çoğunluk gece). Tarla yakması gündüz yoğun; baca/maden/çöplük gece de görülür",
+      "kaynak": "çoğunluk tanımı; duyarlılık 0,3/0,5/0,7 (sensitivity.kalici_gece). Rastlantı-modeli tanımı 196 bin noktayı (çoğu tarım ovası) işaretlediği için reddedildi"
+    },
+    "kalici_alfa": {
+      "value": 0.001,
+      "unit": "olasılık",
+      "gerekce": "YALNIZ BAYRAK (status değişmez): hücrenin aktif yıl sayısı, ilin yıllık aktif-hücre oranından kurulan Poisson-binom rastlantı modeline göre P(X>=gözlenen) < alfa ise status_neden'e 'yillik_tekrar' yazılır",
+      "kaynak": "temizlik; duyarlılık tablosu sensitivity.kalici_alfa"
+    },
+    "kalici_min_yil": {
+      "value": 3,
+      "unit": "farklı yıl",
+      "gerekce": "yillik_tekrar bayrağı için alt sınır: tek/iki yılda tekrar 'yıllar boyu' sayılmaz",
+      "kaynak": "U-08 tanımı (yıllar boyu)"
+    },
+    "koruma_komsu_k": {
+      "value": 2,
+      "unit": "hücre",
+      "gerekce": "Yangın koruması komşuluğu: (2k+1)^2 hücre (~5 km) içinde aynı gün kalıcı olmayan hücrelerdeki tespit",
+      "kaynak": "geçici"
+    },
+    "koruma_G": {
+      "value": 2,
+      "unit": "tespit",
+      "gerekce": "Yangın koruması: aynı gün komşulukta kalıcı olmayan hücrelerde en az G tespit varsa kalıcı hücredeki nokta gerçek yangın olabilir, temiz kalır. G, NASA-statik ∩ kural-sanayi hücrelerinde yanlış koruma payı <= koruma_yanlis_pay olan en küçük değer",
+      "kaynak": "build_status.py koruma_G_sec (metrics: temizlik_koruma_G_veriden)"
+    },
+    "aniz_kucuk_komsu": {
+      "value": 3,
+      "unit": "tespit",
+      "gerekce": "Nokta düzeyi anız adayı: aynı gün 3x3 hücre komşuluğunda en çok bu kadar tespit (demo olay kuralı <=3 tespit ile aynı)",
+      "kaynak": "../demo/app.js computeStatus"
+    },
+    "aniz_olay_max_tespit": {
+      "value": 3,
+      "unit": "tespit",
+      "gerekce": "Olay düzeyi anız: olaydaki temiz tespit sayısı en çok bu (küçük)",
+      "kaynak": "../demo/app.js computeStatus (Revizyon 3); duyarlılık olay_aniz.py"
+    },
+    "aniz_olay_max_sure_saat": {
+      "value": 12,
+      "unit": "saat",
+      "gerekce": "Olay düzeyi anız: ilk-son tespit arası en çok bu (kısa)",
+      "kaynak": "../demo/app.js computeStatus (Revizyon 3)"
+    },
+    "aniz_olay_sayim": {
+      "value": "n_mcell",
+      "gerekce": "aniz_olay_max_tespit hangi büyüklükle sayılır: n_mcell (MODIS ölçeğinde eşleştirme birimi sayısı; sözleşme §5). İki sensörü toplamak (n) VIIRS döneminde aynı ateşi 'büyük' gösterir; sensor_max = max(n_modis, n_viirs) VIIRS'in 375 m ayrıntısını yine MODIS pikseline eşitlemez. Karşılaştırma: metrics temizlik_pay_2012_oncesi_* / temizlik_pay_2013_sonrasi_*",
+      "kaynak": "koordinatör F2 ikinci adım; src/cleaning/olay_aniz.py ölçümü"
+    },
+    "aniz_ay_kurali": {
+      "value": "uniform_ustu",
+      "gerekce": "Bölge × ay profilinde payı 1/12'den büyük aylar anız ayıdır (ortalamanın üstü)",
+      "kaynak": "temizlik; duyarlılık: top3, top5, demo Ağu–Ara"
+    },
+    "dusuk_guven_etiketle": {
+      "value": false,
+      "gerekce": "Demo varsayılanı 'Güven: Tümü': düşük güven nokta etiketi status'a yazılmaz, status_neden'de bayrak olarak durur (arayüz süzebilir)",
+      "kaynak": "../demo varsayılanı"
+    },
+    "wc_ornek_sayisi": {
+      "value": 2000,
+      "unit": "nokta/grup",
+      "gerekce": "WorldCover doğrulama örneklemi (statik_nasa grubu bunun dörtte biri)",
+      "kaynak": "koordinatör F2 ikinci adım (~2.000/grup)"
+    },
+    "wc_tohum": {
+      "value": 20261113,
+      "gerekce": "Örneklem seçimi tekrar üretilebilsin (rastgelelik yalnız seçimde, veri üretmez)",
+      "kaynak": "temizlik"
+    },
+    "wc_overview_duzey": {
+      "value": 1,
+      "gerekce": "COG iç genel görünüm düzeyi 1 = 4× küçültme (~37 m piksel); VIIRS 375 m pikselinden çok ince, okunacak blok sayısını ~16 kat azaltır",
+      "kaynak": "karo meta verisi: overviews [2,4,8,...]"
+    },
+    "wc_pencere_px": {
+      "value": 3,
+      "unit": "piksel",
+      "gerekce": "Nokta çevresinde ±3 genel görünüm pikseli (~±110 m) pencerede en sık sınıf (konum belirsizliği)",
+      "kaynak": "temizlik"
+    },
+    "wc_trafik_mb": {
+      "value": 200,
+      "unit": "MB",
+      "gerekce": "Toplam okuma trafiği üst sınırı; aşılacaksa okuma durur",
+      "kaynak": "koordinatör talimatı"
+    },
+    "wc_buyuk_olay_mcell": {
+      "value": 10,
+      "unit": "eşleştirme birimi",
+      "gerekce": "Doğrulama karşı grubu 'büyük temiz olay': n_mcell en az bu (anız sınırının açıkça üstü)",
+      "kaynak": "temizlik"
+    },
+    "viirs_baslangic_yili": {
+      "value": 2012,
+      "unit": "yıl",
+      "gerekce": "Temizlik dönem kırılımı: bu yıldan önce yalnız MODIS (SNPP VIIRS ilk tespit 2012-01-20). Anız sayım karşılaştırmasında bu geçiş yılı dışarıda bırakılır",
+      "kaynak": "docs/04 §1 envanter (ölçüldü)"
+    },
+    "modis_donemi_tesis_km": {
+      "value": 3,
+      "unit": "km",
+      "gerekce": "F2-09 bağımsız kontrol: VIIRS öncesi 'sanayi' MODIS noktasının doğrulama setindeki bir tesise uzaklık sınırı (MODIS pikseli ~1-4,8 km + tesis yarıçapı)",
+      "kaynak": "denetim bulgusu F2-09"
+    }
+  },
+  "harmonizasyon": {
+    "_aciklama": "Harmonizasyon ajanının eşikleri (K9). Kod: src/harmonize/. Ayrıntı: docs/harmonizasyon_yontemi.md",
+    "mcell_zaman_penceresi_saat": {
+      "value": 4.0,
+      "unit": "saat",
+      "gerekce": "VIIRS noktası, bu süre içindeki bir MODIS (Terra veya Aqua) tespitinin ayak izine düşerse o MODIS hücresine bağlanır. Terra gündüz ~08:30 UTC, VIIRS ~10:35 UTC; Terra gece ~19:25 UTC, VIIRS ~23:00 UTC (veride ölçülen medyanlar) -> en uzak eşzamanlı geçiş farkı ~3,6 saat",
+      "kaynak": "points.parquet geçiş saati medyanları (harmonizasyon ölçümü)"
+    },
+    "kalibrasyon_zaman_penceresi_dk": {
+      "value": 60,
+      "unit": "dakika",
+      "gerekce": "Kalibrasyon çiftleri yalnız Aqua (13:30) ile VIIRS (13:30) eşzamanlı geçişlerinden kurulur; |Δt| bu değerden küçük olmalı (yangın bu sürede az değişir). Ölçülen Aqua-VIIRS |Δt| dağılımı yontem belgesinde",
+      "kaynak": "docs/04 §5; harmonizasyon ölçümü"
+    },
+    "izgara_derece": {
+      "value": 0.01,
+      "unit": "derece",
+      "gerekce": "MODIS izine düşmeyen (yalnız VIIRS) noktalar için yedek ve karşılaştırma ızgarası (~1 km)",
+      "kaynak": "docs/04 §5"
+    },
+    "hucre_baglanti_km": {
+      "value": 1.0,
+      "unit": "km",
+      "gerekce": "Aynı geçişteki VIIRS noktaları bu mesafeyle zincirlenince 'MODIS büyüklüğünde sözde hücre' olur (MODIS nadir pikseli ~1 km)",
+      "kaynak": "MODIS 1 km nominal çözünürlük"
+    },
+    "frp_sinif_sinirlari_mw": {
+      "value": [
+        10,
+        50
+      ],
+      "unit": "MW",
+      "gerekce": "Yöntem (ii) için büyüklük sınıfları: küçük <10, orta 10-50, büyük >=50 MW (hücre toplam FRP / MODIS tespit FRP)",
+      "kaynak": "harmonizasyon; MODIS FRP medyanı ~10 MW mertebesinde"
+    },
+    "frp_egri_kutu_sayisi": {
+      "value": 12,
+      "unit": "kutu",
+      "gerekce": "Yöntem (iii) beklenen MODIS tespiti eğrisi log10(FRP) eşit-sayılı kutularla öğrenilir",
+      "kaynak": "harmonizasyon"
+    },
+    "min_ornek": {
+      "value": 200,
+      "unit": "hücre",
+      "gerekce": "Bir tabaka (bölge × mevsim × gündüz/gece) bundan az örnekle öğrenilirse üst tabakaya (mevsim × gündüz/gece, sonra gündüz/gece) düşülür",
+      "kaynak": "harmonizasyon"
+    },
+    "loyo_test_yillari": {
+      "value": [
+        2012,
+        2025
+      ],
+      "unit": "yıl aralığı",
+      "gerekce": "Çakışma dönemi (MODIS + VIIRS) tam yılları. 2026 kısmi yıl ve NRT (type yok) olduğu için testte değil, ayrı ve 'düşük güven' etiketli",
+      "kaynak": "docs/04 §1"
+    },
+    "eski_donem_yillari": {
+      "value": [
+        2000,
+        2002
+      ],
+      "unit": "yıl aralığı",
+      "gerekce": "Yalnız Terra (Aqua 2002-07-04'te başlar). Çarpanla düzeltilmez; bayrak + genişletilmiş belirsizlik",
+      "kaynak": "docs/04 §1"
+    },
+    "sicrama_pencere_yil": {
+      "value": 3,
+      "unit": "yıl",
+      "gerekce": "C10: geçiş öncesi 3 yıl ile sonrası 3 yıl ortalaması",
+      "kaynak": "docs/03 C10"
+    },
+    "gecis_ayirma_dk": {
+      "value": 45,
+      "unit": "dakika",
+      "gerekce": "Aynı uydunun ardışık tespitleri arasında bundan uzun boşluk varsa yeni yörünge geçişi başlar. Türkiye'yi tek geçiş birkaç dakikada tarar; ardışık yörüngeler ~100 dk arayla gelir",
+      "kaynak": "kutupsal yörünge periyodu ~100 dk"
+    },
+    "ogrenilen_guven_esleme": {
+      "MODIS": {
+        "siniflar": [
+          {
+            "cls": "dusuk",
+            "min": 0,
+            "max": 35
+          },
+          {
+            "cls": "nominal",
+            "min": 36,
+            "max": 82
+          },
+          {
+            "cls": "yuksek",
+            "min": 83,
+            "max": 100
+          }
+        ]
+      },
+      "VIIRS": "ham l/n/h sınıfı aynen (ortak dilin referansı)",
+      "yontem": "Eşit yüzdelik eşleme: Aqua + VIIRS eşzamanlı çiftlerinde (|Δt| <= kalibrasyon_zaman_penceresi_dk, VIIRS noktası Aqua ayak izinde, status temiz/aniz) her Aqua tespitine izindeki VIIRS noktalarının en yüksek sınıfı verildi; MODIS sınırları VIIRS l/n/h paylarına denk gelen yüzdeliklerdir",
+      "olcumler": "Sayılar burada TUTULMAZ (K1): çift sayısı, VIIRS payları, LOYO kararlılık aralıkları ve bağımsız sınama (kappa) betikten üretilir -> data/interim/harmonize/guven_esleme.json ve reports/metrics.json (guven_cift_sayisi, guven_loyo_c1_aralik, guven_loyo_c2_aralik, guven_loyo_kappa_ogrenilen, guven_loyo_kappa_firms). Yalnız sınırlar (yukarıdaki min/max) burada; run_all bunların yeniden hesaplananla aynı olduğunu guven_config_uyumlu ile denetler. Bağımsız sınamada öğrenilmiş eşleme FIRMS'ten daha iyi DEĞİL",
+      "etiket": "tahmini (düşük güven)",
+      "gerekce": "Yusuf S1/U-01 isteği: 'VIIRS low iken MODIS yüzde kaç?' sorusunun veriden cevabı. Ham sınıf conf_cls (FIRMS 0-29/30-79/80-100) DEĞİŞMEZ; bu eşleme ayrı sütun conf_cls_ogr (points_mcell.parquet). Sayılar: data/interim/harmonize/guven_esleme.json",
+      "kaynak": "src/harmonize/guven_esleme.py"
+    }
+  },
+  "kumeleme": {
+    "_aciklama": "Kümeleme ajanının bölümü (K9). D ve H üst düzeydeki D/H girdileridir; burada yalnız kümelemeye özgü ek eşikler var. Kod: src/clustering/. Ayrıntı: docs/kumeleme_yontemi.md",
+    "km_derece": {
+      "value": 111,
+      "unit": "km/derece",
+      "gerekce": "Enlem derecesi başına km (demo ile aynı yaklaşık değer; boylamda cos(ortalama enlem) ile çarpılır)",
+      "kaynak": "../demo/app.js KM_DEG"
+    },
+    "eslestirme_modu": {
+      "value": "ayakizi_capraz",
+      "secenekler": [
+        "sabit",
+        "ayakizi_capraz",
+        "ayakizi_tum"
+      ],
+      "gerekce": "sabit: yalnız mesafe <= D. ayakizi_capraz: ayrıca MODIS–VIIRS çiftinde VIIRS merkezi, MODIS piksel dikdörtgeni (scan x track) + eslesme_tamponu_km içindeyse aynı yangın (sözleşme §5). ayakizi_tum: ayrıca iki MODIS pikselinin dikdörtgenleri örtüşüyorsa. Seçim ölçüme dayanır (docs/kumeleme_yontemi.md §1)",
+      "kaynak": "docs/04 §5; F2 kümeleme ölçümü"
+    },
+    "bosluk_kurali": {
+      "value": "gecis",
+      "secenekler": [
+        "sabit",
+        "gecis"
+      ],
+      "gerekce": "sabit: iki tespit arası <= H saat. gecis: arada kaçırılan GÖZLENMİŞ geçiş penceresi sayısı <= L ve süre <= Hmax (uydu geçmediyse bekle). gecis seçildi: sabit H=24, ertesi gün geçişi birkaç saat geç gelince her gün görülen yangını bölüyor (ölçüldü); gecis bunu ve kesinti günlerini doğru ele alıyor (docs/kumeleme_yontemi.md §2)",
+      "kaynak": "U-11; F2 kümeleme ölçümü"
+    },
+    "L": {
+      "value": 3,
+      "unit": "geçiş penceresi",
+      "gerekce": "gecis kuralında yangın, arada en çok L gözlenmiş geçiş penceresi boş geçtiyse sürüyor sayılır. 2002-07 sonrası günde 4 pencere var (Terra gündüz/gece, Aqua+VIIRS gündüz/gece); öğle geçişinden ertesi öğle geçişine arada 3 pencere kalır, yani L=3 normal günde H=24 saate karşılık gelir",
+      "kaynak": "veride ölçülen geçiş saatleri (docs/kumeleme_yontemi.md §2)"
+    },
+    "Hmax": {
+      "value": 72,
+      "unit": "saat",
+      "gerekce": "gecis kuralında uydu hiç geçmese de bu süreden uzun boşluk birleştirilmez (sonsuz bekleme olmasın)",
+      "kaynak": "F2 kümeleme; duyarlılık tablosu"
+    },
+    "gecis_pencere_yuzdelik": {
+      "value": [
+        1,
+        99
+      ],
+      "unit": "yüzdelik",
+      "gerekce": "Geçiş penceresinin başı/sonu: o yıl o uydu grubunun (Terra / Aqua+VIIRS) gündüz veya gece tespit saatlerinin 1. ve 99. yüzdeliği (UTC dakika)",
+      "kaynak": "points.parquet'ten ölçülür (tahmini pencere)"
+    },
+    "aniz_karsilastirma": {
+      "max_tespit": 3,
+      "max_sure_saat": 12,
+      "gerekce": "YALNIZ birleştirme öncesi/sonrası karşılaştırması için demo anız kuralının olay koşulları (olay <= 3 tespit, <= 12 saat). Nihai anız kuralının sahibi temizlik ajanıdır",
+      "kaynak": "../demo/app.js computeStatus (Revizyon 3)"
+    },
+    "duyarlilik": {
+      "D": [
+        0.5,
+        1,
+        2,
+        3
+      ],
+      "H": [
+        6,
+        12,
+        24,
+        48
+      ],
+      "L": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "Hmax": [
+        48,
+        72,
+        120
+      ],
+      "gerekce": "C12 için taranan değerler",
+      "kaynak": "docs/03 C12"
+    },
+    "demo_donemi_yillari": {
+      "value": [
+        2025,
+        2026
+      ],
+      "unit": "yıl aralığı",
+      "gerekce": "Duyarlılık tablosunda demo (../demo, 2025–2026 verisi) ile kıyas sütunu; olay başlangıcının TR yılı",
+      "kaynak": "docs/02_MEVCUT_DURUM.md"
+    },
+    "tarim_zinciri": {
+      "min_kapsam_km": 10,
+      "aylar": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "gerekce": "Zincir şüphesi tanısı (yalnız raporlama): kapsamı >= min_kapsam_km, başlangıç TR ayı listede, olay ortalama FRP'si F'nin altında (tek F, MODIS ölçeği; karışık sensörlü olayda sensör ayrımı yok — sınırlama)",
+      "kaynak": "F2-08 denetim bulgusu; docs/kumeleme_yontemi.md §4"
+    }
+  },
+  "takvim": {
+    "_aciklama": "takvim-analiz ajanının eşikleri (K9). Kod: src/analytics/. Ayrıntı: docs/takvim_yontemi.md",
+    "min_yil_medyan": {
+      "value": 5,
+      "unit": "yıl",
+      "gerekce": "Ay medyanı ve anomali normali için en az bu kadar tam, sensör-tutarlı yıl gerekir; altında medyan 'yetersiz' etiketli. 5 yıl: çeyrekler ve MAD için en küçük anlamlı örnek (kural, ölçüm değil)",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "kesinti_pay_max": {
+      "value": 0.5,
+      "unit": "oran",
+      "gerekce": "Bir ayda gözlem kesintisi (observed=false) payı bunu aşarsa o ay hücresi boş (NaN) bırakılır; altında kesinti günleri paydan çıkarılıp ay uzunluğuna ölçeklenir (C06)",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "min_kapsam_orani": {
+      "value": 0.5,
+      "unit": "oran",
+      "gerekce": "Serbest aralık sorgusunda gözlenen gün ağırlığı / istenen gün bunun altındaysa değer boş",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "pencere_min_gun": {
+      "value": 15,
+      "unit": "gün",
+      "gerekce": "Kısa aralıkta (1 gün gibi) yıllar arası gürültü büyük; tarihsel pencere en az bu uzunluğa, aralığın merkezi çevresinde simetrik genişletilir",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "z_esik": {
+      "value": 2.0,
+      "unit": "sapma",
+      "gerekce": "Anomali işareti için |z| eşiği (sağlam z: medyan/MAD, log1p ölçeğinde)",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "olcek_taban": {
+      "value": 0.05,
+      "unit": "log1p birimi",
+      "gerekce": "MAD'in sıfıra yakın olduğu hücrelerde z'nin patlamasını önleyen alt ölçek",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "ayirt_edilemez_tol": {
+      "value": 0.1,
+      "unit": "oran",
+      "gerekce": "Sıradaki iki ayın medyanı arasındaki göreli fark bundan küçükse 'ayırt edilemez' uyarısı (ek olarak bootstrap top-3 olasılığı)",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "bootstrap_B": {
+      "value": 300,
+      "unit": "yineleme",
+      "gerekce": "Yıl yeniden örnekleme sayısı (top-3 kararlılığı)",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "bootstrap_tohum": {
+      "value": 20260101,
+      "unit": "",
+      "gerekce": "Tekrarlanabilirlik için sabit tohum (analiz yeniden örneklemesi; veri simülasyonu değil)",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "top_n": {
+      "value": 3,
+      "unit": "ay",
+      "gerekce": "Raporlanan en yoğun ay sayısı",
+      "kaynak": "takvim-analiz ajanı tasarımı (docs/takvim_yontemi.md)"
+    },
+    "ayrisma_oran_esigi": {
+      "value": 1.5,
+      "unit": "kat",
+      "gerekce": "MODIS oranı VIIRS oranının bu katı kadar daha düşükse düşüş 'MODIS'e özgü' (sensör/yörünge kayması/NRT şüphesi) diye işaretlenir; bu yorum doğrulanmamıştır",
+      "kaynak": "audit/bulgular.md F2-04; takvim-analiz tasarımı"
+    },
+    "dusuk_oran_esigi": {
+      "value": 0.5,
+      "unit": "kat",
+      "gerekce": "Mevcut ay oranı bunun altındaysa 'düşük aktivite' yorumu üretilir (iki sensörde birlikte mi ayrı mı diye bakılır)",
+      "kaynak": "takvim-analiz tasarımı"
+    },
+    "yorunge_kaymasi_bayragi": {
+      "value": "aqua_yorunge_kaymasi",
+      "unit": "",
+      "gerekce": "harmonized.parquet bayrak sözcüğü; takvim bunu aylık hücrelere ve mevcut-ay satırına taşır",
+      "kaynak": "docs/harmonizasyon_yontemi.md"
+    },
+    "esdeger_sapma_esigi": {
+      "value": 0.25,
+      "unit": "göreli",
+      "gerekce": "Eşdeğer seri oranı, ölçülmüş MODIS-temiz VE VIIRS-uydu-başına oranlarının İKİSİNDEN de bu göreli farktan fazla sapıyorsa seri güvenilmez sayılır ve birincil gösterim ölçülmüş seriye düşer (F4-01: Ekim 2026'da eşdeğer ölçümlerle çelişti). Eşik ölçümle kalibre edilmedi (kural); duyarlılık için değiştirilebilir",
+      "kaynak": "audit/bulgular.md F4-01; takvim-analiz tasarımı"
+    }
+  }
+}

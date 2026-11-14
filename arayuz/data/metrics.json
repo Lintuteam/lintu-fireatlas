@@ -1,0 +1,3599 @@
+{
+ "generated_utc": "2026-11-13T09:07:17Z",
+ "sources": [
+  "harmonizasyon.json",
+  "kumeleme.json",
+  "rapor.json",
+  "takvim_analiz.json",
+  "temizlik.json"
+ ],
+ "metrics": {
+  "loyo_method": {
+   "value": "leave-one-year-out (2012-2025, 14 yıl; kazanan (ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu)",
+   "unit": "",
+   "tanim": "Doğrulama yöntemi: her yıl dışarıda bırakılıp kalan yıllarla öğrenilir",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_mape": {
+   "value": 8.33,
+   "unit": "%",
+   "tanim": "Yıllık ülke toplamı MODIS-eşdeğer tahmininin gerçek MODIS'e (Terra+Aqua) ortalama mutlak yüzde hatası, LOYO",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_r2": {
+   "value": 0.8716,
+   "unit": "",
+   "tanim": "Yıllık ülke toplamında R² (LOYO, 14 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_bias": {
+   "value": 0.55,
+   "unit": "%",
+   "tanim": "Yıllık ortalama işaretli yüzde hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_ci95": {
+   "value": [
+    -23.49,
+    9.51
+   ],
+   "unit": "%",
+   "tanim": "Yıllık yüzde hataların %2,5-%97,5 yüzdelikleri (14 değer, kaba)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "loyo_ay_bolge_wape": {
+   "value": 30.63,
+   "unit": "%",
+   "tanim": "Ay × 7 bölge düzeyinde ağırlıklı mutlak yüzde hata (seçim ölçütü)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "loyo_ay_bolge_r2": {
+   "value": 0.8607,
+   "unit": "",
+   "tanim": "Ay × bölge düzeyinde R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_kazanan_yontem": {
+   "value": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu",
+   "unit": "",
+   "tanim": "Ana yöntem: en düşük ay × bölge WAPE (uygulamanın kullanım birimi). (i) uydu-normalize sabit oranla ay × bölgede AYIRT EDİLEMEZ (bkz. harm_ii_eksi_i_wape_ci95); (i) yıllık toplamda daha iyi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_raw_pct": {
+   "value": 143.13,
+   "unit": "%",
+   "tanim": "Ham seri (2012 öncesi MODIS, sonrası MODIS+VIIRS tüm tespitler) geçiş sıçraması: sonraki 3 yıl / önceki 3 yıl ortalaması - 1",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_raw_viirs_only_pct": {
+   "value": 88.03,
+   "unit": "%",
+   "tanim": "Ham seri (2012 sonrası yalnız VIIRS tespitleri) geçiş sıçraması",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_harm_pct": {
+   "value": -41.35,
+   "unit": "%",
+   "tanim": "Harmonize seri (2012 sonrası VIIRS'ten LOYO MODIS-eşdeğer) geçiş sıçraması",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_modis_gercek_pct": {
+   "value": -44.9,
+   "unit": "%",
+   "tanim": "Aynı pencerede gerçek MODIS serisinin değişimi (harmonize sıçramanın hedefi)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_harm_eksi_modis_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "Harmonizasyonun eklediği sıçrama = harmonize sıçrama - gerçek MODIS değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_resid_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "C10 (koordinatör kararı): artık sıçrama = harmonize sıçrama - aynı penceredeki (2009-2011 -> 2012-2014) gerçek MODIS değişimi; loyo_ci95 içinde olmalı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_modis_real_pct": {
+   "value": -44.9,
+   "unit": "%",
+   "tanim": "Aynı pencerede (2009-2011 -> 2012-2014) gerçek MODIS (Terra+Aqua) serisinin değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_null_ci95": {
+   "value": [
+    -39.3,
+    92.61
+   ],
+   "unit": "%",
+   "tanim": "Geçiş dışı 17 adet 3+3 yıl penceresinde MODIS doğal değişiminin %2,5-%97,5 yüzdelikleri",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_harm_dogal_aralikta": {
+   "value": false,
+   "unit": "",
+   "tanim": "Harmonize sıçrama doğal değişim %95 aralığında mı (C10 ölçütü; tahmini harmonize değerden türer)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "jump_n20_2018_ham_pct": {
+   "value": 24.34,
+   "unit": "%",
+   "tanim": "NOAA-20 eklenişinde ham VIIRS toplamının sıçraması (3+3 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n20_2018_eforlu_pct": {
+   "value": -37.31,
+   "unit": "%",
+   "tanim": "NOAA-20 eklenişinde uydu başına (eforlu) VIIRS değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n20_2018_modis_pct": {
+   "value": -41.59,
+   "unit": "%",
+   "tanim": "Aynı pencerede gerçek MODIS değişimi",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n21_2023_ham_pct": {
+   "value": 110.19,
+   "unit": "%",
+   "tanim": "NOAA-21 eklenişinde ham VIIRS sıçraması (2+2 yıl; 2026 kısmi dışarıda)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n21_2023_eforlu_pct": {
+   "value": 44.29,
+   "unit": "%",
+   "tanim": "NOAA-21 eklenişinde eforlu VIIRS değişimi (2+2 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "jump_n21_2023_modis_pct": {
+   "value": 31.01,
+   "unit": "%",
+   "tanim": "Aynı pencerede gerçek MODIS değişimi (2+2 yıl)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "equiv_overlap_bias": {
+   "value": -0.52,
+   "unit": "%",
+   "tanim": "Çakışma döneminde (2012-2025) VIIRS'ten türetilen MODIS-eşdeğer toplamın gerçek MODIS'e göre sapması, LOYO tahminleri",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "equiv_overlap_band": {
+   "value": [
+    -59.57,
+    74.99
+   ],
+   "unit": "%",
+   "tanim": "Aylık ülke toplamında LOYO yüzde hatasının %2,5-%97,5 yüzdelikleri",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "equiv_band_kapsama_ay_bolge": {
+   "value": 0.9557,
+   "unit": "oran",
+   "tanim": "Ay × bölge %95 bandının, bant diğer yıllardan kurulduğunda gerçek MODIS'i kapsama oranı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "equiv_band_kapsama_ay_tr": {
+   "value": 0.9226,
+   "unit": "oran",
+   "tanim": "Ay × ülke %95 bandının LOYO kapsama oranı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_ay_bolge_wape": {
+   "value": 52.68,
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_mape": {
+   "value": 42.12,
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_r2": {
+   "value": -1.7204,
+   "unit": "",
+   "tanim": "(i0) sabit oran, efor yok: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_ay_bolge_wape": {
+   "value": 30.64,
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_yillik_mape": {
+   "value": 4.83,
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_yillik_r2": {
+   "value": 0.9675,
+   "unit": "",
+   "tanim": "(i) sabit oran, eforlu: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_ay_bolge_wape": {
+   "value": 30.63,
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_yillik_mape": {
+   "value": 8.33,
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_yillik_r2": {
+   "value": 0.8716,
+   "unit": "",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_ay_bolge_wape": {
+   "value": 31.91,
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_yillik_mape": {
+   "value": 10.91,
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_yillik_r2": {
+   "value": 0.7644,
+   "unit": "",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "modis_frp50_genel_mw": {
+   "value": 64.88,
+   "unit": "MW",
+   "tanim": "Aqua'nın bir VIIRS hücresini %50 olasılıkla gördüğü hücre toplam FRP'si (genel; eşzamanlı geçişler, şerit vekilli, etkin sınır)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "modis_frp50_gunduz_mw": {
+   "value": 73.98,
+   "unit": "MW",
+   "tanim": "Aqua'nın bir VIIRS hücresini %50 olasılıkla gördüğü hücre toplam FRP'si (gunduz; eşzamanlı geçişler, şerit vekilli, etkin sınır)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "modis_frp50_gece_mw": {
+   "value": 20.54,
+   "unit": "MW",
+   "tanim": "Aqua'nın bir VIIRS hücresini %50 olasılıkla gördüğü hücre toplam FRP'si (gece; eşzamanlı geçişler, şerit vekilli, etkin sınır)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "mcell_viirs_modis_izinde": {
+   "value": 174203,
+   "unit": "nokta",
+   "tanim": "MODIS ayak izine bağlanan VIIRS noktası",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_viirs_toplam": {
+   "value": 1154967,
+   "unit": "nokta",
+   "tanim": "Toplam VIIRS noktası",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_viirs_coklu_iz": {
+   "value": 81418,
+   "unit": "nokta",
+   "tanim": "Birden çok (kenar/üst üste binen) MODIS izine düşen VIIRS noktası; kural ile teke indirildi",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_iz_basina_viirs": {
+   "value": 3.349,
+   "unit": "nokta",
+   "tanim": "VIIRS içeren MODIS izi başına ortalama VIIRS noktası ('1 MODIS 4 VIIRS' sorunu)",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_iz_basina_izgara": {
+   "value": 1.764,
+   "unit": "hücre",
+   "tanim": "Aynı MODIS izi içindeki VIIRS noktalarının sabit 0,01° ızgarada dağıldığı ortalama hücre sayısı",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "mcell_izgarada_bolunen_oran": {
+   "value": 0.4655,
+   "unit": "oran",
+   "tanim": "Sabit ızgara kullanılsaydı birden çok hücreye bölünecek MODIS izi oranı",
+   "betik": "src/harmonize/eslestirme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_cift_sayisi": {
+   "value": 40368,
+   "unit": "çift",
+   "tanim": "Aqua-VIIRS eşzamanlı güven çifti",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_ogrenilen_sinirlar": {
+   "value": [
+    35,
+    82
+   ],
+   "unit": "MODIS %",
+   "tanim": "Öğrenilmiş MODIS sınırları: düşük <= c1 < nominal <= c2 < yüksek",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "guven_loyo_c1_aralik": {
+   "value": [
+    34,
+    36
+   ],
+   "unit": "MODIS %",
+   "tanim": "Yıl dışarıda bırakmada c1 aralığı",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_loyo_c2_aralik": {
+   "value": [
+    81,
+    82
+   ],
+   "unit": "MODIS %",
+   "tanim": "Yıl dışarıda bırakmada c2 aralığı",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_loyo_kappa_ogrenilen": {
+   "value": 0.1765,
+   "unit": "",
+   "tanim": "Dışarıda bırakılan yılda öğrenilmiş sınıfla VIIRS sınıfı uyumu (Cohen kappa ort.)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_loyo_kappa_firms": {
+   "value": 0.1918,
+   "unit": "",
+   "tanim": "Aynı sınamada FIRMS sınıfı (0-29/30-79/80-100) kappa ort.",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_spearman": {
+   "value": 0.2138,
+   "unit": "",
+   "tanim": "Tespit düzeyinde MODIS yüzdesi ile VIIRS sınıfı sıra ilişkisi",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_viirs_dusuk_modis_medyan": {
+   "value": 72.0,
+   "unit": "MODIS %",
+   "tanim": "VIIRS 'dusuk' iken aynı yangında MODIS güveninin medyanı (çeyrekler 61.0-82.0)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_viirs_nominal_modis_medyan": {
+   "value": 67.0,
+   "unit": "MODIS %",
+   "tanim": "VIIRS 'nominal' iken aynı yangında MODIS güveninin medyanı (çeyrekler 55.0-77.0)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_viirs_yuksek_modis_medyan": {
+   "value": 79.0,
+   "unit": "MODIS %",
+   "tanim": "VIIRS 'yuksek' iken aynı yangında MODIS güveninin medyanı (çeyrekler 65.0-93.0)",
+   "betik": "src/harmonize/guven_esleme.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harmonize_seri_satir": {
+   "value": 38295,
+   "unit": "satır",
+   "tanim": "harmonized.parquet satır sayısı",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_bias": {
+   "value": 5.03,
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i0_yillik_ci95": {
+   "value": [
+    -46.83,
+    86.91
+   ],
+   "unit": "%",
+   "tanim": "(i0) sabit oran, efor yok: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_i0_jump_resid_pct": {
+   "value": -23.06,
+   "unit": "yüzde puan",
+   "tanim": "(i0) sabit oran, efor yok: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_i_yillik_bias": {
+   "value": 0.15,
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_i_yillik_ci95": {
+   "value": [
+    -7.81,
+    9.46
+   ],
+   "unit": "%",
+   "tanim": "(i) sabit oran, eforlu: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_i_jump_resid_pct": {
+   "value": 1.24,
+   "unit": "yüzde puan",
+   "tanim": "(i) sabit oran, eforlu: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_ii_yillik_bias": {
+   "value": 0.55,
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_yillik_ci95": {
+   "value": [
+    -23.49,
+    9.51
+   ],
+   "unit": "%",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_ii_jump_resid_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "(ii) bölge × mevsim × FRP büyüklüğü oranı, eforlu: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_iii_yillik_bias": {
+   "value": 3.76,
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık ortalama işaretli hata (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_iii_yillik_ci95": {
+   "value": [
+    -13.0,
+    31.69
+   ],
+   "unit": "%",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: yıllık hata %95 aralığı (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_iii_jump_resid_pct": {
+   "value": -0.36,
+   "unit": "yüzde puan",
+   "tanim": "(iii) FRP eşik eğrisi + yalnız-MODIS payı + Terra payı, eforlu: C10 artık sıçrama",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "harm_ii_eksi_i_wape": {
+   "value": -0.01,
+   "unit": "yüzde puan",
+   "tanim": "Ay × bölge WAPE farkı (ii) - (i), LOYO",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_ii_eksi_i_wape_ci95": {
+   "value": [
+    -2.97,
+    4.26
+   ],
+   "unit": "yüzde puan",
+   "tanim": "Aynı farkın yıl bootstrap'ı (2000 tekrar) %95 aralığı; 0'ı içeriyorsa ayırt edilemez",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_yillik_mape": {
+   "value": 8.33,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_yillik_r2": {
+   "value": 0.8716,
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_ay_bolge_wape": {
+   "value": 30.63,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_yillik_ci95": {
+   "value": [
+    -23.49,
+    9.51
+   ],
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_jump_raw_pct": {
+   "value": 143.13,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) ham sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_jump_harm_pct": {
+   "value": -41.35,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_jump_modis_gercek_pct": {
+   "value": -44.9,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_jump_resid_pct": {
+   "value": 3.55,
+   "unit": "yüzde puan",
+   "tanim": "(birim=tespit, küme=temiz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_yillik_mape": {
+   "value": 7.51,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_yillik_r2": {
+   "value": 0.8443,
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_ay_bolge_wape": {
+   "value": 32.8,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_ay_il_wape": {
+   "value": 46.27,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) ay × il WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_yillik_ci95": {
+   "value": [
+    -15.36,
+    13.73
+   ],
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_jump_raw_pct": {
+   "value": 51.72,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) ham sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_jump_harm_pct": {
+   "value": -54.23,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_jump_modis_gercek_pct": {
+   "value": -53.45,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_jump_resid_pct": {
+   "value": -0.78,
+   "unit": "yüzde puan",
+   "tanim": "(birim=olay, küme=temiz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz_aniz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_yillik_mape": {
+   "value": 8.27,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_yillik_r2": {
+   "value": 0.8988,
+   "unit": "",
+   "tanim": "(birim=tespit, küme=temiz_aniz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_ay_bolge_wape": {
+   "value": 30.88,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_yillik_ci95": {
+   "value": [
+    -20.95,
+    13.19
+   ],
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_jump_raw_pct": {
+   "value": 113.44,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) ham sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_jump_harm_pct": {
+   "value": -49.17,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "tespit_temiz_aniz_jump_modis_gercek_pct": {
+   "value": -52.29,
+   "unit": "%",
+   "tanim": "(birim=tespit, küme=temiz_aniz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "tespit_temiz_aniz_jump_resid_pct": {
+   "value": 3.12,
+   "unit": "yüzde puan",
+   "tanim": "(birim=tespit, küme=temiz_aniz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/seri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_kazanan": {
+   "value": "ii",
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz_aniz) en düşük ay × bölge WAPE ile seçilen yöntem",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_yillik_mape": {
+   "value": 7.53,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) yıllık MAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_yillik_r2": {
+   "value": 0.8718,
+   "unit": "",
+   "tanim": "(birim=olay, küme=temiz_aniz) yıllık R² (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_ay_bolge_wape": {
+   "value": 32.48,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) ay × bölge WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_ay_il_wape": {
+   "value": 44.44,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) ay × il WAPE (LOYO)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_yillik_ci95": {
+   "value": [
+    -14.54,
+    18.05
+   ],
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) yıllık LOYO hata %95 aralığı",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_jump_raw_pct": {
+   "value": 42.1,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) ham sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_jump_harm_pct": {
+   "value": -58.65,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) harmonize sıçrama 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_temiz_aniz_jump_modis_gercek_pct": {
+   "value": -59.01,
+   "unit": "%",
+   "tanim": "(birim=olay, küme=temiz_aniz) gerçek MODIS değişimi 2012",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_temiz_aniz_jump_resid_pct": {
+   "value": 0.36,
+   "unit": "yüzde puan",
+   "tanim": "(birim=olay, küme=temiz_aniz) artık sıçrama (harmonize - gerçek MODIS)",
+   "betik": "src/harmonize/olay.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "olay_tespitle_kirpilan_temiz_ay_bolge": {
+   "value": 98,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_ay_bolge, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_ay_TR": {
+   "value": 6,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_ay_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_yil_TR": {
+   "value": 0,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_yil_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_aniz_ay_bolge": {
+   "value": 93,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_aniz_ay_bolge, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_aniz_ay_TR": {
+   "value": 6,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_aniz_ay_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "olay_tespitle_kirpilan_temiz_aniz_yil_TR": {
+   "value": 0,
+   "unit": "hücre",
+   "tanim": "Olay eşdeğeri tespit eşdeğerini aştığı için kırpılan hücre (temiz_aniz_yil_TR, 2012+)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_2026_bant_kapsama": {
+   "value": 0.545,
+   "unit": "oran",
+   "tanim": "2026 (eğitim dışı, NRT, Aqua kayması) ay × ülke bandının gerçek MODIS'i kapsama oranı (11 ay)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_gunduz_gecis_utc_2015": {
+   "value": 10.7,
+   "unit": "saat (UTC)",
+   "tanim": "Aqua gündüz tespitlerinin medyan geçiş saati, 2015",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_esz_cift_payi_2015": {
+   "value": 0.839,
+   "unit": "oran",
+   "tanim": "Aqua-VIIRS aday çiftlerinden |Δt| <= kalibrasyon penceresi olanların payı, 2015",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_gunduz_gecis_utc_2025": {
+   "value": 11.92,
+   "unit": "saat (UTC)",
+   "tanim": "Aqua gündüz tespitlerinin medyan geçiş saati, 2025",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_esz_cift_payi_2025": {
+   "value": 0.487,
+   "unit": "oran",
+   "tanim": "Aqua-VIIRS aday çiftlerinden |Δt| <= kalibrasyon penceresi olanların payı, 2025",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_gunduz_gecis_utc_2026": {
+   "value": 12.65,
+   "unit": "saat (UTC)",
+   "tanim": "Aqua gündüz tespitlerinin medyan geçiş saati, 2026",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_esz_cift_payi_2026": {
+   "value": 0.182,
+   "unit": "oran",
+   "tanim": "Aqua-VIIRS aday çiftlerinden |Δt| <= kalibrasyon penceresi olanların payı, 2026",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c10_ana_varyant": {
+   "value": "jump_resid_pct (birim=tespit, küme=temiz) loyo_ci95 içinde",
+   "unit": "",
+   "tanim": "C10 ana ölçütü (koordinatör kararı); diğer varyantlar bilgi amaçlı",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "harm_sure_sn": {
+   "value": 25.1,
+   "unit": "s",
+   "tanim": "run_all toplam süresi (bu makine)",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "guven_config_uyumlu": {
+   "value": true,
+   "unit": "",
+   "tanim": "esikler.json'daki öğrenilmiş sınırlar yeniden hesaplananla aynı mı",
+   "betik": "src/harmonize/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_total": {
+   "value": 471978,
+   "unit": "olay",
+   "tanim": "Toplam olay (girdi: status∈{temiz,aniz} noktalar, D=1 ayakizi_capraz gecis L=3 Hmax=72)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_joint_overlap": {
+   "value": 380975,
+   "unit": "olay",
+   "tanim": "Çakışma döneminde (iki sensör ailesi de gözlüyor) MODIS+VIIRS birlikte kümelenince olay sayısı",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_separate_overlap": {
+   "value": 440176,
+   "unit": "olay",
+   "tanim": "Aynı dönemde sensörler ayrı ayrı kümelenince olay sayısı toplamı",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_double_count_avoided": {
+   "value": 59201,
+   "unit": "olay",
+   "tanim": "Ayrı kümelemede iki kez sayılacak olay (ayrı - ortak)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_ortak": {
+   "value": 35651,
+   "unit": "olay",
+   "tanim": "match_class=ortak (çakışma döneminde iki sensör de gördü)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_yalniz_modis": {
+   "value": 57543,
+   "unit": "olay",
+   "tanim": "match_class=yalniz_modis",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_yalniz_viirs": {
+   "value": 287781,
+   "unit": "olay",
+   "tanim": "match_class=yalniz_viirs",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_match_tek_sensor_donemi": {
+   "value": 91003,
+   "unit": "olay",
+   "tanim": "Çakışma dışı (yalnız bir sensör ailesi gözlüyor) olaylar",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share": {
+   "value": 0.3825,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS tespiti içeren olayların VIIRS tespiti de içerme oranı (D=1 ayakizi_capraz gecis L=3 Hmax=72)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "clustering_runtime_s": {
+   "value": 3.32,
+   "unit": "s",
+   "tanim": "Varsayılan kuralla 20 yıllık tam veride kümeleme süresi (bu makine)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "clustering_rss_mb": {
+   "value": 676.0,
+   "unit": "MB",
+   "tanim": "Kümeleme sonrası süreç belleği (RSS)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share_sabit": {
+   "value": 0.3547,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS olaylarının VIIRS'te de görülme oranı, eşleştirme modu=sabit, D=1 km, H=24 sa",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_yalniz_modis_sabit": {
+   "value": 63310,
+   "unit": "olay",
+   "tanim": "Çakışmada yalnız MODIS olay sayısı, mod=sabit",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share_ayakizi_capraz": {
+   "value": 0.3767,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS olaylarının VIIRS'te de görülme oranı, eşleştirme modu=ayakizi_capraz, D=1 km, H=24 sa",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_yalniz_modis_ayakizi_capraz": {
+   "value": 58998,
+   "unit": "olay",
+   "tanim": "Çakışmada yalnız MODIS olay sayısı, mod=ayakizi_capraz",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_modis_seen_by_viirs_share_ayakizi_tum": {
+   "value": 0.4242,
+   "unit": "oran",
+   "tanim": "Çakışmada MODIS olaylarının VIIRS'te de görülme oranı, eşleştirme modu=ayakizi_tum, D=1 km, H=24 sa",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "events_yalniz_modis_ayakizi_tum": {
+   "value": 47399,
+   "unit": "olay",
+   "tanim": "Çakışmada yalnız MODIS olay sayısı, mod=ayakizi_tum",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_nearest_viirs_within_1km_share": {
+   "value": 0.5315,
+   "unit": "oran",
+   "tanim": "Aqua MODIS tespitlerinden ±60 dk içinde 1 km'de VIIRS tespiti olanların oranı (çakışma dönemi)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "aqua_viirs_in_footprint_share": {
+   "value": 0.6017,
+   "unit": "oran",
+   "tanim": "Aynı oranın ayak izi (scan×track + tampon) ile ölçülmüşü",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "aniz_points_separate": {
+   "value": 320995,
+   "unit": "nokta",
+   "tanim": "Demo anız olay kuralı, sensörler ayrı kümelenince anız sayılan nokta (karşılaştırma; nihai kural temizlikte)",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "aniz_points_joint": {
+   "value": 290799,
+   "unit": "nokta",
+   "tanim": "Aynı kural, ortak (varsayılan) kümelemede anız sayılan nokta",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "clustering_sensitivity_runtime_s": {
+   "value": 329.2,
+   "unit": "s",
+   "tanim": "Tüm ölçümlerle toplam koşu süresi",
+   "betik": "src/clustering/build_events.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_toplam_nokta": {
+   "value": 1414674,
+   "unit": "nokta",
+   "tanim": "points.parquet satır sayısı (ham tespit; hiçbiri silinmedi, K3)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_modis_nokta": {
+   "value": 259707,
+   "unit": "nokta",
+   "tanim": "MODIS (Terra+Aqua) tespit sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_viirs_nokta": {
+   "value": 1154967,
+   "unit": "nokta",
+   "tanim": "VIIRS (SNPP, N20, N21) tespit sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_yil_bas": {
+   "value": 2000,
+   "unit": "yıl",
+   "tanim": "veri dosyalarının ilk yılı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_yil_bit": {
+   "value": 2026,
+   "unit": "yıl",
+   "tanim": "veri dosyalarının son yılı (kısmi yıl, NRT içerir)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_son_gun": {
+   "value": "2026-11-12",
+   "unit": "TR günü",
+   "tanim": "veride görülen son TR günü",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_nrt_nokta": {
+   "value": 61147,
+   "unit": "nokta",
+   "tanim": "NRT (type=-1) tespit sayısı: bu noktalarda NASA type etiketi yok",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "veri_ilk_viirs_yili": {
+   "value": 2012,
+   "unit": "yıl",
+   "tanim": "ilk VIIRS tespitinin TR yılı (sensör geçiş yılı)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_kumeleme_girdi": {
+   "value": 1044222,
+   "unit": "nokta",
+   "tanim": "kümelemeye giren nokta: status temiz veya aniz",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_temiz_pay": {
+   "value": 58.5,
+   "unit": "%",
+   "tanim": "status=temiz noktaların ham toplamdaki payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_aniz_pay": {
+   "value": 15.4,
+   "unit": "%",
+   "tanim": "status=aniz noktaların ham toplamdaki payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_nasa_etiket_pay": {
+   "value": 23.8,
+   "unit": "%",
+   "tanim": "NASA etiketiyle (deniz, volkan, statik kaynak) ayrılan nokta payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_kural_etiket_pay": {
+   "value": 2.3,
+   "unit": "%",
+   "tanim": "bizim kuralımızla (sanayi, kalıcı belirsiz) ayrılan nokta payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_olay_sayisi": {
+   "value": 471978,
+   "unit": "olay",
+   "tanim": "events.parquet satır sayısı (temiz + anız noktalardan)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_tek_tespitli_olay": {
+   "value": 312936,
+   "unit": "olay",
+   "tanim": "tek tespitten oluşan olay sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "huni_en_buyuk_olay_tespit": {
+   "value": 6740,
+   "unit": "tespit",
+   "tanim": "en büyük olayın tespit sayısı (gerçek mega yangın; zincir hatası değil, bkz. docs/kumeleme_yontemi.md)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_gun": {
+   "value": "2021-07-28",
+   "unit": "TR günü",
+   "tanim": "S1: o gün başlayan olayların tespit sayısı / olay sayısı en büyük gün (en az 500 tespit)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_tespit": {
+   "value": 8568,
+   "unit": "tespit",
+   "tanim": "S1 gününde başlayan olayların toplam tespiti",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_olay": {
+   "value": 75,
+   "unit": "olay",
+   "tanim": "S1 gününde başlayan olay sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_oran": {
+   "value": 114.2,
+   "unit": "tespit/olay",
+   "tanim": "S1 günü: tespit sayısının olay sayısına oranı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_il": {
+   "value": "Antalya",
+   "unit": "il",
+   "tanim": "S1 gününün en büyük olayının ili",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_en_buyuk_olay_tespit": {
+   "value": 6740,
+   "unit": "tespit",
+   "tanim": "S1 gününde başlayan en büyük olayın tespit sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo1_en_buyuk_olay_sure": {
+   "value": 218.6,
+   "unit": "saat",
+   "tanim": "S1 gününün en büyük olayının süresi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_il": {
+   "value": "İzmir",
+   "unit": "il",
+   "tanim": "S2: 'sanayi' etiketli nokta sayısı en çok il",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_sanayi_nokta": {
+   "value": 3488,
+   "unit": "nokta",
+   "tanim": "S2 ilindeki sanayi etiketli nokta",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_il_nokta_pay": {
+   "value": 5.3,
+   "unit": "%",
+   "tanim": "S2 ilinde sanayi etiketli noktaların il toplamındaki payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_hucre": {
+   "value": 40,
+   "unit": "hücre",
+   "tanim": "S2 ilinde sanayi noktalarının düştüğü 0,01° hücre sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo2_yil_sayisi": {
+   "value": 27,
+   "unit": "yıl",
+   "tanim": "S2 ilinde sanayi noktası görülen farklı yıl",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_gun": {
+   "value": "2021-07-11",
+   "unit": "TR günü",
+   "tanim": "S4: yalnız-VIIRS sınıfında en çok VIIRS noktalı olayın günü",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_il": {
+   "value": "Manisa",
+   "unit": "il",
+   "tanim": "S4 olayının ili",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_n_viirs": {
+   "value": 202,
+   "unit": "nokta",
+   "tanim": "S4 olayındaki VIIRS nokta sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_frp": {
+   "value": 270.7,
+   "unit": "MW",
+   "tanim": "S4 olayının toplam FRP'si",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo4_olay_id": {
+   "value": 307053,
+   "unit": "kimlik",
+   "tanim": "S4 olayının event_id değeri",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "yh_girdi": {
+   "value": 97,
+   "unit": "karşılaştırma",
+   "tanim": "audit/yeniden_hesap.json içinde beklenen/bulunan karşılaştırması olan girdi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "yh_fark_sifir": {
+   "value": 93,
+   "unit": "karşılaştırma",
+   "tanim": "bağımsız yeniden hesapla fark = 0 olan girdi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "yh_aciklanmis_fark": {
+   "value": 4,
+   "unit": "karşılaştırma",
+   "tanim": "fark ≠ 0 / karşılaştırılamaz ama açıklaması yazılı (bilgi) girdi",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "dogrulama_sanayi_tesis": {
+   "value": 26,
+   "unit": "tesis",
+   "tanim": "doğrulama setinde kullanılan sanayi tesisi (OSM)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "dogrulama_bilinen_yangin": {
+   "value": 8,
+   "unit": "yangın",
+   "tanim": "doğrulama setinde kullanılan bilinen yangın (Wikipedia + OSM ilçe merkezi)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "dogrulama_ayiklanan": {
+   "value": 3,
+   "unit": "kayıt",
+   "tanim": "çakışma/belirsizlik nedeniyle ayıklanan kayıt (F2-06)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_klavye_oran": {
+   "value": 0.884,
+   "unit": "oran",
+   "tanim": "Tab ile ulaşılabilir etkileşimli öğe payı (audit/erisilebilirlik.json)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_aria_adli_oran": {
+   "value": 1.0,
+   "unit": "oran",
+   "tanim": "erişilebilir adı olan etkileşimli öğe payı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_kontrast_min": {
+   "value": 4.59,
+   "unit": "oran",
+   "tanim": "ölçülen en düşük yazı/zemin kontrast oranı (WCAG AA 4,5)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "a11y_palet_min_de": {
+   "value": 14,
+   "unit": "CIE76 dE",
+   "tanim": "renk körlüğü simülasyonunda paletler arası en küçük ayırt edilebilirlik eşiği",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "perf_esik_degisimi_sn": {
+   "value": 0.253,
+   "unit": "s",
+   "tanim": "eşik değişince tüm görünümlerin yeniden çizim süresi (tek ölçüm, bu makine)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "perf_olay_sayisi": {
+   "value": 302863,
+   "unit": "olay",
+   "tanim": "performans ölçümünde arayüze yüklü olay sayısı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "kapsam_kesinti_uydu_gunu": {
+   "value": 129,
+   "unit": "uydu-gün",
+   "tanim": "çıkarımla kesinti işaretli uydu-günü (NASA geçiş listesi değil; etiket tahmini)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "veri_dosya_sayisi": {
+   "value": 27,
+   "unit": "dosya",
+   "tanim": "ham FIRMS xlsx dosyası sayısı (SHA-256 envanteri)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_orneklem": {
+   "value": 12,
+   "unit": "örneklem",
+   "tanim": "kaba kuvvet karşılaştırmasında kullanılan örneklem sayısı; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_nokta": {
+   "value": 21509,
+   "unit": "nokta",
+   "tanim": "kaba kuvvet örneklemlerindeki toplam nokta; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_kural": {
+   "value": 7,
+   "unit": "kural çeşidi",
+   "tanim": "denenen kümeleme kuralı çeşidi; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_karsilastirma": {
+   "value": 88,
+   "unit": "karşılaştırma",
+   "tanim": "hızlı kümeleme ile kaba kuvvet arası karşılaştırma sayısı; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_fark_olan": {
+   "value": 0,
+   "unit": "karşılaştırma",
+   "tanim": "bu karşılaştırmalardan fark çıkan; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_mutasyon_yakalanan": {
+   "value": 12,
+   "unit": "örneklem",
+   "tanim": "kasten hatalı yöntemin yakalandığı örneklem; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "c03_mutasyon_toplam": {
+   "value": 12,
+   "unit": "örneklem",
+   "tanim": "mutasyon testi örneklem sayısı; check_all C03 çıktısı (tools/check_all.py, src/clustering/bruteforce_check.py)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_yildiz_aylar": {
+   "value": [
+    6,
+    9,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "ranking.parquet: TR, modis_temiz, ★ (top=True) aylar, sıra sırasıyla",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_yildiz_medyanlar": {
+   "value": [
+    1214,
+    1103,
+    998
+   ],
+   "unit": "tespit",
+   "tanim": "aynı ayların tarihsel medyanı (tespit/ay)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_ayirt_edilemez_aylar": {
+   "value": [
+    6,
+    9,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "★ aylardan ayırt edilemez bayraklı olanlar (ekranda ≈)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_bas": {
+   "value": "2026-11-01",
+   "unit": "TR günü",
+   "tanim": "current_month.parquet: mevcut ay başlangıcı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_bit": {
+   "value": "2026-11-12",
+   "unit": "TR günü",
+   "tanim": "mevcut ay bitişi (son veri günü)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_gun": {
+   "value": 12,
+   "unit": "gün",
+   "tanim": "mevcut ayda veri günü (kısmi ay)",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_deger": {
+   "value": 26,
+   "unit": "tespit",
+   "tanim": "mevcut ay MODIS temiz değeri",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_medyan": {
+   "value": 204.0,
+   "unit": "tespit",
+   "tanim": "geçmiş yılların aynı ilk günlerinin medyanı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_oran": {
+   "value": 0.127,
+   "unit": "kat",
+   "tanim": "mevcut ay / tarihsel medyan",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_mevcut_viirs_oran": {
+   "value": 0.243,
+   "unit": "kat",
+   "tanim": "aynı oran VIIRS (uydu başına) için",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_bas": {
+   "value": "2026-10-01",
+   "unit": "TR günü",
+   "tanim": "son tam ayın başlangıcı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_deger": {
+   "value": 507,
+   "unit": "tespit",
+   "tanim": "son tam ay MODIS temiz değeri",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_medyan": {
+   "value": 579.0,
+   "unit": "tespit",
+   "tanim": "son tam ay tarihsel medyanı",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "demo5_son_tam_ay_oran": {
+   "value": 0.876,
+   "unit": "kat",
+   "tanim": "son tam ay / tarihsel medyan",
+   "betik": "tools/build_rapor_metrikleri.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_top3_ay_modis_esdeger_TR": {
+   "value": [
+    8,
+    9,
+    6
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), modis_esdeger (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_modis_esdeger_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR modis_esdeger: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_modis_esdeger": {
+   "value": 23,
+   "unit": "yıl",
+   "tanim": "modis_esdeger ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_top3_ay_modis_ham_TR": {
+   "value": [
+    6,
+    9,
+    10
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), modis_ham (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_ayirt_edilemez_modis_ham_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR modis_ham: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_n_normal_yil_modis_ham": {
+   "value": 23,
+   "unit": "yıl",
+   "tanim": "modis_ham ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_top3_ay_modis_temiz_TR": {
+   "value": [
+    6,
+    9,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), modis_temiz (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_ayirt_edilemez_modis_temiz_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR modis_temiz: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_n_normal_yil_modis_temiz": {
+   "value": 23,
+   "unit": "yıl",
+   "tanim": "modis_temiz ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_top3_ay_viirs_ham_ub_TR": {
+   "value": [
+    9,
+    10,
+    8
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), viirs_ham_ub (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_viirs_ham_ub_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR viirs_ham_ub: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_viirs_ham_ub": {
+   "value": 11,
+   "unit": "yıl",
+   "tanim": "viirs_ham_ub ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_top3_ay_viirs_temiz_ub_TR": {
+   "value": [
+    8,
+    9,
+    10
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), viirs_temiz_ub (sıra: medyan)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_viirs_temiz_ub_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR viirs_temiz_ub: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_viirs_temiz_ub": {
+   "value": 11,
+   "unit": "yıl",
+   "tanim": "viirs_temiz_ub ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_top3_ay_olay_TR": {
+   "value": [
+    9,
+    8,
+    10
+   ],
+   "unit": "ay no",
+   "tanim": "TR için en yoğun 3 takvim ayı (tarihsel hotspot aktivitesi), olay (sıra: ay payı medyanı)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ayirt_edilemez_olay_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "TR olay: en yoğun 3 ay içinde göreli fark < tol olan komşu çift var mı (1 = ayırt edilemez)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_n_normal_yil_olay": {
+   "value": 21,
+   "unit": "yıl",
+   "tanim": "olay ay medyanında kullanılan tam, sensör-tutarlı yıl sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ham_temiz_top3_degisen_il_payi": {
+   "value": 79.0,
+   "unit": "%",
+   "tanim": "İl × sensör birimlerinde ham ve temiz (anız hariç) en yoğun 3 ayın sırası/üyeliği değişen pay (VIIRS kısmı uydu başına, tahmini)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_ham_temiz_TR_modis": {
+   "value": "ham 6,9,10 -> temiz 6,9,8",
+   "unit": "ay no",
+   "tanim": "TR modis: ham ve temiz en yoğun 3 ay",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_ham_temiz_TR_viirs": {
+   "value": "ham 9,10,8 -> temiz 8,9,10",
+   "unit": "ay no",
+   "tanim": "TR viirs: ham ve temiz en yoğun 3 ay",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_anomali_isaret_orani_esdeger": {
+   "value": 8.96,
+   "unit": "%",
+   "tanim": "Eşdeğer seri, yıl dışarıda bırakmalı normale göre |z| ≥ eşik olan hücre payı (LOYO; K4)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_anomali_belirsiz_bant_payi_esdeger": {
+   "value": 33.53,
+   "unit": "%",
+   "tanim": "Anomali işareti harmonizasyon belirsizlik bandında değişen hücre payı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_oran_modis_temiz_TR": {
+   "value": 0.127,
+   "unit": "kat",
+   "tanim": "2026-11-01..2026-11-12 (12 gün, KISMİ AY) / geçmiş yılların aynı günlerinin medyanı, modis_temiz, TR",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_oran_viirs_temiz_ub_TR": {
+   "value": 0.243,
+   "unit": "kat",
+   "tanim": "2026-11-01..2026-11-12 (12 gün, KISMİ AY) / geçmiş yılların aynı günlerinin medyanı, viirs_temiz_ub, TR",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_kismi_gun_TR": {
+   "value": 12,
+   "unit": "gün",
+   "tanim": "Mevcut ayın karşılaştırmaya giren gün sayısı (kısmi ay)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_mevcut_ay_nrt_payi_TR": {
+   "value": 100.0,
+   "unit": "%",
+   "tanim": "Mevcut ayda TR tespitlerinin NRT (hızlı) üründen gelen payı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_mevcut_ay_aqua_yorunge_kaymasi": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "Mevcut ay harmonizasyon bayrağında Aqua yörünge kayması var mı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_mevcut_ay_ayrisma_yorum_TR": {
+   "value": "MODIS'e_ozgu_ek_dusus: sensor omru sonu/NRT/yorunge kaymasi suphesi",
+   "unit": "",
+   "tanim": "MODIS ve VIIRS oranı yan yana: düşüş iki sensörde mi (hava/gerçek) yoksa yalnız MODIS'te mi (sensör şüphesi)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_kesintili_ay_hucresi": {
+   "value": 12,
+   "unit": "hücre",
+   "tanim": "TR için MODIS tarafında kesinti günü düzeltmesi uygulanan ay sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_bos_hucre_kismi_ay": {
+   "value": 1,
+   "unit": "hücre",
+   "tanim": "TR: ham sayısı var ama kısmi/kesinti-çok olduğundan düzeltmeli değeri BOŞ bırakılan MODIS ay hücresi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_olay_tespitle_kirpildi_hucre": {
+   "value": 1723,
+   "unit": "hücre",
+   "tanim": "Eşdeğer seride olay_tespitle_kirpildi bayrağı taşıyan ay hücresi (uyarılı)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_son_tam_ay_oran_modis_esdeger_TR": {
+   "value": 1.697,
+   "unit": "kat",
+   "tanim": "2026-10-01..2026-10-31 modis_esdeger / aynı ayın tarihsel medyanı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_son_tam_ay_guvenilmez_modis_esdeger_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "Eşdeğer oran iki ölçülmüş orandan (MODIS temiz, VIIRS uydu başına) eşikten fazla sapıyor mu",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_birincil_modis_esdeger_TR": {
+   "value": "modis_temiz",
+   "unit": "",
+   "tanim": "Birincil gösterim serisi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_oran_olay_esdeger_TR": {
+   "value": 1.85,
+   "unit": "kat",
+   "tanim": "2026-10-01..2026-10-31 olay_esdeger / aynı ayın tarihsel medyanı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_son_tam_ay_guvenilmez_olay_esdeger_TR": {
+   "value": 1,
+   "unit": "0/1",
+   "tanim": "Eşdeğer oran iki ölçülmüş orandan (MODIS temiz, VIIRS uydu başına) eşikten fazla sapıyor mu",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_birincil_olay_esdeger_TR": {
+   "value": "modis_temiz",
+   "unit": "",
+   "tanim": "Birincil gösterim serisi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "takvim_son_tam_ay_oran_modis_temiz_TR": {
+   "value": 0.876,
+   "unit": "kat",
+   "tanim": "Son tam ay, MODIS temiz oranı (ölçülmüş)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_son_tam_ay_oran_viirs_temiz_ub_TR": {
+   "value": 0.944,
+   "unit": "kat",
+   "tanim": "Son tam ay, VIIRS uydu başına temiz oranı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "takvim_birim_sayisi": {
+   "value": 89,
+   "unit": "birim",
+   "tanim": "TR + bölge + il",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_bolgesiz_il": {
+   "value": 0,
+   "unit": "il",
+   "tanim": "7 bölge eşlemesinde olmayan il sayısı",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_son_gun": {
+   "value": "2026-11-12",
+   "unit": "",
+   "tanim": "Günlük kapsamdaki son gün (mevcut ay buna göre)",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "takvim_sure_sn": {
+   "value": 12.5,
+   "unit": "sn",
+   "tanim": "Tüm takvim hattı süresi",
+   "betik": "src/analytics/run_all.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_temiz": {
+   "value": 827043,
+   "unit": "nokta",
+   "tanim": "status='temiz' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_deniz": {
+   "value": 8848,
+   "unit": "nokta",
+   "tanim": "status='deniz' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_volkan": {
+   "value": 5,
+   "unit": "nokta",
+   "tanim": "status='volkan' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_statik_nasa": {
+   "value": 328379,
+   "unit": "nokta",
+   "tanim": "status='statik_nasa' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_sanayi": {
+   "value": 27012,
+   "unit": "nokta",
+   "tanim": "status='sanayi' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_kalici_belirsiz": {
+   "value": 6208,
+   "unit": "nokta",
+   "tanim": "status='kalici_belirsiz' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_dusuk_guven": {
+   "value": 0,
+   "unit": "nokta",
+   "tanim": "status='dusuk_guven' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_status_aniz": {
+   "value": 217179,
+   "unit": "nokta",
+   "tanim": "status='aniz' olan nokta sayısı (K3: silme yok)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_nrt_statik_mirasi": {
+   "value": 12940,
+   "unit": "nokta",
+   "tanim": "NRT (type yok) noktalarından hücre mirasıyla statik_nasa alanlar",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_yangin_korumasi_nokta": {
+   "value": 1748,
+   "unit": "nokta",
+   "tanim": "Kalıcı hücrede olup çevresinde aynı gün yangın olduğu için temiz bırakılan nokta",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_yillik_tekrar_bayrakli_temiz": {
+   "value": 230775,
+   "unit": "nokta",
+   "tanim": "status=temiz ama hücresi rastlantı modeline göre olağan dışı sık yıl aktif (çoğu tarım ovası; bayrak, silinmez). Sayım ölçüldü; bayrağın doğruluğu doğrulanmadı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_aniz_adayi_nokta": {
+   "value": 247112,
+   "unit": "nokta",
+   "tanim": "status_neden'de aniz_adayi bayrağı taşıyan nokta sayısı (nokta düzeyi vekil). Sayım ölçüldü; kuralın doğruluğu tahmini",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sanayi_loyo_precision": {
+   "value": 0.9199165265433582,
+   "unit": "oran",
+   "tanim": "Sanayi kuralının NASA type=2 ile uyuşması, yıl dışarıda bırakma (havuz, tüm yıllar). type=2 yer gerçeği değil, NASA maskesidir",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sanayi_loyo_recall": {
+   "value": 0.971246421653632,
+   "unit": "oran",
+   "tanim": "Aynı LOYO, NASA type=2 noktalarının kuralla yakalanan payı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sanayi_loyo_precision_modis_donemi": {
+   "value": 0.22776349614395888,
+   "unit": "oran",
+   "tanim": "LOYO NASA type=2 ile UYUŞMA (doğruluk değil), viirs_baslangic_yili öncesi (yalnız MODIS). Düşüklüğün kaynağı referans seyrekliği: o dönemde NASA MODIS type=2 çok seyrek; kuralın 'sanayi' dediği MODIS noktalarının 0.67 payı doğrulama setindeki bir tesise <= 3 km (temizlik_modis_donemi_sanayi_tesis_payi). Kural hatası değil, referans eksikliği (F2-09)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_modis_donemi_sanayi_tesis_payi": {
+   "value": 0.6662153012863913,
+   "unit": "oran",
+   "tanim": "viirs_baslangic_yili öncesi status=sanayi MODIS noktalarından (1477) doğrulama setindeki bir tesise <= 3 km olanların payı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sanayi_loyo_recall_modis_donemi": {
+   "value": 0.5679487179487179,
+   "unit": "oran",
+   "tanim": "LOYO NASA type=2 yakalama, viirs_baslangic_yili öncesi (referans seyrek)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sanayi_loyo_precision_viirs_donemi": {
+   "value": 0.9239825427747324,
+   "unit": "oran",
+   "tanim": "LOYO NASA type=2 ile uyuşma, viirs_baslangic_yili ve sonrası",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sanayi_loyo_recall_viirs_donemi": {
+   "value": 0.9722461458277055,
+   "unit": "oran",
+   "tanim": "LOYO NASA type=2 yakalama, viirs_baslangic_yili ve sonrası",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sanayi_loyo_kat_kararliligi": {
+   "value": 0.7407407407407407,
+   "unit": "oran",
+   "tanim": "LOYO katlarının kaçında config'teki (N,M,Y,S) seçildi",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_nrt_telafi_precision": {
+   "value": 0.913618642566011,
+   "unit": "oran",
+   "tanim": "NRT telafisi (NASA hücre mirası ∪ sanayi kuralı) LOYO'da NASA type=2 ile uyuşma",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_nrt_telafi_recall": {
+   "value": 0.9806428501231617,
+   "unit": "oran",
+   "tanim": "NRT telafisi LOYO yakalama",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "ref_precision": {
+   "value": 0.9710722572914176,
+   "unit": "oran",
+   "tanim": "C13 dengeli kesinlik = makro tesis yakalama / (makro tesis yakalama + makro yangın yanlış-işaret oranı); sınıflar eşit ağırlıklı (nokta düzeyi kesinlik sınıf dengesizliğiyle şişer: temizlik_ref_nokta_precision). 127918 tesis noktası (23 tesis) / 8352 yangın noktası (7 yangın); 3 çakışan kayıt ayıklandı, her nokta tek referansa atandı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "ref_recall": {
+   "value": 0.47773973152625987,
+   "unit": "oran",
+   "tanim": "C13 makro tesis yakalama: tesis başına kalıcı etiketli nokta payının ortalaması (tesis düzeyi >=%50 ölçütü: temizlik_ref_site_recall). 127918 tesis noktası (23 tesis) / 8352 yangın noktası (7 yangın); 3 çakışan kayıt ayıklandı, her nokta tek referansa atandı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_nokta_precision": {
+   "value": 0.999880947656653,
+   "unit": "oran",
+   "tanim": "Nokta düzeyi kesinlik; sınıf dengesizliği nedeniyle yüksek görünür, sunumda kullanmayın. 127918 tesis noktası (23 tesis) / 8352 yangın noktası (7 yangın); 3 çakışan kayıt ayıklandı, her nokta tek referansa atandı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_nokta_recall": {
+   "value": 0.9848496693194078,
+   "unit": "oran",
+   "tanim": "Nokta düzeyi yakalama (büyük tesisler baskın). 127918 tesis noktası (23 tesis) / 8352 yangın noktası (7 yangın); 3 çakışan kayıt ayıklandı, her nokta tek referansa atandı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_site_recall": {
+   "value": 0.4782608695652174,
+   "unit": "oran",
+   "tanim": "Tespiti olan tesislerden noktalarının en az yarısı kalıcı etiketli olanların payı (tesis düzeyi yakalama)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_yangin_koruma": {
+   "value": 0.9982040229885057,
+   "unit": "oran",
+   "tanim": "Bilinen yangın noktalarının kalıcı etiket ALMAMA payı (nokta düzeyi)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_makro_yangin_fpr": {
+   "value": 0.014231620697111065,
+   "unit": "oran",
+   "tanim": "Yangın başına kalıcı etiketli nokta payının ortalaması (gerçek yangını yanlış işaretleme)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_kural_makro_recall": {
+   "value": 0.3829359856645842,
+   "unit": "oran",
+   "tanim": "Yalnız sanayi kuralı (NASA type olmadan; NRT senaryosu) makro tesis yakalama",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_kural_dengeli_precision": {
+   "value": 1.0,
+   "unit": "oran",
+   "tanim": "Yalnız sanayi kuralı dengeli kesinlik",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_ref_nasa_makro_recall": {
+   "value": 0.29110614161538917,
+   "unit": "oran",
+   "tanim": "Yalnız NASA statik etiketi (statik_nasa) makro tesis yakalama: sistem yakalamasında NASA katkısı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_sta_maskesi_karsilastirma": {
+   "value": null,
+   "unit": "",
+   "tanim": "FIRMS Static Thermal Anomalies maskesi deneysel; toplu indirme/API bulunamadı -> karşılaştırma yapılmadı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "doğrulanmadı"
+  },
+  "temizlik_aniz_loyo_kapsama": {
+   "value": 0.7489576763849009,
+   "unit": "oran",
+   "tanim": "Bir yılın küçük-aday tespitlerinin, o yıl hariç öğrenilen bölge anız aylarına düşme payı (ortalama)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_aniz_loyo_taban": {
+   "value": 0.8070782033670226,
+   "unit": "oran",
+   "tanim": "Aynı aylara düşen büyük (aday olmayan) tespit payı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_aniz_loyo_kaldirac": {
+   "value": 0.9279864990286558,
+   "unit": "oran",
+   "tanim": "kapsama / taban (1'den büyükse takvim küçük ateşleri ayırt ediyor)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_aniz_hasat_penceresi_payi": {
+   "value": 0.7419354838709677,
+   "unit": "oran",
+   "tanim": "Öğrenilen bölge-anız aylarının web kaynaklı kaba hasat penceresi (Haz-Eki) içinde kalma payı",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_aniz_arazi_ortusu": {
+   "value": 0.7935,
+   "unit": "oran",
+   "tanim": "Olay düzeyi anız noktalarının WorldCover 2021 'ekili alan' sınıfına düşme payı (bağımsız doğrulama; karşılaştırma: temizlik_wc_buyuk_temiz_ekili_alan_pay). ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_F_modis_medyan": {
+   "value": 15.0,
+   "unit": "MW",
+   "tanim": "MODIS arşiv type=0 FRP medyanı (F seçim gerekçesi)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_F_viirs_esdeger": {
+   "value": 4.400000095367432,
+   "unit": "MW",
+   "tanim": "F'nin VIIRS eşdeğeri (yüzdelik eşleştirme)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_koruma_G_veriden": {
+   "value": 2,
+   "unit": "tespit",
+   "tanim": "Statik hücrelerde yanlış koruma payı <= koruma_yanlis_pay olan en küçük G",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_sure_sn": {
+   "value": 82.3,
+   "unit": "s",
+   "tanim": "build_status.py çalışma süresi (duyarlılık dahil)",
+   "betik": "src/cleaning/build_status.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_tutarsiz_nokta": {
+   "value": 0,
+   "unit": "nokta",
+   "tanim": "olay düzeyi anız: tutarsiz_nokta (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_olay_n_mcell": {
+   "value": 169115,
+   "unit": "olay",
+   "tanim": "olay düzeyi anız: olay_n_mcell (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_pay_viirs_oncesi_n_mcell": {
+   "value": 0.38028122560714167,
+   "unit": "oran",
+   "tanim": "olay düzeyi anız: pay_viirs_oncesi_n_mcell (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_pay_viirs_sonrasi_n_mcell": {
+   "value": 0.35462785189561147,
+   "unit": "oran",
+   "tanim": "olay düzeyi anız: pay_viirs_sonrasi_n_mcell (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_olay_sensor_max": {
+   "value": 165347,
+   "unit": "olay",
+   "tanim": "olay düzeyi anız: olay_sensor_max (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_pay_viirs_oncesi_sensor_max": {
+   "value": 0.38028122560714167,
+   "unit": "oran",
+   "tanim": "olay düzeyi anız: pay_viirs_oncesi_sensor_max (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_pay_viirs_sonrasi_sensor_max": {
+   "value": 0.34448656306579806,
+   "unit": "oran",
+   "tanim": "olay düzeyi anız: pay_viirs_sonrasi_sensor_max (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_olay_toplam": {
+   "value": 164997,
+   "unit": "olay",
+   "tanim": "olay düzeyi anız: olay_toplam (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_pay_viirs_oncesi_toplam": {
+   "value": 0.38028122560714167,
+   "unit": "oran",
+   "tanim": "olay düzeyi anız: pay_viirs_oncesi_toplam (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_pay_viirs_sonrasi_toplam": {
+   "value": 0.3435922261058873,
+   "unit": "oran",
+   "tanim": "olay düzeyi anız: pay_viirs_sonrasi_toplam (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_olay_aniz_olay": {
+   "value": 169115,
+   "unit": "olay",
+   "tanim": "olay düzeyi anız: olay_aniz_olay (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_olay_aniz_nokta": {
+   "value": 217179,
+   "unit": "nokta",
+   "tanim": "olay düzeyi anız: olay_aniz_nokta (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_aday_olayda_aniz_pay": {
+   "value": 0.775207193499304,
+   "unit": "oran",
+   "tanim": "olay düzeyi anız: aday_olayda_aniz_pay (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_kayip_nedeni_n": {
+   "value": 12556,
+   "unit": "nokta",
+   "tanim": "olay düzeyi anız: kayip_nedeni_n (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_kayip_nedeni_sure": {
+   "value": 30533,
+   "unit": "nokta",
+   "tanim": "olay düzeyi anız: kayip_nedeni_sure (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_kayip_nedeni_frp": {
+   "value": 46568,
+   "unit": "nokta",
+   "tanim": "olay düzeyi anız: kayip_nedeni_frp (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_kayip_nedeni_ay": {
+   "value": 170,
+   "unit": "nokta",
+   "tanim": "olay düzeyi anız: kayip_nedeni_ay (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_aniz_ekili_alan_pay": {
+   "value": 0.7935,
+   "unit": "oran",
+   "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_aniz_yapilasmis_pay": {
+   "value": 0.03,
+   "unit": "oran",
+   "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_aniz_agac_pay": {
+   "value": 0.039,
+   "unit": "oran",
+   "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_aniz_cali_pay": {
+   "value": 0.0005,
+   "unit": "oran",
+   "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_aniz_cayir_pay": {
+   "value": 0.128,
+   "unit": "oran",
+   "tanim": "aniz örnekleminde (n=2000) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_buyuk_temiz_ekili_alan_pay": {
+   "value": 0.503,
+   "unit": "oran",
+   "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_buyuk_temiz_yapilasmis_pay": {
+   "value": 0.004,
+   "unit": "oran",
+   "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_buyuk_temiz_agac_pay": {
+   "value": 0.321,
+   "unit": "oran",
+   "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_buyuk_temiz_cali_pay": {
+   "value": 0.021,
+   "unit": "oran",
+   "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_buyuk_temiz_cayir_pay": {
+   "value": 0.141,
+   "unit": "oran",
+   "tanim": "buyuk_temiz örnekleminde (n=2000) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_kural_kalici_ekili_alan_pay": {
+   "value": 0.0895,
+   "unit": "oran",
+   "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_kural_kalici_yapilasmis_pay": {
+   "value": 0.5595,
+   "unit": "oran",
+   "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021) (sanayi kuralı beklentisi: yapılaşmış)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_kural_kalici_agac_pay": {
+   "value": 0.0625,
+   "unit": "oran",
+   "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_kural_kalici_cali_pay": {
+   "value": 0.0025,
+   "unit": "oran",
+   "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_kural_kalici_cayir_pay": {
+   "value": 0.1205,
+   "unit": "oran",
+   "tanim": "kural_kalici örnekleminde (n=2000) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_statik_nasa_ekili_alan_pay": {
+   "value": 0.018,
+   "unit": "oran",
+   "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'ekili_alan' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_statik_nasa_yapilasmis_pay": {
+   "value": 0.812,
+   "unit": "oran",
+   "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'yapilasmis' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_statik_nasa_agac_pay": {
+   "value": 0.03,
+   "unit": "oran",
+   "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'agac' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_statik_nasa_cali_pay": {
+   "value": 0.0,
+   "unit": "oran",
+   "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'cali' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_statik_nasa_cayir_pay": {
+   "value": 0.036,
+   "unit": "oran",
+   "tanim": "statik_nasa örnekleminde (n=500) arazi sınıfı 'cayir' payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_buyuk_temiz_dogal_ortu_pay": {
+   "value": 0.483,
+   "unit": "oran",
+   "tanim": "Büyük temiz olay noktalarında ağaç+çalı+çayır payı. ESA WorldCover 2021 (CC BY 4.0), örneklem noktasında ±wc_pencere_px genel görünüm pikseli (~±110 m) pencerede en sık sınıf; WorldCover tek yıl (2021)",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  },
+  "temizlik_wc_trafik_mb": {
+   "value": 34.2,
+   "unit": "MB",
+   "tanim": "Okunan blok sayısı × ortalama blok boyu (tahmini üst sınır); 520 blok",
+   "betik": "src/cleaning/worldcover.py",
+   "veri_surumu": "points v1",
+   "etiket": "tahmini"
+  },
+  "temizlik_olay_aniz_sure_sn": {
+   "value": 3.0,
+   "unit": "s",
+   "tanim": "olay düzeyi anız: olay_aniz_sure_sn (events.parquet; sayım=n_mcell). Veriden sayıldı; anız etiketi kurala göre etikettir, doğruluğu tahmini (arazi örtüsü uyumu: temizlik_aniz_arazi_ortusu)",
+   "betik": "src/cleaning/olay_aniz.py",
+   "veri_surumu": "points v1",
+   "etiket": "ölçüldü"
+  }
+ },
+ "sensitivity": {
+  "D": [
+   {
+    "deger": 0.5,
+    "kural": "D=0.5 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 541338,
+    "en_buyuk_olay": 6736,
+    "tek_tespitli_oran": 0.7307,
+    "olay_demo_donemi": 64429,
+    "modis_viirste_gorulme": 0.363
+   },
+   {
+    "deger": 1,
+    "kural": "D=1 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 471978,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.663,
+    "olay_demo_donemi": 56263,
+    "modis_viirste_gorulme": 0.3825
+   },
+   {
+    "deger": 2,
+    "kural": "D=2 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 383640,
+    "en_buyuk_olay": 6754,
+    "tek_tespitli_oran": 0.5831,
+    "olay_demo_donemi": 47803,
+    "modis_viirste_gorulme": 0.462
+   },
+   {
+    "deger": 3,
+    "kural": "D=3 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 341799,
+    "en_buyuk_olay": 6755,
+    "tek_tespitli_oran": 0.5745,
+    "olay_demo_donemi": 42731,
+    "modis_viirste_gorulme": 0.4767
+   }
+  ],
+  "H": [
+   {
+    "deger": 6,
+    "kural": "D=1 ayakizi_capraz H=6",
+    "olay": 525841,
+    "en_buyuk_olay": 1385,
+    "tek_tespitli_oran": 0.6659,
+    "olay_demo_donemi": 63473,
+    "modis_viirste_gorulme": 0.3591
+   },
+   {
+    "deger": 12,
+    "kural": "D=1 ayakizi_capraz H=12",
+    "olay": 512109,
+    "en_buyuk_olay": 6658,
+    "tek_tespitli_oran": 0.6684,
+    "olay_demo_donemi": 61575,
+    "modis_viirste_gorulme": 0.3617
+   },
+   {
+    "deger": 24,
+    "kural": "D=1 ayakizi_capraz H=24",
+    "olay": 481008,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.666,
+    "olay_demo_donemi": 57673,
+    "modis_viirste_gorulme": 0.3767
+   },
+   {
+    "deger": 48,
+    "kural": "D=1 ayakizi_capraz H=48",
+    "olay": 451483,
+    "en_buyuk_olay": 6742,
+    "tek_tespitli_oran": 0.6571,
+    "olay_demo_donemi": 53929,
+    "modis_viirste_gorulme": 0.4015
+   }
+  ],
+  "L": [
+   {
+    "deger": 1,
+    "kural": "D=1 ayakizi_capraz gecis L=1 Hmax=72",
+    "olay": 506842,
+    "en_buyuk_olay": 6665,
+    "tek_tespitli_oran": 0.6685,
+    "sure_saat_p90": 0.83,
+    "olay_demo_donemi": 61132,
+    "modis_viirste_gorulme": 0.362
+   },
+   {
+    "deger": 2,
+    "kural": "D=1 ayakizi_capraz gecis L=2 Hmax=72",
+    "olay": 499277,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.6664,
+    "sure_saat_p90": 0.85,
+    "olay_demo_donemi": 60595,
+    "modis_viirste_gorulme": 0.3763
+   },
+   {
+    "deger": 3,
+    "kural": "D=1 ayakizi_capraz gecis L=3 Hmax=72",
+    "olay": 471978,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.663,
+    "sure_saat_p90": 1.57,
+    "olay_demo_donemi": 56263,
+    "modis_viirste_gorulme": 0.3825
+   },
+   {
+    "deger": 4,
+    "kural": "D=1 ayakizi_capraz gecis L=4 Hmax=72",
+    "olay": 468214,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.6611,
+    "sure_saat_p90": 1.65,
+    "olay_demo_donemi": 55962,
+    "modis_viirste_gorulme": 0.3929
+   },
+   {
+    "deger": 6,
+    "kural": "D=1 ayakizi_capraz gecis L=6 Hmax=72",
+    "olay": 460759,
+    "en_buyuk_olay": 6740,
+    "tek_tespitli_oran": 0.6587,
+    "sure_saat_p90": 1.67,
+    "olay_demo_donemi": 55206,
+    "modis_viirste_gorulme": 0.4017
+   }
+  ],
+  "N": [
+   {
+    "deger": 10,
+    "sanayi": 27090,
+    "kalici_belirsiz": 6130,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9220554550934298,
+    "loyo_recall_type2": 0.9698800718997967
+   },
+   {
+    "deger": 20,
+    "sanayi": 27090,
+    "kalici_belirsiz": 6130,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9220554550934298,
+    "loyo_recall_type2": 0.9698800718997967
+   },
+   {
+    "deger": 40,
+    "sanayi": 27012,
+    "kalici_belirsiz": 6208,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9220639475302316,
+    "loyo_recall_type2": 0.9698071576437917
+   },
+   {
+    "deger": 80,
+    "sanayi": 26769,
+    "kalici_belirsiz": 6360,
+    "temiz": 1044313,
+    "yangin_korumasi": 1747,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9228578934177988,
+    "loyo_recall_type2": 0.968913165461468
+   }
+  ],
+  "M": [
+   {
+    "deger": 4,
+    "sanayi": 28840,
+    "kalici_belirsiz": 37727,
+    "temiz": 1010875,
+    "yangin_korumasi": 26738,
+    "ref_precision": 0.9715092033238215,
+    "ref_recall": 0.48528479714354317,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9172956379038743,
+    "loyo_recall_type2": 0.9728441949156572
+   },
+   {
+    "deger": 6,
+    "sanayi": 28717,
+    "kalici_belirsiz": 14151,
+    "temiz": 1034574,
+    "yangin_korumasi": 8772,
+    "ref_precision": 0.9714138343452667,
+    "ref_recall": 0.48361831374327896,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9176741835450041,
+    "loyo_recall_type2": 0.9728441949156572
+   },
+   {
+    "deger": 8,
+    "sanayi": 27012,
+    "kalici_belirsiz": 6208,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9220639475302316,
+    "loyo_recall_type2": 0.9698071576437917
+   },
+   {
+    "deger": 10,
+    "sanayi": 26096,
+    "kalici_belirsiz": 3402,
+    "temiz": 1047944,
+    "yangin_korumasi": 727,
+    "ref_precision": 0.9700539732445846,
+    "ref_recall": 0.4610107482938758,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9241901217431362,
+    "loyo_recall_type2": 0.9667257377813143
+   },
+   {
+    "deger": 12,
+    "sanayi": 22387,
+    "kalici_belirsiz": 1530,
+    "temiz": 1053525,
+    "yangin_korumasi": 1080,
+    "ref_precision": 0.9645234674671306,
+    "ref_recall": 0.3869242894506836,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.931802327203728,
+    "loyo_recall_type2": 0.9527579024787677
+   }
+  ],
+  "F": [
+   {
+    "deger": 5,
+    "F_viirs_esdeger": 0.6700000166893005,
+    "yuzdelik": 0.044313544158742287,
+    "aniz_adayi": 21071,
+    "kucuk_temiz": 28682,
+    "loyo_kapsama": 0.7218867733133271,
+    "loyo_kaldirac": 0.9655455355306384
+   },
+   {
+    "deger": 10,
+    "F_viirs_esdeger": 2.75,
+    "yuzdelik": 0.3102430590458575,
+    "aniz_adayi": 138679,
+    "kucuk_temiz": 199649,
+    "loyo_kapsama": 0.7049130742288087,
+    "loyo_kaldirac": 0.9029950337936025
+   },
+   {
+    "deger": 15,
+    "F_viirs_esdeger": 4.400000095367432,
+    "yuzdelik": 0.4993144488450172,
+    "aniz_adayi": 247112,
+    "kucuk_temiz": 336943,
+    "loyo_kapsama": 0.7489576763849009,
+    "loyo_kaldirac": 0.9279864990286558
+   },
+   {
+    "deger": 20,
+    "F_viirs_esdeger": 5.789999961853027,
+    "yuzdelik": 0.615222854385718,
+    "aniz_adayi": 306266,
+    "kucuk_temiz": 414117,
+    "loyo_kapsama": 0.758894480549303,
+    "loyo_kaldirac": 0.9170409191884334
+   },
+   {
+    "deger": 30,
+    "F_viirs_esdeger": 8.40999984741211,
+    "yuzdelik": 0.7494662350978066,
+    "aniz_adayi": 369564,
+    "kucuk_temiz": 494731,
+    "loyo_kapsama": 0.7713648150305251,
+    "loyo_kaldirac": 0.9125840795566871
+   }
+  ],
+  "Y": [
+   {
+    "deger": 2,
+    "sanayi": 28962,
+    "kalici_belirsiz": 6918,
+    "temiz": 1041562,
+    "yangin_korumasi": 1813,
+    "ref_precision": 0.9727444649906875,
+    "ref_recall": 0.5079236293190216,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9184984397392285,
+    "loyo_recall_type2": 0.9732404680461199
+   },
+   {
+    "deger": 3,
+    "sanayi": 28625,
+    "kalici_belirsiz": 6856,
+    "temiz": 1041961,
+    "yangin_korumasi": 1848,
+    "ref_precision": 0.971172359314703,
+    "ref_recall": 0.47944806861474004,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9195587283320147,
+    "loyo_recall_type2": 0.9727110471438218
+   },
+   {
+    "deger": 5,
+    "sanayi": 27012,
+    "kalici_belirsiz": 6208,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9220639475302316,
+    "loyo_recall_type2": 0.9698071576437917
+   },
+   {
+    "deger": 8,
+    "sanayi": 24823,
+    "kalici_belirsiz": 5234,
+    "temiz": 1047385,
+    "yangin_korumasi": 1892,
+    "ref_precision": 0.9710503733692917,
+    "ref_recall": 0.4773678350974208,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.927850554220603,
+    "loyo_recall_type2": 0.948693725252743
+   }
+  ],
+  "S": [
+   {
+    "deger": 1,
+    "sanayi": 33441,
+    "kalici_belirsiz": 2271,
+    "temiz": 1041730,
+    "yangin_korumasi": 4723,
+    "ref_precision": 0.971473215208259,
+    "ref_recall": 0.48465462957639954,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9033174882336188,
+    "loyo_recall_type2": 0.97533913054505
+   },
+   {
+    "deger": 2,
+    "sanayi": 32247,
+    "kalici_belirsiz": 2741,
+    "temiz": 1042454,
+    "yangin_korumasi": 3631,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9062305654048732,
+    "loyo_recall_type2": 0.9747209444615282
+   },
+   {
+    "deger": 4,
+    "sanayi": 27012,
+    "kalici_belirsiz": 6208,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9220639475302316,
+    "loyo_recall_type2": 0.9698071576437917
+   },
+   {
+    "deger": 6,
+    "sanayi": 22682,
+    "kalici_belirsiz": 9773,
+    "temiz": 1044987,
+    "yangin_korumasi": 1739,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057,
+    "loyo_precision_type2": 0.9329406886144463,
+    "loyo_recall_type2": 0.9485922793313446
+   }
+  ],
+  "aniz_aylari": [
+   {
+    "deger": "uniform_ustu",
+    "aniz_adayi": 247112,
+    "loyo_kapsama": 0.7489576763849009,
+    "loyo_taban": 0.8070782033670226,
+    "loyo_kaldirac": 0.9279864990286558,
+    "hasat_penceresi_payi": 0.7419354838709677,
+    "aylar": {
+     "Akdeniz": [
+      6,
+      8,
+      9,
+      10,
+      11
+     ],
+     "Doğu Anadolu": [
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "Ege": [
+      6,
+      9,
+      10,
+      11
+     ],
+     "Güneydoğu Anadolu": [
+      6,
+      7,
+      9,
+      10,
+      11,
+      12
+     ],
+     "Karadeniz": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "Marmara": [
+      9,
+      10,
+      11
+     ],
+     "İç Anadolu": [
+      8,
+      9,
+      10,
+      11
+     ]
+    }
+   },
+   {
+    "deger": "top3",
+    "aniz_adayi": 175998,
+    "loyo_kapsama": 0.523813331658938,
+    "loyo_taban": 0.5122999463121113,
+    "loyo_kaldirac": 1.022473914802662,
+    "hasat_penceresi_payi": 0.8095238095238095,
+    "aylar": {
+     "Akdeniz": [
+      6,
+      9,
+      10
+     ],
+     "Doğu Anadolu": [
+      8,
+      9,
+      10
+     ],
+     "Ege": [
+      9,
+      10,
+      11
+     ],
+     "Güneydoğu Anadolu": [
+      6,
+      10,
+      11
+     ],
+     "Karadeniz": [
+      8,
+      9,
+      10
+     ],
+     "Marmara": [
+      9,
+      10,
+      11
+     ],
+     "İç Anadolu": [
+      9,
+      10,
+      11
+     ]
+    }
+   },
+   {
+    "deger": "top5",
+    "aniz_adayi": 250559,
+    "loyo_kapsama": 0.7662658847853356,
+    "loyo_taban": 0.8250576948495069,
+    "loyo_kaldirac": 0.9287421832058727,
+    "hasat_penceresi_payi": 0.7428571428571429,
+    "aylar": {
+     "Akdeniz": [
+      6,
+      8,
+      9,
+      10,
+      11
+     ],
+     "Doğu Anadolu": [
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "Ege": [
+      6,
+      7,
+      9,
+      10,
+      11
+     ],
+     "Güneydoğu Anadolu": [
+      6,
+      7,
+      9,
+      10,
+      11
+     ],
+     "Karadeniz": [
+      3,
+      8,
+      9,
+      10,
+      11
+     ],
+     "Marmara": [
+      6,
+      7,
+      9,
+      10,
+      11
+     ],
+     "İç Anadolu": [
+      3,
+      8,
+      9,
+      10,
+      11
+     ]
+    }
+   },
+   {
+    "deger": "demo",
+    "aniz_adayi": 227647,
+    "loyo_kapsama": 0.6790880772066208,
+    "loyo_taban": 0.6744178638809912,
+    "loyo_kaldirac": 1.0069248066751293,
+    "hasat_penceresi_payi": 0.6,
+    "aylar": {
+     "Akdeniz": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "Doğu Anadolu": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "Ege": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "Güneydoğu Anadolu": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "Karadeniz": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "Marmara": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "İç Anadolu": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ]
+    }
+   }
+  ],
+  "kalici_alfa": [
+   {
+    "deger": 0.01,
+    "yillik_tekrar_bayrakli_temiz": 329671,
+    "temiz": 1044222
+   },
+   {
+    "deger": 0.001,
+    "yillik_tekrar_bayrakli_temiz": 230775,
+    "temiz": 1044222
+   },
+   {
+    "deger": 0.0001,
+    "yillik_tekrar_bayrakli_temiz": 169495,
+    "temiz": 1044222
+   },
+   {
+    "deger": 1e-06,
+    "yillik_tekrar_bayrakli_temiz": 84134,
+    "temiz": 1044222
+   }
+  ],
+  "kalici_gece": [
+   {
+    "deger": 0.3,
+    "sanayi": 27020,
+    "kalici_belirsiz": 9574,
+    "temiz": 1040848,
+    "yangin_korumasi": 5184,
+    "ref_precision": 0.971473215208259,
+    "ref_recall": 0.48465462957639954,
+    "yangin_koruma": 0.9982040229885057
+   },
+   {
+    "deger": 0.5,
+    "sanayi": 27012,
+    "kalici_belirsiz": 6208,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057
+   },
+   {
+    "deger": 0.7,
+    "sanayi": 26925,
+    "kalici_belirsiz": 4823,
+    "temiz": 1045694,
+    "yangin_korumasi": 912,
+    "ref_precision": 0.9710660474210223,
+    "ref_recall": 0.47763414352105726,
+    "yangin_koruma": 0.9982040229885057
+   }
+  ],
+  "koruma_G": [
+   {
+    "deger": 1,
+    "sanayi": 26259,
+    "kalici_belirsiz": 5399,
+    "temiz": 1045784,
+    "yangin_korumasi": 3310,
+    "ref_precision": 0.970437847234831,
+    "ref_recall": 0.4671819221582379,
+    "yangin_koruma": 0.9982040229885057
+   },
+   {
+    "deger": 2,
+    "sanayi": 27012,
+    "kalici_belirsiz": 6208,
+    "temiz": 1044222,
+    "yangin_korumasi": 1748,
+    "ref_precision": 0.9710722572914176,
+    "ref_recall": 0.47773973152625987,
+    "yangin_koruma": 0.9982040229885057
+   },
+   {
+    "deger": 3,
+    "sanayi": 27161,
+    "kalici_belirsiz": 6542,
+    "temiz": 1043739,
+    "yangin_korumasi": 1265,
+    "ref_precision": 0.9711163801491509,
+    "ref_recall": 0.47849127105264755,
+    "yangin_koruma": 0.9982040229885057
+   },
+   {
+    "deger": 5,
+    "sanayi": 27286,
+    "kalici_belirsiz": 6911,
+    "temiz": 1043245,
+    "yangin_korumasi": 771,
+    "ref_precision": 0.9712003450937133,
+    "ref_recall": 0.47992779695634413,
+    "yangin_koruma": 0.9982040229885057
+   },
+   {
+    "deger": 10,
+    "sanayi": 27321,
+    "kalici_belirsiz": 7248,
+    "temiz": 1042873,
+    "yangin_korumasi": 399,
+    "ref_precision": 0.9712091224134594,
+    "ref_recall": 0.48007844867584143,
+    "yangin_koruma": 0.9982040229885057
+   }
+  ],
+  "aniz_olay_max_tespit": [
+   {
+    "deger": 1,
+    "olay_n_mcell": 154841,
+    "nokta_n_mcell": 175406,
+    "olay_sensor_max": 141104,
+    "nokta_sensor_max": 142768,
+    "olay_toplam": 139440,
+    "nokta_toplam": 139440
+   },
+   {
+    "deger": 2,
+    "olay_n_mcell": 167540,
+    "nokta_n_mcell": 209564,
+    "olay_sensor_max": 160706,
+    "nokta_sensor_max": 182937,
+    "olay_toplam": 159838,
+    "nokta_toplam": 180236
+   },
+   {
+    "deger": 3,
+    "olay_n_mcell": 169115,
+    "nokta_n_mcell": 217179,
+    "olay_sensor_max": 165347,
+    "nokta_sensor_max": 197172,
+    "olay_toplam": 164997,
+    "nokta_toplam": 195713
+   },
+   {
+    "deger": 5,
+    "olay_n_mcell": 169464,
+    "nokta_n_mcell": 219864,
+    "olay_sensor_max": 168170,
+    "nokta_sensor_max": 209575,
+    "olay_toplam": 168092,
+    "nokta_toplam": 209093
+   },
+   {
+    "deger": 10,
+    "olay_n_mcell": 169475,
+    "nokta_n_mcell": 220032,
+    "olay_sensor_max": 169322,
+    "nokta_sensor_max": 217908,
+    "olay_toplam": 169311,
+    "nokta_toplam": 217780
+   }
+  ]
+ }
+}

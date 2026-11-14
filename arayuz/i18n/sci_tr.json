@@ -1,0 +1,465 @@
+{
+ "intro": "Bu sekme çözümümüzü bilimsel olarak anlatır: uydu ne ölçer, hangi kurallarla temizledik, aynı yangını nasıl tek saydık, 2012 sıçramasını nasıl düzelttik ve sonucu nasıl doğruladık. Her sayının yanında etiketi var: ölçüldü, tahmini ya da doğrulanmadı.",
+ "val_none": "Gerçek yangın doğrulama tablosu henüz yüklenmedi.",
+ "val_sum": "Toplam FRP'ye göre en büyük {n} olayımızdan {ok} tanesi belgelenmiş gerçek bir yangınla tarih ve yer olarak eşleşiyor, {part} tanesi kısmen eşleşiyor. Bu, yalnız bu {n} en büyük olay için bir kesinlik ölçüsüdür (seçilmiş örnek); genel tespit oranı değildir.",
+ "val_cols": [
+  "İl",
+  "Bizim başlangıç (TR)",
+  "Süre (sa)",
+  "FRP toplam (MW)",
+  "Gerçek yangın",
+  "Resmî başlangıç",
+  "Yanan alan (ha)",
+  "Eşleşme",
+  "Kaynak"
+ ],
+ "val_gen": "Genel kanıtlar (kaynaklı)",
+ "steps": [
+  {
+   "title": "Uydu ne görür? (Fizik)",
+   "pose": "lintu_selam",
+   "simple": "Uydu yangını görmez, sıcaklığı görür. 4 mikrometre civarındaki kızılötesi ışımada pikselin çevresinden çok daha parlak olduğunu fark edince oraya bir 'sıcak nokta' koyar. Elimizde {m:veri_toplam_nokta} böyle nokta var: {m:veri_modis_nokta} eski uydudan (MODIS), {m:veri_viirs_nokta} yeni uydudan (VIIRS).",
+   "tour": "Önce fizik: uydu yangını değil sıcaklığı görür. Kızılötesinde çevresinden parlak olan piksele sıcak nokta der. Yeni uydu VIIRS'in pikseli daha küçük, bu yüzden küçük yangınları da görür.",
+   "blocks": [
+    {
+     "formula": "*FRP* = *ε* · *σ* · *A*_{yangın} · ( *T*_{yangın}^{4} − *T*_{arka}^{4} )",
+     "caption": "Yangın ışınım gücü (FRP, megavat): Stefan–Boltzmann yasası. Yanan alan ve sıcaklık arttıkça yayılan güç sıcaklığın 4. kuvvetiyle artar. FRP bir güçtür (MW), enerji ya da yanan alan değildir.",
+     "what": "Bir yangının anda ne kadar ışınım gücü (MW) yaydığını, ne kadar büyük ve ne kadar sıcak olduğundan hesaplar.",
+     "syms": [
+      [
+       "FRP",
+       "Yangın ışınım gücü: yangının o anda yaydığı güç (saniyede megajul)",
+       "MW (megavat)"
+      ],
+      [
+       "ε",
+       "Yayma katsayısı: yüzeyin ısıyı ne kadar iyi ışıdığı (0 ile 1 arası)",
+       "birimsiz"
+      ],
+      [
+       "σ",
+       "Stefan–Boltzmann sabiti (≈ 5,67·10⁻⁸)",
+       "W m⁻² K⁻⁴"
+      ],
+      [
+       "A_yangın",
+       "Gerçekten yanan alan",
+       "m²"
+      ],
+      [
+       "T_yangın",
+       "Yangının sıcaklığı",
+       "K (kelvin)"
+      ],
+      [
+       "T_arka",
+       "Çevredeki yanmayan zeminin sıcaklığı",
+       "K (kelvin)"
+      ]
+     ],
+     "ex": "Elimizdeki gerçek bir olay: {m:demo4_gun} günü {m:demo4_il} ilinde {m:demo4_n_viirs} VIIRS noktasından oluşan olayın toplam FRP'si {m:demo4_frp}. Biz bu değeri formülden hesaplamıyoruz; NASA'nın her nokta için verdiği FRP'yi topluyoruz. Formül yalnız bu sayının neden büyük yangında büyük çıktığını açıklar: sıcaklık 4. kuvvetle girdiği için sıcaklık ikiye katlanırsa ışıma 16 kat artar.",
+     "why": "Yalnız 'kaç nokta var' diye sayarsak küçük bir kor ile devasa bir yangın aynı ağırlıkta olur. FRP, yangının gerçek şiddetini verir; büyük/küçük ayrımı ve anız eşiği buna dayanır."
+    },
+    {
+     "formula": "*FRP*_{MIR} ≈ [[ *A*_{piksel} · *σ* ~~ *a* ]] · ( *L*_{4 µm} − *L*_{4 µm,arka} ),   *a* ≈ 3,0·10^{−9} W m^{−2} sr^{−1} µm^{−1} K^{−4}",
+     "caption": "Uydunun pratikte kullandığı biçim: 4 µm kanalındaki fazla parlaklık (L) piksel alanıyla çarpılır. FIRMS ürünlerindeki FRP değerleri bu yöntemle hesaplanır.",
+     "what": "Uydunun gerçekte yaptığı hesap: 4 mikrometre kızılötesinde pikselin çevresine göre fazladan ne kadar parladığına bakıp bunu piksel alanıyla çarpar.",
+     "syms": [
+      [
+       "FRP_MIR",
+       "Orta kızılötesinden (MIR) bulunan yangın ışınım gücü",
+       "MW"
+      ],
+      [
+       "A_piksel",
+       "Uydu pikselinin yer alanı",
+       "km² (hesapta m²)"
+      ],
+      [
+       "σ",
+       "Stefan–Boltzmann sabiti",
+       "W m⁻² K⁻⁴"
+      ],
+      [
+       "a",
+       "Kanal sabiti (≈ 3,0·10⁻⁹)",
+       "W m⁻² sr⁻¹ µm⁻¹ K⁻⁴"
+      ],
+      [
+       "L_4µm",
+       "Yangınlı pikselin 4 µm radyansı (parlaklığı)",
+       "W m⁻² sr⁻¹ µm⁻¹"
+      ],
+      [
+       "L_4µm,arka",
+       "Aynı pikselin yangınsız çevresinin radyansı",
+       "W m⁻² sr⁻¹ µm⁻¹"
+      ]
+     ],
+     "ex": "Piksel alanı verideki gerçek farktır: VIIRS pikseli 375 m, yani yaklaşık 0,375 × 0,375 ≈ 0,14 km²; MODIS pikseli nadirde yaklaşık 1 km². Bu yüzden VIIRS izinde bir MODIS pikseline ortalama {m:mcell_iz_basina_viirs} VIIRS noktası düşer. Radyans (L) değerleri uydunun ham ölçümüdür ve uygulamaya alınmamıştır; uygulamadaki FRP sütunu NASA FIRMS'ten hazır gelir (toplam {m:veri_toplam_nokta} nokta).",
+     "why": "Yangın pikselin yalnız küçük bir kısmını kaplar. Çevre parlaklığı çıkarılmazsa güneşle ısınmış taş ve toprak da yangın gibi görünür; piksel alanı katılmazsa iki uydunun FRP değerleri kıyaslanamaz."
+    },
+    {
+     "list": [
+      "MODIS pikseli tam altta (nadir) yaklaşık 1 km, tarama kenarında 4,8 km'ye kadar büyür; VIIRS pikseli 375 m (kenarda yaklaşık 0,8 km). Bu yüzden VIIRS aynı yangını daha çok noktayla ve küçük yangınları da görür.",
+      "VIIRS izinde bir MODIS pikseline ortalama {m:mcell_iz_basina_viirs} VIIRS noktası düşer.",
+      "MODIS'in yangınları yarı yarıya yakalayabildiği güç (FRP50) yaklaşık {m:modis_frp50_genel_mw}."
+     ]
+    },
+    {
+     "cite": "Literatürden (proje belgelerimizde türetilmedi): Kaufman vd. 1998; Wooster vd. 2003 (MIR radyans yöntemi); Giglio vd. 2016 (MODIS C6 aktif yangın); Schroeder vd. 2014 (VIIRS 375 m).",
+     "expert": true
+    }
+   ],
+   "go": {
+    "tab": "join",
+    "anchor": "#pixBox",
+    "label": "Piksel büyüklüğü grafiğini göster →"
+   }
+  },
+  {
+   "title": "Temizlik: yangın olmayan ısıyı ayır",
+   "pose": "lintu_dusun",
+   "simple": "Her sıcak nokta yangın değildir: fabrika bacası, gaz yakma, volkan, deniz platformu da parlar. Hiçbir noktayı silmedik, her birine bir etiket verdik. Noktaların {m:huni_nasa_etiket_pay} kadarını NASA'nın kendi etiketiyle, {m:huni_kural_etiket_pay} kadarını kendi sanayi kuralımızla ayırdık.",
+   "tour": "Her sıcak nokta yangın değil: fabrika, gaz yakma, volkan da parlar. Hiçbir noktayı silmeden etiketledik. Sanayi kuralımız birini dışarıda bırakma testinde yüzde 92 kesinlik ve yüzde 97 duyarlılık verdi.",
+   "blocks": [
+    {
+     "formula": "*sanayi* ⇔ ( *n*_{yıl} ≥ 5 ) ∧ ( *n*_{ay} ≥ 8 ) ∧ ( *n*_{gün} ≥ 40 ) ∧ ( *m*_{ay} ≥ 4 )     [0,01° ≈ 1 km hücrede]",
+     "caption": "Aynı 1 km hücre yıllarca, aylarca tekrar tekrar ısınıyorsa yangın değil, sabit bir tesistir. Birini dışarıda bırakma testinde kesinlik {m:temizlik_sanayi_loyo_precision}, duyarlılık {m:temizlik_sanayi_loyo_recall}.",
+     "what": "Aynı 1 km'lik kare yıllarca, her mevsim tekrar tekrar ısınıyorsa orası yangın değil sabit bir tesistir (fabrika, rafineri, gaz yakma).",
+     "syms": [
+      [
+       "n_yıl",
+       "Hücrede en az bir tespit görülen yıl sayısı",
+       "yıl"
+      ],
+      [
+       "n_ay",
+       "Tespit görülen farklı takvim ayı sayısı",
+       "ay"
+      ],
+      [
+       "n_gün",
+       "Tespit görülen toplam gün sayısı",
+       "gün"
+      ],
+      [
+       "m_ay",
+       "Tespit görülen ayların medyan tespit sayısı",
+       "tespit"
+      ],
+      [
+       "⇔, ∧",
+       "'ancak ve ancak', 've' (hepsi birden doğru olmalı)",
+       "–"
+      ]
+     ],
+     "ex": "{m:demo2_il}'de {m:demo2_hucre} hücre bu kuralla tesis çıktı; veri {m:demo2_yil_sayisi} yılı kapsadığı için 'en az 5 yıl' şartı kolay sağlanıyor. Bu hücrelerdeki {m:demo2_sanayi_nokta} nokta, ilin noktalarının {m:demo2_il_nokta_pay} kadarı. Bir tesis hücresini dışarıda bırakıp kuralı sınadığımızda kesinlik {m:temizlik_sanayi_loyo_precision}, duyarlılık {m:temizlik_sanayi_loyo_recall} çıktı.",
+     "why": "Sanayi bacaları her yıl yüzlerce 'yangın' üretir. Ayrılmazsa yangın sayısı, FRP toplamı ve aylık takvim yapay olarak şişer; özellikle İzmir, Kocaeli gibi sanayi illeri yanlış sıralanır."
+    },
+    {
+     "formula": "*anız* ⇔ *n*_{MODİS hücre} ≤ 3 ∧ *süre* ≤ 12 sa ∧ *FRP*_{*i*} < *F* ∀ *i* ∧ *ay* ∈ *H*_{bölge}",
+     "caption": "F = {m:temizlik_F_modis_medyan} (MODIS) ve {m:temizlik_F_viirs_esdeger} (VIIRS, yüzdelik eşleştirmeyle). Küçük, kısa ve zayıf, üstelik o bölgenin hasat sonrası ayında olan olay tarla (anız) yakmasıdır.",
+     "what": "Küçük, kısa süren, zayıf ve tam hasat zamanına denk gelen bir olay büyük olasılıkla tarla (anız) yakmasıdır; orman yangını değil.",
+     "syms": [
+      [
+       "n_MODİS hücre",
+       "Olayın kapladığı MODIS hücresi sayısı",
+       "hücre"
+      ],
+      [
+       "süre",
+       "Olayın ilk ve son tespiti arasındaki süre",
+       "saat"
+      ],
+      [
+       "FRP_i",
+       "Olaydaki i. noktanın yangın gücü",
+       "MW"
+      ],
+      [
+       "F",
+       "FRP eşiği (MODIS için medyan, VIIRS için yüzdelik eşleştirmeyle)",
+       "MW"
+      ],
+      [
+       "H_bölge",
+       "Bölgenin veriden öğrenilmiş anız (hasat sonrası) ayları",
+       "ay"
+      ],
+      [
+       "∀ i",
+       "'her i için' (tüm noktalar)",
+       "–"
+      ]
+     ],
+     "ex": "Eşik F = {m:temizlik_F_modis_medyan} (MODIS) ve {m:temizlik_F_viirs_esdeger} (VIIRS). Yani tüm noktaları bu değerin altında kalan küçük ve kısa olay anız adayı olur. Sonuçta {m:temizlik_status_aniz} nokta anız etiketi aldı; {m:temizlik_status_temiz} nokta temiz kaldı. Arazi örtüsü kontrolünde anız noktalarının {m:temizlik_aniz_arazi_ortusu} kadarı ekili alanda çıktı.",
+     "why": "Tarla yakmaları yazın ve sonbaharda çok sayıda küçük yangın üretir. Ayrılmazsa 'orman yangını mevsimi' tarım takvimine göre kayar. Etiket tahmindir; bu yüzden hiçbir nokta silinmez, harita ve takvimde aç/kapat yapılır."
+    },
+    {
+     "list": [
+      "Yangın koruması: aynı gün 5×5 hücrede en az {m:temizlik_koruma_G_veriden} tespit varsa nokta 'temiz' kalır; gerçek bir yangın yanlışlıkla sanayi sayılmaz (referans yangınlarda koruma {m:temizlik_ref_yangin_koruma}).",
+      "Sonuç: {m:temizlik_status_temiz} temiz, {m:temizlik_status_aniz} anız, {m:temizlik_status_sanayi} sanayi noktası.",
+      "Anız etiketi kural tabanlı bir tahmindir; arazi örtüsü yerinde doğrulanmadı, yalnız bağımsız bir arazi örtüsü haritasıyla karşılaştırıldı."
+     ]
+    }
+   ],
+   "go": {
+    "tab": "map",
+    "label": "Haritada anızı aç/kapat →"
+   }
+  },
+  {
+   "title": "Kümeleme: bir olay = bir sıcak nokta kümesi",
+   "pose": "lintu_goster",
+   "simple": "Büyük bir yangını iki uydu günlerce, yüzlerce noktayla görür. Bunları tek tek saymak yangın sayısını şişirir. Yakın yerdeki ve yakın zamandaki noktaları birbirine bağlayıp tek bir olay yaptık: {m:huni_kumeleme_girdi} noktadan {m:events_total} olay çıktı.",
+   "tour": "Aynı yangının noktalarını zincir gibi bağlıyoruz: 1 kilometreden yakın ve 72 saatten kısa aralıklı noktalar aynı olaydır. İki uyduyu ayrı kümeleseydik 59 bin yangını iki kez sayacaktık.",
+   "blocks": [
+    {
+     "formula": "*bağ*(*p*, *q*) ⇔ [ *d*(*p*, *q*) ≤ 1 km  ∨  ( |Δ*x*| ≤ [[ *s* ~~ 2 ]] + 0,375 km ∧ |Δ*y*| ≤ [[ *t* ~~ 2 ]] + 0,375 km ) ] ∧ |Δ*t*| ≤ 72 sa ∧ *g* ≤ 3",
+     "caption": "Bağlı noktaların zinciri bir olaydır (grafikteki bağlı bileşen). Aradaki uydu geçişlerinde yangın görülmediyse zincir kopar; böylece aynı yerde günler sonra çıkan başka yangın ayrı sayılır.",
+     "what": "İki sıcak noktayı 'aynı yangın' sayıp saymayacağımıza karar verir: yeterince yakın, yeterince yakın zamanda ve arada yangın kesintisiz görülmüşse bağlarız.",
+     "syms": [
+      [
+       "p, q",
+       "İki sıcak nokta",
+       "–"
+      ],
+      [
+       "d(p,q)",
+       "İki nokta arası uzaklık",
+       "km"
+      ],
+      [
+       "Δx, Δy",
+       "VIIRS merkezinin MODIS pikseli merkezine göre yatay ve dikey kayması",
+       "km"
+      ],
+      [
+       "s, t",
+       "MODIS pikselinin tarama ve iz yönündeki boyu",
+       "km"
+      ],
+      [
+       "0,375",
+       "VIIRS pikselinin (375 m) yarım boyu kadar pay",
+       "km"
+      ],
+      [
+       "Δt",
+       "İki noktanın zaman farkı",
+       "saat"
+      ],
+      [
+       "g",
+       "Arada yangını görmeyen ardışık uydu geçişi sayısı",
+       "geçiş"
+      ]
+     ],
+     "ex": "{m:demo1_gun} günü {m:demo1_il}'da {m:demo1_tespit} tespit vardı; bağ kuralı bunları {m:demo1_olay} olaya bağladı (olay başına ortalama {m:demo1_oran}). En büyük olay tek başına {m:demo1_en_buyuk_olay_tespit} tespit içeriyor ve {m:demo1_en_buyuk_olay_sure} sürdü. Bütün veride {m:huni_kumeleme_girdi} noktadan {m:events_total} olay çıktı.",
+     "why": "Kümeleme olmazsa tek bir büyük yangın yüzlerce 'yangın' diye sayılır. İki uyduyu birlikte kümelemezsek aynı yangını iki kez sayarız: bu hata {m:events_double_count_avoided} olay olurdu."
+    },
+    {
+     "list": [
+      "İki uydu birlikte kümelenince çakışma döneminde {m:events_joint_overlap} olay; ayrı ayrı kümelenseydi {m:events_separate_overlap}. Önlenen çift sayım: {m:events_double_count_avoided}.",
+      "Üçlü sınıf: iki uydu da gördü {m:events_match_ortak}, yalnız MODIS {m:events_match_yalniz_modis}, yalnız VIIRS {m:events_match_yalniz_viirs}.",
+      "MODIS'in gördüğü olayların yalnız {m:events_modis_seen_by_viirs_share} kadarını VIIRS de gördü. Fark gerçek gözlem farkıdır (geçiş saati, bulut, piksel)."
+     ]
+    }
+   ],
+   "go": {
+    "tab": "join",
+    "anchor": "#labSvg",
+    "label": "Bir olayın adım adım birleşmesini göster →"
+   }
+  },
+  {
+   "title": "Harmonizasyon: VIIRS'i MODIS diline çevir",
+   "pose": "lintu_fikir",
+   "simple": "2012'de VIIRS gelince ham sayı {m:jump_raw_pct} fırladı. Bu yangın artışı değil, gözün keskinleşmesi. VIIRS sayılarını 'eski uydu bunu kaç nokta olarak görürdü?' sorusuyla MODIS ölçeğine çevirdik. Düzeltilmiş seri {m:jump_harm_pct}, eski uydunun kendi ölçümü {m:jump_modis_gercek_pct}.",
+   "tour": "En önemli adım: 2012'de yeni uydu gelince ham sayı yüzde 143 fırladı. İki düzeltme yaptık: o gün kaç VIIRS uydusu baktıysa sayıyı ona böldük, sonra bölge, mevsim ve yangın gücüne göre MODIS oranıyla çarptık. Düzeltilmiş seri eski uydunun gerçek değişimini 3,6 puan farkla izliyor.",
+   "blocks": [
+    {
+     "formula": "*V*′_{gün} = [[ *V*_{gün} ~~ *n*_{VIIRS}(gün) ]]",
+     "caption": "Birinci düzeltme: daha çok uydu daha çok nokta demek. Günlük VIIRS sayısı o gün gözlem yapan VIIRS uydu sayısına bölünür. Asıl kazanç bu adımdır.",
+     "what": "Bir gün daha çok VIIRS uydusu bakmışsa daha çok nokta görürüz; bunu o günkü uydu sayısına bölerek 'tek uydu başına' sayıya çeviririz.",
+     "syms": [
+      [
+       "V_gün",
+       "O gün sayılan ham VIIRS nokta sayısı",
+       "tespit"
+      ],
+      [
+       "n_VIIRS(gün)",
+       "O gün gözlem yapan VIIRS uydusu sayısı (1; 2018'den 2; 2023'ten 3)",
+       "uydu"
+      ],
+      [
+       "V′_gün",
+       "Uydu sayısına göre düzeltilmiş VIIRS sayısı",
+       "tespit / uydu"
+      ]
+     ],
+     "ex": "2018'de ikinci VIIRS uydusu (N20) eklenince ham seri {m:jump_n20_2018_ham_pct} arttı; uydu sayısına bölünce {m:jump_n20_2018_eforlu_pct}, eski uydunun gerçek değişimi {m:jump_n20_2018_modis_pct}. 2023'te üçüncü uydu (N21) ile ham {m:jump_n21_2023_ham_pct}, düzeltilmiş {m:jump_n21_2023_eforlu_pct}, MODIS {m:jump_n21_2023_modis_pct}.",
+     "why": "Bu adım olmazsa uydu eklendiği yıl yangınlar sanki arttı gibi görünür. Yıllık hata bu adımsız {m:harm_i0_yillik_mape}, adımla {m:harm_i_yillik_mape}: asıl kazanç buradan gelir."
+    },
+    {
+     "formula": "*M̂*_{b,ay} = Σ_{s} *r*_{b,m,s} · *V*′_{b,ay,s}",
+     "caption": "İkinci düzeltme: çakışma yıllarında bölge × mevsim × yangın gücü sınıfı başına MODIS/VIIRS oranı r öğrenilir ve uygulanır (belgelerdeki sözel tanımın aktarımı; tam cebirsel biçim belgede yok).",
+     "what": "Düzeltilmiş VIIRS sayısını, 'eski uydu bunu kaç nokta olarak görürdü' oranıyla çarpıp MODIS ölçeğine çevirir.",
+     "syms": [
+      [
+       "M̂_b,ay",
+       "Tahmin edilen MODIS-eşdeğer nokta sayısı (bölge b, ay)",
+       "tespit"
+      ],
+      [
+       "Σ_s",
+       "Tüm yangın gücü sınıfları s üzerinden toplam",
+       "–"
+      ],
+      [
+       "r_b,m,s",
+       "MODIS/VIIRS oranı: bölge b, mevsim m, FRP sınıfı s için çakışma yıllarında öğrenilir",
+       "oran"
+      ],
+      [
+       "V′_b,ay,s",
+       "Efor düzeltmeli VIIRS sayısı (bölge, ay, sınıf)",
+       "tespit"
+      ]
+     ],
+     "ex": "Bu toplamdan {m:harmonize_seri_satir} satırlık harmonize seri üretildi. Çakışma yıllarında seri ile gerçek MODIS arasındaki sapma {m:equiv_overlap_bias}; aylık belirsizlik bandı gerçek değeri ayların {m:equiv_band_kapsama_ay_tr} kadarında kapsıyor.",
+     "why": "Yeni uydu küçük yangınları da görür; yalnız uydu sayısına bölmek bunu düzeltmez. Oran, küçük/büyük yangın ve bölge farkını hesaba katar. (Not: bu ek katman yıllık hatayı değil gösterim tutarlılığını destekler; model karşılaştırması 'Sınırlar' adımında.)"
+    },
+    {
+     "formula": "*S* = [[ ort(2012–2014) ~~ ort(2009–2011) ]] − 1",
+     "caption": "Ham {m:jump_raw_pct} · düzeltilmiş {m:jump_harm_pct} · gerçek MODIS {m:jump_modis_gercek_pct} · aradaki fark {m:jump_resid_pct}.",
+     "what": "Sıçrama ölçüsü: yeni uydu geldikten sonraki üç yılın ortalaması, öncesindeki üç yılın ortalamasından yüzde kaç farklı?",
+     "syms": [
+      [
+       "S",
+       "Sıçrama (yüzde değişim)",
+       "%"
+      ],
+      [
+       "ort(2012–2014)",
+       "Bu yılların yıllık ortalama sayısı",
+       "tespit / yıl"
+      ],
+      [
+       "ort(2009–2011)",
+       "Bu yılların yıllık ortalama sayısı",
+       "tespit / yıl"
+      ]
+     ],
+     "ex": "Ham seride S = {m:jump_raw_pct}. Düzeltilmiş seride {m:jump_harm_pct}. Aynı yıllarda yalnız eski uydunun gerçek ölçümü {m:jump_modis_gercek_pct}. Aradaki fark {m:jump_resid_pct}: düzeltme, sensör eklenmesinden gelen artışı neredeyse tamamen ortadan kaldırıp eski uydunun gerçek değişimine yaklaştırıyor.",
+     "why": "Düzeltmenin işe yarayıp yaramadığını göstermek için tek bir somut sınav gerekir. Bu ölçüt, sayıyı bilinen gerçek değerle yan yana koyar; fark küçükse düzeltme çalışıyordur."
+    },
+    {
+     "text": "Dürüst not: 2009–2011 MODIS'in kendi kaydında da olağandışı yüksek yıllardır. Bu yüzden '%45 azaldı' bir eğilim iddiası değildir. İddiamız şu: düzeltilmiş seri, aynı penceredeki gerçek MODIS değişimini küçük bir farkla izliyor ve ham serideki +%143 tamamen sensör eklenmesinden kaynaklanıyor."
+    }
+   ],
+   "go": {
+    "tab": "map",
+    "jump": true,
+    "label": "Haritada 2012 sıçrama modunu aç →"
+   }
+  },
+  {
+   "title": "Doğrulama: model ve gerçek dünya",
+   "pose": "lintu_sun",
+   "simple": "Modeli iki yolla sınadık. Birincisi, birini dışarıda bırakma (LOYO): her yılı modelden saklayıp o yılı tahmin ettik; yıllık ortalama hata {m:loyo_mape}, açıklanan varyans R² = {m:loyo_r2}. İkincisi gerçek dünya: bulduğumuz en büyük yangınları belgelenmiş orman yangınlarıyla karşılaştırdık.",
+   "tour": "Kanıt zamanı. Her yılı modelden saklayıp tahmin ettik, yıllık hata yüzde 8 civarında. Sonra bulduğumuz en büyük yangınları gerçek kayıtlarla karşılaştırdık: tablo burada, kaynaklarıyla.",
+   "blocks": [
+    {
+     "formula": "*hata*_{*y*} = [[ *tahmin*_{*y*} ~~ *gerçek*_{*y*} ]] − 1,   *y* ∈ { 2012 … 2025 }   (model her *y* için *y* hariç tüm yıllarla eğitilir)",
+     "caption": "Yıllık MAPE {m:loyo_mape}, sapma {m:loyo_bias}, %95 hata aralığı {m:loyo_ci95}. Aylık belirsizlik bandı gerçek değeri ayların {m:equiv_band_kapsama_ay_tr} kadarında kapsıyor.",
+     "what": "Her yılı modelden gizleyip o yılı tahmin ettirir, sonra tahmini gerçek değerle karşılaştırır: modelin görmediği bir yılda ne kadar şaşıyor?",
+     "syms": [
+      [
+       "y",
+       "Gizlenen (sınanan) yıl",
+       "yıl"
+      ],
+      [
+       "tahmin_y",
+       "Modelin y yılı için ürettiği MODIS-eşdeğer toplam",
+       "tespit"
+      ],
+      [
+       "gerçek_y",
+       "Eski uydunun y yılında gerçekten ölçtüğü toplam",
+       "tespit"
+      ],
+      [
+       "hata_y",
+       "Göreli hata",
+       "%"
+      ],
+      [
+       "MAPE",
+       "|hata_y|'nin yıllar üzerinden ortalaması",
+       "%"
+      ]
+     ],
+     "ex": "Sonuç: yıllık ortalama mutlak hata (MAPE) {m:loyo_mape}, sapma {m:loyo_bias}, açıklanan varyans R² = {m:loyo_r2}, %95 hata aralığı {m:loyo_ci95}. Aylık bandın gerçeği kapsama oranı ayların {m:equiv_band_kapsama_ay_tr}.",
+     "why": "Model kendi eğitim verisinde hep iyi görünür. Yılı gizleyerek sınamazsak 'ezberleme'yi başarı sanırız; bu yöntem gerçek, görülmemiş veri üzerindeki hatayı verir."
+    },
+    {
+     "validation": true
+    },
+    {
+     "text": "Ters yönden kontrol (duyarlılık): basın ve OGM kaynaklı 2021 ve 2025 büyük yangın listesindeki 28 yangının 26'sını (%93) katı ölçütle (ilçe merkezine ≤ 30 km, resmî tarih −1/+3 gün) olay tablomuzda bulduk. Kapsam: liste eksik ve çoğunlukla büyük yangınlardan oluşuyor; 6 kayıt tarihsiz (yaz penceresiyle eşleştirildi); sonuç eşleştirme mesafesine duyarlı (15 km'de 16/28, 30 km'de 26/28, 50 km'de 28/28), yani genel bir tespit oranı değildir. kaçan ikisi elle incelemede de yakalanmış çıktı (Akseki, Manavgat olayının parçası; Seyitgazi, İhsaniye'ye taşan olay). Yakalananların hiçbiri anız ya da sanayi diye ayrılmamış. Küçük yangınlarda duyarlılık ölçülmedi."
+    },
+    {
+     "text": "Soru: Neden yöntem (i) değil de (ii) seçildi? Cevap: Belgelenmiş gerekçe şudur: (ii) ile (i), uygulamanın kullanım birimi olan ay × bölge düzeyinde ayırt edilemez (WAPE 30,63 ve 30,64; fark %95 aralığı −2,97 ile +4,26 puan). Ama yıllık toplamda (i) daha iyi: yıllık MAPE 4,83 karşı 8,33, R² 0,9675 karşı 0,8716. Yani (ii) üstündür iddiası yok; asıl kazanç uydu sayısı (gözlem eforu) düzeltmesidir (tek oran, eforsuz: WAPE 52,68). Yıllık toplamlarda (i)'nin daha iyi olması açık bir sınırlılık ve bir model tercihidir; seçim ölçütü sonuçlar görüldükten sonra bakılmış olabilir."
+    },
+    {
+     "text": "Soru: 2012 sıçraması düzeltildikten sonra doğal değişim aralığında mı? Cevap: Hayır. Düzeltilmiş serinin 2012 sıçraması, uydu geçişi dışındaki yıllardaki doğal yıllık değişim aralığının (−%39,3 ile +%92,6) dışında kalıyor (ölçüt: jump_harm_dogal_aralikta = hayır). Sebep, gerçek MODIS'in kendisinin de bu aralığın dışında olması. Düzeltilmiş seri gerçek MODIS'i 3,55 yüzde puan farkla izliyor, ama '2012 sahte sıçraması tamamen giderildi' demiyoruz."
+    },
+    {
+     "text": "Tabloda resmî tarih ve yanan alan bağımsız kaynaklardandır (EFFIS, Orman Genel Müdürlüğü, AFAD, haber ajansları). Bizim değerlerimiz yalnız uydu verisinden üretildi; hiçbir resmî bilgi modele girmedi."
+    }
+   ],
+   "go": {
+    "tab": "map",
+    "anchor": "#topList",
+    "label": "FRP'si en yüksek 10 olayı haritada göster →"
+   }
+  },
+  {
+   "title": "Sınırlar: neyi iddia etmiyoruz",
+   "pose": "lintu_sakin",
+   "simple": "Bilim, neyi bilmediğini söylemekle güçlenir. Bu uygulama geçmiş yangın aktivitesini gösterir; yangın riski tahmini yapmaz. Sıcak nokta yangınla aynı şey değildir.",
+   "tour": "Son olarak dürüstlük: risk tahmini yapmıyoruz, anız sınıfı tahmindir, 2026 eksik bir yıldır ve eski uydunun yörünge kayması nedeniyle 2026 düzeltmesi düşük güvenlidir.",
+   "blocks": [
+    {
+     "list": [
+      "2026 kısmi yıldır; veri statik bir kopyadır (son veri 2026-11-12) ve son aylar NRT (hızlı ön sürüm, sonradan düzeltilebilen) veridir. Aqua'nın yörüngesi kaydığı için 2026 düzeltilmiş serisi düşük güvenli: bant gerçek MODIS'i ayların yalnız 0,545'inde kapsıyor.",
+      "Anız sınıfı kural tabanlı bir tahmindir; yerinde doğrulanmadı.",
+      "2000 – Temmuz 2002 döneminde yalnız Terra uydusu vardı; bu yıllar sonrakilerle doğrudan karşılaştırılamaz.",
+      "Harmonizasyon başarı ölçütü sonuçlar görüldükten sonra değiştirildi (post-hoc). Denetçinin bağımsız pencere testi sonucu yine de destekliyor.",
+      "Şanlıurfa sızıntısı: 'temiz' olayların %15'i Şanlıurfa'da. Ulusal FRP eşiği Harran tarlaları için düşük kalıyor ve yıllık tekrar bayrağı etiketi değiştirmiyor. Sol paneldeki 'Tekrarlayan yakmaları çıkar' duyarlılık kutusu (aynı ~1 km karede ≥3 yıl) açılınca temiz olayların %70'i çıkıyor ve Şanlıurfa payı %5'e iniyor; belgelenmiş orman yangınlarının hiçbiri bu filtreye takılmıyor. Bölgesel eşikle kalıcı düzeltme veri hattında yapılmalı.",
+      "Model seçimi: ana yöntem (ii) ile en basit eforlu oran (i) ay × bölgede ayırt edilemez; yıllıkta (i) daha iyi (MAPE %4,8'e karşı %8,3). Kazancın asıl kaynağı efor (uydu sayısı) düzeltmesidir, ek katmanlar değil.",
+      "İl × ay düzeyinde ayrı bir LOYO doğrulaması yapılmadı; il kıyasları için ölçülen olay sayıları kullanılmalı.",
+      "MODIS emekliye ayrılınca VIIRS'e dayanan seri bağımsız olarak doğrulanamaz. Bu çalışma tam bu geçişe hazırlanmak için var."
+     ]
+    }
+   ]
+  }
+ ],
+ "ui": {
+  "what": "Ne yapıyor?",
+  "syms": "Semboller",
+  "ex": "Örnek (uygulamanın kendi verisinden)",
+  "why": "Neden gerekli?",
+  "sym": "Sembol",
+  "mean": "Anlamı",
+  "unit": "Birim",
+  "simple": "Basit",
+  "expert": "Uzman",
+  "level": "Anlatım düzeyi",
+  "level_tip": "Basit: formülsüz, sade anlatım. Uzman: formüller ve tüm ayrıntı."
+ }
+}

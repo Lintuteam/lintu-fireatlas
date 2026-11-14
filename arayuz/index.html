@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Türkiye Yangın Aktivite Takvimi</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="app.css?v=2.5.3">
+</head>
+<body data-cvd="none">
+<svg width="0" height="0" class="sr" aria-hidden="true" focusable="false">
+  <filter id="f-protan" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.152286 1.052583 -0.204868 0 0  0.114503 0.786281 0.099216 0 0  -0.003882 -0.048116 1.051998 0 0  0 0 0 1 0"/></filter>
+  <filter id="f-deutan" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.367322 0.860646 -0.227968 0 0  0.280085 0.672501 0.047413 0 0  -0.011820 0.042940 0.968881 0 0  0 0 0 1 0"/></filter>
+  <filter id="f-tritan" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1.255528 -0.076749 -0.178779 0 0  -0.078411 0.930809 0.147602 0 0  0.004733 0.691367 0.303900 0 0  0 0 0 1 0"/></filter>
+</svg>
+<a class="skip" href="#main" data-i18n="a11y.skip">İçeriğe geç</a>
+
+<header class="top">
+  <div class="ttl">
+    <h1 data-i18n="app.title">Türkiye Yangın Aktivite Takvimi</h1>
+    <p class="lead" data-i18n="app.lead">Açıklama</p>
+  </div>
+  <div class="tools">
+    <span id="simBadge" class="badge" hidden data-i18n="badge.sim">SİMÜLASYON</span>
+    <button id="tourBtn" type="button" class="tour-btn" data-i18n="tour.btn">🐦 Lintu ile tur</button>
+    <button id="sciModeBtn" type="button" class="sci-btn" aria-pressed="true" data-i18n-title="btn.scimode_tip"><span class="sci-dot" aria-hidden="true"></span><span id="sciModeLabel" data-i18n="btn.scimode_eq">MODİS-Eşdeğer (Bilimsel)</span></button>
+    <button id="quickExportBtn" type="button" class="cta-btn" data-i18n="btn.quick_export">CSV İndir</button>
+    <button id="infoBtn" type="button" aria-expanded="false" aria-controls="infoPanel" data-i18n="info.btn">Veri ve yöntem ⓘ</button>
+    <button id="juriBtn" type="button" aria-pressed="false" data-i18n="juri.btn" data-i18n-title="juri.tip">Sade mod</button>
+    <button id="langBtn" type="button" aria-label="Language / Dil">EN</button>
+  </div>
+</header>
+
+<section id="infoPanel" class="info" hidden aria-label="Veri ve yöntem" data-i18n-label="info.btn">
+  <h2 data-i18n="info.title">Veri ve yöntem</h2>
+  <p data-i18n="info.body">Açıklama</p>
+  <div id="honBar" class="hon" role="note"></div>
+  <p id="honNotes" class="small dim"></p>
+</section>
+<p id="loadMsg" class="dim small" role="status"></p>
+
+<section class="cards" aria-label="Özet" data-i18n-label="cards.title">
+  <article class="kart"><h2 data-i18n="card.total.t">Toplam yangın olayı</h2><p class="val" id="cTotal">–</p><p class="sub" id="cTotalSub"></p></article>
+  <article class="kart"><h2 data-i18n="card.top.t">En yoğun aylar</h2><p class="val" id="cTop">–</p><p class="sub" id="cTopSub"></p></article>
+  <article class="kart"><h2 data-i18n="card.cur.t">Son tam ay, normale göre</h2><p class="val" id="cCur">–</p><p class="sub" id="cCurSub"></p></article>
+  <article class="kart"><h2 data-i18n="card.jump.t">Uydu geçişindeki sıçrama</h2><p class="val" id="cJump">–</p><p class="sub" id="cJumpSub"></p></article>
+</section>
+
+<section id="solStrip" class="sol" aria-labelledby="solTitle">
+  <h2 id="solTitle" class="lbl" data-i18n="sol.title">Ne yaptık?</h2>
+  <ol id="solSteps" class="solsteps"></ol>
+</section>
+
+<div class="layout">
+  <aside class="filters" aria-label="Süzgeçler" data-i18n-label="filt.title">
+    <h2 class="lbl" data-i18n="filt.title">Neye bakıyoruz?</h2>
+    <label for="regSel" data-i18n="filt.region">Bölge</label>
+    <select id="regSel"></select>
+    <span id="regLabel" class="small dim" role="status"></span>
+    <button id="regClr" type="button" class="mini" hidden data-i18n="map.clear_sel">✕ Seçimi temizle</button>
+    <label for="dFrom" data-i18n="filt.from">Başlangıç</label>
+    <input type="date" id="dFrom">
+    <label for="dTo" data-i18n="filt.to">Bitiş</label>
+    <input type="date" id="dTo">
+    <button id="dateResetBtn" type="button" data-i18n="filt.datereset">Tarih aralığını sıfırla</button>
+    <div class="repbox"><label class="chk"><input type="checkbox" id="repChk"> <span data-i18n="rep.label">Tekrarlayan yakmaları çıkar</span></label>
+      <p class="small dim" data-i18n="rep.help">Açıklama</p><p id="repNote" class="small warnTxt" role="status"></p></div>
+    <div class="repbox fxbox">
+      <label class="chk"><input type="checkbox" data-fx="anizIl"> <span data-i18n="fx.aniz.label">Anızı il bazlı eşikle çıkar</span></label>
+      <details class="fxinfo"><summary data-i18n="fx.info" aria-label="Açıklama">ⓘ</summary><p class="small dim" data-fxhelp="aniz"></p></details>
+      <label class="chk"><input type="checkbox" data-fx="sanKaldir"> <span data-i18n="fx.san.label">Sanayi artıklarını sayımdan çıkar</span></label>
+      <details class="fxinfo"><summary data-i18n="fx.info" aria-label="Açıklama">ⓘ</summary><p class="small dim" data-fxhelp="san"></p></details>
+    </div>
+    <details id="adv" class="adv tech">
+      <summary data-i18n="adv.title">Gelişmiş süzgeçler</summary>
+      <div class="advbody">
+        <h3 class="lbl" data-i18n="filt.circle">Daire (enlem, boylam, km)</h3>
+        <div class="g"><input id="cLat" inputmode="decimal" size="7" aria-label="lat" placeholder="lat"><input id="cLon" inputmode="decimal" size="7" aria-label="lon" placeholder="lon"><button id="circApplyBtn" type="button" data-i18n="filt.apply">Uygula</button></div>
+        <label for="sensSel" data-i18n="filt.sensor">Hangi uydu gördü?</label>
+        <select id="sensSel"><option value="all" data-i18n="sens.all">Tümü</option><option value="modis" data-i18n="sens.modis">Eski uydu (MODIS) gören olaylar</option><option value="viirs" data-i18n="sens.viirs">Yeni uydu (VIIRS) gören olaylar</option></select>
+        <label for="minFrp" data-i18n="filt.minfrp">En düşük yangın gücü (FRP, MW)</label>
+        <input id="minFrp" type="number" min="0" step="1" value="0" class="w6">
+        <label for="metricSel" data-i18n="filt.metric">Ne sayılsın?</label>
+        <select id="metricSel"><option value="count" data-i18n="metric.count">Olay sayısı</option><option value="frp" data-i18n="metric.frp">Yangın enerjisi (FRP toplamı, MW)</option></select><p class="small" data-i18n="frp.sum_note">FRP toplamı = tespitlerin anlık ışınımsal güçlerinin (MW) toplamıdır; enerji ya da yanan alan değildir.</p>
+        <label for="seriesSel" data-i18n="filt.series">Takvim serisi (hazır tablo)</label>
+        <select id="seriesSel"></select>
+        <fieldset><legend class="lbl" data-i18n="filt.status">Dahil edilen durumlar</legend><div id="statusBox" class="chips col"></div></fieldset>
+        <p id="statusMsg" class="small dim" role="status"></p>
+        <label for="palSel" data-i18n="pal.label">Renk paleti</label>
+        <select id="palSel"><option value="viridis">Viridis</option><option value="cividis">Cividis</option><option value="ylorrd">YlOrRd</option></select>
+        <label for="cvdSel" data-i18n="cvd.label">Renk körlüğü simülasyonu</label>
+        <select id="cvdSel"><option value="none" data-i18n="cvd.none">Yok</option><option value="protan">Protan</option><option value="deutan">Deutan</option><option value="tritan">Tritan</option></select>
+      </div>
+    </details>
+  </aside>
+
+  <main id="main" class="content">
+    <div role="tablist" class="tabs" data-i18n-label="tabs.label">
+      <button role="tab" data-tab="cal" id="t-cal" aria-controls="tab-cal" data-i18n="tab.cal">Takvim</button>
+      <button role="tab" data-tab="map" id="t-map" aria-controls="tab-map" data-i18n="tab.map">Harita</button>
+      <button role="tab" data-tab="join" id="t-join" aria-controls="tab-join" data-i18n="tab.join">Uydular nasıl birleştirildi</button>
+      <button role="tab" data-tab="sci" id="t-sci" aria-controls="tab-sci" data-i18n="tab.sci">🔬 Nasıl çalışıyor?</button>
+      <button role="tab" data-tab="exp" id="t-exp" aria-controls="tab-exp" data-i18n="tab.exp">İndir</button>
+    </div>
+
+    <section role="tabpanel" id="tab-cal" aria-labelledby="t-cal" class="panel">
+      <p class="what" data-i18n="cal.what">Bu ekran ne gösteriyor?</p>
+      <h2 id="calTitle"></h2>
+      <p id="warnBar" class="warnTxt" role="note"></p>
+      <div class="seg calview" role="group" data-i18n-label="cal.view_aria" aria-label="Görünüm"><span class="lbl" data-i18n="cal.view">Görünüm</span>
+        <button type="button" id="cvMonth" data-view="month" aria-pressed="true" data-i18n="cal.v_month">Ay ay</button>
+        <button type="button" id="cvDay" data-view="day" aria-pressed="false" data-i18n="cal.v_day">Gün gün</button></div>
+      <p id="cvHint" class="what small"></p>
+      <div id="calMonthView">
+      <div class="row"><label for="mmodeSel" data-i18n="mat.mode">Gösterim</label>
+        <select id="mmodeSel"><option value="abs" data-i18n="mat.abs">Sayı</option><option value="anom" data-i18n="mat.anom">Normale göre fark</option></select>
+        <span id="matCap" class="small dim"></span></div>
+      <div class="matwrap viz scroll"><table id="matrix" class="mat" aria-labelledby="matCap"></table></div>
+      <div id="matLegend" class="small dim legendrow"></div>
+      <p id="calMarkLegend" class="small legendrow mklegend" data-i18n="cal.mk_legend"></p>
+      <p class="small dim" data-i18n="mat.legend">★ açıklaması</p>
+      <div class="row"><label class="chk"><input type="checkbox" id="rowMaxChk" checked> <span data-i18n="cal.rowmax">Her yılın en yoğun ayını işaretle</span></label></div>
+      <p class="what" data-i18n="cal.detail_hint">Bir aya ya da yıla tıkla</p>
+      <div id="calDetail" class="detail" aria-live="polite" hidden></div>
+      <p id="matNote" class="warnTxt" role="note"></p>
+      <details class="tech src"><summary data-i18n="cal.src">Kaynak ve son ay ayrıntısı ⓘ</summary>
+        <p id="matMode" class="small dim" role="status"></p>
+        <p id="curMonth" class="small" role="status"></p>
+      </details>
+      <div>
+          <h3 data-i18n="mat.rank">Ay sıralaması</h3>
+          <p class="what" data-i18n="rank.what">Hangi ay tipik olarak en yoğun?</p>
+          <ol id="rankList" class="rank"></ol>
+      </div>
+      </div>
+      <div id="calDayView" hidden>
+        <div>
+          <h3 data-i18n="dg.title">Gün gün bakış</h3>
+          <p class="what" data-i18n="dg.what">Her kare bir gün.</p>
+          <label for="yearSel" data-i18n="dg.year">Yıl</label> <select id="yearSel"></select> <label for="dayPick" data-i18n="dg.pick">Gün seç</label> <input type="date" id="dayPick">
+          <p class="small dim" data-i18n="dg.click">Bir güne tıkla</p>
+          <div class="viz dgwrap"><table id="dayGrid" class="dgt" role="img" data-i18n-label="dg.aria"></table></div>
+          <p class="small dim"><span class="sw noobs"></span> <span data-i18n="dg.noobs">gözlem yok</span> · <span class="sw zero"></span> <span data-i18n="dg.zero">gözlendi, yangın yok</span> · <span class="sw nocov"></span> <span data-i18n="dg.nocov">kapsam kaydı yok</span></p>
+          <p class="small legendrow mklegend" data-i18n="cal.mk_legend_day"></p>
+          <p id="dgInfo" class="small dim"></p>
+          <div id="dayDetail" class="detail" aria-live="polite" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <section role="tabpanel" id="tab-map" aria-labelledby="t-map" class="panel" hidden>
+      <p class="what" data-i18n="map.what">Bu ekran ne gösteriyor?</p>
+      <div class="maptools">
+        <div class="seg" role="group" aria-labelledby="ftLbl" id="ftSeg">
+          <span id="ftLbl" class="lbl" data-i18n="ft.label">Yangın türü</span>
+          <button type="button" data-ft="all" data-i18n="ft.all">Tümü</button>
+          <button type="button" data-ft="noaniz" data-i18n="ft.noaniz">Anız hariç</button>
+          <button type="button" data-ft="aniz" data-i18n="ft.aniz">Sadece anız</button>
+        </div>
+        <ul id="ftGloss" class="ftgloss"></ul>
+        <div class="repbox fxbox">
+      <label class="chk"><input type="checkbox" data-fx="anizIl"> <span data-i18n="fx.aniz.label">Anızı il bazlı eşikle çıkar</span></label>
+      <details class="fxinfo"><summary data-i18n="fx.info" aria-label="Açıklama">ⓘ</summary><p class="small dim" data-fxhelp="aniz"></p></details>
+      <label class="chk"><input type="checkbox" data-fx="sanKaldir"> <span data-i18n="fx.san.label">Sanayi artıklarını sayımdan çıkar</span></label>
+      <details class="fxinfo"><summary data-i18n="fx.info" aria-label="Açıklama">ⓘ</summary><p class="small dim" data-fxhelp="san"></p></details>
+      <label class="chk"><input type="checkbox" data-fx="sanGoster"> <span data-i18n="fx.san.show">Sanayi alanı artıklarını göster</span></label>
+      <p class="small dim" data-i18n="fx.san.show_d">Haritada varsayılan gizli (sayılar değişmez); işaretlersen sanayi renginde (◆) çizilir.</p>
+    </div>
+        <div class="g toolrow">
+          <button id="maxEvBtn" type="button" class="hot" data-i18n="map.maxfire" data-i18n-title="map.maxfire_t" title="Tepe FRP'si en yüksek olaya git">🔥 Tepe FRP'si en yüksek olaya git</button>
+          <button id="circBtn" type="button" data-i18n="map.circle">◯ Daire seç</button>
+          <label class="inl"><span data-i18n="map.km">Yarıçap (km)</span> <input id="cRad" inputmode="decimal" size="4" value="25" class="w4"></label>
+          <button id="drawBtn" type="button" data-i18n="map.poly">⬠ Çokgen çiz</button>
+          <button id="finBtn" type="button" data-i18n="filt.finish">Çokgeni bitir</button>
+          <button id="clrBtn" type="button" data-i18n="map.clear_sel">✕ Seçimi temizle</button>
+          <button id="jumpModeBtn" type="button" class="jm-btn" aria-pressed="false" data-i18n="jm.btn">📈 2012 sıçrama modu</button>
+          <label class="inl"><span data-i18n="map.colorby">Simge rengi</span> <select id="colorSel"><option value="type" data-i18n="map.color_type">Yangın türü</option><option value="sensor" data-i18n="map.color_sensor">Uydu eşleşmesi</option></select></label>
+          <label class="inl"><span data-i18n="map.view">Görünüm</span> <select id="viewSel"><option value="heat" data-i18n="map.view_heat">Yoğunluk</option><option value="il" data-i18n="map.view_il">İl bazında renk</option></select></label>
+        </div>
+        <p id="selChip" class="selchip" hidden><span id="selChipTxt"></span> <button type="button" id="selChipX" class="mini" data-i18n="map.clear_sel">✕ Seçimi temizle</button></p>
+        <p id="mapStatus" class="small hintline" role="status"></p>
+        <p class="small dim" id="ftNote" data-i18n="map.clickil">İpucu</p>
+      </div>
+      <section id="jmPanel" class="jmpanel" hidden aria-labelledby="jmTitle">
+        <h3 id="jmTitle" data-i18n="jm.title">2012'de ne oldu?</h3>
+        <div class="jmgrid">
+          <div>
+            <div id="jmStages" class="seg" role="group"><button type="button" data-st="0" data-i18n="jm.s1">1</button><button type="button" data-st="1" data-i18n="jm.s2">2</button><button type="button" data-st="2" data-i18n="jm.s3">3</button></div>
+            <p id="jmDesc" class="jmdesc"></p>
+            <div class="row"><span class="lbl" data-i18n="jm.year">Yıl</span><div id="jmYears" class="seg" role="group"></div><button type="button" id="jmPlay" data-i18n="jm.play">▶ Oynat</button></div>
+            <p id="jmTotal" class="jmtotal"></p>
+            <p id="jmInfo" class="small dim" role="status"></p>
+          </div>
+          <div><div id="jmChart"></div><p class="small dim" data-i18n="jm.chart">Endeks</p><p id="jmChange" class="small"></p></div>
+        </div>
+      </section>
+      <div class="mapgrid">
+        <div class="side">
+          <h3 id="choroTitle" data-i18n="map.legend_title">Seçili dönemde yangın olayı sayısı (il bazında)</h3>
+          <div id="choroLegend" class="small"></div>
+          <div id="mapLegend" class="maplegend"></div>
+          <p id="mapInfo" class="small" role="status"></p>
+          <h3 id="topTitle" data-i18n="map.top_title">FRP'si en yüksek 10 olay</h3>
+          <div class="chips"><button type="button" class="chip" data-topm="max" aria-pressed="true" data-i18n="map.top_m_max">Tepe FRP</button><button type="button" class="chip" data-topm="sum" aria-pressed="false" data-i18n="map.top_m_sum">FRP toplamı</button></div>
+          <ol id="topList" class="toplist"></ol>
+          <p id="topNote" class="small"></p>
+          <details class="adv tech"><summary data-i18n="map.layers">Katmanlar ve simgeler</summary>
+            <div id="clsBox" class="chips col"></div>
+            <label class="chk"><input type="checkbox" id="rawToggle"> <span data-i18n="map.raw">Ham noktalar (+)</span></label>
+            <p id="rawInfo" class="small dim" role="status"></p>
+            <label class="chk"><input type="checkbox" id="frpSize"> <span data-i18n="map.frpsize">Simge boyutu = yangın gücü</span></label>
+            <label class="chk"><input type="checkbox" id="tileToggle"> <span data-i18n="map.tiles">Harita zemini (internet gerekir)</span></label>
+            <p id="tileWarn" class="warnTxt" hidden data-i18n="map.tilewarn">Çevrimiçi zemin</p>
+          </details>
+        </div>
+        <div id="map" class="viz" role="application" data-i18n-label="map.aria" tabindex="0"></div>
+        <aside id="mcCard" class="mccard" aria-labelledby="mcTitle">
+          <h3 id="mcTitle" data-i18n="mc.title">MODIS–VIIRS birleştirme</h3>
+          <p class="small dim" data-i18n="mc.intro">Seçili olayın gerçek ham noktaları.</p>
+          <div id="mcStages" class="seg" role="group" data-i18n-label="mc.title">
+            <button type="button" data-mc="1" aria-pressed="true" data-i18n="mc.s1">1 Ham</button>
+            <button type="button" data-mc="2" aria-pressed="false" data-i18n="mc.s2">2 Ayrı</button>
+            <button type="button" data-mc="3" aria-pressed="false" data-i18n="mc.s3">3 Ortak</button>
+          </div>
+          <div id="mcMap" class="viz" role="img" data-i18n-label="mc.aria"></div>
+          <p id="mcInfo" class="small" role="status"></p>
+          <ul class="mcleg"><li><i class="sw m"></i> <span data-i18n="mc.leg_m">MODIS</span></li><li><i class="sw v"></i> <span data-i18n="mc.leg_v">VIIRS</span></li><li><i class="sw j"></i> <span data-i18n="mc.leg_j">Birleşik olay</span></li></ul>
+          <p class="small dim" data-i18n="mc.note">Not</p>
+          <button id="mcJoinBtn" type="button" class="hot mcjoin" data-i18n="mc.join">Uydular nasıl birleştirildi? →</button>
+        </aside>
+      </div>
+      <h3 data-i18n="insp.title">Seçilen olay</h3>
+      <div id="inspBody" class="insp" aria-live="polite" data-i18n="insp.none">Bir olaya tıkla.</div>
+    </section>
+
+    <section role="tabpanel" id="tab-join" aria-labelledby="t-join" class="panel" hidden>
+      <p class="what" data-i18n="join.what">Bu ekran ne gösteriyor?</p>
+      <h2 data-i18n="jump.head">Uydu değişince sayı neden sıçrar?</h2>
+      <div id="jumpChart" class="viz scroll"></div>
+      <p id="jumpNat" class="small"></p>
+      <p id="jumpFlags" class="small dim"></p>
+      <div class="scroll"><table id="jumpBA" class="dt"></table></div>
+      <p class="small dim" data-i18n="jump.help">Okuma ipucu</p>
+      <details class="tech"><summary data-i18n="met.head">Doğruluk ölçümleri (ayrıntı) ⓘ</summary><div class="scroll"><table id="metTable" class="dt"></table></div></details>
+
+      <h2 data-i18n="lab.head">Adım adım: tek bir yangın nasıl birleşti?</h2>
+      <p data-i18n="lab.intro">Gerçek bir MODIS karesi ve içine düşen VIIRS noktaları. Adımları ilerlet.</p>
+      <div class="row"><label for="labSel" data-i18n="lab.pick">Örnek</label><select id="labSel"></select>
+        <button id="labPrev" type="button" data-i18n="lab.prev">Geri</button><button id="labNext" type="button" data-i18n="lab.next">İleri</button>
+        <span id="labStepInfo" class="small" role="status"></span></div>
+      <div id="labSteps" class="chips"><button type="button" data-step="1" data-i18n="lab.st1">1</button><button type="button" data-step="2" data-i18n="lab.st2">2</button><button type="button" data-step="3" data-i18n="lab.st3">3</button><button type="button" data-step="4" data-i18n="lab.st4">4</button><button type="button" data-step="5" data-i18n="lab.st5">5</button></div>
+      <div class="mapgrid"><div id="labSvg" class="viz"></div><div><p id="labText" class="labtxt" aria-live="polite"></p><div class="scroll" id="labTable"></div></div></div>
+      <p class="small dim" data-i18n="lab.note">Not</p>
+
+      <h2 data-i18n="pix.head">Küçük kart: uydu pikseli ne kadar büyük?</h2>
+      <p class="small dim" data-i18n="pix.intro">Açıklama</p>
+      <div id="pixBox" class="pixgrid viz"></div>
+    </section>
+
+    <section role="tabpanel" id="tab-sci" aria-labelledby="t-sci" class="panel" hidden>
+      <div class="scihead"><p id="sciIntro" class="what"></p><button id="sciTourBtn" type="button" class="tour-btn" data-i18n="sci.tour">🐦 Lintu ile bilimsel tur</button></div>
+      <div id="sciLevel" class="scilevel"></div>
+      <div id="sciNav" class="scinav"></div>
+      <div id="sciBody" aria-live="polite"></div>
+    </section>
+
+    <section role="tabpanel" id="tab-exp" aria-labelledby="t-exp" class="panel" hidden>
+      <p class="what" data-i18n="exp.what">Bu ekran ne gösteriyor?</p>
+      <h2 data-i18n="exp.head">Tablolar (CSV)</h2>
+      <div class="row"><button id="exEv" type="button" data-i18n="exp.events">Olayları indir (CSV)</button><button id="exMat" type="button" data-i18n="exp.matrix">Yıl×ay tablosu (CSV)</button><button id="exJump" type="button" data-i18n="exp.jump">Yıllık düzeltilmiş seri (CSV)</button></div>
+      <h2 data-i18n="exp.figs">Grafikler</h2>
+      <div class="row"><button id="exMatPng" type="button" data-i18n="exp.mat_png">Takvim PNG</button><button id="exMatSvg" type="button" data-i18n="exp.mat_svg">Takvim SVG</button><button id="exJumpPng" type="button" data-i18n="exp.jump_png">Sıçrama PNG</button><button id="exJumpSvg" type="button" data-i18n="exp.jump_svg">Sıçrama SVG</button><button id="exPixPng" type="button" data-i18n="exp.pix_png">Piksel PNG</button><button id="exPixSvg" type="button" data-i18n="exp.pix_svg">Piksel SVG</button></div>
+    </section>
+  </main>
+</div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="csv.js?v=2.5.3"></script>
+<script src="core.js?v=2.5.3"></script>
+<script src="charts.js?v=2.5.3"></script>
+<script src="mapview.js?v=2.5.3"></script>
+<script src="lab.js?v=2.5.3"></script>
+<script src="mapcompare.js?v=2.5.3"></script>
+<script src="main.js?v=2.5.3"></script>
+<script src="extras.js?v=2.5.3"></script>
+<script src="sci.js?v=2.5.3"></script>
+<script src="tour.js?v=2.5.3"></script>
+</body>
+</html>

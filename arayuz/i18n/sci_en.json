@@ -1,0 +1,465 @@
+{
+ "intro": "This tab explains our solution scientifically: what the satellite measures, which rules we used to clean the data, how we counted the same fire only once, how we corrected the 2012 jump, and how we validated the result. Every number carries a label: measured, estimated, or not validated.",
+ "val_none": "The real-fire validation table has not been loaded yet.",
+ "val_sum": "Of our {n} largest events by total FRP (a selected sample: this is precision for these events only, not a general detection rate), {ok} match a documented real fire in both date and location, and {part} match partially.",
+ "val_cols": [
+  "Province",
+  "Our start (TR time)",
+  "Duration (h)",
+  "Total FRP (MW)",
+  "Real fire",
+  "Official start",
+  "Burned area (ha)",
+  "Match",
+  "Source"
+ ],
+ "val_gen": "General evidence (with sources)",
+ "steps": [
+  {
+   "title": "What does the satellite see? (Physics)",
+   "pose": "lintu_selam",
+   "simple": "The satellite does not see fire, it sees temperature. When a pixel is much brighter than its surroundings in the infrared emission around 4 micrometres, it marks a 'hotspot' there. We have {m:veri_toplam_nokta} such detections: {m:veri_modis_nokta} from the older satellites (MODIS) and {m:veri_viirs_nokta} from the newer one (VIIRS).",
+   "tour": "Physics first: the satellite sees temperature, not fire. A pixel that is brighter than its surroundings in the infrared is called a hotspot. The pixel of the newer satellite, VIIRS, is smaller, so it also sees small fires.",
+   "blocks": [
+    {
+     "formula": "*FRP* = *ε* · *σ* · *A*_{fire} · ( *T*_{fire}^{4} − *T*_{bg}^{4} )",
+     "caption": "Fire radiative power (FRP, megawatts): the Stefan–Boltzmann law. The emitted power grows with the burning area and with the fourth power of temperature. FRP is a power (MW), not energy or burned area.",
+     "what": "Works out how much radiative power (MW) a fire emits at a given moment from how large and how hot it is.",
+     "syms": [
+      [
+       "FRP",
+       "Fire radiative power: power radiated at that moment (joules per second)",
+       "MW (megawatt)"
+      ],
+      [
+       "ε",
+       "Emissivity: how well the surface radiates heat (0 to 1)",
+       "unitless"
+      ],
+      [
+       "σ",
+       "Stefan–Boltzmann constant (≈ 5.67·10⁻⁸)",
+       "W m⁻² K⁻⁴"
+      ],
+      [
+       "A_fire",
+       "Area that is actually burning",
+       "m²"
+      ],
+      [
+       "T_fire",
+       "Temperature of the fire",
+       "K (kelvin)"
+      ],
+      [
+       "T_bg",
+       "Temperature of the unburnt surroundings",
+       "K (kelvin)"
+      ]
+     ],
+     "ex": "A real event in our data: on {m:demo4_gun} in {m:demo4_il}, an event made of {m:demo4_n_viirs} VIIRS detections has a total FRP of {m:demo4_frp}. We do not compute this from the formula; we sum the FRP that NASA gives for each detection. The formula only explains why the number is large for a big fire: temperature enters to the 4th power, so doubling it multiplies the radiation by 16.",
+     "why": "If we only counted detections, a small ember and a huge fire would weigh the same. FRP gives the real intensity; the big/small split and the crop-burning threshold rely on it."
+    },
+    {
+     "formula": "*FRP*_{MIR} ≈ [[ *A*_{pixel} · *σ* ~~ *a* ]] · ( *L*_{4 µm} − *L*_{4 µm,bg} ),   *a* ≈ 3.0·10^{−9} W m^{−2} sr^{−1} µm^{−1} K^{−4}",
+     "caption": "The form the satellite uses in practice: the excess radiance (L) in the 4 µm channel is multiplied by the pixel area. The FRP values in FIRMS products are computed with this method.",
+     "what": "What the satellite actually computes: how much brighter the pixel is than its surroundings at 4 micrometres, multiplied by the pixel area.",
+     "syms": [
+      [
+       "FRP_MIR",
+       "Fire radiative power from the mid-infrared (MIR)",
+       "MW"
+      ],
+      [
+       "A_pixel",
+       "Ground area of the satellite pixel",
+       "km² (m² in the formula)"
+      ],
+      [
+       "σ",
+       "Stefan–Boltzmann constant",
+       "W m⁻² K⁻⁴"
+      ],
+      [
+       "a",
+       "Channel constant (≈ 3.0·10⁻⁹)",
+       "W m⁻² sr⁻¹ µm⁻¹ K⁻⁴"
+      ],
+      [
+       "L_4µm",
+       "4 µm radiance (brightness) of the fire pixel",
+       "W m⁻² sr⁻¹ µm⁻¹"
+      ],
+      [
+       "L_4µm,bg",
+       "Radiance of the fire-free surroundings",
+       "W m⁻² sr⁻¹ µm⁻¹"
+      ]
+     ],
+     "ex": "The pixel area is a real difference in the data: a VIIRS pixel is 375 m, about 0.375 × 0.375 ≈ 0.14 km²; a MODIS pixel is about 1 km² at nadir. So on a VIIRS track one MODIS pixel contains {m:mcell_iz_basina_viirs} VIIRS detections on average. Radiance (L) values are the raw satellite measurement and are not stored in the app; the FRP column comes ready-made from NASA FIRMS (total {m:veri_toplam_nokta} detections).",
+     "why": "A fire covers only a small part of a pixel. Without subtracting the surroundings, sun-heated rock and soil would look like fire; without the pixel area, FRP from the two satellites could not be compared."
+    },
+    {
+     "list": [
+      "The MODIS pixel is about 1 km at nadir (directly below) and grows up to 4.8 km at the scan edge; the VIIRS pixel is 375 m (about 0.8 km at the edge). This is why VIIRS sees the same fire with more points and also detects small fires.",
+      "On the VIIRS track, one MODIS pixel contains {m:mcell_iz_basina_viirs} VIIRS detections on average.",
+      "The power at which MODIS can detect half of fires (FRP50) is about {m:modis_frp50_genel_mw}."
+     ]
+    },
+    {
+     "cite": "From the literature (not derived in our project documents): Kaufman et al. 1998; Wooster et al. 2003 (MIR radiance method); Giglio et al. 2016 (MODIS C6 active fire); Schroeder et al. 2014 (VIIRS 375 m).",
+     "expert": true
+    }
+   ],
+   "go": {
+    "tab": "join",
+    "anchor": "#pixBox",
+    "label": "Show the pixel size chart →"
+   }
+  },
+  {
+   "title": "Cleaning: separate non-fire heat",
+   "pose": "lintu_dusun",
+   "simple": "Not every hotspot is a fire: factory chimneys, gas flares, volcanoes and offshore platforms also glow. We deleted no detection; we gave each one a label. We labelled {m:huni_nasa_etiket_pay} of the detections with NASA's own flag and {m:huni_kural_etiket_pay} with our own industrial rule.",
+   "tour": "Not every hotspot is a fire: factories, gas flares and volcanoes glow too. We labelled them without deleting anything. In the leave-one-out test, our industrial rule gave 92 percent precision and 97 percent recall.",
+   "blocks": [
+    {
+     "formula": "*industrial* ⇔ ( *n*_{year} ≥ 5 ) ∧ ( *n*_{month} ≥ 8 ) ∧ ( *n*_{day} ≥ 40 ) ∧ ( *m*_{month} ≥ 4 )     [0.01° ≈ 1 km cell]",
+     "caption": "If the same 1 km cell heats up again and again over years and months, it is a fixed facility, not a fire. In the leave-one-out test, precision is {m:temizlik_sanayi_loyo_precision} and recall is {m:temizlik_sanayi_loyo_recall}.",
+     "what": "If the same 1 km square heats up again and again for years in every season, it is a fixed facility (factory, refinery, gas flare), not a fire.",
+     "syms": [
+      [
+       "n_year",
+       "Years with at least one detection in the cell",
+       "years"
+      ],
+      [
+       "n_month",
+       "Distinct calendar months with detections",
+       "months"
+      ],
+      [
+       "n_day",
+       "Total days with detections",
+       "days"
+      ],
+      [
+       "m_month",
+       "Median detection count over the active months",
+       "detections"
+      ],
+      [
+       "⇔, ∧",
+       "'if and only if', 'and' (all must hold)",
+       "–"
+      ]
+     ],
+     "ex": "In {m:demo2_il}, {m:demo2_hucre} cells were found to be facilities by this rule; the data span {m:demo2_yil_sayisi} years, so the 'at least 5 years' condition is easily met. The {m:demo2_sanayi_nokta} points in those cells are {m:demo2_il_nokta_pay} of the province's points. When we left a facility out and tested the rule, it gave precision {m:temizlik_sanayi_loyo_precision} and recall {m:temizlik_sanayi_loyo_recall}.",
+     "why": "Industrial stacks produce hundreds of fake 'fires' every year. Without separating them, fire counts, FRP totals and the monthly calendar are inflated, and industrial provinces such as İzmir or Kocaeli are ranked wrongly."
+    },
+    {
+     "formula": "*stubble* ⇔ *n*_{MODIS cells} ≤ 3 ∧ *duration* ≤ 12 h ∧ *FRP*_{*i*} < *F* ∀ *i* ∧ *month* ∈ *H*_{region}",
+     "caption": "F = {m:temizlik_F_modis_medyan} (MODIS) and {m:temizlik_F_viirs_esdeger} (VIIRS, via percentile matching). An event that is small, short and weak, and that also falls in that region's post-harvest month, is field (stubble) burning.",
+     "what": "A small, short, weak event that falls in harvest season is most likely stubble burning on a field, not a forest fire.",
+     "syms": [
+      [
+       "n_MODIS cells",
+       "Number of MODIS cells the event covers",
+       "cells"
+      ],
+      [
+       "duration",
+       "Time between the first and last detection",
+       "hours"
+      ],
+      [
+       "FRP_i",
+       "Fire power of the i-th detection in the event",
+       "MW"
+      ],
+      [
+       "F",
+       "FRP threshold (median for MODIS, percentile-matched for VIIRS)",
+       "MW"
+      ],
+      [
+       "H_region",
+       "Stubble-burning (post-harvest) months learned from data for the region",
+       "months"
+      ],
+      [
+       "∀ i",
+       "'for every i' (all detections)",
+       "–"
+      ]
+     ],
+     "ex": "The threshold is F = {m:temizlik_F_modis_medyan} (MODIS) and {m:temizlik_F_viirs_esdeger} (VIIRS). A small, short event whose detections all stay below it becomes a stubble candidate. In the end {m:temizlik_status_aniz} points got the stubble label and {m:temizlik_status_temiz} stayed clean. In the land-cover check, {m:temizlik_aniz_arazi_ortusu} of the stubble points were on cropland.",
+     "why": "Field burning produces many small fires in summer and autumn. Without separating it, the 'forest fire season' shifts toward the farming calendar. The label is an estimate, so no point is deleted; it can be toggled on the map and calendar."
+    },
+    {
+     "list": [
+      "Fire protection: if there are at least {m:temizlik_koruma_G_veriden} detections within the 5×5 cells on the same day, the point stays 'clean'; a real fire is not mistakenly counted as industrial (protection on reference fires: {m:temizlik_ref_yangin_koruma}).",
+      "Result: {m:temizlik_status_temiz} clean, {m:temizlik_status_aniz} stubble, {m:temizlik_status_sanayi} industrial detections.",
+      "The stubble label is a rule-based estimate; land cover was not verified on the ground, only compared with an independent land-cover map."
+     ]
+    }
+   ],
+   "go": {
+    "tab": "map",
+    "label": "Toggle stubble on the map →"
+   }
+  },
+  {
+   "title": "Clustering: one event = one hot-spot cluster",
+   "pose": "lintu_goster",
+   "simple": "Two satellites see a large fire for days with hundreds of detections. Counting them one by one inflates the number of fires. We linked detections that are close in space and time into a single event: {m:huni_kumeleme_girdi} detections yielded {m:events_total} events.",
+   "tour": "We chain together the detections of the same fire: detections less than 1 kilometre apart and less than 72 hours apart belong to the same event. Had we clustered the two satellites separately, we would have counted 59 thousand fires twice.",
+   "blocks": [
+    {
+     "formula": "*link*(*p*, *q*) ⇔ [ *d*(*p*, *q*) ≤ 1 km  ∨  ( |Δ*x*| ≤ [[ *s* ~~ 2 ]] + 0.375 km ∧ |Δ*y*| ≤ [[ *t* ~~ 2 ]] + 0.375 km ) ] ∧ |Δ*t*| ≤ 72 h ∧ *g* ≤ 3",
+     "caption": "A chain of linked detections is one event (a connected component in the graph). If no fire is seen in the satellite overpasses in between, the chain breaks; so another fire that starts at the same place days later is counted separately.",
+     "what": "Decides whether two hot spots count as the same fire: close enough, close enough in time, and with no long gap in between where satellites saw nothing.",
+     "syms": [
+      [
+       "p, q",
+       "Two hot spots",
+       "–"
+      ],
+      [
+       "d(p,q)",
+       "Distance between the two points",
+       "km"
+      ],
+      [
+       "Δx, Δy",
+       "Offset of the VIIRS centre from the MODIS pixel centre, across and along track",
+       "km"
+      ],
+      [
+       "s, t",
+       "Size of the MODIS pixel in scan and track direction",
+       "km"
+      ],
+      [
+       "0.375",
+       "Allowance of half a VIIRS pixel (375 m)",
+       "km"
+      ],
+      [
+       "Δt",
+       "Time difference between the points",
+       "hours"
+      ],
+      [
+       "g",
+       "Consecutive satellite passes in between that saw no fire",
+       "passes"
+      ]
+     ],
+     "ex": "On {m:demo1_gun} in {m:demo1_il} there were {m:demo1_tespit} detections; the link rule joined them into {m:demo1_olay} events (average {m:demo1_oran}). The largest event alone has {m:demo1_en_buyuk_olay_tespit} detections and lasted {m:demo1_en_buyuk_olay_sure}. Over the whole dataset {m:huni_kumeleme_girdi} points became {m:events_total} events.",
+     "why": "Without clustering, one big fire is counted as hundreds of 'fires'. If the two satellites are not clustered together, the same fire is counted twice: that error would have been {m:events_double_count_avoided} events."
+    },
+    {
+     "list": [
+      "When the two satellites are clustered together, the overlap period has {m:events_joint_overlap} events; clustered separately it would have been {m:events_separate_overlap}. Double counting avoided: {m:events_double_count_avoided}.",
+      "Three-way class: seen by both satellites {m:events_match_ortak}, MODIS only {m:events_match_yalniz_modis}, VIIRS only {m:events_match_yalniz_viirs}.",
+      "Of the events seen by MODIS, only {m:events_modis_seen_by_viirs_share} were also seen by VIIRS. The difference is a real observational difference (overpass time, clouds, pixel size)."
+     ]
+    }
+   ],
+   "go": {
+    "tab": "join",
+    "anchor": "#labSvg",
+    "label": "Show how one event merges step by step →"
+   }
+  },
+  {
+   "title": "Harmonization: translate VIIRS into MODIS terms",
+   "pose": "lintu_fikir",
+   "simple": "When VIIRS arrived in 2012, the raw count jumped by {m:jump_raw_pct}. This is not an increase in fires, it is the sensor seeing more sharply. We converted VIIRS counts to the MODIS scale by asking 'how many detections would the older satellite have seen for this?'. The corrected series changes by {m:jump_harm_pct}, while the older satellite's own measurement changes by {m:jump_modis_gercek_pct}.",
+   "tour": "The most important step: when the new satellite arrived in 2012, the raw count jumped by 143 percent. We made two corrections: we divided the count by the number of VIIRS satellites observing that day, then multiplied by the MODIS ratio by region, season and fire power. The corrected series tracks the older satellite's real change to within 3.6 points.",
+   "blocks": [
+    {
+     "formula": "*V*′_{day} = [[ *V*_{day} ~~ *n*_{VIIRS}(day) ]]",
+     "caption": "First correction: more satellites means more detections. The daily VIIRS count is divided by the number of VIIRS satellites observing that day. This step delivers most of the gain.",
+     "what": "If more VIIRS satellites looked on a given day we see more points; dividing by that day's satellite count turns it into a 'per satellite' number.",
+     "syms": [
+      [
+       "V_day",
+       "Raw VIIRS detections counted that day",
+       "detections"
+      ],
+      [
+       "n_VIIRS(day)",
+       "VIIRS satellites observing that day (1; 2 from 2018; 3 from 2023)",
+       "satellites"
+      ],
+      [
+       "V′_day",
+       "VIIRS count corrected for effort",
+       "detections / satellite"
+      ]
+     ],
+     "ex": "When the second VIIRS satellite (N20) was added in 2018 the raw series rose {m:jump_n20_2018_ham_pct}; divided by satellite count it is {m:jump_n20_2018_eforlu_pct}, while the old satellite's real change was {m:jump_n20_2018_modis_pct}. In 2023, with the third satellite (N21): raw {m:jump_n21_2023_ham_pct}, corrected {m:jump_n21_2023_eforlu_pct}, MODIS {m:jump_n21_2023_modis_pct}.",
+     "why": "Without this step, fires appear to increase in the year a satellite is added. Annual error is {m:harm_i0_yillik_mape} without it and {m:harm_i_yillik_mape} with it: the main gain comes from here."
+    },
+    {
+     "formula": "*M̂*_{b,month} = Σ_{s} *r*_{b,m,s} · *V*′_{b,month,s}",
+     "caption": "Second correction: in the overlap years, the MODIS/VIIRS ratio r is learned and applied for each region × season × fire-power class (a transcription of the verbal description in the documents; the full algebraic form is not given in the documents).",
+     "what": "Multiplies the effort-corrected VIIRS count by 'how many points the old satellite would have seen' to convert it to the MODIS scale.",
+     "syms": [
+      [
+       "M̂_b,month",
+       "Estimated MODIS-equivalent detection count (region b, month)",
+       "detections"
+      ],
+      [
+       "Σ_s",
+       "Sum over all fire-power classes s",
+       "–"
+      ],
+      [
+       "r_b,m,s",
+       "MODIS/VIIRS ratio for region b, season m, FRP class s, learned in the overlap years",
+       "ratio"
+      ],
+      [
+       "V′_b,month,s",
+       "Effort-corrected VIIRS count (region, month, class)",
+       "detections"
+      ]
+     ],
+     "ex": "This sum produced the harmonized series of {m:harmonize_seri_satir} rows. In the overlap years the series deviates from real MODIS by {m:equiv_overlap_bias}; the monthly uncertainty band covers the real value in {m:equiv_band_kapsama_ay_tr} of months.",
+     "why": "The new satellite also sees small fires; dividing by satellite count alone does not fix that. The ratio accounts for small/large fires and regional differences. (Note: this extra layer supports display consistency rather than annual error; model comparison is in the 'Limits' step.)"
+    },
+    {
+     "formula": "*S* = [[ avg(2012–2014) ~~ avg(2009–2011) ]] − 1",
+     "caption": "Raw {m:jump_raw_pct} · corrected {m:jump_harm_pct} · actual MODIS {m:jump_modis_gercek_pct} · difference {m:jump_resid_pct}.",
+     "what": "The jump measure: how many percent does the average of the three years after the new satellite differ from the three years before?",
+     "syms": [
+      [
+       "S",
+       "Jump (percent change)",
+       "%"
+      ],
+      [
+       "avg(2012–2014)",
+       "Annual average count of these years",
+       "detections / year"
+      ],
+      [
+       "avg(2009–2011)",
+       "Annual average count of these years",
+       "detections / year"
+      ]
+     ],
+     "ex": "In the raw series S = {m:jump_raw_pct}. In the corrected series {m:jump_harm_pct}. Over the same years the old satellite's real measurement is {m:jump_modis_gercek_pct}. The difference is {m:jump_resid_pct}: the correction removes almost all of the increase caused by the added sensor and brings it close to the old satellite's real change.",
+     "why": "To show the correction works, one concrete test is needed. This measure places the number next to a known real value; if the gap is small, the correction works."
+    },
+    {
+     "text": "Honest note: 2009–2011 are unusually high years in MODIS's own record too. So '45% decrease' is not a trend claim. Our claim is this: the corrected series tracks the actual MODIS change in the same window to within a small difference, and the +143% in the raw series is entirely due to the addition of the sensor."
+    }
+   ],
+   "go": {
+    "tab": "map",
+    "jump": true,
+    "label": "Open the 2012 jump mode on the map →"
+   }
+  },
+  {
+   "title": "Validation: model and real world",
+   "pose": "lintu_sun",
+   "simple": "We tested the model in two ways. First, leave-one-year-out (LOYO): we held out each year from the model and predicted that year; the mean annual error is {m:loyo_mape}, explained variance R² = {m:loyo_r2}. Second, the real world: we compared the largest fires we found with documented forest fires.",
+   "tour": "Time for evidence. We held out each year from the model and predicted it; the annual error is around 8 percent. Then we compared the largest fires we found with real records: the table is here, with sources.",
+   "blocks": [
+    {
+     "formula": "*error*_{*y*} = [[ *prediction*_{*y*} ~~ *actual*_{*y*} ]] − 1,   *y* ∈ { 2012 … 2025 }   (for each *y* the model is trained on all years except *y*)",
+     "caption": "Annual MAPE {m:loyo_mape}, bias {m:loyo_bias}, 95% error interval {m:loyo_ci95}. The monthly uncertainty band covers the actual value in {m:equiv_band_kapsama_ay_tr} of months.",
+     "what": "Hides each year from the model, asks it to predict that year, and compares with the truth: how far off is it on a year it has never seen?",
+     "syms": [
+      [
+       "y",
+       "Hidden (tested) year",
+       "year"
+      ],
+      [
+       "prediction_y",
+       "MODIS-equivalent total the model gives for year y",
+       "detections"
+      ],
+      [
+       "actual_y",
+       "Total the old satellite really measured in year y",
+       "detections"
+      ],
+      [
+       "error_y",
+       "Relative error",
+       "%"
+      ],
+      [
+       "MAPE",
+       "Mean of |error_y| over the years",
+       "%"
+      ]
+     ],
+     "ex": "Result: mean absolute annual error (MAPE) {m:loyo_mape}, bias {m:loyo_bias}, explained variance R² = {m:loyo_r2}, 95% error interval {m:loyo_ci95}. The monthly band covers the real value in {m:equiv_band_kapsama_ay_tr} of months.",
+     "why": "A model always looks good on its own training data. Without hiding the year we would mistake memorising for skill; this method gives the error on genuinely unseen data."
+    },
+    {
+     "validation": true
+    },
+    {
+     "text": "Check in the other direction (recall): of 28 large fires in a 2021 and 2025 list compiled from press and OGM-based sources, we found 26 (93%) in our event table under a strict criterion (≤ 30 km from the district centre, official date −1/+3 days). Scope: the list is incomplete and mostly large fires; 6 entries are undated (matched within the summer window); the result depends on the matching distance (15 km: 16/28, 30 km: 26/28, 50 km: 28/28), so it is not a general detection rate. On manual inspection the two misses were also detected (Akseki is part of the Manavgat event; Seyitgazi spread into İhsaniye). None of the detected ones was labelled stubble or industrial. Recall for small fires was not measured."
+    },
+    {
+     "text": "Question: Why method (ii) and not (i)? Answer: The documented rationale is that (ii) and (i) cannot be told apart at month × region level, the app's unit of use (WAPE 30.63 vs 30.64; 95% interval of the difference -2.97 to +4.26 points). On yearly totals, however, (i) is better: yearly MAPE 4.83 vs 8.33, R² 0.9675 vs 0.8716. So we do not claim (ii) is superior; the main gain is the satellite-count (observation effort) correction (single ratio without effort: WAPE 52.68). That (i) is better on yearly totals is an open limitation and a model choice; the selection criterion may have been looked at after seeing results."
+    },
+    {
+     "text": "Question: Is the 2012 jump inside the natural-variability range after correction? Answer: No. The corrected series' 2012 jump lies outside the natural year-to-year change range of non-transition years (-39.3% to +92.6%) (check: jump_harm_dogal_aralikta = false), because the real MODIS change itself is also outside that range. The corrected series tracks real MODIS within 3.55 percentage points, but we do not claim the 2012 artificial jump is fully removed."
+    },
+    {
+     "text": "In the table, the official date and burned area come from independent sources (EFFIS, General Directorate of Forestry, AFAD, news agencies). Our values were produced from satellite data only; no official information entered the model."
+    }
+   ],
+   "go": {
+    "tab": "map",
+    "anchor": "#topList",
+    "label": "Show the 10 events with the highest FRP on the map →"
+   }
+  },
+  {
+   "title": "Limits: what we do not claim",
+   "pose": "lintu_sakin",
+   "simple": "Science is strengthened by stating what it does not know. This application shows past fire activity; it does not forecast fire risk. A hotspot is not the same thing as a fire.",
+   "tour": "Finally, honesty: we make no risk forecast, the stubble class is an estimate, 2026 is an incomplete year, and because of the orbit drift of the older satellite, the 2026 correction has low confidence.",
+   "blocks": [
+    {
+     "list": [
+      "2026 is a partial year; the data is a static snapshot (last data 2026-11-12) and the latest months are NRT (near-real-time, a fast preliminary release that may be corrected later). Because Aqua's orbit has drifted, the corrected 2026 series has low confidence: the band covers the actual MODIS in only 0.545 of months.",
+      "The stubble class is a rule-based estimate; not verified on the ground.",
+      "From 2000 to July 2002 only the Terra satellite was available; these years cannot be compared directly with later ones.",
+      "The harmonization success criterion was changed after the results were seen (post-hoc). The auditor's independent-window test nevertheless supports the result.",
+      "Şanlıurfa leakage: 15% of 'clean' events are in Şanlıurfa. The national FRP threshold is too low for the Harran fields, and the yearly-repeat flag does not change the label. With the 'Exclude recurring burns' sensitivity box in the left panel (≥3 years in the same ~1 km cell), 70% of clean events drop out and Şanlıurfa's share falls to 5%; none of the documented forest fires is caught by this filter. A permanent fix with regional thresholds belongs in the pipeline.",
+      "Model choice: the main method (ii) and the simplest effort-normalised ratio (i) are indistinguishable at month × region; yearly, (i) is better (MAPE 4.8% vs 8.3%). The real gain comes from the effort (satellite-count) correction, not from the extra layers.",
+      "No separate province × month LOYO validation was run; use measured event counts for province comparisons.",
+      "Once MODIS is retired, a series relying on VIIRS cannot be validated independently. This work exists precisely to prepare for that transition."
+     ]
+    }
+   ]
+  }
+ ],
+ "ui": {
+  "what": "What does it do?",
+  "syms": "Symbols",
+  "ex": "Example (from the app's own data)",
+  "why": "Why is it needed?",
+  "sym": "Symbol",
+  "mean": "Meaning",
+  "unit": "Unit",
+  "simple": "Simple",
+  "expert": "Expert",
+  "level": "Level of detail",
+  "level_tip": "Simple: plain language, no formulas. Expert: formulas and full detail."
+ }
+}

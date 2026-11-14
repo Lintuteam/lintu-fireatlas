@@ -1,0 +1,1498 @@
+{
+ "tarih": "2026-11-14",
+ "dosya_butunlugu": {
+  "ayni": 150,
+  "degisen": [
+   "gercek_dogrulama.json"
+  ],
+  "yeni": [
+   "arazi_2000.bin",
+   "arazi_2001.bin",
+   "arazi_2002.bin",
+   "arazi_2003.bin",
+   "arazi_2004.bin",
+   "arazi_2005.bin",
+   "arazi_2006.bin",
+   "arazi_2007.bin",
+   "arazi_2008.bin",
+   "arazi_2009.bin",
+   "arazi_2010.bin",
+   "arazi_2011.bin",
+   "arazi_2012.bin",
+   "arazi_2013.bin",
+   "arazi_2014.bin",
+   "arazi_2015.bin",
+   "arazi_2016.bin",
+   "arazi_2017.bin",
+   "arazi_2018.bin",
+   "arazi_2019.bin",
+   "arazi_2020.bin",
+   "arazi_2021.bin",
+   "arazi_2022.bin",
+   "arazi_2023.bin",
+   "arazi_2024.bin",
+   "arazi_2025.bin",
+   "arazi_2026.bin",
+   "arazi_manifest.json"
+  ],
+  "silinen": [],
+  "sha256": {
+   "cal_0.json": {
+    "yedek": "a593569f641820e9056a1d9bbd9d08302893ceb2be2ca79ae77a6074e380e86e",
+    "guncel": "a593569f641820e9056a1d9bbd9d08302893ceb2be2ca79ae77a6074e380e86e"
+   },
+   "cal_1.json": {
+    "yedek": "c0d723d8027f088e420d4dc00bddb50e5c27b14f09ab2bc2092452349cd92ca7",
+    "guncel": "c0d723d8027f088e420d4dc00bddb50e5c27b14f09ab2bc2092452349cd92ca7"
+   },
+   "cal_10.json": {
+    "yedek": "0c29c65ca4639e5abf4a216b339e3fb572d56098af1d0a5a5eda5084c2dde334",
+    "guncel": "0c29c65ca4639e5abf4a216b339e3fb572d56098af1d0a5a5eda5084c2dde334"
+   },
+   "cal_11.json": {
+    "yedek": "ba24578421248d7d6d269e8b0c1b7d27c32e0d871428f5a612001ccf16207f1f",
+    "guncel": "ba24578421248d7d6d269e8b0c1b7d27c32e0d871428f5a612001ccf16207f1f"
+   },
+   "cal_12.json": {
+    "yedek": "e0d9d97685549af09d7fa124da4781ea158ff6b75b5f21073af48c7e62adc658",
+    "guncel": "e0d9d97685549af09d7fa124da4781ea158ff6b75b5f21073af48c7e62adc658"
+   },
+   "cal_13.json": {
+    "yedek": "30cb14dc509e2789322f5c43066e2da41a8cb785a93bc8955d35f9b868bd90ce",
+    "guncel": "30cb14dc509e2789322f5c43066e2da41a8cb785a93bc8955d35f9b868bd90ce"
+   },
+   "cal_14.json": {
+    "yedek": "a5f11e12b7c8cb266e48dbcc0bdf79e6be24040fb3625a267c622383c3c97cac",
+    "guncel": "a5f11e12b7c8cb266e48dbcc0bdf79e6be24040fb3625a267c622383c3c97cac"
+   },
+   "cal_15.json": {
+    "yedek": "1edb4c5de6f6d4271d8d9ba937e0eab95e7253a1535bee8615f392a8c4a775d9",
+    "guncel": "1edb4c5de6f6d4271d8d9ba937e0eab95e7253a1535bee8615f392a8c4a775d9"
+   },
+   "cal_16.json": {
+    "yedek": "8ffb794daacec4ce92ba51af2b4860115bddef0d9b3c3ce3058a5dc7f35f4bfb",
+    "guncel": "8ffb794daacec4ce92ba51af2b4860115bddef0d9b3c3ce3058a5dc7f35f4bfb"
+   },
+   "cal_17.json": {
+    "yedek": "fa36560a85c2a22b5344f95dbc13cc068833d4f012d9650e71b69feaf34e6df5",
+    "guncel": "fa36560a85c2a22b5344f95dbc13cc068833d4f012d9650e71b69feaf34e6df5"
+   },
+   "cal_18.json": {
+    "yedek": "8decd417541d27191718b0a6159f9b5d83f9d9ec655775192eda330c8a2b2166",
+    "guncel": "8decd417541d27191718b0a6159f9b5d83f9d9ec655775192eda330c8a2b2166"
+   },
+   "cal_19.json": {
+    "yedek": "48fa7896b59a3fc7aa26dadc31785cd299d16035048d71386800fe54d64f1824",
+    "guncel": "48fa7896b59a3fc7aa26dadc31785cd299d16035048d71386800fe54d64f1824"
+   },
+   "cal_2.json": {
+    "yedek": "8792e8ad0053c394cfa743c0c443eac90fb52e7c046089e0eb3f57279e675499",
+    "guncel": "8792e8ad0053c394cfa743c0c443eac90fb52e7c046089e0eb3f57279e675499"
+   },
+   "cal_20.json": {
+    "yedek": "077bb030959dbd7f6835fc5b40071181baeee87c0ee336364bdf40e0b541982d",
+    "guncel": "077bb030959dbd7f6835fc5b40071181baeee87c0ee336364bdf40e0b541982d"
+   },
+   "cal_21.json": {
+    "yedek": "d95e8f4e6229681a2d3ff735581b614227fe9a6e0e4073b01416963c155f95a8",
+    "guncel": "d95e8f4e6229681a2d3ff735581b614227fe9a6e0e4073b01416963c155f95a8"
+   },
+   "cal_22.json": {
+    "yedek": "d1759cc0906bb30f487bfc49bb297bb7944b2ccfca4551905a689732fe337790",
+    "guncel": "d1759cc0906bb30f487bfc49bb297bb7944b2ccfca4551905a689732fe337790"
+   },
+   "cal_23.json": {
+    "yedek": "59b9a4c364b0f54c4eeeb25eedbf1c525e0509bcc41df5091b5faed25ef0edf5",
+    "guncel": "59b9a4c364b0f54c4eeeb25eedbf1c525e0509bcc41df5091b5faed25ef0edf5"
+   },
+   "cal_24.json": {
+    "yedek": "1c6f2d3ef9c1359b95f0d988e35a52bfecd00e9c966f5f8c0d9b3949c260919d",
+    "guncel": "1c6f2d3ef9c1359b95f0d988e35a52bfecd00e9c966f5f8c0d9b3949c260919d"
+   },
+   "cal_25.json": {
+    "yedek": "d43a3837a32b6be185d483a539d37a20a74d7e5549f1e9f1cc2ecacd7c42cf36",
+    "guncel": "d43a3837a32b6be185d483a539d37a20a74d7e5549f1e9f1cc2ecacd7c42cf36"
+   },
+   "cal_26.json": {
+    "yedek": "920950496e6948b26772cab4195ed9b661c51b7445f21f350c943454ec5db437",
+    "guncel": "920950496e6948b26772cab4195ed9b661c51b7445f21f350c943454ec5db437"
+   },
+   "cal_27.json": {
+    "yedek": "a96bd689dbb0fb1d7bb3fff4b2019533d0c22a12c5a846f016fa3dd4659d589f",
+    "guncel": "a96bd689dbb0fb1d7bb3fff4b2019533d0c22a12c5a846f016fa3dd4659d589f"
+   },
+   "cal_28.json": {
+    "yedek": "30b25ab526b6a077ab9e423034e81e70d38ff4a73316db276f347e5fa1d27a01",
+    "guncel": "30b25ab526b6a077ab9e423034e81e70d38ff4a73316db276f347e5fa1d27a01"
+   },
+   "cal_29.json": {
+    "yedek": "3e443c9a3b92477515c50e3c8dc234f9ab5c78544ab405800a87087ac3c1d86e",
+    "guncel": "3e443c9a3b92477515c50e3c8dc234f9ab5c78544ab405800a87087ac3c1d86e"
+   },
+   "cal_3.json": {
+    "yedek": "1cc60a249c7bc3034a704a4c1ec4f481f176b91e52e97f901b16c4e769cb3637",
+    "guncel": "1cc60a249c7bc3034a704a4c1ec4f481f176b91e52e97f901b16c4e769cb3637"
+   },
+   "cal_30.json": {
+    "yedek": "c93fe2b937c822e6851d2eef9fd38d05b21155a37f5109b6adc0dbaad6bfbd86",
+    "guncel": "c93fe2b937c822e6851d2eef9fd38d05b21155a37f5109b6adc0dbaad6bfbd86"
+   },
+   "cal_31.json": {
+    "yedek": "ce68fc41cd3a77a329b83292a97addcba8a5ba393e752ecf1d0776668b3aae79",
+    "guncel": "ce68fc41cd3a77a329b83292a97addcba8a5ba393e752ecf1d0776668b3aae79"
+   },
+   "cal_32.json": {
+    "yedek": "0b6eeff90e605ae7038e2f2a9565ef77bb6625d8f228f147a9858db9cc6e15af",
+    "guncel": "0b6eeff90e605ae7038e2f2a9565ef77bb6625d8f228f147a9858db9cc6e15af"
+   },
+   "cal_33.json": {
+    "yedek": "85b927ee91af5caaefe850f75b1f410568e835b8e753007abb0b14d39b897a1d",
+    "guncel": "85b927ee91af5caaefe850f75b1f410568e835b8e753007abb0b14d39b897a1d"
+   },
+   "cal_34.json": {
+    "yedek": "97413511af1dba230351dfd38951cd1cfe2610e775d64940c66a78112b5842df",
+    "guncel": "97413511af1dba230351dfd38951cd1cfe2610e775d64940c66a78112b5842df"
+   },
+   "cal_35.json": {
+    "yedek": "f33696b73a34de82dbae7aedbeaeb05673c2f65a10eb5587ef936e499dc8d60d",
+    "guncel": "f33696b73a34de82dbae7aedbeaeb05673c2f65a10eb5587ef936e499dc8d60d"
+   },
+   "cal_36.json": {
+    "yedek": "4aae04f30984c21e24a8cf341345b4db3d83f5e011a68c791a888fe438c916c1",
+    "guncel": "4aae04f30984c21e24a8cf341345b4db3d83f5e011a68c791a888fe438c916c1"
+   },
+   "cal_37.json": {
+    "yedek": "06f217195e7e1d555406b854503e5cca01ff67208eb877b42b2a16c3a600ebd3",
+    "guncel": "06f217195e7e1d555406b854503e5cca01ff67208eb877b42b2a16c3a600ebd3"
+   },
+   "cal_38.json": {
+    "yedek": "b53e112bcc01cade3df5327001bb063e478adb1def1e0503baa4a155d66129a1",
+    "guncel": "b53e112bcc01cade3df5327001bb063e478adb1def1e0503baa4a155d66129a1"
+   },
+   "cal_39.json": {
+    "yedek": "39fd9b5ee5abc7d3dfb330a5a8476e0dbc0028de8fa0988beaa9715757a1a053",
+    "guncel": "39fd9b5ee5abc7d3dfb330a5a8476e0dbc0028de8fa0988beaa9715757a1a053"
+   },
+   "cal_4.json": {
+    "yedek": "38f74b61b7c7ec3cebcc936438e8453ac71907f861abad7a16a1b7f126560a78",
+    "guncel": "38f74b61b7c7ec3cebcc936438e8453ac71907f861abad7a16a1b7f126560a78"
+   },
+   "cal_40.json": {
+    "yedek": "8e132c611871a4aa5845bc6e1f5f320019ab65a122dc47ea89a2ddba203417fa",
+    "guncel": "8e132c611871a4aa5845bc6e1f5f320019ab65a122dc47ea89a2ddba203417fa"
+   },
+   "cal_41.json": {
+    "yedek": "f801e14435e5d7535987ebe320b30f356c5cbded4ef34f48723713cc5e9d31e8",
+    "guncel": "f801e14435e5d7535987ebe320b30f356c5cbded4ef34f48723713cc5e9d31e8"
+   },
+   "cal_42.json": {
+    "yedek": "b4c9e31fcb4195656481b4538df2c08d9cfb95f24cb1f2f44111f34c78c6e42b",
+    "guncel": "b4c9e31fcb4195656481b4538df2c08d9cfb95f24cb1f2f44111f34c78c6e42b"
+   },
+   "cal_43.json": {
+    "yedek": "625ff71ebba9c570a671c7a14fada382a8422ac8a6a5e7fcdc2da04c3ce23667",
+    "guncel": "625ff71ebba9c570a671c7a14fada382a8422ac8a6a5e7fcdc2da04c3ce23667"
+   },
+   "cal_44.json": {
+    "yedek": "54b65e29c6318f0323a924c79263666c755cb90b9fec47acf79284984d40bbed",
+    "guncel": "54b65e29c6318f0323a924c79263666c755cb90b9fec47acf79284984d40bbed"
+   },
+   "cal_45.json": {
+    "yedek": "1887b676034c7a45c23b82b3d523a15a6a1f44f2e2deefe58f937cca96a118ac",
+    "guncel": "1887b676034c7a45c23b82b3d523a15a6a1f44f2e2deefe58f937cca96a118ac"
+   },
+   "cal_46.json": {
+    "yedek": "8b6f8ce0f5243c331719c1ee5840526e4b04f7d375ef5ab6ab7f274cf1b6cf54",
+    "guncel": "8b6f8ce0f5243c331719c1ee5840526e4b04f7d375ef5ab6ab7f274cf1b6cf54"
+   },
+   "cal_47.json": {
+    "yedek": "9af824ebbafb74ae25cc29f2e0fa67fa1037f11b7d5ab65dbe3b2f7a1567b945",
+    "guncel": "9af824ebbafb74ae25cc29f2e0fa67fa1037f11b7d5ab65dbe3b2f7a1567b945"
+   },
+   "cal_48.json": {
+    "yedek": "1fee4291aaf4aee287b1e225c131e57febf9c485b408b2a8fbf61719d49fef89",
+    "guncel": "1fee4291aaf4aee287b1e225c131e57febf9c485b408b2a8fbf61719d49fef89"
+   },
+   "cal_49.json": {
+    "yedek": "2d415a9418bbb6e5066570c36bcbeebda1ab12011e07f8e3d18e5e7eeaabada0",
+    "guncel": "2d415a9418bbb6e5066570c36bcbeebda1ab12011e07f8e3d18e5e7eeaabada0"
+   },
+   "cal_5.json": {
+    "yedek": "5f86ac85a8c3678618275a43147a95bf5cce5c5ba4580e61e98a31d5ed69dc8a",
+    "guncel": "5f86ac85a8c3678618275a43147a95bf5cce5c5ba4580e61e98a31d5ed69dc8a"
+   },
+   "cal_50.json": {
+    "yedek": "8df83c2685a9a3c2e8dc4221ac7a883fe0413f58402780c44b1f579d1909dcfb",
+    "guncel": "8df83c2685a9a3c2e8dc4221ac7a883fe0413f58402780c44b1f579d1909dcfb"
+   },
+   "cal_51.json": {
+    "yedek": "896ac102eb2002d4534ccdc29d00f4ad3b47d86bbc92a2ee148862a5be181c18",
+    "guncel": "896ac102eb2002d4534ccdc29d00f4ad3b47d86bbc92a2ee148862a5be181c18"
+   },
+   "cal_52.json": {
+    "yedek": "2e538cd1efcae1bede2fbe3b44918d63a51166991c1c9b4b6c103b55205bd1ba",
+    "guncel": "2e538cd1efcae1bede2fbe3b44918d63a51166991c1c9b4b6c103b55205bd1ba"
+   },
+   "cal_53.json": {
+    "yedek": "eeeddb250112ef1b138e0e50b68f1f926d2107391bb521680d6dfe2057b1252a",
+    "guncel": "eeeddb250112ef1b138e0e50b68f1f926d2107391bb521680d6dfe2057b1252a"
+   },
+   "cal_54.json": {
+    "yedek": "36a3ca1095ae7fbadc8cc8a60213c026e2fe6f3418535825e8bfe76202213b7f",
+    "guncel": "36a3ca1095ae7fbadc8cc8a60213c026e2fe6f3418535825e8bfe76202213b7f"
+   },
+   "cal_55.json": {
+    "yedek": "d909d98f1ae97a9a21608d5fcab9f5558fe0bf1ed029934abf79839e4ccbd0f0",
+    "guncel": "d909d98f1ae97a9a21608d5fcab9f5558fe0bf1ed029934abf79839e4ccbd0f0"
+   },
+   "cal_56.json": {
+    "yedek": "473fd3cdef35e4c7359521f1b6f1e28de633785978dca95a2b5e666a7db24f26",
+    "guncel": "473fd3cdef35e4c7359521f1b6f1e28de633785978dca95a2b5e666a7db24f26"
+   },
+   "cal_57.json": {
+    "yedek": "d6cb2758ffa6ddeda5ff96e4a2920e59daf6e64eab1156f2978b66f467e6cae4",
+    "guncel": "d6cb2758ffa6ddeda5ff96e4a2920e59daf6e64eab1156f2978b66f467e6cae4"
+   },
+   "cal_58.json": {
+    "yedek": "6b87cbc6020ea55a74f66d674e27f0e9bcff69c981e17d0502acf1582c414915",
+    "guncel": "6b87cbc6020ea55a74f66d674e27f0e9bcff69c981e17d0502acf1582c414915"
+   },
+   "cal_59.json": {
+    "yedek": "be37f74bbfe646cc12f0f2ef5f0bea4973a1752546f54b363ca1c28bb2a38de0",
+    "guncel": "be37f74bbfe646cc12f0f2ef5f0bea4973a1752546f54b363ca1c28bb2a38de0"
+   },
+   "cal_6.json": {
+    "yedek": "ec06bbcd3dcb94ac22bc4cb5e27cd21f3b09a4d1e1ebf2bdf7aa586118d24685",
+    "guncel": "ec06bbcd3dcb94ac22bc4cb5e27cd21f3b09a4d1e1ebf2bdf7aa586118d24685"
+   },
+   "cal_60.json": {
+    "yedek": "acee9fd5e1ef2f5000ba459dde4b5a663a3db48eb27d3652763415728577be45",
+    "guncel": "acee9fd5e1ef2f5000ba459dde4b5a663a3db48eb27d3652763415728577be45"
+   },
+   "cal_61.json": {
+    "yedek": "55468c56a9d3dd76f4ec7d73d0207c10dbcc4aefa5212119cd9a0da71c0b67a0",
+    "guncel": "55468c56a9d3dd76f4ec7d73d0207c10dbcc4aefa5212119cd9a0da71c0b67a0"
+   },
+   "cal_62.json": {
+    "yedek": "00bbcb0a9e8b3544246dd64d04cceb4869659c41891f8efad5e9b2e25808b6a7",
+    "guncel": "00bbcb0a9e8b3544246dd64d04cceb4869659c41891f8efad5e9b2e25808b6a7"
+   },
+   "cal_63.json": {
+    "yedek": "eafdfdf933a86a8fbf8b539c43d83828e9a962ccfb4d919502b8dcbfd47e6189",
+    "guncel": "eafdfdf933a86a8fbf8b539c43d83828e9a962ccfb4d919502b8dcbfd47e6189"
+   },
+   "cal_64.json": {
+    "yedek": "9d9652cf9bbfa8146a757f495fece5ed2bd1db32d3eecb37f6b47c8b83660db3",
+    "guncel": "9d9652cf9bbfa8146a757f495fece5ed2bd1db32d3eecb37f6b47c8b83660db3"
+   },
+   "cal_65.json": {
+    "yedek": "3b4b0deb5edbb7067c1d6ac9b1ce225fd4d6f6ee74e0f312181fdf4a6e7eb1d3",
+    "guncel": "3b4b0deb5edbb7067c1d6ac9b1ce225fd4d6f6ee74e0f312181fdf4a6e7eb1d3"
+   },
+   "cal_66.json": {
+    "yedek": "d3094f6450cc607fce05000b5f0b6e0e5c08465da2f183ff11759d2648230190",
+    "guncel": "d3094f6450cc607fce05000b5f0b6e0e5c08465da2f183ff11759d2648230190"
+   },
+   "cal_67.json": {
+    "yedek": "c53276c3a69e3c1678f190b6f533c53f8d6cff8875491d33c32f433b1947f494",
+    "guncel": "c53276c3a69e3c1678f190b6f533c53f8d6cff8875491d33c32f433b1947f494"
+   },
+   "cal_68.json": {
+    "yedek": "b3d6bc1d3b73b9db9d7f78d2fddd82c0290211b4ec4e7864979f18ac80507f4e",
+    "guncel": "b3d6bc1d3b73b9db9d7f78d2fddd82c0290211b4ec4e7864979f18ac80507f4e"
+   },
+   "cal_69.json": {
+    "yedek": "942aff4d6fa5bd2e052599f5839c3aab60558ec06a2396f42d479e303b4f91d9",
+    "guncel": "942aff4d6fa5bd2e052599f5839c3aab60558ec06a2396f42d479e303b4f91d9"
+   },
+   "cal_7.json": {
+    "yedek": "c42853f96e9de69e5645d5e71a8657de2ea3867f1cebef172541e3164ecf9b1b",
+    "guncel": "c42853f96e9de69e5645d5e71a8657de2ea3867f1cebef172541e3164ecf9b1b"
+   },
+   "cal_70.json": {
+    "yedek": "6d6abf0d6a4880e68951ee1504cfb72a082779eaff76b0ae562d0b1021e73cd2",
+    "guncel": "6d6abf0d6a4880e68951ee1504cfb72a082779eaff76b0ae562d0b1021e73cd2"
+   },
+   "cal_71.json": {
+    "yedek": "6d9b29f172a06d7a92dc345e950bc19ed5f0d3552be34dfee3ae4ef172e02bb3",
+    "guncel": "6d9b29f172a06d7a92dc345e950bc19ed5f0d3552be34dfee3ae4ef172e02bb3"
+   },
+   "cal_72.json": {
+    "yedek": "3b508332058f4f68aa255cc2faa90e6e790991003983d95d0c0cb58ef5bd6819",
+    "guncel": "3b508332058f4f68aa255cc2faa90e6e790991003983d95d0c0cb58ef5bd6819"
+   },
+   "cal_73.json": {
+    "yedek": "9226ba08320016539dad68bfd6d64ba1e19de0ae9cb221ef95ce7d4e3d1db7e0",
+    "guncel": "9226ba08320016539dad68bfd6d64ba1e19de0ae9cb221ef95ce7d4e3d1db7e0"
+   },
+   "cal_74.json": {
+    "yedek": "a937dd63e3586f2fb2fdca02df75284a8249e7771249857f7338cabf4c09d482",
+    "guncel": "a937dd63e3586f2fb2fdca02df75284a8249e7771249857f7338cabf4c09d482"
+   },
+   "cal_75.json": {
+    "yedek": "cdf83ffbf13870459917f7ab999a72fca6c74afa57426dd30cd2b2f1b10fb1a0",
+    "guncel": "cdf83ffbf13870459917f7ab999a72fca6c74afa57426dd30cd2b2f1b10fb1a0"
+   },
+   "cal_76.json": {
+    "yedek": "60d5915622f3e6149ca747a1d3182823f2fcb63a0f901e48a3cd88a1cc929c5a",
+    "guncel": "60d5915622f3e6149ca747a1d3182823f2fcb63a0f901e48a3cd88a1cc929c5a"
+   },
+   "cal_77.json": {
+    "yedek": "6626d2fbf0250268de8e1a1f56a207affbd9359f17d1db295c0461c00a51e6fe",
+    "guncel": "6626d2fbf0250268de8e1a1f56a207affbd9359f17d1db295c0461c00a51e6fe"
+   },
+   "cal_78.json": {
+    "yedek": "f44515e54242af012d036ac94fbf703e6ee2d8155226176683eab9a723b501f1",
+    "guncel": "f44515e54242af012d036ac94fbf703e6ee2d8155226176683eab9a723b501f1"
+   },
+   "cal_79.json": {
+    "yedek": "5166c3018afdc14f2cbde628c5898cc934dcd5f0c94380dffd8ab8794cc94a8d",
+    "guncel": "5166c3018afdc14f2cbde628c5898cc934dcd5f0c94380dffd8ab8794cc94a8d"
+   },
+   "cal_8.json": {
+    "yedek": "688ac0918973b9b77dac3f82fd3804ee9df96ffd56caf066081841d8ba53b82f",
+    "guncel": "688ac0918973b9b77dac3f82fd3804ee9df96ffd56caf066081841d8ba53b82f"
+   },
+   "cal_80.json": {
+    "yedek": "bb5f87547bfb8298f9f9c09cd5e9c78561f396cb446085213c17f1f6740ce2d0",
+    "guncel": "bb5f87547bfb8298f9f9c09cd5e9c78561f396cb446085213c17f1f6740ce2d0"
+   },
+   "cal_81.json": {
+    "yedek": "81c5ccedb743402c9082a7d5fa5b97491c04e4b666d1d13736c8583df8416de0",
+    "guncel": "81c5ccedb743402c9082a7d5fa5b97491c04e4b666d1d13736c8583df8416de0"
+   },
+   "cal_82.json": {
+    "yedek": "a044a15468cf76356016935e3a236f314dc7fce67618288ec378f6725164a773",
+    "guncel": "a044a15468cf76356016935e3a236f314dc7fce67618288ec378f6725164a773"
+   },
+   "cal_83.json": {
+    "yedek": "ed193b1397dd459a692f65343e336df11ce32b8323185dbaadd62bb1ad013a8a",
+    "guncel": "ed193b1397dd459a692f65343e336df11ce32b8323185dbaadd62bb1ad013a8a"
+   },
+   "cal_84.json": {
+    "yedek": "8b6e0b8c7e2e14d160d908bea717e7a9704aa099444d97df3db0a843c3f5b07f",
+    "guncel": "8b6e0b8c7e2e14d160d908bea717e7a9704aa099444d97df3db0a843c3f5b07f"
+   },
+   "cal_85.json": {
+    "yedek": "5793fec39e2a8a8635bdedf409cbb274d6684036908ba4fb67b2513802ef33cc",
+    "guncel": "5793fec39e2a8a8635bdedf409cbb274d6684036908ba4fb67b2513802ef33cc"
+   },
+   "cal_86.json": {
+    "yedek": "73eaaf8d7f4fe9a5fab142bfa184f6bc2157974bb30e6d6fa57fd8fd70018ac7",
+    "guncel": "73eaaf8d7f4fe9a5fab142bfa184f6bc2157974bb30e6d6fa57fd8fd70018ac7"
+   },
+   "cal_87.json": {
+    "yedek": "4df4cdc94cfbf079726d17945dd79abe45f74b938c1c91879d8392dbb46e5ead",
+    "guncel": "4df4cdc94cfbf079726d17945dd79abe45f74b938c1c91879d8392dbb46e5ead"
+   },
+   "cal_88.json": {
+    "yedek": "f71938e2cad95152c9378ea1ee047098ec7cd979be0802512dd9d55d2d658289",
+    "guncel": "f71938e2cad95152c9378ea1ee047098ec7cd979be0802512dd9d55d2d658289"
+   },
+   "cal_9.json": {
+    "yedek": "f01bb7a45f209611ccebfa70362c59ba6238c09cf9adcbf9e1fb26294c786b3f",
+    "guncel": "f01bb7a45f209611ccebfa70362c59ba6238c09cf9adcbf9e1fb26294c786b3f"
+   },
+   "coverage.json": {
+    "yedek": "f3574c45b74c10a2426c4d22e144cc2e9c3a7e8ab0ea25ab085a9ca72cad9b4b",
+    "guncel": "f3574c45b74c10a2426c4d22e144cc2e9c3a7e8ab0ea25ab085a9ca72cad9b4b"
+   },
+   "events_2000.bin": {
+    "yedek": "b8e85142f17b3f07ffc29b5237d02fcb18b7f1a5b849dd70ef10bd33baf8138d",
+    "guncel": "b8e85142f17b3f07ffc29b5237d02fcb18b7f1a5b849dd70ef10bd33baf8138d"
+   },
+   "events_2001.bin": {
+    "yedek": "bc990ca32be5da11f50ff86fb8cdea2fa69479dc6e6192acb3fea47f17b99e00",
+    "guncel": "bc990ca32be5da11f50ff86fb8cdea2fa69479dc6e6192acb3fea47f17b99e00"
+   },
+   "events_2002.bin": {
+    "yedek": "c7e47018fc2f5ae80eb55b3d3fcfa5cc615bf4577ef7c59eff57ad876059f162",
+    "guncel": "c7e47018fc2f5ae80eb55b3d3fcfa5cc615bf4577ef7c59eff57ad876059f162"
+   },
+   "events_2003.bin": {
+    "yedek": "6b9c6543990da55acf433c92826173436254e9a5c6f207c5b6790456beeab5cf",
+    "guncel": "6b9c6543990da55acf433c92826173436254e9a5c6f207c5b6790456beeab5cf"
+   },
+   "events_2004.bin": {
+    "yedek": "e95712aaa6d9d56a41d8c8491e9d9d5c1c80afc2d149e872215c7dc3d1d902e3",
+    "guncel": "e95712aaa6d9d56a41d8c8491e9d9d5c1c80afc2d149e872215c7dc3d1d902e3"
+   },
+   "events_2005.bin": {
+    "yedek": "732c20352725f086630d1043b770685d6f7f064694fa1ca50715ab186e63c92b",
+    "guncel": "732c20352725f086630d1043b770685d6f7f064694fa1ca50715ab186e63c92b"
+   },
+   "events_2006.bin": {
+    "yedek": "129a7ad78b76619ea2143d3e06f06a14dace172209bd109d191d309b3328d999",
+    "guncel": "129a7ad78b76619ea2143d3e06f06a14dace172209bd109d191d309b3328d999"
+   },
+   "events_2007.bin": {
+    "yedek": "ff1c52764424616f9ef52fdd1cf6968f4133f49efd55c00eebf11053e73851ac",
+    "guncel": "ff1c52764424616f9ef52fdd1cf6968f4133f49efd55c00eebf11053e73851ac"
+   },
+   "events_2008.bin": {
+    "yedek": "b208cb667165f90abab9308aa88c56410f0cc2c8e0353c6350c54a0370c0c4bd",
+    "guncel": "b208cb667165f90abab9308aa88c56410f0cc2c8e0353c6350c54a0370c0c4bd"
+   },
+   "events_2009.bin": {
+    "yedek": "f697ccdecb8387a57ef3925b36153e027987ef24deeb6161fd373186ef99f7e6",
+    "guncel": "f697ccdecb8387a57ef3925b36153e027987ef24deeb6161fd373186ef99f7e6"
+   },
+   "events_2010.bin": {
+    "yedek": "51cd23a1a75230338f1339a8594301036bcceb1c6540bc01b1560385ca07d8c9",
+    "guncel": "51cd23a1a75230338f1339a8594301036bcceb1c6540bc01b1560385ca07d8c9"
+   },
+   "events_2011.bin": {
+    "yedek": "705c23b181d8feb387ddf6975d835f5486831bd2624e9618b96f0198ff775297",
+    "guncel": "705c23b181d8feb387ddf6975d835f5486831bd2624e9618b96f0198ff775297"
+   },
+   "events_2012.bin": {
+    "yedek": "3359fc9f675e49eb21115425de8f605d69ab4782742418dc8df20205246c0135",
+    "guncel": "3359fc9f675e49eb21115425de8f605d69ab4782742418dc8df20205246c0135"
+   },
+   "events_2013.bin": {
+    "yedek": "cb1929732e2a2750aa17f747800a66efdcd320fa78f83cf85a47ab8a847f95ca",
+    "guncel": "cb1929732e2a2750aa17f747800a66efdcd320fa78f83cf85a47ab8a847f95ca"
+   },
+   "events_2014.bin": {
+    "yedek": "b815d45e17976b8025a3a1c7e3c9642bf4056d5871b84a414f22127e90700560",
+    "guncel": "b815d45e17976b8025a3a1c7e3c9642bf4056d5871b84a414f22127e90700560"
+   },
+   "events_2015.bin": {
+    "yedek": "27a6a70aae1363560442be3ebb59818d3c12e9ccbed467d19b21001f98ba5302",
+    "guncel": "27a6a70aae1363560442be3ebb59818d3c12e9ccbed467d19b21001f98ba5302"
+   },
+   "events_2016.bin": {
+    "yedek": "e3a728b72db3bae83388d40ad174a80bb62e66e44230a3eee3ead6672298c094",
+    "guncel": "e3a728b72db3bae83388d40ad174a80bb62e66e44230a3eee3ead6672298c094"
+   },
+   "events_2017.bin": {
+    "yedek": "e9746ed649ec795420e5dae851d4052d923c5d044df2fa2bc1c88c57928b953d",
+    "guncel": "e9746ed649ec795420e5dae851d4052d923c5d044df2fa2bc1c88c57928b953d"
+   },
+   "events_2018.bin": {
+    "yedek": "9f0ef442eb5055c3d71ac44fb694a7dcfd1b3d4a91eafaeaf20dad279c50db94",
+    "guncel": "9f0ef442eb5055c3d71ac44fb694a7dcfd1b3d4a91eafaeaf20dad279c50db94"
+   },
+   "events_2019.bin": {
+    "yedek": "25519d9bc331746891c1615b77520c69841978341ce6bc854a5f008c1ba5cbe6",
+    "guncel": "25519d9bc331746891c1615b77520c69841978341ce6bc854a5f008c1ba5cbe6"
+   },
+   "events_2020.bin": {
+    "yedek": "8ace1857002b6c021ed9013fced28d94a25e2e32e8879dc512727141f54dcedf",
+    "guncel": "8ace1857002b6c021ed9013fced28d94a25e2e32e8879dc512727141f54dcedf"
+   },
+   "events_2021.bin": {
+    "yedek": "3d48ea0e8983f8ba395b76a881933e238ac361b35d65829126bebdc89c9f5f42",
+    "guncel": "3d48ea0e8983f8ba395b76a881933e238ac361b35d65829126bebdc89c9f5f42"
+   },
+   "events_2022.bin": {
+    "yedek": "9d360c56e228e4e502bd944e20adb52ebe4e36ed03e7461669a95bce3e916eb0",
+    "guncel": "9d360c56e228e4e502bd944e20adb52ebe4e36ed03e7461669a95bce3e916eb0"
+   },
+   "events_2023.bin": {
+    "yedek": "82f3ddb4c79b8f5a29e06bf6075f7eba00442b86e7b0c816831603f811a9f3c3",
+    "guncel": "82f3ddb4c79b8f5a29e06bf6075f7eba00442b86e7b0c816831603f811a9f3c3"
+   },
+   "events_2024.bin": {
+    "yedek": "82daa0b3afee6a20f3c07f408f058b71a4eb1075be598fe0aece7e3ceab92fa4",
+    "guncel": "82daa0b3afee6a20f3c07f408f058b71a4eb1075be598fe0aece7e3ceab92fa4"
+   },
+   "events_2025.bin": {
+    "yedek": "444801c9de5bb6e7b29433e315b9d4df4189b2c46ac7670e23d59e4db9d0ea74",
+    "guncel": "444801c9de5bb6e7b29433e315b9d4df4189b2c46ac7670e23d59e4db9d0ea74"
+   },
+   "events_2026.bin": {
+    "yedek": "58b8e9b5b4b3ee3778d58a9ce587cde42cab72254da839639cde61127ca836e5",
+    "guncel": "58b8e9b5b4b3ee3778d58a9ce587cde42cab72254da839639cde61127ca836e5"
+   },
+   "gercek_dogrulama.json": {
+    "yedek": "02b4a44a55ecceca7164f720619e86187ae6780afc2558c9fb20bcee716558d1",
+    "guncel": "2b27731f52f7ae11fb6f9622b030a7c8145020d5a12f3f92ee4d6378bdefd3b5"
+   },
+   "harmonized.json": {
+    "yedek": "4011bd923e0fb73578eaf18cafcf97232e584b4703127238ec38104588bd84d7",
+    "guncel": "4011bd923e0fb73578eaf18cafcf97232e584b4703127238ec38104588bd84d7"
+   },
+   "il.geojson": {
+    "yedek": "851721cae8c699f2d82814615dc3aa05c5fcf85b211a2d5fd01b337812bf98d3",
+    "guncel": "851721cae8c699f2d82814615dc3aa05c5fcf85b211a2d5fd01b337812bf98d3"
+   },
+   "lab_examples.json": {
+    "yedek": "091daf10770a54695f11e4f8fbffd8574d210ec805292ffd3ef799ba4595d39b",
+    "guncel": "091daf10770a54695f11e4f8fbffd8574d210ec805292ffd3ef799ba4595d39b"
+   },
+   "manifest.json": {
+    "yedek": "d9511527b3f01deaddef78fee0abec4612244e106db10139a8b955cced875e64",
+    "guncel": "d9511527b3f01deaddef78fee0abec4612244e106db10139a8b955cced875e64"
+   },
+   "metrics.json": {
+    "yedek": "8dd2a4ba3853142aa10fb283a473efeac1345e2019b6e593d16645e07bb0a661",
+    "guncel": "8dd2a4ba3853142aa10fb283a473efeac1345e2019b6e593d16645e07bb0a661"
+   },
+   "pixel_growth.json": {
+    "yedek": "ef463c9201eb746cb8f3b1d1294294275bedb73fe373482ed0228ffb79d48b07",
+    "guncel": "ef463c9201eb746cb8f3b1d1294294275bedb73fe373482ed0228ffb79d48b07"
+   },
+   "points_2000.bin": {
+    "yedek": "aa6a54408f1fabc126563d820fae5a82596336cd71d3b8994b29e44b5ee24eed",
+    "guncel": "aa6a54408f1fabc126563d820fae5a82596336cd71d3b8994b29e44b5ee24eed"
+   },
+   "points_2001.bin": {
+    "yedek": "299715820260804f2e2ba1f6940b7ed8ae7ac844294c5417d9969a40ee0a82a3",
+    "guncel": "299715820260804f2e2ba1f6940b7ed8ae7ac844294c5417d9969a40ee0a82a3"
+   },
+   "points_2002.bin": {
+    "yedek": "37997eaa9d1f32e66f94a3956b53d149438c206b3da3363682aa2edab7328e43",
+    "guncel": "37997eaa9d1f32e66f94a3956b53d149438c206b3da3363682aa2edab7328e43"
+   },
+   "points_2003.bin": {
+    "yedek": "610dff8ec41e0bb48a9f47a5fa094cf65a75b4c772d2f8983196253752b35eef",
+    "guncel": "610dff8ec41e0bb48a9f47a5fa094cf65a75b4c772d2f8983196253752b35eef"
+   },
+   "points_2004.bin": {
+    "yedek": "d73a980d10f377122594903c4108bdd32de22289df7d4f3d93253b00e11b884d",
+    "guncel": "d73a980d10f377122594903c4108bdd32de22289df7d4f3d93253b00e11b884d"
+   },
+   "points_2005.bin": {
+    "yedek": "30a56f0068e1e0179bfe41d3a2440385dbe356a8607419f5af3a41c084c23159",
+    "guncel": "30a56f0068e1e0179bfe41d3a2440385dbe356a8607419f5af3a41c084c23159"
+   },
+   "points_2006.bin": {
+    "yedek": "a2c78bc30d40b10b2069721d892d9b48e1c89de954b22acd842b5859be6dc414",
+    "guncel": "a2c78bc30d40b10b2069721d892d9b48e1c89de954b22acd842b5859be6dc414"
+   },
+   "points_2007.bin": {
+    "yedek": "f0c8c7c3d27c1248079e02ed0c589376484992eae3101a76f37df4c979c4b2e8",
+    "guncel": "f0c8c7c3d27c1248079e02ed0c589376484992eae3101a76f37df4c979c4b2e8"
+   },
+   "points_2008.bin": {
+    "yedek": "bdcc2466ac999378b2f6972d5e05c5abc6b3ecacee9c86f08f294d6549e40366",
+    "guncel": "bdcc2466ac999378b2f6972d5e05c5abc6b3ecacee9c86f08f294d6549e40366"
+   },
+   "points_2009.bin": {
+    "yedek": "8d7e1875d07b6ced8685463cb7fc0a9633b71cb3a0db689e4b2b80b5bbeb4d2b",
+    "guncel": "8d7e1875d07b6ced8685463cb7fc0a9633b71cb3a0db689e4b2b80b5bbeb4d2b"
+   },
+   "points_2010.bin": {
+    "yedek": "6ab8c8967a3945758f4d2f2e111aeaf401ed5985b8a1ad077037d49b4ce7be81",
+    "guncel": "6ab8c8967a3945758f4d2f2e111aeaf401ed5985b8a1ad077037d49b4ce7be81"
+   },
+   "points_2011.bin": {
+    "yedek": "3323f8faa80bd195381f322e54467a06af00f6b56e9cc15b41bbf66ae49f6c8e",
+    "guncel": "3323f8faa80bd195381f322e54467a06af00f6b56e9cc15b41bbf66ae49f6c8e"
+   },
+   "points_2012.bin": {
+    "yedek": "f20003ce96477f571e28adc325740f0b56261ad114b1539130577e02863e098e",
+    "guncel": "f20003ce96477f571e28adc325740f0b56261ad114b1539130577e02863e098e"
+   },
+   "points_2013.bin": {
+    "yedek": "5dfca5cfc065d1fec3f4c4221ba43a5733eb89b10e922b0b018d15a062457849",
+    "guncel": "5dfca5cfc065d1fec3f4c4221ba43a5733eb89b10e922b0b018d15a062457849"
+   },
+   "points_2014.bin": {
+    "yedek": "1f1354109292b15e6e48ee5313428d426083630c127244a3093bf334c0ea1e3a",
+    "guncel": "1f1354109292b15e6e48ee5313428d426083630c127244a3093bf334c0ea1e3a"
+   },
+   "points_2015.bin": {
+    "yedek": "e86714f757ecdc2f1dc8b1c476b2f305e0b5dfda70a6b56c29eaa0850123c4d5",
+    "guncel": "e86714f757ecdc2f1dc8b1c476b2f305e0b5dfda70a6b56c29eaa0850123c4d5"
+   },
+   "points_2016.bin": {
+    "yedek": "13641fad8d88d1c6890c665f79d2ceb6bbf2a1cddd4c953f63fe596afa8391f6",
+    "guncel": "13641fad8d88d1c6890c665f79d2ceb6bbf2a1cddd4c953f63fe596afa8391f6"
+   },
+   "points_2017.bin": {
+    "yedek": "7da4e196beead1cab900096c183cfb08148d6ded337969d57b18abea72286d4e",
+    "guncel": "7da4e196beead1cab900096c183cfb08148d6ded337969d57b18abea72286d4e"
+   },
+   "points_2018.bin": {
+    "yedek": "6f8a48e8891f8c7d45379b6090ffb8b6bc47bf8dd3d726504d58a94b5734a0c1",
+    "guncel": "6f8a48e8891f8c7d45379b6090ffb8b6bc47bf8dd3d726504d58a94b5734a0c1"
+   },
+   "points_2019.bin": {
+    "yedek": "acfbbaf7ad538b878b000c2eee804510c2039742b4fe7e06cfa66a8f1b6719b0",
+    "guncel": "acfbbaf7ad538b878b000c2eee804510c2039742b4fe7e06cfa66a8f1b6719b0"
+   },
+   "points_2020.bin": {
+    "yedek": "bd730702562d40006310a8b123757b98d2e411527abf8f79a9c54cc0290e44a9",
+    "guncel": "bd730702562d40006310a8b123757b98d2e411527abf8f79a9c54cc0290e44a9"
+   },
+   "points_2021.bin": {
+    "yedek": "2c0a91168591d08298503e68e0984377bcfa79a21ed4f30e6b2ae08b4db214e7",
+    "guncel": "2c0a91168591d08298503e68e0984377bcfa79a21ed4f30e6b2ae08b4db214e7"
+   },
+   "points_2022.bin": {
+    "yedek": "bf58b8e0be13fb94374540e4b17f90f98ab61e1728f01ba924931095403cda02",
+    "guncel": "bf58b8e0be13fb94374540e4b17f90f98ab61e1728f01ba924931095403cda02"
+   },
+   "points_2023.bin": {
+    "yedek": "723db61909c28a578e6b27c0dcfafe1bf85e247815e2b5748a5d80ab3a5a140a",
+    "guncel": "723db61909c28a578e6b27c0dcfafe1bf85e247815e2b5748a5d80ab3a5a140a"
+   },
+   "points_2024.bin": {
+    "yedek": "beb60a2493ba401b3067434852a96c7cf27dcab10c55238848d1a56fe934b89d",
+    "guncel": "beb60a2493ba401b3067434852a96c7cf27dcab10c55238848d1a56fe934b89d"
+   },
+   "points_2025.bin": {
+    "yedek": "dc5c686600494018320f4a880b270fc9b418bc8c9b5be9269d70c94798c5e77a",
+    "guncel": "dc5c686600494018320f4a880b270fc9b418bc8c9b5be9269d70c94798c5e77a"
+   },
+   "points_2026.bin": {
+    "yedek": "b47b147937c43c12683e23ea81e6d33e5cf5165ba542c55af3d9e377bbab08d5",
+    "guncel": "b47b147937c43c12683e23ea81e6d33e5cf5165ba542c55af3d9e377bbab08d5"
+   },
+   "arazi_2000.bin": {
+    "yedek": null,
+    "guncel": "45a606c843a30d78c2f3aff9b40d801740d57f4bdb9fe8c8c928fd0fa25ef7b1"
+   },
+   "arazi_2001.bin": {
+    "yedek": null,
+    "guncel": "9ee9575f7a20d6e55f1e40ca7a76619276a364708dd41daca747f71614acf0f3"
+   },
+   "arazi_2002.bin": {
+    "yedek": null,
+    "guncel": "0b009667fcd7adc1d540c8e2a209cc5c88f07ec3c5a3ad7cec878b53de25b3f8"
+   },
+   "arazi_2003.bin": {
+    "yedek": null,
+    "guncel": "7e6846ca8930711b0ac69d094052a5ee8fc857613021ae0fc44d4b363ab718b3"
+   },
+   "arazi_2004.bin": {
+    "yedek": null,
+    "guncel": "c2c07ab994fc4ac454dfa02001077b528878642f9709e88ddde08fe8707bf3a0"
+   },
+   "arazi_2005.bin": {
+    "yedek": null,
+    "guncel": "cdf8358f6534fcc1700fe78bbb322bdc805842f6596d53cc33efc436e2678796"
+   },
+   "arazi_2006.bin": {
+    "yedek": null,
+    "guncel": "5411b7ca8b1629d0149703aafb6924136524229b9fa099d209aa1f9e75981376"
+   },
+   "arazi_2007.bin": {
+    "yedek": null,
+    "guncel": "789ad93a0186f8a57b2362f7192d255ed23e0ee73bad80cb087f6fc100c3cf81"
+   },
+   "arazi_2008.bin": {
+    "yedek": null,
+    "guncel": "6892a46993b679d96017174c66fb8cc2a9b091419b81d88baf39e9d91d8aeb84"
+   },
+   "arazi_2009.bin": {
+    "yedek": null,
+    "guncel": "82a273f0ffc16bee4132f1cbe987f2c2302a5ee08c116e10198ccb441f497183"
+   },
+   "arazi_2010.bin": {
+    "yedek": null,
+    "guncel": "04b3913b47c8be38f4956084b8c300e63a8a20a67349b7d8665e51550035f0fb"
+   },
+   "arazi_2011.bin": {
+    "yedek": null,
+    "guncel": "430356207dcb7da970541b9b8b40bcc6f3cd9dc6b18c48a43c902a7b60ec77fb"
+   },
+   "arazi_2012.bin": {
+    "yedek": null,
+    "guncel": "362948bbd87cacef368659b8cd8c941e0fba70b0382d30b7e793fd28218d1e28"
+   },
+   "arazi_2013.bin": {
+    "yedek": null,
+    "guncel": "a743482d4605f0f04c1931e92645d110b3dba40692dc811d6e1e06a7f8a210e2"
+   },
+   "arazi_2014.bin": {
+    "yedek": null,
+    "guncel": "f595c4b169de10f44acab59e9f2e34ad85e5059ef46948856adb28b87cbf2e29"
+   },
+   "arazi_2015.bin": {
+    "yedek": null,
+    "guncel": "71d54c7002b51be940cc2cdff7d6fbfe4749121a1c7614b027c28692ec6213ff"
+   },
+   "arazi_2016.bin": {
+    "yedek": null,
+    "guncel": "a8617d97327eb08bcfc8d898da5b1e6e65fde7fbdbb94be4664ad24c509e539b"
+   },
+   "arazi_2017.bin": {
+    "yedek": null,
+    "guncel": "3b6d409cfa1f849d485159ad769ab696f0e7699f5108bfcde1cf0c511d590736"
+   },
+   "arazi_2018.bin": {
+    "yedek": null,
+    "guncel": "8a29fa2a8171a1e4af113b90f851b145eb98a868161cb9678c9ae56eac1f0b60"
+   },
+   "arazi_2019.bin": {
+    "yedek": null,
+    "guncel": "98e1ababbc677cd6dd65e387f5545fd0a2d1d662360c9966a29affda29531260"
+   },
+   "arazi_2020.bin": {
+    "yedek": null,
+    "guncel": "eb0a75c84b9d698ad37cd16674711641822842a6d2bd7ceb14b999f1272e0681"
+   },
+   "arazi_2021.bin": {
+    "yedek": null,
+    "guncel": "41770a8a8747f7ff852ca74e2fd492a4dda2c692a230734898ca83dc693e5928"
+   },
+   "arazi_2022.bin": {
+    "yedek": null,
+    "guncel": "0840f5b2404737792e26d64674f59039335a6c54fb99ded63db0d54ea8329468"
+   },
+   "arazi_2023.bin": {
+    "yedek": null,
+    "guncel": "4a2472e3916f91b25063d274224d3d71ce05883df76f60157f603c2a3738e26d"
+   },
+   "arazi_2024.bin": {
+    "yedek": null,
+    "guncel": "06f5dde0c4f638d17b2ec8b91a925cc181131a6fc6addfe2c9d934c186d2387f"
+   },
+   "arazi_2025.bin": {
+    "yedek": null,
+    "guncel": "37728a161881efe48b3f84ed302b6deba25406f678145abbd285fc18f35e3445"
+   },
+   "arazi_2026.bin": {
+    "yedek": null,
+    "guncel": "daabb76fabbd13aa97b68c331bf81a73ffcead4a0b7850f4ff32a5527a705370"
+   },
+   "arazi_manifest.json": {
+    "yedek": null,
+    "guncel": "470b434ae6533650479b045e1da6e66cfad84a1987dfbd45993e51fc6c6dc261"
+   }
+  },
+  "gercek_dogrulama_fark": {
+   "toplam": 159,
+   "turler": {
+    "metin": 35,
+    "eklendi": 109,
+    "uzunluk": 15
+   },
+   "sayisal_fark": 0,
+   "sayisal_alan": 60
+  }
+ },
+ "olcum_degisti_mi": false,
+ "belge_karsilastirma": [
+  {
+   "ad": "Ham tespit (points toplamı) / veri_toplam_nokta",
+   "belge": 1414674,
+   "bagimsiz": 1414674,
+   "metrics": 1414674
+  },
+  {
+   "ad": "MODIS nokta / veri_modis_nokta",
+   "belge": 259707,
+   "bagimsiz": 259707,
+   "metrics": 259707
+  },
+  {
+   "ad": "VIIRS nokta / veri_viirs_nokta",
+   "belge": 1154967,
+   "bagimsiz": 1154967,
+   "metrics": 1154967
+  },
+  {
+   "ad": "Temizlenmiş (temiz+anız nokta) / huni_kumeleme_girdi",
+   "belge": 1044222,
+   "bagimsiz": 1044222,
+   "metrics": 1044222
+  },
+  {
+   "ad": "Toplam olay (events_*.bin) / events_total",
+   "belge": 471978,
+   "bagimsiz": 471978,
+   "metrics": 471978
+  },
+  {
+   "ad": "Varsayılan süzgeç olay (st=temiz) / perf_olay_sayisi",
+   "belge": 302863,
+   "bagimsiz": 302863,
+   "metrics": 302863
+  },
+  {
+   "ad": "Olaylardaki toplam tespit (n_modis+n_viirs) = temizlenmiş girdi",
+   "belge": 1044222,
+   "bagimsiz": 1044222,
+   "metrics": 1044222
+  },
+  {
+   "ad": "Çift sayım önlenen / events_double_count_avoided",
+   "belge": 59201,
+   "bagimsiz": null,
+   "metrics": 59201
+  }
+ ],
+ "cekirdek": {
+  "olay_toplam": 471978,
+  "olay_durum": {
+   "temiz": 302863,
+   "aniz": 169115
+  },
+  "olay_tespit_toplam": 1044222,
+  "olay_yil": {
+   "2000": {
+    "olay": 438,
+    "durum": {
+     "temiz": 86,
+     "aniz": 352
+    },
+    "tespit": 481,
+    "temiz_olay": 86
+   },
+   "2001": {
+    "olay": 4361,
+    "durum": {
+     "temiz": 2689,
+     "aniz": 1672
+    },
+    "tespit": 5055,
+    "temiz_olay": 2689
+   },
+   "2002": {
+    "olay": 5628,
+    "durum": {
+     "temiz": 3386,
+     "aniz": 2242
+    },
+    "tespit": 6722,
+    "temiz_olay": 3386
+   },
+   "2003": {
+    "olay": 6290,
+    "durum": {
+     "temiz": 3919,
+     "aniz": 2371
+    },
+    "tespit": 7501,
+    "temiz_olay": 3919
+   },
+   "2004": {
+    "olay": 6561,
+    "durum": {
+     "temiz": 3902,
+     "aniz": 2659
+    },
+    "tespit": 7708,
+    "temiz_olay": 3902
+   },
+   "2005": {
+    "olay": 6868,
+    "durum": {
+     "temiz": 4169,
+     "aniz": 2699
+    },
+    "tespit": 8075,
+    "temiz_olay": 4169
+   },
+   "2006": {
+    "olay": 7649,
+    "durum": {
+     "temiz": 4923,
+     "aniz": 2726
+    },
+    "tespit": 9228,
+    "temiz_olay": 4923
+   },
+   "2007": {
+    "olay": 7087,
+    "durum": {
+     "temiz": 4689,
+     "aniz": 2398
+    },
+    "tespit": 8544,
+    "temiz_olay": 4689
+   },
+   "2008": {
+    "olay": 4728,
+    "durum": {
+     "temiz": 2916,
+     "aniz": 1812
+    },
+    "tespit": 5896,
+    "temiz_olay": 2916
+   },
+   "2009": {
+    "olay": 15574,
+    "durum": {
+     "temiz": 9903,
+     "aniz": 5671
+    },
+    "tespit": 19710,
+    "temiz_olay": 9903
+   },
+   "2010": {
+    "olay": 11091,
+    "durum": {
+     "temiz": 7001,
+     "aniz": 4090
+    },
+    "tespit": 13421,
+    "temiz_olay": 7001
+   },
+   "2011": {
+    "olay": 14684,
+    "durum": {
+     "temiz": 8786,
+     "aniz": 5898
+    },
+    "tespit": 18206,
+    "temiz_olay": 8786
+   },
+   "2012": {
+    "olay": 15385,
+    "durum": {
+     "temiz": 10524,
+     "aniz": 4861
+    },
+    "tespit": 31150,
+    "temiz_olay": 10524
+   },
+   "2013": {
+    "olay": 23579,
+    "durum": {
+     "temiz": 13855,
+     "aniz": 9724
+    },
+    "tespit": 50483,
+    "temiz_olay": 13855
+   },
+   "2014": {
+    "olay": 13898,
+    "durum": {
+     "temiz": 9228,
+     "aniz": 4670
+    },
+    "tespit": 27947,
+    "temiz_olay": 9228
+   },
+   "2015": {
+    "olay": 30614,
+    "durum": {
+     "temiz": 18721,
+     "aniz": 11893
+    },
+    "tespit": 73228,
+    "temiz_olay": 18721
+   },
+   "2016": {
+    "olay": 26784,
+    "durum": {
+     "temiz": 16434,
+     "aniz": 10350
+    },
+    "tespit": 59131,
+    "temiz_olay": 16434
+   },
+   "2017": {
+    "olay": 19255,
+    "durum": {
+     "temiz": 12143,
+     "aniz": 7112
+    },
+    "tespit": 39649,
+    "temiz_olay": 12143
+   },
+   "2018": {
+    "olay": 23285,
+    "durum": {
+     "temiz": 14239,
+     "aniz": 9046
+    },
+    "tespit": 55867,
+    "temiz_olay": 14239
+   },
+   "2019": {
+    "olay": 27719,
+    "durum": {
+     "temiz": 16821,
+     "aniz": 10898
+    },
+    "tespit": 62784,
+    "temiz_olay": 16821
+   },
+   "2020": {
+    "olay": 28315,
+    "durum": {
+     "temiz": 18174,
+     "aniz": 10141
+    },
+    "tespit": 68968,
+    "temiz_olay": 18174
+   },
+   "2021": {
+    "olay": 20771,
+    "durum": {
+     "temiz": 13342,
+     "aniz": 7429
+    },
+    "tespit": 66324,
+    "temiz_olay": 13342
+   },
+   "2022": {
+    "olay": 17982,
+    "durum": {
+     "temiz": 11847,
+     "aniz": 6135
+    },
+    "tespit": 35621,
+    "temiz_olay": 11847
+   },
+   "2023": {
+    "olay": 34974,
+    "durum": {
+     "temiz": 24487,
+     "aniz": 10487
+    },
+    "tespit": 86856,
+    "temiz_olay": 24487
+   },
+   "2024": {
+    "olay": 42195,
+    "durum": {
+     "temiz": 27462,
+     "aniz": 14733
+    },
+    "tespit": 118080,
+    "temiz_olay": 27462
+   },
+   "2025": {
+    "olay": 29700,
+    "durum": {
+     "temiz": 21503,
+     "aniz": 8197
+    },
+    "tespit": 84187,
+    "temiz_olay": 21503
+   },
+   "2026": {
+    "olay": 26563,
+    "durum": {
+     "temiz": 17714,
+     "aniz": 8849
+    },
+    "tespit": 73400,
+    "temiz_olay": 17714
+   }
+  },
+  "nokta_toplam": 1414674,
+  "nokta_durum": {
+   "temiz": 827043,
+   "deniz": 8848,
+   "volkan": 5,
+   "statik_nasa": 328379,
+   "sanayi": 27012,
+   "aniz": 217179,
+   "kalici_belirsiz": 6208
+  },
+  "nokta_sensor": {
+   "Terra": 136626,
+   "Aqua": 123081,
+   "SNPP": 637595,
+   "N20": 360942,
+   "N21": 156430
+  },
+  "nokta_yil": {
+   "2000": 496,
+   "2001": 5162,
+   "2002": 6886,
+   "2003": 7733,
+   "2004": 7901,
+   "2005": 8303,
+   "2006": 9459,
+   "2007": 8791,
+   "2008": 6164,
+   "2009": 19979,
+   "2010": 13653,
+   "2011": 18465,
+   "2012": 42566,
+   "2013": 63610,
+   "2014": 40111,
+   "2015": 84887,
+   "2016": 71162,
+   "2017": 53291,
+   "2018": 80108,
+   "2019": 88538,
+   "2020": 96900,
+   "2021": 98065,
+   "2022": 61504,
+   "2023": 122190,
+   "2024": 160343,
+   "2025": 128485,
+   "2026": 109922
+  },
+  "sanliurfa": {
+   "tum_olay": 67937,
+   "tum_pay_pct": 14.39,
+   "temiz_olay": 46490,
+   "temiz_pay_pct": 15.35
+  },
+  "il_toplamlari": {
+   "Adana": 35203,
+   "Adıyaman": 12992,
+   "Afyon": 5329,
+   "Ağrı": 1014,
+   "Aksaray": 3254,
+   "Amasya": 3367,
+   "Ankara": 13910,
+   "Antalya": 4983,
+   "Ardahan": 165,
+   "Artvin": 168,
+   "Aydın": 5157,
+   "Balıkesir": 5728,
+   "Bartın": 106,
+   "Batman": 5347,
+   "Bayburt": 450,
+   "Bilecik": 697,
+   "Bingöl": 1076,
+   "Bitlis": 1130,
+   "Bolu": 406,
+   "Burdur": 1089,
+   "Bursa": 5322,
+   "Çanakkale": 3128,
+   "Çankırı": 3066,
+   "Çorum": 7820,
+   "Denizli": 5478,
+   "Diyarbakır": 32658,
+   "Düzce": 395,
+   "Edirne": 10307,
+   "Elazığ": 2292,
+   "Erzincan": 1187,
+   "Erzurum": 1686,
+   "Eskişehir": 5847,
+   "Gaziantep": 8814,
+   "Giresun": 189,
+   "Gümüşhane": 266,
+   "Hakkari": 1584,
+   "Hatay": 8423,
+   "Iğdır": 2659,
+   "Isparta": 1862,
+   "İstanbul": 1578,
+   "İzmir": 6276,
+   "Kahramanmaraş": 12790,
+   "Karabük": 256,
+   "Karaman": 2976,
+   "Kars": 432,
+   "Kastamonu": 605,
+   "Kayseri": 6321,
+   "Kilis": 1265,
+   "Kırıkkale": 5413,
+   "Kırklareli": 3130,
+   "Kırşehir": 6764,
+   "Kocaeli": 831,
+   "Konya": 33085,
+   "Kütahya": 1373,
+   "Malatya": 2741,
+   "Manisa": 6990,
+   "Mardin": 34291,
+   "Mersin": 7209,
+   "Muğla": 1689,
+   "Muş": 2145,
+   "Nevşehir": 4286,
+   "Niğde": 1691,
+   "Ordu": 266,
+   "Osmaniye": 10400,
+   "Rize": 147,
+   "Sakarya": 2725,
+   "Samsun": 2769,
+   "Şanlıurfa": 67937,
+   "Siirt": 3168,
+   "Sinop": 557,
+   "Şırnak": 4958,
+   "Sivas": 6809,
+   "Tekirdağ": 5974,
+   "Tokat": 2231,
+   "Trabzon": 378,
+   "Tunceli": 671,
+   "Uşak": 3323,
+   "Van": 896,
+   "Yalova": 90,
+   "Yozgat": 9716,
+   "Zonguldak": 272
+  },
+  "sanliurfa_norepeat_pay_pct": 5.04
+ },
+ "ekran_degisimleri": {
+  "top_eski_frp_sum": [
+   {
+    "il": "Antalya",
+    "tarih": "2021-07-28",
+    "tespit": 6740,
+    "frp_sum": 384683.4,
+    "frp_max": 4855.6,
+    "evid": 307626,
+    "deger": 384683.4
+   },
+   {
+    "il": "Muğla",
+    "tarih": "2021-07-31",
+    "tespit": 2123,
+    "frp_sum": 103175.7,
+    "frp_max": 2355.2,
+    "evid": 307807,
+    "deger": 103175.7
+   },
+   {
+    "il": "Antalya",
+    "tarih": "2021-07-29",
+    "tespit": 2336,
+    "frp_sum": 75470.5,
+    "frp_max": 2366.1,
+    "evid": 307718,
+    "deger": 75470.5
+   },
+   {
+    "il": "Bilecik",
+    "tarih": "2025-07-20",
+    "tespit": 1032,
+    "frp_sum": 75410.1,
+    "frp_max": 3021.4,
+    "evid": 428217,
+    "deger": 75410.1
+   },
+   {
+    "il": "İzmir",
+    "tarih": "2025-06-28",
+    "tespit": 996,
+    "frp_sum": 73305.3,
+    "frp_max": 1289.4,
+    "evid": 426373,
+    "deger": 73305.3
+   },
+   {
+    "il": "Muğla",
+    "tarih": "2021-08-02",
+    "tespit": 2318,
+    "frp_sum": 68286.0,
+    "frp_max": 2188.2,
+    "evid": 307866,
+    "deger": 68286.0
+   },
+   {
+    "il": "Çanakkale",
+    "tarih": "2025-07-15",
+    "tespit": 825,
+    "frp_sum": 65549.6,
+    "frp_max": 2558.8,
+    "evid": 427937,
+    "deger": 65549.6
+   },
+   {
+    "il": "Bilecik",
+    "tarih": "2025-06-27",
+    "tespit": 1255,
+    "frp_sum": 63732.6,
+    "frp_max": 3247.6,
+    "evid": 426211,
+    "deger": 63732.6
+   },
+   {
+    "il": "İzmir",
+    "tarih": "2025-07-02",
+    "tespit": 1208,
+    "frp_sum": 57830.3,
+    "frp_max": 687.2,
+    "evid": 426891,
+    "deger": 57830.3
+   },
+   {
+    "il": "Muğla",
+    "tarih": "2026-07-29",
+    "tespit": 561,
+    "frp_sum": 45041.2,
+    "frp_max": 2639.3,
+    "evid": 454809,
+    "deger": 45041.2
+   }
+  ],
+  "top_yeni_frp_max": [
+   {
+    "il": "Antalya",
+    "tarih": "2021-07-28",
+    "tespit": 6740,
+    "frp_sum": 384683.4,
+    "frp_max": 4855.6,
+    "evid": 307626,
+    "deger": 4855.6
+   },
+   {
+    "il": "Antalya",
+    "tarih": "2026-09-07",
+    "tespit": 629,
+    "frp_sum": 29895.4,
+    "frp_max": 4808.4,
+    "evid": 459190,
+    "deger": 4808.4
+   },
+   {
+    "il": "Çanakkale",
+    "tarih": "2023-08-22",
+    "tespit": 344,
+    "frp_sum": 20991.4,
+    "frp_max": 3773.4,
+    "evid": 351200,
+    "deger": 3773.4
+   },
+   {
+    "il": "Çanakkale",
+    "tarih": "2008-07-30",
+    "tespit": 4,
+    "frp_sum": 4487.7,
+    "frp_max": 3335.6,
+    "evid": 46911,
+    "deger": 3335.6
+   },
+   {
+    "il": "Bilecik",
+    "tarih": "2025-06-27",
+    "tespit": 1255,
+    "frp_sum": 63732.6,
+    "frp_max": 3247.6,
+    "evid": 426211,
+    "deger": 3247.6
+   },
+   {
+    "il": "Çanakkale",
+    "tarih": "2013-07-28",
+    "tespit": 29,
+    "frp_sum": 6352.6,
+    "frp_max": 3123.3,
+    "evid": 112395,
+    "deger": 3123.3
+   },
+   {
+    "il": "Bilecik",
+    "tarih": "2025-07-20",
+    "tespit": 1032,
+    "frp_sum": 75410.1,
+    "frp_max": 3021.4,
+    "evid": 428217,
+    "deger": 3021.4
+   },
+   {
+    "il": "İzmir",
+    "tarih": "2020-08-13",
+    "tespit": 226,
+    "frp_sum": 11246.9,
+    "frp_max": 2787.6,
+    "evid": 280895,
+    "deger": 2787.6
+   },
+   {
+    "il": "Muğla",
+    "tarih": "2006-08-21",
+    "tespit": 49,
+    "frp_sum": 13320.5,
+    "frp_max": 2732.8,
+    "evid": 33943,
+    "deger": 2732.8
+   },
+   {
+    "il": "Muğla",
+    "tarih": "2026-07-29",
+    "tespit": 561,
+    "frp_sum": 45041.2,
+    "frp_max": 2639.3,
+    "evid": 454809,
+    "deger": 2639.3
+   }
+  ],
+  "tek_tespit_esik_ustu": 1,
+  "tek_tespit_ornek": [
+   [
+    3058.10009765625,
+    "Ağrı",
+    "2010-08-24"
+   ]
+  ],
+  "orman": {
+   "eski_kural_tum_durum": 2063,
+   "yeni_arazi_kural_tum_durum": 24830,
+   "eski_temiz": 2063,
+   "yeni_temiz": 17000,
+   "kesisim_tum": 612
+  },
+  "tekrarlayan_temiz": {
+   "cikan": 211413,
+   "pay_pct": 69.8
+  },
+  "anomali_ekim2026_norepeat": {
+   "ay": 10,
+   "v_2026": 1555,
+   "tam_kapsam_yil_sayisi": 26,
+   "medyan_eski_tum_yillar": 300.5,
+   "an_eski_pct": 417.5,
+   "medyan_yeni_2012+": 748.0,
+   "an_yeni_pct": 107.9,
+   "medyan_2001_2011": 90.0
+  },
+  "anomali_ekim2026_temiz_tum": {
+   "ay": 10,
+   "v_2026": 3812,
+   "tam_kapsam_yil_sayisi": 26,
+   "medyan_eski_tum_yillar": 1334.5,
+   "an_eski_pct": 185.7,
+   "medyan_yeni_2012+": 2179.0,
+   "an_yeni_pct": 74.9,
+   "medyan_2001_2011": 341.0
+  },
+  "ekim_norepeat_yil": {
+   "2000": 0,
+   "2001": 121,
+   "2002": 73,
+   "2003": 113,
+   "2004": 142,
+   "2005": 83,
+   "2006": 84,
+   "2007": 53,
+   "2008": 25,
+   "2009": 776,
+   "2010": 90,
+   "2011": 666,
+   "2012": 168,
+   "2013": 769,
+   "2014": 135,
+   "2015": 748,
+   "2016": 1000,
+   "2017": 347,
+   "2018": 535,
+   "2019": 749,
+   "2020": 769,
+   "2021": 254,
+   "2022": 234,
+   "2023": 1369,
+   "2024": 1794,
+   "2025": 528,
+   "2026": 1555
+  }
+ },
+ "sanity": {
+  "nan_inf": 0,
+  "negatif": {},
+  "lat_disi": 0,
+  "lon_disi": 0,
+  "gun_disi": 0,
+  "yil_olay_sifir": [],
+  "olay_viirs_20120120_oncesi": 0,
+  "olay_modis_ve_viirs_sifir": 0,
+  "nokta_nan_inf": 0,
+  "nokta_lat_disi": 0,
+  "nokta_lon_disi": 0,
+  "nokta_gun_disi": 0,
+  "nokta_viirs_20120120_oncesi": 0,
+  "n_viirs_pos_2000_2011": 0,
+  "n_modis_sifir_2000_2011": 0,
+  "il_idx_disi": 0,
+  "olay_tarih_aralik": [
+   "2000-11-01",
+   "2026-11-12"
+  ],
+  "nokta_tarih_aralik": [
+   "2000-11-01",
+   "2026-11-12"
+  ],
+  "lat_aralik": [
+   35.823001861572266,
+   42.07850646972656
+  ],
+  "lon_aralik": [
+   25.697324752807617,
+   44.79429244995117
+  ],
+  "ilk_viirs_olay_gunu": "2012-01-20",
+  "ilk_viirs_nokta_gunu": "2012-01-20"
+ }
+}

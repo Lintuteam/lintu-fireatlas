@@ -1,0 +1,1370 @@
+{
+ "uretim": "2026-11-14",
+ "proje": "NASA Yangin Takvimi v2.1",
+ "uyari": "Resmi seri yalnizca ORMAN yanginlaridir; bizim temiz olay serisi tarla/aniz yanginlarini da icerir. n=25 yil (2001-2025); 2000 (kismi) ve 2026 (devam ediyor) kiyas disi.",
+ "bizim_serileri": {
+  "harm_olay_temiz": "Uyumlaştırılmış MODIS-eşdeğer temiz olay (yıllık, tüm yıl; tarla dahil)",
+  "temiz_ham_olay": "Ham temiz olay sayısı, anız-işaretli hariç (MODIS+VIIRS, 2012 kırılımı var)",
+  "modis_olay": "MODIS-yalnız temiz olay, anız hariç (tüm yıl)",
+  "modis_olay_JJAS": "MODIS-yalnız temiz olay, anız hariç, Haz-Eyl",
+  "modis_frp_JJAS": "MODIS-yalnız FRP toplamı (MW), anız hariç, Haz-Eyl",
+  "modis_buyuk_frpmax100": "MODIS-yalnız büyük olay: tepe FRP>=100 MW, anız hariç",
+  "modis_buyuk_n10": "MODIS-yalnız büyük olay: >=10 MODIS tespiti, anız hariç",
+  "orman_modis_olay": "Orman-benzeri (WorldCover ağaç+çalı>=%50) MODIS-yalnız olay",
+  "orman_modis_olay_JJAS": "Orman-benzeri MODIS-yalnız olay, Haz-Eyl",
+  "orman_modis_frp": "Orman-benzeri MODIS-yalnız FRP toplamı (MW)",
+  "orman_modis_buyuk_n5": "Orman-benzeri MODIS-yalnız büyük olay (>=5 MODIS tespiti)",
+  "orman_modis_buyuk_frp100": "Orman-benzeri MODIS-yalnız büyük olay (tepe FRP>=100 MW)"
+ },
+ "orman_benzeri_tanimi": "Olay merkezi cevresi +-250 m WorldCover 2021 agac+calilik payi >= %50 (arazi_<yil>.bin); aniz bayragi olmayan temiz olaylar. Esik OGM verisine bakilarak ayarlanmadi (tek esik denendi).",
+ "modis_yalniz": "points_<yil>.bin icinde sat in {Terra,Aqua}, st=temiz tespitlerden olay bazinda (FRP, tespit sayisi, tepe FRP); VIIRS donemi kirilimindan arinmis",
+ "sezon": "JJAS = Haziran-Eylul",
+ "resmi_veriler": [
+  {
+   "yil": 2000,
+   "ogm_yangin_sayisi": 2353,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 26353,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "Bizde 2000 yalniz Terra ve yilin sonu; kiyas disi",
+   "bizim": {
+    "harm_olay_temiz": 86,
+    "temiz_ham_olay": 59,
+    "modis_olay": 59,
+    "modis_olay_JJAS": 0,
+    "modis_frp_JJAS": 0.0,
+    "modis_buyuk_frpmax100": 0,
+    "modis_buyuk_n10": 0,
+    "orman_modis_olay": 10,
+    "orman_modis_olay_JJAS": 0,
+    "orman_modis_frp": 246.60000038146973,
+    "orman_modis_buyuk_n5": 0,
+    "orman_modis_buyuk_frp100": 0
+   }
+  },
+  {
+   "yil": 2001,
+   "ogm_yangin_sayisi": 2631,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 7394,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 2689,
+    "temiz_ham_olay": 2231,
+    "modis_olay": 2231,
+    "modis_olay_JJAS": 1587,
+    "modis_frp_JJAS": 94727.60002827644,
+    "modis_buyuk_frpmax100": 157,
+    "modis_buyuk_n10": 1,
+    "orman_modis_olay": 78,
+    "orman_modis_olay_JJAS": 48,
+    "orman_modis_frp": 3768.89998626709,
+    "orman_modis_buyuk_n5": 2,
+    "orman_modis_buyuk_frp100": 2
+   }
+  },
+  {
+   "yil": 2002,
+   "ogm_yangin_sayisi": 1471,
+   "yangin_sayisi_durum": "dogrudan",
+   "ogm_yanan_alan_ha": 8514,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://haber.sol.org.tr/haber/akp-doneminde-orman-yanginlari-yuzde-250-oraninda-artti-310377",
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 3386,
+    "temiz_ham_olay": 2775,
+    "modis_olay": 2775,
+    "modis_olay_JJAS": 2265,
+    "modis_frp_JJAS": 143011.9000043869,
+    "modis_buyuk_frpmax100": 193,
+    "modis_buyuk_n10": 4,
+    "orman_modis_olay": 138,
+    "orman_modis_olay_JJAS": 109,
+    "orman_modis_frp": 13675.199984312057,
+    "orman_modis_buyuk_n5": 3,
+    "orman_modis_buyuk_frp100": 9
+   }
+  },
+  {
+   "yil": 2003,
+   "ogm_yangin_sayisi": 2177,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 6644,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)"
+   ],
+   "not_": "BirGun 1.978/6.246 veriyor; 2002-2011 toplamiyla uyusan TMMOB degeri secildi",
+   "bizim": {
+    "harm_olay_temiz": 3919,
+    "temiz_ham_olay": 3220,
+    "modis_olay": 3220,
+    "modis_olay_JJAS": 2381,
+    "modis_frp_JJAS": 158329.59999513626,
+    "modis_buyuk_frpmax100": 233,
+    "modis_buyuk_n10": 2,
+    "orman_modis_olay": 278,
+    "orman_modis_olay_JJAS": 214,
+    "orman_modis_frp": 28679.699996709824,
+    "orman_modis_buyuk_n5": 7,
+    "orman_modis_buyuk_frp100": 50
+   }
+  },
+  {
+   "yil": 2004,
+   "ogm_yangin_sayisi": 1762,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 4876,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 3902,
+    "temiz_ham_olay": 3129,
+    "modis_olay": 3129,
+    "modis_olay_JJAS": 2018,
+    "modis_frp_JJAS": 114395.19983148575,
+    "modis_buyuk_frpmax100": 152,
+    "modis_buyuk_n10": 5,
+    "orman_modis_olay": 190,
+    "orman_modis_olay_JJAS": 108,
+    "orman_modis_frp": 13876.999958992004,
+    "orman_modis_buyuk_n5": 6,
+    "orman_modis_buyuk_frp100": 18
+   }
+  },
+  {
+   "yil": 2005,
+   "ogm_yangin_sayisi": 1530,
+   "yangin_sayisi_durum": "dogrudan",
+   "ogm_yanan_alan_ha": 2821,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://www.birgun.net/haber/orman-yanginlariyla-mucadelede-akdeniz-bilancosu-en-kotu-karne-turkiyenin-727689",
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)"
+   ],
+   "not_": "EFFIS tabanli BirGun/Erdonmez de ayni degeri verir",
+   "bizim": {
+    "harm_olay_temiz": 4169,
+    "temiz_ham_olay": 3435,
+    "modis_olay": 3435,
+    "modis_olay_JJAS": 2426,
+    "modis_frp_JJAS": 145689.19997549057,
+    "modis_buyuk_frpmax100": 199,
+    "modis_buyuk_n10": 0,
+    "orman_modis_olay": 198,
+    "orman_modis_olay_JJAS": 140,
+    "orman_modis_frp": 13582.199954032898,
+    "orman_modis_buyuk_n5": 4,
+    "orman_modis_buyuk_frp100": 23
+   }
+  },
+  {
+   "yil": 2006,
+   "ogm_yangin_sayisi": 2227,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 7762,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 4923,
+    "temiz_ham_olay": 4099,
+    "modis_olay": 4099,
+    "modis_olay_JJAS": 3213,
+    "modis_frp_JJAS": 222590.99979901314,
+    "modis_buyuk_frpmax100": 324,
+    "modis_buyuk_n10": 6,
+    "orman_modis_olay": 181,
+    "orman_modis_olay_JJAS": 139,
+    "orman_modis_frp": 28039.799920082092,
+    "orman_modis_buyuk_n5": 7,
+    "orman_modis_buyuk_frp100": 25
+   }
+  },
+  {
+   "yil": 2007,
+   "ogm_yangin_sayisi": 2829,
+   "yangin_sayisi_durum": "dogrudan_sayi",
+   "ogm_yanan_alan_ha": 11664,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.sozcu.com.tr/yanginlar-artti-ucak-helikopter-azaldi-wp6586513",
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 4689,
+    "temiz_ham_olay": 3903,
+    "modis_olay": 3903,
+    "modis_olay_JJAS": 3035,
+    "modis_frp_JJAS": 227052.00001049042,
+    "modis_buyuk_frpmax100": 337,
+    "modis_buyuk_n10": 3,
+    "orman_modis_olay": 349,
+    "orman_modis_olay_JJAS": 287,
+    "orman_modis_frp": 52878.500039577484,
+    "orman_modis_buyuk_n5": 15,
+    "orman_modis_buyuk_frp100": 74
+   }
+  },
+  {
+   "yil": 2008,
+   "ogm_yangin_sayisi": 2135,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 29749,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://www.sozcu.com.tr/yanginlar-artti-ucak-helikopter-azaldi-wp6586513",
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "Antalya yangini dahil buyuk yil",
+   "bizim": {
+    "harm_olay_temiz": 2916,
+    "temiz_ham_olay": 2408,
+    "modis_olay": 2408,
+    "modis_olay_JJAS": 1679,
+    "modis_frp_JJAS": 153442.60008382797,
+    "modis_buyuk_frpmax100": 165,
+    "modis_buyuk_n10": 8,
+    "orman_modis_olay": 262,
+    "orman_modis_olay_JJAS": 234,
+    "orman_modis_frp": 63300.90019464493,
+    "orman_modis_buyuk_n5": 21,
+    "orman_modis_buyuk_frp100": 62
+   }
+  },
+  {
+   "yil": 2009,
+   "ogm_yangin_sayisi": 1793,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 4679,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.researchgate.net/publication/361560840 (2009/2011 satirlari; arama ozeti)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 9903,
+    "temiz_ham_olay": 8165,
+    "modis_olay": 8165,
+    "modis_olay_JJAS": 6103,
+    "modis_frp_JJAS": 476446.5001153946,
+    "modis_buyuk_frpmax100": 857,
+    "modis_buyuk_n10": 21,
+    "orman_modis_olay": 131,
+    "orman_modis_olay_JJAS": 100,
+    "orman_modis_frp": 11778.400037288666,
+    "orman_modis_buyuk_n5": 1,
+    "orman_modis_buyuk_frp100": 18
+   }
+  },
+  {
+   "yil": 2010,
+   "ogm_yangin_sayisi": 1861,
+   "yangin_sayisi_durum": "dogrudan",
+   "ogm_yanan_alan_ha": 3317,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://www.birgun.net/haber/plan-yok-personel-az-ormanlar-isgal-altinda-iktidar-kafasiyla-bu-tablo-degismez-726606",
+    "https://www.sozcu.com.tr/yanginlar-artti-ucak-helikopter-azaldi-wp6586513"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 7001,
+    "temiz_ham_olay": 5777,
+    "modis_olay": 5777,
+    "modis_olay_JJAS": 4193,
+    "modis_frp_JJAS": 282867.3001024723,
+    "modis_buyuk_frpmax100": 426,
+    "modis_buyuk_n10": 7,
+    "orman_modis_olay": 131,
+    "orman_modis_olay_JJAS": 91,
+    "orman_modis_frp": 5743.599987030029,
+    "orman_modis_buyuk_n5": 3,
+    "orman_modis_buyuk_frp100": 4
+   }
+  },
+  {
+   "yil": 2011,
+   "ogm_yangin_sayisi": 1954,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 3612,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.researchgate.net/publication/361560840 (2009/2011 satirlari; arama ozeti)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 8786,
+    "temiz_ham_olay": 7174,
+    "modis_olay": 7174,
+    "modis_olay_JJAS": 5093,
+    "modis_frp_JJAS": 387080.59996032715,
+    "modis_buyuk_frpmax100": 674,
+    "modis_buyuk_n10": 14,
+    "orman_modis_olay": 133,
+    "orman_modis_olay_JJAS": 94,
+    "orman_modis_frp": 11505.79996752739,
+    "orman_modis_buyuk_n5": 1,
+    "orman_modis_buyuk_frp100": 23
+   }
+  },
+  {
+   "yil": 2012,
+   "ogm_yangin_sayisi": 2450,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 10454,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)",
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 3621,
+    "temiz_ham_olay": 9412,
+    "modis_olay": 3216,
+    "modis_olay_JJAS": 1614,
+    "modis_frp_JJAS": 144184.60021305084,
+    "modis_buyuk_frpmax100": 152,
+    "modis_buyuk_n10": 28,
+    "orman_modis_olay": 137,
+    "orman_modis_olay_JJAS": 98,
+    "orman_modis_frp": 24795.000002145767,
+    "orman_modis_buyuk_n5": 11,
+    "orman_modis_buyuk_frp100": 19
+   }
+  },
+  {
+   "yil": 2013,
+   "ogm_yangin_sayisi": 3755,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 11456,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)",
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 4941,
+    "temiz_ham_olay": 11694,
+    "modis_olay": 4359,
+    "modis_olay_JJAS": 2838,
+    "modis_frp_JJAS": 235299.10019946098,
+    "modis_buyuk_frpmax100": 270,
+    "modis_buyuk_n10": 36,
+    "orman_modis_olay": 149,
+    "orman_modis_olay_JJAS": 108,
+    "orman_modis_frp": 33545.60003185272,
+    "orman_modis_buyuk_n5": 9,
+    "orman_modis_buyuk_frp100": 24
+   }
+  },
+  {
+   "yil": 2014,
+   "ogm_yangin_sayisi": 2149,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 3117,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)",
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 3196,
+    "temiz_ham_olay": 8092,
+    "modis_olay": 2944,
+    "modis_olay_JJAS": 1746,
+    "modis_frp_JJAS": 127672.49994063377,
+    "modis_buyuk_frpmax100": 161,
+    "modis_buyuk_n10": 30,
+    "orman_modis_olay": 87,
+    "orman_modis_olay_JJAS": 47,
+    "orman_modis_frp": 8995.099991321564,
+    "orman_modis_buyuk_n5": 8,
+    "orman_modis_buyuk_frp100": 8
+   }
+  },
+  {
+   "yil": 2015,
+   "ogm_yangin_sayisi": 2150,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 3219,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)",
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 6468,
+    "temiz_ham_olay": 15722,
+    "modis_olay": 6836,
+    "modis_olay_JJAS": 4530,
+    "modis_frp_JJAS": 433529.10044813156,
+    "modis_buyuk_frpmax100": 547,
+    "modis_buyuk_n10": 87,
+    "orman_modis_olay": 112,
+    "orman_modis_olay_JJAS": 64,
+    "orman_modis_frp": 6089.400013446808,
+    "orman_modis_buyuk_n5": 9,
+    "orman_modis_buyuk_frp100": 4
+   }
+  },
+  {
+   "yil": 2016,
+   "ogm_yangin_sayisi": 3188,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 9156,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf (TMMOB Yangin Dosyasi, Tablo 1 = OGM 2025a; yalnizca arama ozetinden okundu, dosya acilmadi/indirilmedi)",
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 5780,
+    "temiz_ham_olay": 14060,
+    "modis_olay": 5229,
+    "modis_olay_JJAS": 3176,
+    "modis_frp_JJAS": 274060.29991936684,
+    "modis_buyuk_frpmax100": 347,
+    "modis_buyuk_n10": 54,
+    "orman_modis_olay": 143,
+    "orman_modis_olay_JJAS": 86,
+    "orman_modis_frp": 14269.799966812134,
+    "orman_modis_buyuk_n5": 10,
+    "orman_modis_buyuk_frp100": 23
+   }
+  },
+  {
+   "yil": 2017,
+   "ogm_yangin_sayisi": 2411,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 11993,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 4096,
+    "temiz_ham_olay": 10416,
+    "modis_olay": 3931,
+    "modis_olay_JJAS": 2228,
+    "modis_frp_JJAS": 185826.50000476837,
+    "modis_buyuk_frpmax100": 209,
+    "modis_buyuk_n10": 37,
+    "orman_modis_olay": 127,
+    "orman_modis_olay_JJAS": 79,
+    "orman_modis_frp": 23089.600056171417,
+    "orman_modis_buyuk_n5": 12,
+    "orman_modis_buyuk_frp100": 11
+   }
+  },
+  {
+   "yil": 2018,
+   "ogm_yangin_sayisi": 2167,
+   "yangin_sayisi_durum": "ara_ozeti",
+   "ogm_yanan_alan_ha": 5644,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://www.kaggle.com/datasets/ozlerhakan/forest-fires-dataset-in-turkey (OGM 1988-2020 derlemesi; yalnizca arama ozetinden okundu)"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 3748,
+    "temiz_ham_olay": 12232,
+    "modis_olay": 3233,
+    "modis_olay_JJAS": 1812,
+    "modis_frp_JJAS": 129518.6001496315,
+    "modis_buyuk_frpmax100": 144,
+    "modis_buyuk_n10": 25,
+    "orman_modis_olay": 115,
+    "orman_modis_olay_JJAS": 75,
+    "orman_modis_frp": 7477.000015735626,
+    "orman_modis_buyuk_n5": 6,
+    "orman_modis_buyuk_frp100": 8
+   }
+  },
+  {
+   "yil": 2019,
+   "ogm_yangin_sayisi": 2687,
+   "yangin_sayisi_durum": "turetilmis",
+   "ogm_yanan_alan_ha": 11332,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://www.sozcu.com.tr/yanginlar-artti-ucak-helikopter-azaldi-wp6586513",
+    "https://cevreselgostergeler.csb.gov.tr/en/forest-fires-i-86072"
+   ],
+   "not_": "Sayi: 2020 sayisinin \"gecen yila gore %26,5 artis\" ifadesinden turetildi",
+   "bizim": {
+    "harm_olay_temiz": 4200,
+    "temiz_ham_olay": 14458,
+    "modis_olay": 3377,
+    "modis_olay_JJAS": 1478,
+    "modis_frp_JJAS": 103622.00011587143,
+    "modis_buyuk_frpmax100": 96,
+    "modis_buyuk_n10": 21,
+    "orman_modis_olay": 79,
+    "orman_modis_olay_JJAS": 35,
+    "orman_modis_frp": 3272.8000013828278,
+    "orman_modis_buyuk_n5": 2,
+    "orman_modis_buyuk_frp100": 4
+   }
+  },
+  {
+   "yil": 2020,
+   "ogm_yangin_sayisi": 3399,
+   "yangin_sayisi_durum": "dogrudan",
+   "ogm_yanan_alan_ha": 20971,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://cevreselgostergeler.csb.gov.tr/en/forest-fires-i-86072",
+    "https://haber.sol.org.tr/haber/akp-doneminde-orman-yanginlari-yuzde-250-oraninda-artti-310377"
+   ],
+   "not_": "sol.org 20.917 yaziyor (yazim farki)",
+   "bizim": {
+    "harm_olay_temiz": 4754,
+    "temiz_ham_olay": 15951,
+    "modis_olay": 3740,
+    "modis_olay_JJAS": 1723,
+    "modis_frp_JJAS": 150681.70000815392,
+    "modis_buyuk_frpmax100": 145,
+    "modis_buyuk_n10": 28,
+    "orman_modis_olay": 121,
+    "orman_modis_olay_JJAS": 62,
+    "orman_modis_frp": 25525.49991106987,
+    "orman_modis_buyuk_n5": 11,
+    "orman_modis_buyuk_frp100": 8
+   }
+  },
+  {
+   "yil": 2021,
+   "ogm_yangin_sayisi": 2793,
+   "yangin_sayisi_durum": "dogrudan",
+   "ogm_yanan_alan_ha": 139503,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://www.ormancilardernegi.org/Yangin",
+    "https://dergipark.org.tr/tr/download/article-file/4282966 (OGM 2023b; yalnizca arama ozeti)"
+   ],
+   "not_": "JRC/EFFIS Advance Report 2021 resmi bildirim olarak ayni degerleri verir",
+   "bizim": {
+    "harm_olay_temiz": 3175,
+    "temiz_ham_olay": 11619,
+    "modis_olay": 2871,
+    "modis_olay_JJAS": 964,
+    "modis_frp_JJAS": 519056.9995546341,
+    "modis_buyuk_frpmax100": 108,
+    "modis_buyuk_n10": 39,
+    "orman_modis_olay": 139,
+    "orman_modis_olay_JJAS": 84,
+    "orman_modis_frp": 453318.1996457577,
+    "orman_modis_buyuk_n5": 28,
+    "orman_modis_buyuk_frp100": 28
+   }
+  },
+  {
+   "yil": 2022,
+   "ogm_yangin_sayisi": 2360,
+   "yangin_sayisi_durum": "turetilmis",
+   "ogm_yanan_alan_ha": 12799,
+   "yanan_alan_durum": "ara_ozeti",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4282966 (OGM 2023b; yalnizca arama ozeti)"
+   ],
+   "not_": "Yanan alan: OGM 2022 istatistikleri (haber ozeti). Sayi: 2014-2023 toplamindan turetilmis, dusuk guven",
+   "bizim": {
+    "harm_olay_temiz": 2647,
+    "temiz_ham_olay": 10620,
+    "modis_olay": 2583,
+    "modis_olay_JJAS": 948,
+    "modis_frp_JJAS": 79732.60001206398,
+    "modis_buyuk_frpmax100": 68,
+    "modis_buyuk_n10": 11,
+    "orman_modis_olay": 80,
+    "orman_modis_olay_JJAS": 40,
+    "orman_modis_frp": 34597.70010185242,
+    "orman_modis_buyuk_n5": 8,
+    "orman_modis_buyuk_frp100": 14
+   }
+  },
+  {
+   "yil": 2023,
+   "ogm_yangin_sayisi": 2386,
+   "yangin_sayisi_durum": "turetilmis",
+   "ogm_yanan_alan_ha": 14556,
+   "yanan_alan_durum": "turetilmis",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4282966 (OGM 2023b; yalnizca arama ozeti)",
+    "https://www.sozcu.com.tr/yanginlar-artti-ucak-helikopter-azaldi-wp6586513"
+   ],
+   "not_": "Alan: 2014-2023 toplami (232.290) eksi diger yillar; Daily Sabah ~15.000 ile uyumlu. Sayi: 6,1 ha/yangin ile turetildi",
+   "bizim": {
+    "harm_olay_temiz": 5310,
+    "temiz_ham_olay": 21699,
+    "modis_olay": 4436,
+    "modis_olay_JJAS": 1829,
+    "modis_frp_JJAS": 104967.29983091354,
+    "modis_buyuk_frpmax100": 92,
+    "modis_buyuk_n10": 11,
+    "orman_modis_olay": 134,
+    "orman_modis_olay_JJAS": 77,
+    "orman_modis_frp": 24199.499840974808,
+    "orman_modis_buyuk_n5": 10,
+    "orman_modis_buyuk_frp100": 15
+   }
+  },
+  {
+   "yil": 2024,
+   "ogm_yangin_sayisi": 3797,
+   "yangin_sayisi_durum": "dogrudan",
+   "ogm_yanan_alan_ha": 27485,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://www.karar.com/guncel-haberler/ogm-acikladi-2025te-81-bin-hektar-orman-kul-oldu-2035214",
+    "https://www.birgun.net/haber/orman-yanginlariyla-mucadelede-akdeniz-bilancosu-en-kotu-karne-turkiyenin-727689"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 6259,
+    "temiz_ham_olay": 23897,
+    "modis_olay": 4999,
+    "modis_olay_JJAS": 2706,
+    "modis_frp_JJAS": 212452.4001698494,
+    "modis_buyuk_frpmax100": 247,
+    "modis_buyuk_n10": 34,
+    "orman_modis_olay": 163,
+    "orman_modis_olay_JJAS": 117,
+    "orman_modis_frp": 51222.100085020065,
+    "orman_modis_buyuk_n5": 24,
+    "orman_modis_buyuk_frp100": 35
+   }
+  },
+  {
+   "yil": 2025,
+   "ogm_yangin_sayisi": 3224,
+   "yangin_sayisi_durum": "dogrudan",
+   "ogm_yanan_alan_ha": 81473,
+   "yanan_alan_durum": "dogrudan",
+   "kaynaklar": [
+    "https://www.karar.com/guncel-haberler/ogm-acikladi-2025te-81-bin-hektar-orman-kul-oldu-2035214",
+    "https://www.birgun.net/haber/plan-yok-personel-az-ormanlar-isgal-altinda-iktidar-kafasiyla-bu-tablo-degismez-726606"
+   ],
+   "not_": "",
+   "bizim": {
+    "harm_olay_temiz": 4172,
+    "temiz_ham_olay": 19612,
+    "modis_olay": 3761,
+    "modis_olay_JJAS": 1541,
+    "modis_frp_JJAS": 363249.70089530945,
+    "modis_buyuk_frpmax100": 169,
+    "modis_buyuk_n10": 44,
+    "orman_modis_olay": 240,
+    "orman_modis_olay_JJAS": 187,
+    "orman_modis_frp": 286535.50077819824,
+    "orman_modis_buyuk_n5": 48,
+    "orman_modis_buyuk_frp100": 74
+   }
+  }
+ ],
+ "kismi_yil": {
+  "2026_kismi": {
+   "yangin_sayisi": 2111,
+   "yanan_alan_ha": 24527,
+   "kaynak": "https://www.cnbce.com/tarim/orman-yanginlarinda-tablo-degisti-hem-yangin-sayisi-hem-yanan-alan-azaldi-h41103 (5 Kasim 2026; yil bitmedi, kiyasa alinmadi)"
+  }
+ },
+ "ic_tutarlilik_kontrolleri": [
+  "OGM 2002-2011 toplami 19.739 yangin / 83.638 ha (EMO, ara ozeti): tablodaki 2002-2011 toplami birebir tutuyor.",
+  "OGM 2000-2010 toplami 22.769 yangin / 113.773 ha: tabloyla birebir tutuyor.",
+  "OGM 2009-2018 toplam 23.878 yangin (Diken/bianet): tabloyla birebir tutuyor. Ayni kaynagin 58.333 ha toplami tutmuyor (tablo 66.647 ha); alan toplami hatali/farkli tanimli kabul edildi.",
+  "2010-2019 yillik ortalama 7.330 ha (TMMOB): tabloyla birebir tutuyor (73.300 ha).",
+  "2014-2023 toplam 25.690 yangin / 232.290 ha (OGM 2023b) ve 2015-2024 toplam 27.332 / 257.622: 2019/2022/2023 disindaki yillarla tutarli (2015-2024 alan toplami %0,4 icinde)."
+ ],
+ "korelasyonlar": {
+  "harm_olay_temiz": {
+   "aciklama": "Uyumlaştırılmış MODIS-eşdeğer temiz olay (yıllık, tüm yıl; tarla dahil)",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": -0.059,
+    "pearson_p": 0.79,
+    "spearman": 0.074,
+    "spearman_p": 0.74
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": -0.056,
+    "pearson_p": 0.79,
+    "spearman": 0.072,
+    "spearman_p": 0.73
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.237,
+    "pearson_p": 0.25,
+    "spearman": -0.225,
+    "spearman_p": 0.28
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.316,
+    "pearson_p": 0.12,
+    "spearman": -0.225,
+    "spearman_p": 0.28
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": -0.118,
+    "pearson_p": 0.59,
+    "spearman": -0.054,
+    "spearman_p": 0.81
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": -0.217,
+    "pearson_p": 0.52,
+    "spearman": -0.064,
+    "spearman_p": 0.85
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": -0.267,
+    "pearson_p": 0.36,
+    "spearman": -0.064,
+    "spearman_p": 0.83
+   }
+  },
+  "temiz_ham_olay": {
+   "aciklama": "Ham temiz olay sayısı, anız-işaretli hariç (MODIS+VIIRS, 2012 kırılımı var)",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.701,
+    "pearson_p": 0.00028,
+    "spearman": 0.616,
+    "spearman_p": 0.0023
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.633,
+    "pearson_p": 0.00068,
+    "spearman": 0.608,
+    "spearman_p": 0.0012
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.291,
+    "pearson_p": 0.16,
+    "spearman": 0.402,
+    "spearman_p": 0.047
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.345,
+    "pearson_p": 0.091,
+    "spearman": 0.402,
+    "spearman_p": 0.047
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.535,
+    "pearson_p": 0.0086,
+    "spearman": 0.552,
+    "spearman_p": 0.0063
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": -0.208,
+    "pearson_p": 0.54,
+    "spearman": -0.064,
+    "spearman_p": 0.85
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.121,
+    "pearson_p": 0.68,
+    "spearman": 0.429,
+    "spearman_p": 0.13
+   }
+  },
+  "modis_olay": {
+   "aciklama": "MODIS-yalnız temiz olay, anız hariç (tüm yıl)",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": -0.049,
+    "pearson_p": 0.83,
+    "spearman": 0.107,
+    "spearman_p": 0.64
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": -0.05,
+    "pearson_p": 0.81,
+    "spearman": 0.087,
+    "spearman_p": 0.68
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.223,
+    "pearson_p": 0.28,
+    "spearman": -0.216,
+    "spearman_p": 0.3
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.315,
+    "pearson_p": 0.13,
+    "spearman": -0.216,
+    "spearman_p": 0.3
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": -0.115,
+    "pearson_p": 0.6,
+    "spearman": -0.053,
+    "spearman_p": 0.81
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": -0.208,
+    "pearson_p": 0.54,
+    "spearman": -0.064,
+    "spearman_p": 0.85
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": -0.271,
+    "pearson_p": 0.35,
+    "spearman": -0.086,
+    "spearman_p": 0.77
+   }
+  },
+  "modis_olay_JJAS": {
+   "aciklama": "MODIS-yalnız temiz olay, anız hariç, Haz-Eyl",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": -0.262,
+    "pearson_p": 0.24,
+    "spearman": -0.261,
+    "spearman_p": 0.24
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": -0.249,
+    "pearson_p": 0.23,
+    "spearman": -0.292,
+    "spearman_p": 0.16
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.381,
+    "pearson_p": 0.06,
+    "spearman": -0.534,
+    "spearman_p": 0.006
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.578,
+    "pearson_p": 0.0025,
+    "spearman": -0.534,
+    "spearman_p": 0.006
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": -0.301,
+    "pearson_p": 0.16,
+    "spearman": -0.443,
+    "spearman_p": 0.034
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": -0.185,
+    "pearson_p": 0.59,
+    "spearman": -0.082,
+    "spearman_p": 0.81
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": -0.408,
+    "pearson_p": 0.15,
+    "spearman": -0.407,
+    "spearman_p": 0.15
+   }
+  },
+  "modis_frp_JJAS": {
+   "aciklama": "MODIS-yalnız FRP toplamı (MW), anız hariç, Haz-Eyl",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.076,
+    "pearson_p": 0.74,
+    "spearman": 0.195,
+    "spearman_p": 0.38
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.066,
+    "pearson_p": 0.76,
+    "spearman": 0.105,
+    "spearman_p": 0.62
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.492,
+    "pearson_p": 0.012,
+    "spearman": 0.009,
+    "spearman_p": 0.97
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.169,
+    "pearson_p": 0.42,
+    "spearman": 0.009,
+    "spearman_p": 0.97
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.18,
+    "pearson_p": 0.41,
+    "spearman": -0.142,
+    "spearman_p": 0.52
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": -0.119,
+    "pearson_p": 0.73,
+    "spearman": 0.127,
+    "spearman_p": 0.71
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.703,
+    "pearson_p": 0.005,
+    "spearman": 0.235,
+    "spearman_p": 0.42
+   }
+  },
+  "modis_buyuk_frpmax100": {
+   "aciklama": "MODIS-yalnız büyük olay: tepe FRP>=100 MW, anız hariç",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": -0.242,
+    "pearson_p": 0.28,
+    "spearman": -0.131,
+    "spearman_p": 0.56
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": -0.231,
+    "pearson_p": 0.27,
+    "spearman": -0.17,
+    "spearman_p": 0.42
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.273,
+    "pearson_p": 0.19,
+    "spearman": -0.424,
+    "spearman_p": 0.035
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": -0.453,
+    "pearson_p": 0.023,
+    "spearman": -0.424,
+    "spearman_p": 0.035
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": -0.238,
+    "pearson_p": 0.28,
+    "spearman": -0.381,
+    "spearman_p": 0.073
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": -0.111,
+    "pearson_p": 0.75,
+    "spearman": 0.091,
+    "spearman_p": 0.79
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": -0.256,
+    "pearson_p": 0.38,
+    "spearman": -0.297,
+    "spearman_p": 0.3
+   }
+  },
+  "modis_buyuk_n10": {
+   "aciklama": "MODIS-yalnız büyük olay: >=10 MODIS tespiti, anız hariç",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.42,
+    "pearson_p": 0.051,
+    "spearman": 0.496,
+    "spearman_p": 0.019
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.417,
+    "pearson_p": 0.038,
+    "spearman": 0.498,
+    "spearman_p": 0.011
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.254,
+    "pearson_p": 0.22,
+    "spearman": 0.308,
+    "spearman_p": 0.13
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.314,
+    "pearson_p": 0.13,
+    "spearman": 0.305,
+    "spearman_p": 0.14
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.247,
+    "pearson_p": 0.26,
+    "spearman": 0.286,
+    "spearman_p": 0.19
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": -0.219,
+    "pearson_p": 0.52,
+    "spearman": -0.118,
+    "spearman_p": 0.73
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.07,
+    "pearson_p": 0.81,
+    "spearman": -0.022,
+    "spearman_p": 0.94
+   }
+  },
+  "orman_modis_olay": {
+   "aciklama": "Orman-benzeri (WorldCover ağaç+çalı>=%50) MODIS-yalnız olay",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.052,
+    "pearson_p": 0.82,
+    "spearman": 0.084,
+    "spearman_p": 0.71
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.038,
+    "pearson_p": 0.86,
+    "spearman": 0.034,
+    "spearman_p": 0.87
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.13,
+    "pearson_p": 0.53,
+    "spearman": 0.225,
+    "spearman_p": 0.28
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.223,
+    "pearson_p": 0.28,
+    "spearman": 0.225,
+    "spearman_p": 0.28
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.279,
+    "pearson_p": 0.2,
+    "spearman": 0.133,
+    "spearman_p": 0.54
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": 0.39,
+    "pearson_p": 0.24,
+    "spearman": 0.187,
+    "spearman_p": 0.58
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.483,
+    "pearson_p": 0.08,
+    "spearman": 0.508,
+    "spearman_p": 0.064
+   }
+  },
+  "orman_modis_olay_JJAS": {
+   "aciklama": "Orman-benzeri MODIS-yalnız olay, Haz-Eyl",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.024,
+    "pearson_p": 0.92,
+    "spearman": -0.058,
+    "spearman_p": 0.8
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.012,
+    "pearson_p": 0.96,
+    "spearman": -0.103,
+    "spearman_p": 0.62
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.11,
+    "pearson_p": 0.6,
+    "spearman": 0.103,
+    "spearman_p": 0.63
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.187,
+    "pearson_p": 0.37,
+    "spearman": 0.103,
+    "spearman_p": 0.63
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.281,
+    "pearson_p": 0.19,
+    "spearman": 0.045,
+    "spearman_p": 0.84
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": 0.423,
+    "pearson_p": 0.19,
+    "spearman": 0.191,
+    "spearman_p": 0.57
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.431,
+    "pearson_p": 0.12,
+    "spearman": 0.389,
+    "spearman_p": 0.17
+   }
+  },
+  "orman_modis_frp": {
+   "aciklama": "Orman-benzeri MODIS-yalnız FRP toplamı (MW)",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.299,
+    "pearson_p": 0.18,
+    "spearman": 0.543,
+    "spearman_p": 0.0091
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.29,
+    "pearson_p": 0.16,
+    "spearman": 0.468,
+    "spearman_p": 0.018
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.988,
+    "pearson_p": 5.1e-20,
+    "spearman": 0.762,
+    "spearman_p": 9.8e-06
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.835,
+    "pearson_p": 2e-07,
+    "spearman": 0.762,
+    "spearman_p": 9.8e-06
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.963,
+    "pearson_p": 2.1e-13,
+    "spearman": 0.694,
+    "spearman_p": 0.00024
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": 0.453,
+    "pearson_p": 0.16,
+    "spearman": 0.236,
+    "spearman_p": 0.48
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.993,
+    "pearson_p": 2e-12,
+    "spearman": 0.837,
+    "spearman_p": 0.00019
+   }
+  },
+  "orman_modis_buyuk_n5": {
+   "aciklama": "Orman-benzeri MODIS-yalnız büyük olay (>=5 MODIS tespiti)",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.542,
+    "pearson_p": 0.0092,
+    "spearman": 0.68,
+    "spearman_p": 0.00049
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.52,
+    "pearson_p": 0.0078,
+    "spearman": 0.621,
+    "spearman_p": 0.00091
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.764,
+    "pearson_p": 8.9e-06,
+    "spearman": 0.748,
+    "spearman_p": 1.7e-05
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.712,
+    "pearson_p": 6.6e-05,
+    "spearman": 0.748,
+    "spearman_p": 1.7e-05
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.937,
+    "pearson_p": 4.6e-11,
+    "spearman": 0.678,
+    "spearman_p": 0.00038
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": 0.43,
+    "pearson_p": 0.19,
+    "spearman": 0.371,
+    "spearman_p": 0.26
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.753,
+    "pearson_p": 0.0019,
+    "spearman": 0.715,
+    "spearman_p": 0.004
+   }
+  },
+  "orman_modis_buyuk_frp100": {
+   "aciklama": "Orman-benzeri MODIS-yalnız büyük olay (tepe FRP>=100 MW)",
+   "vs_ogm_yangin_sayisi_kaynakli_yillar": {
+    "n": 22,
+    "pearson": 0.282,
+    "pearson_p": 0.2,
+    "spearman": 0.338,
+    "spearman_p": 0.12
+   },
+   "vs_ogm_yangin_sayisi_turetilmisler_dahil": {
+    "n": 25,
+    "pearson": 0.262,
+    "pearson_p": 0.21,
+    "spearman": 0.257,
+    "spearman_p": 0.21
+   },
+   "vs_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.367,
+    "pearson_p": 0.071,
+    "spearman": 0.43,
+    "spearman_p": 0.032
+   },
+   "vs_log10_ogm_yanan_alan": {
+    "n": 25,
+    "pearson": 0.445,
+    "pearson_p": 0.026,
+    "spearman": 0.43,
+    "spearman_p": 0.032
+   },
+   "vs_ogm_yanan_alan_2008_2021_haric": {
+    "n": 23,
+    "pearson": 0.591,
+    "pearson_p": 0.003,
+    "spearman": 0.304,
+    "spearman_p": 0.16
+   },
+   "vs_ogm_yangin_sayisi_2001_2011_MODIS_donemi": {
+    "n": 11,
+    "pearson": 0.497,
+    "pearson_p": 0.12,
+    "spearman": 0.416,
+    "spearman_p": 0.2
+   },
+   "vs_ogm_yanan_alan_2012_2025": {
+    "n": 14,
+    "pearson": 0.584,
+    "pearson_p": 0.028,
+    "spearman": 0.634,
+    "spearman_p": 0.015
+   }
+  },
+  "_ogm_ic_tutarlilik_yangin_sayisi_vs_yanan_alan": {
+   "n": 25,
+   "pearson": 0.345,
+   "pearson_p": 0.091,
+   "spearman": 0.687,
+   "spearman_p": 0.00015
+  }
+ },
+ "en_iyi_seri": {
+  "ad": "orman_modis_frp",
+  "ek_dogrulama": {
+   "pearson_n25": 0.988,
+   "spearman_n25": 0.762,
+   "pearson_2021_haric_n24": 0.958,
+   "spearman_2021_haric_n24": 0.73,
+   "pearson_2001_2011_n11": 0.837,
+   "spearman_2001_2011_n11": 0.664,
+   "pearson_2012_2025_n14": 0.993,
+   "spearman_2012_2025_n14": 0.837,
+   "loglog_r": 0.835,
+   "en_buyuk_5_yil_bizim": [
+    2021,
+    2025,
+    2008,
+    2007,
+    2024
+   ],
+   "en_buyuk_5_yil_ogm": [
+    2021,
+    2025,
+    2008,
+    2024,
+    2020
+   ]
+  }
+ },
+ "effis": "Yillik EFFIS Turkiye serisi (yanan alan, >=30 ha yangin sayisi) acilabilir HTML sayfada bulunamadi; korelasyon hesaplanmadi. Bulunanlar: 2021 JRC Advance Report resmi bildirimi 2.793 yangin/139.503 ha (https://effis.jrc.ec.europa.eu/effis/reports-and-publications/effis-related-publications/Advance_Report_2021_JRC128678.pdf, arama ozeti); Erdonmez EFFIS analizi 2005 1.530/2.821 ha, 2024 3.797/27.485 ha (OGM ile ayni).",
+ "il_duzeyi": {
+  "durum": "Il bazinda resmi tablo bulunamadi; siralama korelasyonu hesaplanmadi. Tek veri: 2009-2018 yanan alanda ilk 3 il Hatay 7.042, Izmir 6.321, Antalya 6.211 ha (bianet/Diken, OGM). Bizim orman-benzeri MODIS olay sayisi 2009-2018: Adana 236, Izmir 126, Antalya 93, Hatay 85, Mersin 71, Mugla 67. OGM ilk 3 ilin tamami bizim ilk 4 icinde. Bu n=3 bilgidir, korelasyon degildir. Tum temiz olaylarda ilk iller Sanliurfa, Mardin, Diyarbakir (tarla) cikar: ham seri il duzeyinde orman yanginiyla uyusmaz.",
+  "indirilmesi_gereken": "OGM Ormancilik Istatistikleri zip paketleri (12 ORMAN YANGINLARI kategorisi, il/OBM tablolari): https://www.ogm.gov.tr/tr/e-kutuphane/kitaplik/Ormancilik-istatistikleri ; \"20xx ORMANCILIK ISTATISTIKLERI (zip)\" 2013-2025, boyut sayfada yazmiyor. 2010 yilligi PDF: https://www.ogm.gov.tr/tr/e-kutuphane-sitesi/Istatistikler/Ormanc%C4%B1l%C4%B1k%20%C4%B0statistikleri/Ormanc%C4%B1l%C4%B1k%20%C4%B0statistikleri%202010.pdf . TMMOB Tablo 1 (1990-2024) PDF: https://tmmob.org.tr/sites/default/files/orta-sayfa-26-ocak.pdf . Hicbiri indirilmedi."
+ }
+}

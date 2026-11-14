@@ -1,0 +1,45 @@
+{
+ "modis_kesinti_gunu_olan_ay": 12,
+ "duzeltmeli_ge_duzeltmesiz": true,
+ "tamamen_kapsamsiz_gunlerde_modis_tespit": 0,
+ "bos_birakilan_ay_hucresi_TR": 1,
+ "kesintisi_cok_ve_sifir_yazilan": 0,
+ "ornek": [
+  {
+   "yil": 2002,
+   "ay": 7,
+   "kesinti_pay_modis": 0.032258064516129004,
+   "modis_ham": 939.0,
+   "modis_ham_kk": 970.3000000000001
+  },
+  {
+   "yil": 2002,
+   "ay": 8,
+   "kesinti_pay_modis": 0.11290322580645162,
+   "modis_ham": 1360.0,
+   "modis_ham_kk": 1533.090909090909
+  },
+  {
+   "yil": 2020,
+   "ay": 8,
+   "kesinti_pay_modis": 0.032258064516129004,
+   "modis_ham": 777.0,
+   "modis_ham_kk": 802.9
+  },
+  {
+   "yil": 2020,
+   "ay": 9,
+   "kesinti_pay_modis": 0.033333333333333326,
+   "modis_ham": 1261.0,
+   "modis_ham_kk": 1304.4827586206898
+  },
+  {
+   "yil": 2022,
+   "ay": 3,
+   "kesinti_pay_modis": 0.016129032258064502,
+   "modis_ham": 138.0,
+   "modis_ham_kk": 140.2622950819672
+  }
+ ],
+ "sonuc": "GECTI"
+}

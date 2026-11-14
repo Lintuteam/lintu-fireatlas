@@ -1,0 +1,782 @@
+{
+ "genel": {
+  "a_2021_toplam_yanan_alan": {
+   "bilgi": "Türkiye'de 2021'de 2.793 orman yangınında toplam 139.503 hektar alan yandı (OGM 2021 faaliyet raporu verisi). Aynı yıl Temmuz 28–Ağustos 12 arasında güney/güneybatıda GTÜ uydu analizi 83.810 ha buldu.",
+   "uyari": "Rakam OGM 2025 Faaliyet Raporu Tablo 16-17'den doğrulandı (2021: 2.793 yangın, 139.503 ha). EFFIS Advance Report 2021 PDF'i açılamadı; NASA Earth Observatory (4 Ağustos 2021) EFFIS'e atfen o tarihe dek >136.000 ha bildirdi.",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/tr/e-kutuphane-sitesi/FaaliyetRaporu/2025%20-%20Orman%20Genel%20M%C3%BCd%C3%BCrl%C3%BC%C4%9F%C3%BC%20Faaliyet%20Raporu.pdf",
+    "https://science.nasa.gov/earth/earth-observatory/fires-rage-in-turkey-148650",
+    "https://www.birgun.net/haber/orman-genel-mudurlugu-raporu-yanan-orman-alani-onceki-yila-oranla-alti-kat-artti-378913",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires"
+   ],
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM 2025 Faaliyet Raporu, Tablo 16-17 (2021-2025 yangın sayısı ve alan)",
+     "url": "https://www.ogm.gov.tr/tr/e-kutuphane-sitesi/FaaliyetRaporu/2025%20-%20Orman%20Genel%20M%C3%BCd%C3%BCrl%C3%BC%C4%9F%C3%BC%20Faaliyet%20Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Ulusal toplam: 2021 = 2.793 yangın / 139.503 ha; 2022 = 2.160 / 12.799; 2023 = 2.579 / 15.520; 2024 = 3.797 / 27.485; 2025 = 3.224 / 81.473 ha. Tek tek yangın bazında veri yok."
+    },
+    {
+     "ad": "NASA Earth Observatory: Fires Rage in Turkey (4 Ağustos 2021)",
+     "url": "https://science.nasa.gov/earth/earth-observatory/fires-rage-in-turkey-148650",
+     "tur": "resmi",
+     "kurum": "NASA Earth Observatory",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Landsat 8 (31 Temmuz 2021): Alanya-Manavgat yangınları; MODIS/Aqua: Antalya ve Marmaris; EFFIS'e atfen Türkiye'de o tarihe dek >136.000 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.birgun.net/haber/orman-genel-mudurlugu-raporu-yanan-orman-alani-onceki-yila-oranla-alti-kat-artti-378913",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  "b_cozunurluk": {
+   "bilgi": "NASA FIRMS: MODIS aktif yangın algoritması yaklaşık 1 km piksel üretir (tarama kenarında piksel büyür); VIIRS (S-NPP, NOAA-20/21) nadirde yaklaşık 375 m piksel. Bu yüzden VIIRS daha küçük yangınları ve yangın çevresini daha iyi yakalar.",
+   "kaynaklar": [
+    "https://earthdata.nasa.gov/data/tools/firms/active-fire-data-attributes-modis-viirs",
+    "https://www.earthdata.nasa.gov/news/blog/characteristics-viirs-modis-oli-sensors-effects-spatial-extent-daily-active-fire-data"
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "NASA/Earthdata resmî sayfaları"
+  },
+  "c_modis_gorev_sonu": {
+   "bilgi": "Terra son yörünge manevrası 27 Şubat 2020, Aqua 18 Mart 2021; sonrasında ikisi de yakıt tasarrufu için yörünge sapmasına bırakıldı (Terra 10:30'dan 10:15 MLT'ye kaydı; Aqua'nın ekvator geçişi ~15:50'ye doğru kayıyor). Eski planlama: Terra Aralık 2025, Aqua Ağustos 2026. NASA Earth Observer (29 Aralık 2025) güncel öngörü: bilim operasyonlarının sonu Terra Şubat 2027, Aqua Eylül 2027; Terra'da güç kısıtları nedeniyle bazı cihazlar kapatıldı, MODIS çalışmaya devam ediyor (Şubat 2026). Yani MODIS zaman serisi tutarlılığı bozuluyor ve yakında sona eriyor; VIIRS (JPSS) süreklilik sağlıyor.",
+   "kaynaklar": [
+    "https://modis-land.gsfc.nasa.gov/news.html",
+    "https://science.nasa.gov/science-research/earth-science/terra-the-end-of-an-era",
+    "https://science.nasa.gov/blogs/science-news/2026/02/12/terra-adjusts-instrument-operations-to-extend-mission-life"
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "NASA/Earthdata resmî sayfaları"
+  }
+ },
+ "olaylar": [
+  {
+   "event_id": 307626,
+   "il": "Antalya",
+   "bizim_baslangic": "2021-07-28 12:00",
+   "bizim_sure_saat": 218.6,
+   "bizim_frp_toplam_mw": 384683,
+   "yangin_adi": "Manavgat orman yangını (Antalya, 2021)",
+   "resmi_baslangic": "2021-07-28",
+   "resmi_kontrol": "2021-08-06",
+   "yanan_alan_ha": "56.663 (GTÜ uydu analizi, bianet) – yaklaşık 60.000 (BirGün, ilk tahmin; teknik ölçüm sürüyordu)",
+   "ilce": "Manavgat (Antalya)",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://www.copernicus.eu/en/media/image-day-gallery/violent-wildfires-turkey",
+    "https://science.nasa.gov/earth/earth-observatory/fires-rage-in-turkey-148650",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.birgun.net/haber/manavgat-yangininin-bilancosu-7-insan-on-binlerce-hayvan-ve-60-bin-hektar-orman-kaybedildi-354464"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "Başlangıç 28 Temmuz 11:30, kontrol 6 Ağustos 15:30 (~220 saat); bizim olay tarih ve konumla birebir örtüşüyor.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Yıldız Z. (2026) 2021 Yılı Yazında Dünya'da ve Türkiye'de Meydana Gelen Büyük Orman Yangınları, Bartın Orman Fakültesi Dergisi 28(1):1-15 (OGM verilerine dayanır; DOI 10.24011/barofd.1698659)",
+     "url": "https://dergipark.org.tr/tr/download/article-file/4867209",
+     "tur": "bilimsel",
+     "kurum": "Hakemli dergi",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Manavgat'ta 28 Temmuz 2021'de başlayan yangında 26.903 ha orman zarar gördü (Çamalan vd. 2023 atfıyla); Antalya geneli 278 yangın/71.106 ha; OGM il toplamı Antalya 60.366 ha. Not: GTÜ uydu analizi (56.663 ha) farklı yöntem/kapsam."
+    },
+    {
+     "ad": "Copernicus Image of the Day: Violent wildfires in Türkiye (Sentinel-3, 29 Temmuz 2021)",
+     "url": "https://www.copernicus.eu/en/media/image-day-gallery/violent-wildfires-turkey",
+     "tur": "resmi",
+     "kurum": "Copernicus (AB)",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Yangınlar 28 Temmuz 2021'de başladı; Manavgat ve ~50 km kuzeyindeki Akseki anılıyor. Yanan alan rakamı yok; EMS aktivasyonu belirtilmiyor."
+    },
+    {
+     "ad": "NASA Earth Observatory: Fires Rage in Turkey (4 Ağustos 2021)",
+     "url": "https://science.nasa.gov/earth/earth-observatory/fires-rage-in-turkey-148650",
+     "tur": "resmi",
+     "kurum": "NASA Earth Observatory",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Landsat 8 (31 Temmuz 2021): Alanya-Manavgat yangınları; MODIS/Aqua: Antalya ve Marmaris; EFFIS'e atfen Türkiye'de o tarihe dek >136.000 ha."
+    }
+   ],
+   "kaynak_turu": "resmi+bilimsel",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.birgun.net/haber/manavgat-yangininin-bilancosu-7-insan-on-binlerce-hayvan-ve-60-bin-hektar-orman-kaybedildi-354464"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 307807,
+   "il": "Muğla",
+   "bizim_baslangic": "2021-07-31 23:34",
+   "bizim_sure_saat": 171.8,
+   "bizim_frp_toplam_mw": 103176,
+   "yangin_adi": "Milas (Beyciler) – Bodrum (Mazı/Gökpınar) yangını, Muğla 2021",
+   "resmi_baslangic": "2021-07-31",
+   "resmi_kontrol": "2021-08-10",
+   "yanan_alan_ha": "Bodrum 11.898 (GTÜ, bianet); Milas 13.464 (DHA tablosu); 9 Ağustos kümülatif: Bodrum 9.085, Milas 8.480 (Cumhuriyet). Aralık: 8.480–13.464",
+   "ilce": "Milas / Bodrum (Muğla)",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://www.birgun.net/haber/orman-yanginlari-mugla-milas-kontrol-altina-alindi-354685",
+    "https://www.birgun.net/haber/tarim-ve-orman-bakani-pakdemirli-gazipasa-silifke-ve-bodrum-yanginlari-kontrol-altina-alindi-353627",
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "Yangın 31 Temmuz'da Milas Beyciler'de başlayıp Bodrum Mazı/Gökpınar'a yayıldı; Milas kısmı 10 Ağustos akşamı kontrol altına alındı (Bakan Pakdemirli). Alan rakamları kaynaklara göre belirgin farklı.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Milas Karacahisar işletmesi, çıkış 31.07.2021, 12.764,0 ha (Bodrum'a yayılan kol bu kayıtta)."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.birgun.net/haber/orman-yanginlari-mugla-milas-kontrol-altina-alindi-354685",
+    "https://www.birgun.net/haber/tarim-ve-orman-bakani-pakdemirli-gazipasa-silifke-ve-bodrum-yanginlari-kontrol-altina-alindi-353627",
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 307718,
+   "il": "Antalya",
+   "bizim_baslangic": "2021-07-29 12:53",
+   "bizim_sure_saat": 193.7,
+   "bizim_frp_toplam_mw": 75470,
+   "yangin_adi": "Manavgat yangın kompleksinin doğu kolu / Gündoğmuş (Antalya, 2021)",
+   "resmi_baslangic": "2021-07-28 (Manavgat kompleksi; Gündoğmuş kolunun ayrı başlangıç tarihi bulunamadı)",
+   "resmi_kontrol": "2021-08-06 (Manavgat)",
+   "yanan_alan_ha": "Gündoğmuş: 685 (GTÜ, bianet); Manavgat kompleksinin toplamı için 307626'ya bakınız",
+   "ilce": "Gündoğmuş / Alanya sınırı (Antalya)",
+   "kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.birgun.net/haber/manavgat-yangininin-bilancosu-7-insan-on-binlerce-hayvan-ve-60-bin-hektar-orman-kaybedildi-354464"
+   ],
+   "eslesme": "kısmen",
+   "not": "Konum Gündoğmuş'a denk geliyor ve GTÜ analizi Gündoğmuş'u Manavgat yangınının ayrı kalemi olarak veriyor; bizim olay (307626 ile birlikte) aynı gerçek yangın kompleksinin parçası olabilir, ancak ayrı ateşleme tarihi doğrulanamadı.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.birgun.net/haber/manavgat-yangininin-bilancosu-7-insan-on-binlerce-hayvan-ve-60-bin-hektar-orman-kaybedildi-354464"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 428217,
+   "il": "Bilecik",
+   "bizim_baslangic": "2025-07-20 22:04",
+   "bizim_sure_saat": 88.9,
+   "bizim_frp_toplam_mw": 75410,
+   "yangin_adi": "Geyve (Sakarya) → Osmaneli (Bilecik) yangını, Temmuz 2025",
+   "resmi_baslangic": "2025-07-20",
+   "resmi_kontrol": null,
+   "yanan_alan_ha": "bulunamadı (hektar rakamı açılan sayfalarda yok)",
+   "ilce": "Osmaneli (Bilecik); çıkış yeri Geyve (Sakarya)",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+    "https://www.yeniasir.com.tr/yasam/2025/07/22/bilecikte-yangin-faciasi-bilecik-tarihinin-en-buyuk-yanginini-yasiyor-4-koy-bosaltildi",
+    "https://www.birgun.net/haber/sakarya-daki-orman-yangininda-28-inci-saat-alevlerin-boyutu-hava-kararinca-ortaya-cikti-639825"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "20 Temmuz ~17:00'de Geyve'de başladı, Osmaneli'ye geçti; 22 Temmuz'da vali 'kontrol altında diyemeyiz' dedi. Kesin kontrol tarihi ve alan bulunamadı. Aynı olay 426211'den (Haziran) ayrı bir yangındır.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Orman Yangınlarıyla İlgili Açıklama Yaptı (25.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6682/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Geyve (Sakarya)-Osmaneli (Bilecik) Bozören yangını ve Bayat yangını tamamen kontrol altında; Seyitgazi (Eskişehir)-Afyon sınırı yangını kontrol altında; Safranbolu/Ovacık (Karabük) devam ediyor; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.yeniasir.com.tr/yasam/2025/07/22/bilecikte-yangin-faciasi-bilecik-tarihinin-en-buyuk-yanginini-yasiyor-4-koy-bosaltildi",
+    "https://www.birgun.net/haber/sakarya-daki-orman-yangininda-28-inci-saat-alevlerin-boyutu-hava-kararinca-ortaya-cikti-639825"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 426373,
+   "il": "İzmir",
+   "bizim_baslangic": "2025-06-28 14:46",
+   "bizim_sure_saat": 61.4,
+   "bizim_frp_toplam_mw": 73305,
+   "yangin_adi": "Seferihisar (Doğanbey) – Menderes (Kuyucak) yangını, İzmir 2025",
+   "resmi_baslangic": "2025-06-29",
+   "resmi_kontrol": "2025-07-02",
+   "yanan_alan_ha": "yaklaşık 8.500 (İTÜ UHUZAM uydu analizi, 'Seferihisar çevresi ~85 km²')",
+   "ilce": "Seferihisar / Menderes (İzmir)",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+    "https://www.ogm.gov.tr/izmirobm/haberler/seferihisar-kavakderede-cikan-yangin-sonrasi-agaclandirma-calismalari-suruyor",
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "Yangın 29 Haziran ~12:57'de Menderes-Kuyucak/Seferihisar-Doğanbey sınırında başladı (bizim tespit ~22 saat önce görünüyor, ±1 gün içinde); 2 Temmuz'a kadar tamamen kontrol altında. Kaynak: Küre Ansiklopedi (ikincil).",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı'dan Orman Yangınlarına Karşı Toplumsal Duyarlılık Çağrısı (1.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Devam eden yangınlar: Manisa Akhisar/Kula/Ahmetli, İzmir Seferihisar/Menderes, Hatay Antakya; yanan alan (ha) verilmiyor."
+    },
+    {
+     "ad": "OGM İzmir OBM: Seferihisar Kavakdere'de Çıkan Yangın Sonrası Ağaçlandırma Çalışmaları Sürüyor (24.02.2026)",
+     "url": "https://www.ogm.gov.tr/izmirobm/haberler/seferihisar-kavakderede-cikan-yangin-sonrasi-agaclandirma-calismalari-suruyor",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Seferihisar Kavakdere'de yangın 29.06.2025'te başladı; yanan alan belirtilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 307866,
+   "il": "Muğla",
+   "bizim_baslangic": "2021-08-02 23:22",
+   "bizim_sure_saat": 124.0,
+   "bizim_frp_toplam_mw": 68286,
+   "yangin_adi": "Kavaklıdere–Yatağan–Yılanlı yangını (Muğla, 2021) / Yatağan",
+   "resmi_baslangic": "2021-08-02",
+   "resmi_kontrol": "2021-08-08",
+   "yanan_alan_ha": "Yatağan–Çine yangını 2.014 (Cumhuriyet, 9 Ağustos) – 2.150 (DHA); aynı sayfadaki 'Kavaklıdere–Yatağan–Yılanlı 15.238 ha' değeri tek yangına ait görünmüyor, doğrulanamadı",
+   "ilce": "Yatağan / Kavaklıdere (Muğla)",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130"
+   ],
+   "eslesme": "kısmen",
+   "not": "Konum ve 2 Ağustos başlangıcı Kavaklıdere–Yatağan yangınıyla uyuşuyor; ancak alan rakamları tutarsız ve bizim olayın tam hangi ateşlemeye karşılık geldiği kesin değil.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Kavaklıdere/Menteşe 02.08.2021: 5.511,7 ha; Yılanlı/Şenyayla 04.08.2021: 2.523,0 ha; Yatağan/Menteşeçayı 04.08.2021: 2.086,5 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 427937,
+   "il": "Çanakkale",
+   "bizim_baslangic": "2025-07-15 13:37",
+   "bizim_sure_saat": 37.3,
+   "bizim_frp_toplam_mw": 65550,
+   "yangin_adi": "Şarköy (Tekirdağ) → Gelibolu/Kavakköy (Çanakkale) yangını, Temmuz 2025",
+   "resmi_baslangic": "2025-07-15",
+   "resmi_kontrol": "2025-07-17 (kısmi/yaygın kontrol; haberlerde tarih doğrulanamadı)",
+   "yanan_alan_ha": "bulunamadı",
+   "ilce": "Gelibolu (Kavakköy) / Şarköy",
+   "kaynaklar": [
+    "https://tekirdag.tarimorman.gov.tr/Sayfalar/Detay.aspx?TermStoreId=368e785b-af33-487d-a98d-c11d5495130b&TermSetId=a5f1f40b-b0ec-40c5-8a14-a890f6f9cea2&TermId=f231bc2d-a483-49b7-9c96-1ef378bb0796&UrlSuffix=1885/Tarim-Ve-Orman-Bakani-Ibrahim-Yumakli-Sarkoyde-Yangin-Bolgesinde-Incelemelerde-Bulundu",
+    "https://www.aa.com.tr/tr/gundem/tekirdagdan-canakkaleye-sicrayan-yanginda-zarar-goren-alanlar-dronla-goruntulendi/3633403"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "15 Temmuz 2025 Şarköy-Şenköy'de başlayıp Çanakkale-Gelibolu Kavakköy kırsalına sıçradı; açılan sayfalarda hektar yok. Bizim olay Çanakkale sınırındaki bölümü yakalıyor.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Tekirdağ İl Tarım ve Orman Müdürlüğü: Bakan Yumaklı Şarköy'de Yangın Bölgesinde İncelemelerde Bulundu (17.07.2025)",
+     "url": "https://tekirdag.tarimorman.gov.tr/Sayfalar/Detay.aspx?TermStoreId=368e785b-af33-487d-a98d-c11d5495130b&TermSetId=a5f1f40b-b0ec-40c5-8a14-a890f6f9cea2&TermId=f231bc2d-a483-49b7-9c96-1ef378bb0796&UrlSuffix=1885/Tarim-Ve-Orman-Bakani-Ibrahim-Yumakli-Sarkoyde-Yangin-Bolgesinde-Incelemelerde-Bulundu",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı (il müdürlüğü)",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Şarköy (Tekirdağ) yangını 15.07.2025; Gelibolu'ya sıçrama ve yanan alan sayfada yok (yalnız Şarköy kısmını doğrular)."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu (kısmi: yalnız Şarköy kısmı)",
+   "ikincil_kaynaklar": [
+    "https://www.aa.com.tr/tr/gundem/tekirdagdan-canakkaleye-sicrayan-yanginda-zarar-goren-alanlar-dronla-goruntulendi/3633403"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 426211,
+   "il": "Bilecik",
+   "bizim_baslangic": "2025-06-27 13:25",
+   "bizim_sure_saat": 38.1,
+   "bizim_frp_toplam_mw": 63733,
+   "yangin_adi": "Taraklı (Sakarya) → Gölpazarı (Bilecik) yangını, Haziran 2025",
+   "resmi_baslangic": "2025-06-27",
+   "resmi_kontrol": null,
+   "yanan_alan_ha": "yaklaşık 3.500 (Bakan Yumaklı'nın 28 Haziran ilk tahmini: ~35 km²; nihai rakam sonradan açıklanacaktı)",
+   "ilce": "Gölpazarı / Osmaneli (Bilecik); çıkış yeri Taraklı (Sakarya)",
+   "kaynaklar": [
+    "https://www.posta.com.tr/gundem/orman-yanginlariyla-havadani-karadan-devam-ediyor-bakan-yumakli-8-yangin-devam-ediyor-2879288",
+    "https://www.ntv.com.tr/turkiye/sakaryada-yangin-koyler-bosaltildi-bilecikte-yaniyor,zVuoD3_zZEKe51m8MI0VmQ"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "27 Haziran'da başladı; 28 Haziran akşamı henüz kontrol altında değildi, kesin kontrol tarihi açılan sayfalarda yok. Bilecik'in Temmuz olayı (428217) ayrı bir yangındır.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.posta.com.tr/gundem/orman-yanginlariyla-havadani-karadan-devam-ediyor-bakan-yumakli-8-yangin-devam-ediyor-2879288",
+    "https://www.ntv.com.tr/turkiye/sakaryada-yangin-koyler-bosaltildi-bilecikte-yaniyor,zVuoD3_zZEKe51m8MI0VmQ"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 426891,
+   "il": "İzmir",
+   "bizim_baslangic": "2025-07-02 13:31",
+   "bizim_sure_saat": 71.9,
+   "bizim_frp_toplam_mw": 57830,
+   "yangin_adi": "Çeşme (Ildır) yangını, İzmir 2025",
+   "resmi_baslangic": "2025-07-02",
+   "resmi_kontrol": "2025-07-03/04 (Küre Ansiklopedi: 4 Temmuz'a kadar tamamen kontrol altında)",
+   "yanan_alan_ha": "yaklaşık 9.500 (İTÜ UHUZAM uydu analizi, 'Çeşme yarımadası ~95 km²')",
+   "ilce": "Çeşme / Urla (İzmir)",
+   "kaynaklar": [
+    "https://www.earthdata.nasa.gov/news/worldview-image-archive/wildfires-izmir-province-turkey",
+    "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://www.hurriyet.com.tr/gundem/tatil-beldeleri-alev-kapaninda-42864450"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "2 Temmuz'da Ildır tarım arazisinde başlayıp ormana yayıldı (Urla-Nohutalan da tahliye edildi). Seferihisar olayından (426373) ayrı bir yangın; İzmir 26.260 ha (1 Haz–7 Tem) il toplamı bu iki yangını da kapsar.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "NASA Earthdata Worldview: Wildfires in Izmir Province, Turkey (3 Temmuz 2025)",
+     "url": "https://www.earthdata.nasa.gov/news/worldview-image-archive/wildfires-izmir-province-turkey",
+     "tur": "resmi",
+     "kurum": "NASA Earthdata",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "VIIRS/S-NPP 3 Temmuz 2025: Çeşme yakınında ve Ödemiş yakınında büyük yangın nokta kümeleri; alan rakamı yok."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Ülkemizde Devam Eden Orman Yangınlarının Son Durumuna İlişkin Açıklamalarda Bulundu (4.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6661/Bakan-Yumakli-Ulkemizde-Devam-Eden-Orman-Yanginlarinin-Son-Durumuna-Iliskin-Aciklamalarda-Bulundu",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "İzmir Çeşme, Ödemiş ve Buca yangınları anılıyor; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://kureansiklopedi.com/tr/detay/izmir-orman-yanginlari-haziran-temmuz-2025-b27f7",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA",
+    "https://www.hurriyet.com.tr/gundem/tatil-beldeleri-alev-kapaninda-42864450"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 454809,
+   "il": "Muğla",
+   "bizim_baslangic": "2026-07-29 09:52",
+   "bizim_sure_saat": 24.6,
+   "bizim_frp_toplam_mw": 45041,
+   "yangin_adi": "Seydikemer (Bayır) yangını, Muğla 2026",
+   "resmi_baslangic": "2026-07-29",
+   "resmi_kontrol": "2026-07-30",
+   "yanan_alan_ha": "5.000'den fazla (DHA/Evrensel, 'ilk belirlemelere göre', orman+tarım; Fethiye'deki ayrı yangın ~200 ha)",
+   "ilce": "Seydikemer (Muğla)",
+   "kaynaklar": [
+    "https://www.evrensel.net/haber/5994347/muglada-yanginin-bilancosu-fethiye-ve-seydikemerde-5-bin-hektardan-fazla-alan-zarar-gordu",
+    "https://www.evrensel.net/haber/5994304/muglanin-seydikemer-ilcesindeki-yangin-ikinci-gununde-tamamen-kontrol-altina-alindi"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "29 Temmuz ~07:30-07:45'te Bayır Mah. tarım arazisinde başladı; 30 Temmuz'da Bakan Yumaklı tamamen kontrol altına alındığını duyurdu. Resmi nihai alan değil, ilk tespit.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.evrensel.net/haber/5994347/muglada-yanginin-bilancosu-fethiye-ve-seydikemerde-5-bin-hektardan-fazla-alan-zarar-gordu",
+    "https://www.evrensel.net/haber/5994304/muglanin-seydikemer-ilcesindeki-yangin-ikinci-gununde-tamamen-kontrol-altina-alindi"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 307723,
+   "il": "Muğla",
+   "bizim_baslangic": "2021-07-29 13:43",
+   "bizim_sure_saat": 157.8,
+   "bizim_frp_toplam_mw": 43759,
+   "yangin_adi": "Marmaris yangını (Muğla, 2021)",
+   "resmi_baslangic": "2021-07-29",
+   "resmi_kontrol": "2021-08-06",
+   "yanan_alan_ha": "9.052 (DHA tablosu) – 12.935 (GTÜ, bianet) – 13.600 (Cumhuriyet, 9 Ağustos kümülatif)",
+   "ilce": "Marmaris (Muğla)",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "Tarih ve konum uyumlu; alan rakamları yöntem ve tarihe göre 9 bin ile 13,6 bin ha arasında değişiyor.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Marmaris-MP işletmesi, çıkış 29.07.2021, 9.051,6 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 307744,
+   "il": "Muğla",
+   "bizim_baslangic": "2021-07-29 23:47",
+   "bizim_sure_saat": 315.2,
+   "bizim_frp_toplam_mw": 41700,
+   "yangin_adi": "Köyceğiz yangını (Muğla, 2021)",
+   "resmi_baslangic": "2021-07-29",
+   "resmi_kontrol": "2021-08-12",
+   "yanan_alan_ha": "10.800 (DHA) – 12.001 (Cumhuriyet, 9 Ağustos); GTÜ analizi yalnızca 1.629 veriyor (kaynaklar çelişkili)",
+   "ilce": "Köyceğiz (Muğla)",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "Sandras Dağı eteklerinde 15 gün süren yangın; kontrol 12 Ağustos (Bakan Pakdemirli). Bizim olayın bitişi (12 Ağustos 03:00) bununla örtüşüyor. Alan kaynaklar arasında 1.629–12.001 ha.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Köyceğiz işletmesi, çıkış 29.07.2021, 10.737,0 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.dha.com.tr/foto-galeri/mugladaki-buyuk-yanginlarin-2nci-yilinda-yanan-alanlar-tekrar-yeseriyor-2289008",
+    "https://www.cumhuriyet.com.tr/haber/muglada-66-bin-hektar-orman-yandi-1859130",
+    "https://bianet.org/english/environment/248673-study-83-000-hectares-of-forests-burned-in-turkey-s-south-and-southwest-in-two-weeks-of-fires"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 429406,
+   "il": "Mersin",
+   "bizim_baslangic": "2025-08-13 12:52",
+   "bizim_sure_saat": 168.8,
+   "bizim_frp_toplam_mw": 36124,
+   "yangin_adi": "Silifke yangını (Mersin, Ağustos 2025)",
+   "resmi_baslangic": "2025-08-13",
+   "resmi_kontrol": "2025-08-15/16 (OGM ve Bakan Yumaklı: 'büyük ölçüde kontrol altında'; tam söndürme tarihi bulunamadı)",
+   "yanan_alan_ha": "yaklaşık 1.500 (15.000 dönüm, Hürriyet)",
+   "ilce": "Silifke (Mersin)",
+   "kaynaklar": [
+    "https://www.hurriyet.com.tr/gundem/live-son-dakika-mersin-ve-hatayda-alevlerle-mucadele-mahalleler-bosaltildi-42914829"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "13 Ağustos öğle Balandız-Kırtıl arasında üç noktada başladı; kaynak yapan işçiler neden olarak bildirildi. Alan rakamı 'bildirildiğine göre' ifadesiyle verilmiş, resmi OGM rakamı değil.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.hurriyet.com.tr/gundem/live-son-dakika-mersin-ve-hatayda-alevlerle-mucadele-mahalleler-bosaltildi-42914829"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 426343,
+   "il": "Manisa",
+   "bizim_baslangic": "2025-06-28 13:06",
+   "bizim_sure_saat": 72.7,
+   "bizim_frp_toplam_mw": 35001,
+   "yangin_adi": "Akhisar (Karaköy) yangını, Manisa 2025",
+   "resmi_baslangic": "2025-06-28",
+   "resmi_kontrol": null,
+   "yanan_alan_ha": "bulunamadı",
+   "ilce": "Akhisar (Manisa)",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/izmirobm/haberler/manisa-akhisar-musacada-yangin-sonrasi-agaclandirma-ve-genclestirme-calismalari",
+    "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+    "https://www.cumhuriyet.com.tr/turkiye/akhisar-yangini-3-gununde-bolge-halkinin-gecim-kaynagi-zeytinlikler-alevlere-teslim-oldu-2-bin-agac-kaybim-var-2414002"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "28 Haziran'da Karaköy yakınında başladı, 30 Haziran'da 3. gününde sürüyordu (Ahmetli/Kula'ya yayıldığı da bildirildi). Kontrol tarihi ve hektar açılan sayfalarda doğrulanamadı.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM İzmir OBM: Manisa Akhisar Musaca'da Yangın Sonrası Ağaçlandırma ve Gençleştirme Çalışmaları (29.01.2026)",
+     "url": "https://www.ogm.gov.tr/izmirobm/haberler/manisa-akhisar-musacada-yangin-sonrasi-agaclandirma-ve-genclestirme-calismalari",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Akhisar Musaca Mah. yangını 28.06.2025; yanan alan belirtilmiyor."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı'dan Orman Yangınlarına Karşı Toplumsal Duyarlılık Çağrısı (1.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Devam eden yangınlar: Manisa Akhisar/Kula/Ahmetli, İzmir Seferihisar/Menderes, Hatay Antakya; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.cumhuriyet.com.tr/turkiye/akhisar-yangini-3-gununde-bolge-halkinin-gecim-kaynagi-zeytinlikler-alevlere-teslim-oldu-2-bin-agac-kaybim-var-2414002"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 324714,
+   "il": "Muğla",
+   "bizim_baslangic": "2022-06-21 23:45",
+   "bizim_sure_saat": 51.7,
+   "bizim_frp_toplam_mw": 34523,
+   "yangin_adi": "Marmaris (Bördübet/Hisarönü) yangını, 2022",
+   "resmi_baslangic": "2022-06-21",
+   "resmi_kontrol": "2022-06-25 veya öncesi (NTV: tamamen kontrol altında)",
+   "yanan_alan_ha": "yaklaşık 3.000 (Bakan Kirişci, 23 Haziran, BirGün) – yaklaşık 4.500 (Bakan Kirişci, NTV)",
+   "ilce": "Marmaris (Muğla)",
+   "kaynaklar": [
+    "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+    "https://www.ogm.gov.tr/tr/haberler/marmaris-bordubet-tekrar-yeseriyor",
+    "https://www.birgun.net/haber/marmaris-teki-orman-yanginda-ucuncu-gun-3-bin-hektarlik-alan-etkilendi-392898",
+    "https://www.ntv.com.tr/galeri/turkiye/marmaristeki-orman-yangini-tamamen-kontrol-altinda,EndleH-xQkmN4WpYrA8YOA"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "21 Haziran ~20:00'de Hisarönü Bördübet'te başladı; alan tahmini zamanla 3.000'den 4.500 ha'ya çıktı.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "OGM Muğla Orman Bölge Müdürlüğü, 2023 Yılı Orman Yangınları Değerlendirme Raporu, Ek-1 (500 ha üstü yangınlar, 1968-2023)",
+     "url": "https://www.ogm.gov.tr/muglaobm/duyurular-sitesi/Documents/mugla-obm-2023-yili-yangin-degerlendirme-raporu/2023+Yili+Orman+Yanginlari+Degerlendirme+Raporu.pdf",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Marmaris/Hisarönü işletmesi, çıkış 21.06.2022, kasıt-kundaklama, 4.392,5 ha."
+    },
+    {
+     "ad": "OGM: Marmaris Bördübet Tekrar Yeşeriyor",
+     "url": "https://www.ogm.gov.tr/tr/haberler/marmaris-bordubet-tekrar-yeseriyor",
+     "tur": "resmi",
+     "kurum": "Orman Genel Müdürlüğü",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Marmaris Bördübet yangını 21 Haziran 2022, 4.392 ha."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.birgun.net/haber/marmaris-teki-orman-yanginda-ucuncu-gun-3-bin-hektarlik-alan-etkilendi-392898",
+    "https://www.ntv.com.tr/galeri/turkiye/marmaristeki-orman-yangini-tamamen-kontrol-altinda,EndleH-xQkmN4WpYrA8YOA"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 307650,
+   "il": "Mersin",
+   "bizim_baslangic": "2021-07-28 13:42",
+   "bizim_sure_saat": 85.4,
+   "bizim_frp_toplam_mw": 32535,
+   "yangin_adi": "Mersin yangınları, Aydıncık/Silifke/Gülnar bölgesi (Temmuz sonu 2021)",
+   "resmi_baslangic": "2021-07-28 (Mersin'de 28 Temmuz'dan itibaren çok sayıda yangın; belirli bir yangınla eşlemesi yapılamadı)",
+   "resmi_kontrol": "2021-08-01 civarı (Pakdemirli: Silifke yangınları kontrol altında)",
+   "yanan_alan_ha": "bulunamadı",
+   "ilce": "Aydıncık / Silifke / Gülnar (Mersin)",
+   "kaynaklar": [
+    "https://dergipark.org.tr/tr/download/article-file/4867209",
+    "https://www.birgun.net/haber/tarim-ve-orman-bakani-pakdemirli-gazipasa-silifke-ve-bodrum-yanginlari-kontrol-altina-alindi-353627"
+   ],
+   "eslesme": "kısmen",
+   "not": "BirGün 1 Ağustos: Silifke'de iki yangın ve Mersin'de 4 günde 8 orman yangını kontrol altına alındı. Bizim olay (Aydıncık civarı) bu yangın kümesine uyuyor ama tek bir adlandırılmış yangınla ve hektar rakamıyla eşleştirilemedi.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "Yıldız Z. (2026) 2021 Yılı Yazında Dünya'da ve Türkiye'de Meydana Gelen Büyük Orman Yangınları, Bartın Orman Fakültesi Dergisi 28(1):1-15 (OGM verilerine dayanır; DOI 10.24011/barofd.1698659)",
+     "url": "https://dergipark.org.tr/tr/download/article-file/4867209",
+     "tur": "bilimsel",
+     "kurum": "Hakemli dergi",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Aydıncık (15 Temmuz 2021 başlangıç) 6.396,7 ha; Silifke (29 Temmuz) ~3.230 ha; Mersin ili 2021 toplam 14.408 ha (Şahin 2022 atfıyla); OGM il toplamı Mersin 9.661 ha."
+    }
+   ],
+   "kaynak_turu": "bilimsel",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.birgun.net/haber/tarim-ve-orman-bakani-pakdemirli-gazipasa-silifke-ve-bodrum-yanginlari-kontrol-altina-alindi-353627"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 428617,
+   "il": "Bursa",
+   "bizim_baslangic": "2025-07-27 12:49",
+   "bizim_sure_saat": 49.0,
+   "bizim_frp_toplam_mw": 32112,
+   "yangin_adi": "Orhaneli–Harmancık yangını (Bursa, Temmuz 2025)",
+   "resmi_baslangic": "2025-07-26",
+   "resmi_kontrol": "2025-07-30/31 (5. gün; Orhaneli-Harmancık hattı)",
+   "yanan_alan_ha": "6.000'den fazla (Bursa Büyükşehir Bşk. Bozbey, Orhaneli-Harmancık + Gürsu-Kestel) – yaklaşık 3.000 (Watchers, 26-28 Temmuz)",
+   "ilce": "Harmancık / Orhaneli (Bursa)",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6684/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlarindaki-Son-Durumu-Paylasti",
+    "https://www.tarimorman.gov.tr/Haber/6685/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+    "https://www.memurlar.net/haber/1142277/10-bin-futbol-sahasi-kadar-orman-yok-oldu.html",
+    "https://watchers.news/2025/07/28/17-dead-1-700-evacuated-wildfires-sweep-through-bursa-province-turkiye/"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "26 Temmuz'da başlayan Bursa yangınlarının Harmancık kolu; 6 bin ha rakamı il yangınlarının toplamı olabilir, kaynaklar arasında 3 bin–6 bin ha farkı var.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı, Orman Yangınlarındaki Son Durumu Paylaştı (26.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6684/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlarindaki-Son-Durumu-Paylasti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Bursa Harmancık (16:06) ve Kestel yangınları, Karabük Safranbolu anılıyor; yanan alan (ha) verilmiyor."
+    },
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı Orman Yangınlarıyla İlgili Açıklama Yaptı (27.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6685/Tarim-Ve-Orman-Bakani-Yumakli-Orman-Yanginlariyla-Ilgili-Aciklama-Yapti",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Bursa Orhaneli (Yakuplar) büyük ölçüde kontrol altında; Gürsu-Kestel devam; Karabük Safranbolu devam; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.memurlar.net/haber/1142277/10-bin-futbol-sahasi-kadar-orman-yok-oldu.html",
+    "https://watchers.news/2025/07/28/17-dead-1-700-evacuated-wildfires-sweep-through-bursa-province-turkiye/"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 99294,
+   "il": "Adana",
+   "bizim_baslangic": "2012-08-24 11:39",
+   "bizim_sure_saat": 290.3,
+   "bizim_frp_toplam_mw": 30268,
+   "yangin_adi": null,
+   "resmi_baslangic": null,
+   "resmi_kontrol": null,
+   "yanan_alan_ha": null,
+   "ilce": null,
+   "kaynaklar": [],
+   "eslesme": "bulunamadı",
+   "not": "Adana, 24 Ağustos–5 Eylül 2012: adlandırılmış/belgelenmiş büyük bir orman yangını bulunamadı. Düşük tepe FRP (236 MW), 290 saatlik süre ve ova konumu (Ceyhan/İmamoğlu çevresi) anız/tarımsal yakma ya da sanayi kaynaklı olabilir; doğrulanmadı.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "yok",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 426617,
+   "il": "Hatay",
+   "bizim_baslangic": "2025-06-30 10:58",
+   "bizim_sure_saat": 28.3,
+   "bizim_frp_toplam_mw": 30019,
+   "yangin_adi": "Antakya (Karaali) yangını, Hatay 2025",
+   "resmi_baslangic": "2025-06-30",
+   "resmi_kontrol": "2025-07-01/02 (Valilik: 24 saatlik müdahale sonrası tüm bölgelerde kontrol altında; 2 Temmuz'da soğutma sürüyordu)",
+   "yanan_alan_ha": "yaklaşık 2.800 (İTÜ UHUZAM uydu analizi, Hatay toplamı ~28 km²)",
+   "ilce": "Antakya (Hatay)",
+   "kaynaklar": [
+    "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+    "https://www.ekonomim.com/gundem/hataydaki-orman-yangini-kontrol-altina-alindi-haberi-828067",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "30 Haziran ~10:30'da Karaali Mah. ormanlık alanında başladı; Dikmece, Alazi, Üçgedik vb. mahallelere yayıldı. İTÜ rakamı Hatay genelidir.",
+   "resmi_kaynaklar": [
+    {
+     "ad": "T.C. Tarım ve Orman Bakanlığı: Bakan Yumaklı'dan Orman Yangınlarına Karşı Toplumsal Duyarlılık Çağrısı (1.07.2025)",
+     "url": "https://www.tarimorman.gov.tr/Haber/6655/Bakan-Yumaklidan-Orman-Yanginlarina-Karsi-Toplumsal-Duyarlilik-Cagrisi",
+     "tur": "resmi",
+     "kurum": "Tarım ve Orman Bakanlığı",
+     "erisim_tarihi": "2026-11-14",
+     "bilgi": "Devam eden yangınlar: Manisa Akhisar/Kula/Ahmetli, İzmir Seferihisar/Menderes, Hatay Antakya; yanan alan (ha) verilmiyor."
+    }
+   ],
+   "kaynak_turu": "resmi",
+   "kaynak_durumu": "resmî/bilimsel kaynak bulundu",
+   "ikincil_kaynaklar": [
+    "https://www.ekonomim.com/gundem/hataydaki-orman-yangini-kontrol-altina-alindi-haberi-828067",
+    "https://www.ntv.com.tr/turkiye/yanan-alanlar-uzaydan-goruntulendi-32-bin-futbol-sahasi-buyuklugunde,7p1Sw-EFz0qQLfuPR62rRA"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  },
+  {
+   "event_id": 459190,
+   "il": "Antalya",
+   "bizim_baslangic": "2026-09-07 20:43",
+   "bizim_sure_saat": 43.8,
+   "bizim_frp_toplam_mw": 29895,
+   "yangin_adi": "Aksu–Kepez (Karaöz) yangını, Antalya 2026",
+   "resmi_baslangic": "2026-09-07",
+   "resmi_kontrol": "2026-09-10 (~12:00, 67,5 saat sonra)",
+   "yanan_alan_ha": "bulunamadı (Serik Akbaş yangınının ~160-170 ha değeri 6 Eylül'de başlayan ayrı bir yangındır)",
+   "ilce": "Aksu / Kepez (Antalya)",
+   "kaynaklar": [
+    "https://www.evrensel.net/haber/5999962/antalya-aksudaki-orman-yangini-675-saat-sonra-kontrol-altina-alindi",
+    "https://www.evrensel.net/haber/5999757/antalyada-ormanlik-alandaki-yangina-mudahale-suruyor"
+   ],
+   "eslesme": "eşleşiyor",
+   "not": "7 Eylül 16:30 civarı Karaöz Mah.'de başladı, 254 ev tahliye edildi; 10 Eylül ~12:00'de kontrol altına alındı. Bizim olayın bitişi (9 Eylül 16:29) son sıcak noktaya göre erken.",
+   "resmi_kaynaklar": [],
+   "kaynak_turu": "haber",
+   "kaynak_durumu": "resmî kaynak bulunamadı",
+   "ikincil_kaynaklar": [
+    "https://www.evrensel.net/haber/5999962/antalya-aksudaki-orman-yangini-675-saat-sonra-kontrol-altina-alindi",
+    "https://www.evrensel.net/haber/5999757/antalyada-ormanlik-alandaki-yangina-mudahale-suruyor"
+   ],
+   "ikincil_kaynak_etiketi": "ikincil kaynak (haber)"
+  }
+ ],
+ "yontem_notu": "Sayfa içerikleri WebFetch ile açıldı; hektar rakamları yalnızca açılan sayfalarda geçenlerdir. 'bulunamadı' = açılan kaynaklarda rakam yok. Kaynak güncellemesi 2026-11-14: her olaya 'kaynak_turu' (resmi/bilimsel/haber/yok), 'resmi_kaynaklar' ve 'ikincil_kaynaklar' (haber) eklendi; 'kaynaklar' listesi geriye uyumlu olarak resmî kaynakları önce, haberleri sonra içerir. Resmî kaynak yalnızca açılıp tarih/yer eşleşmesi doğrulananlara yazıldı; bulunamayanlar 'resmî kaynak bulunamadı' olarak işaretlendi."
+}
