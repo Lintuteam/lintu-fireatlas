@@ -7,7 +7,15 @@ const EPOCH = Date.UTC(2000, 0, 1);
 const TYPES = { float64: Float64Array, float32: Float32Array, int32: Int32Array, int16: Int16Array, uint16: Uint16Array, uint8: Uint8Array, int8: Int8Array };
 const D = { man: null, metrics: null, harm: null, cov: null, il: null, pix: null, lab: null, ev: {}, pt: {}, load: {} };
 
-async function getJSON(u) { const r = await fetch(u); if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }
+/* Ağ kopmalarına karşı yeniden deneme: bağlantı sıfırlanırsa (ERR_CONNECTION_RESET vb.) 4 kez daha dener. */
+async function fetchRetry(u, tries = 5) {
+  for (let i = 0; ; i++) {
+    try { const r = await fetch(u); if (r.ok || r.status === 404 || i >= tries - 1) return r; }
+    catch (e) { if (i >= tries - 1) throw e; }
+    await new Promise(res => setTimeout(res, 400 * (i + 1)));
+  }
+}
+async function getJSON(u) { const r = await fetchRetry(u); if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }
 function parseBin(buf, meta) {
   const c = { n: meta.n };
   for (const k of meta.kolon) c[k.ad] = new TYPES[k.tip](buf, k.ofs, meta.n);
@@ -15,7 +23,7 @@ function parseBin(buf, meta) {
 }
 /* İsteğe bağlı bayrak dosyaları (v2.5.2): olayla aynı sıra, uint8. Dosya yoksa/uzunluk uymuyorsa hepsi 0 (bayrak yok). */
 async function loadFlag(name, y, n) {
-  try { const r = await fetch(`data/${name}_${y}.bin`); if (r.ok) { const b = await r.arrayBuffer(); if (b.byteLength === n) return new Uint8Array(b); } } catch (e) { /* yok: sıfır */ }
+  try { const r = await fetchRetry(`data/${name}_${y}.bin`); if (r.ok) { const b = await r.arrayBuffer(); if (b.byteLength === n) return new Uint8Array(b); } } catch (e) { /* yok: sıfır */ }
   return new Uint8Array(n);
 }
 async function loadYear(kind, y) {
@@ -24,7 +32,7 @@ async function loadYear(kind, y) {
   const key = kind + y;
   if (!D.load[key]) {
     const meta = (kind === "ev" ? D.man.events : D.man.points)[y];
-    const main = fetch(`data/${kind === "ev" ? "events" : "points"}_${y}.bin`).then(r => r.arrayBuffer());
+    const main = fetchRetry(`data/${kind === "ev" ? "events" : "points"}_${y}.bin`).then(r => { if (!r.ok) throw new Error("bin " + r.status); return r.arrayBuffer(); });
     const extra = kind === "ev" ? Promise.all([loadFlag("aniz_il", y, meta.n), loadFlag("sanayi_artik", y, meta.n)]) : Promise.resolve(null);
     D.load[key] = Promise.all([main, extra]).then(([b, fl]) => {
       const o = parseBin(b, meta); if (fl) { o.anizil = fl[0]; o.san = fl[1]; } store[y] = o;
