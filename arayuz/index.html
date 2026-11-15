@@ -6,7 +6,8 @@
 <title>Türkiye Yangın Aktivite Takvimi</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="vendor/leaflet.css">
-<link rel="stylesheet" href="app.css?v=2.5.4">
+<link rel="stylesheet" href="app.css?v=2.6">
+<script>if(location.protocol==="file:"){document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.setAttribute("role","alert");d.style.cssText="position:sticky;top:0;z-index:9999;background:#f5b455;color:#1b1200;padding:10px 16px;font:600 15px Inter,system-ui,sans-serif;text-align:center";d.textContent="Bu sayfa dosyadan açıldı; tarayıcı veri okumayı engeller. Lütfen klasördeki başlatma dosyasına (UYGULAMAYI_AC.bat ya da BASLAT_ARAYUZ.bat) çift tıklayın ya da canlı sürümü açın: lintuteam.github.io/lintu-fireatlas";document.body.prepend(d);});}</script>
 </head>
 <body data-cvd="none">
 <svg width="0" height="0" class="sr" aria-hidden="true" focusable="false">
@@ -22,6 +23,8 @@
     <p class="lead" data-i18n="app.lead">Açıklama</p>
   </div>
   <div class="tools">
+    <nav class="ulke" aria-label="Ülke seçimi"><a href="index.html" aria-current="page">Türkiye</a><a href="abd.html">ABD</a></nav>
+    <a class="gh" href="https://github.com/Lintuteam/lintu-fireatlas" target="_blank" rel="noopener" title="Kaynak kod ve canlı uygulama: lintuteam.github.io/lintu-fireatlas">GitHub ↗</a>
     <span id="simBadge" class="badge" hidden data-i18n="badge.sim">SİMÜLASYON</span>
     <button id="tourBtn" type="button" class="tour-btn" data-i18n="tour.btn">🐦 Lintu ile tur</button>
     <button id="sciModeBtn" type="button" class="sci-btn" aria-pressed="true" data-i18n-title="btn.scimode_tip"><span class="sci-dot" aria-hidden="true"></span><span id="sciModeLabel" data-i18n="btn.scimode_eq">MODİS-Eşdeğer (Bilimsel)</span></button>
@@ -286,5 +289,6 @@
 <script src="extras.js?v=2.5.4"></script>
 <script src="sci.js?v=2.5.4"></script>
 <script src="tour.js?v=2.5.4"></script>
+<script src="mobil.js?v=2.6"></script>
 </body>
 </html>

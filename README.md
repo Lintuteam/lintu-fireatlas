@@ -1,11 +1,12 @@
-# Lintu FireAtlas: Türkiye Fire Activity Calendar
+# Lintu FireAtlas: Fire Activity Calendar (Türkiye + USA)
 
 **Team Lintu · NASA Space Apps Challenge 2026**
 **Challenge:** Harmonization of MODIS and VIIRS Hot Spots
 
 26 years of NASA FIRMS fire detections from two satellites (MODIS 2000–2026, VIIRS 2012–2026), merged into one consistent calendar and map of fire activity in Türkiye.
 
-- **Live app:** https://lintuteam.github.io/lintu-fireatlas/
+- **Live app:** https://lintuteam.github.io/lintu-fireatlas/ (works on phones too)
+- **USA view:** https://lintuteam.github.io/lintu-fireatlas/arayuz/abd.html (or the **ABD** button in the app header)
 - **Demo (7 slides):** [demo/Lintu_Demo_7_Slides.pdf](demo/Lintu_Demo_7_Slides.pdf)
 
 > This is a record of **past fire activity**, not a fire-risk forecast. A satellite hot spot is not always a fire.
@@ -29,6 +30,21 @@ MODIS (since 2000, 1 km pixels) retires in 2027. VIIRS (since 2012, 375 m pixels
 - With no official data in the model, our largest event is the **2021 Manavgat fire** (6,740 detections, ~218 hours), matching the official dates of 28 July – 6 August 2021.
 - Of our 20 largest events, 16 match documented wildfires, 3 match partly and 1 was not found. Sources are listed in [belgeler_ve_denetim/gercek_dogrulama.md](belgeler_ve_denetim/gercek_dogrulama.md).
 
+## Second country: USA (2009–2015)
+
+To check that the method is not tuned to Türkiye, we ran the same pipeline on the NASA FIRMS archive for the USA (2.72 million detections, 2009–2015).
+
+| Measure | Türkiye (2000–2026) | USA (2009–2015) |
+|---|---|---|
+| Raw 2012 jump (2009–11 → 2012–14) | +143.1% | +318.6% |
+| Real MODIS, same period | −44.9% | −2.1% |
+| Our MODIS-equivalent series | −41.4% | −4.8% |
+| Gap to real MODIS | 3.5 points | 2.7 points |
+| Yearly leave-one-year-out error (MAPE) | 8.3% | 4.2% |
+| Documented fires matched | 16 of the 20 largest events | 32 of 33 |
+
+An independent re-computation, written separately from the pipeline code, reproduced the counts, jumps and LOYO errors exactly. Full report (Turkish): [raporlar/ABD_DOGRULAMA_RAPORU.md](raporlar/ABD_DOGRULAMA_RAPORU.md). Pipeline: `kaynak_kod/abd/abd_hat.py` (needs the FIRMS USA archive converted with `veri_abd/xlsx_to_parquet.py`; the raw file is not included).
+
 ## Features
 
 - **Calendar:** years × months, coloured by fire events. ★ marks each year's busiest month and 🔥 the month of that year's biggest fire. Click a month to open its fires on the map.
@@ -36,6 +52,8 @@ MODIS (since 2000, 1 km pixels) retires in 2027. VIIRS (since 2012, 375 m pixels
 - **Accessibility:** colour-blind-safe palettes (Viridis/Cividis) and a one-click protan/deutan/tritan simulation.
 - **Lintu:** a 14-step guided tour. Turkish and English.
 - **Offline:** no external CDN; all libraries are bundled.
+- **Mobile:** single-column layout on phones; the filter panel folds into a "Süzgeçler / Filters" button.
+- **Türkiye | ABD switch:** the USA validation view (`arayuz/abd.html`) with its own map, calendar and documented-fire table.
 
 ## Run it locally
 
@@ -52,7 +70,8 @@ Then open http://localhost:8765. On Windows you can also double-click `BASLAT_AR
 
 | Folder | Content |
 |---|---|
-| `arayuz/` | The web app (HTML/CSS/JS, Leaflet, pre-built data in `data/`) |
+| `arayuz/` | The web app (HTML/CSS/JS, Leaflet, pre-built data in `data/`, USA data in `data_abd/`) |
+| `veri_abd/` | USA inputs and outputs: documented fires, metrics, independent check |
 | `kaynak_kod/` | Data pipeline (Python): cleaning, clustering, harmonization, acceptance tests. How to rerun: `kaynak_kod/NASIL_CALISTIRILIR.md` |
 | `belgeler_ve_denetim/` | Method documents, audit log, validation results |
 | `raporlar/` | Reports (working principle, maths and physics) |
@@ -65,6 +84,7 @@ Raw FIRMS files (~127 MB) are not included. Download them from https://firms.mod
 - **NASA FIRMS:** MODIS Collection 6.1 (Terra, Aqua) and VIIRS 375 m (Suomi NPP, NOAA-20, NOAA-21) active fire detections, 2000-11-01 to 2026-11-12.
 - **OpenStreetMap contributors** (ODbL), via the Overpass API, for industrial-site flags.
 - **Province boundaries:** cihadturhan/tr-geojson.
+- **USA documented fires:** InciWeb, NIFC, USFS and Wikipedia (list in `veri_abd/belgelenmis_yanginlar_abd.json`).
 - **Leaflet** (BSD-2-Clause).
 
 ## Use of AI

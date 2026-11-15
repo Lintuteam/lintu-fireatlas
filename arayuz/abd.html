@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABD Yangın Aktivitesi · Yöntem Sınaması</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="app.css?v=2.6">
+<style>
+.ulke{display:inline-flex;border:1px solid #2a3a48;border-radius:8px;overflow:hidden}
+.ulke a{padding:6px 12px;color:var(--fg);text-decoration:none;font-weight:600}
+.ulke a[aria-current="page"]{background:var(--acc);color:#04201c}
+.ulke a:not([aria-current]):hover{background:#16242f}
+.wrap{padding:0 20px 24px;display:flex;flex-direction:column;gap:14px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;min-width:0}
+.grid2{display:grid;grid-template-columns:1.15fr 1fr;gap:14px}
+@media (max-width:1000px){.grid2{grid-template-columns:1fr}}
+#abdMap{height:470px;border-radius:8px;background:#0a1218}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--bd);white-space:nowrap}
+th{color:var(--mut);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr.tik{cursor:pointer} tbody tr.tik:hover{background:#13202a}
+.ok{color:#5eead4}.zay{color:#f5b455}.yok{color:#ff7a7a}
+.cmp td:first-child{color:var(--mut)}
+.cmp .tr{color:#ffb37a}.cmp .us{color:#7cc7ff}
+.tblwrap{max-height:430px;overflow:auto}
+#yChart svg,#calWrap svg{width:100%;height:auto;display:block}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+.leg i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:5px}
+.note{font-size:13px;color:var(--mut);margin:6px 0 0}
+.bar{height:8px;border-radius:4px;background:var(--acc)}
+.kart .val.us{color:#7cc7ff}
+@media (max-width:640px){.wrap{padding:0 12px 18px;gap:10px}.box{padding:10px;overflow-x:auto}.cmp th,.cmp td{white-space:normal}th,td{padding:4px 6px}table{font-size:12px}#abdMap{height:60vh;min-height:300px}.tblwrap{max-height:none}}
+</style>
+<script>if(location.protocol==="file:"){document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.setAttribute("role","alert");d.style.cssText="position:sticky;top:0;z-index:9999;background:#f5b455;color:#1b1200;padding:10px 16px;font:600 15px Inter,system-ui,sans-serif;text-align:center";d.textContent="Bu sayfa dosyadan açıldı; tarayıcı veri okumayı engeller. Lütfen klasördeki başlatma dosyasına (UYGULAMAYI_AC.bat ya da BASLAT_ARAYUZ.bat) çift tıklayın ya da canlı sürümü açın: lintuteam.github.io/lintu-fireatlas";document.body.prepend(d);});}</script>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <div class="ttl">
+    <h1>ABD Yangın Aktivitesi · Yöntem Sınaması</h1>
+    <p class="lead">Türkiye için kurduğumuz veri hattının aynısını ikinci bir ülkede, ABD'nin 2009–2015 NASA FIRMS verisinde çalıştırdık. Soru: 2012'deki uydu sıçraması burada da yapay mı, ve düzeltme burada da tutuyor mu?</p>
+  </div>
+  <div class="tools">
+    <nav class="ulke" aria-label="Ülke seçimi"><a href="index.html">Türkiye</a><a href="abd.html" aria-current="page">ABD</a></nav>
+    <a class="gh" href="https://github.com/Lintuteam/lintu-fireatlas" target="_blank" rel="noopener" title="Kaynak kod ve canlı uygulama: lintuteam.github.io/lintu-fireatlas">GitHub ↗</a>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="cards" style="padding:0" aria-label="Özet">
+    <article class="kart"><h2>2012 sıçraması · ham</h2><p class="val up" id="kHam">–</p><p class="sub">MODIS + VIIRS toplamı, 2009–11 → 2012–14</p></article>
+    <article class="kart"><h2>Bizim düzeltmemiz</h2><p class="val us" id="kEsd">–</p><p class="sub" id="kEsdSub">gerçek MODIS: –</p></article>
+    <article class="kart"><h2>Yıl dışarıda bırakma hatası</h2><p class="val" id="kLoyo">–</p><p class="sub" id="kLoyoSub">LOYO 2012–2015</p></article>
+    <article class="kart"><h2>Belgelenmiş büyük yangın</h2><p class="val" id="kDog">–</p><p class="sub" id="kDogSub">uydu olayıyla eşleşti</p></article>
+  </section>
+
+  <section class="box" aria-labelledby="cmpT">
+    <h2 id="cmpT" class="lbl">Aynı yöntem, iki ülke</h2>
+    <table class="cmp"><thead><tr><th></th><th class="n">Türkiye (2000–2026)</th><th class="n">ABD (2009–2015)</th></tr></thead><tbody id="cmpBody"></tbody></table>
+    <p class="note">Türkiye değerleri uygulamanın <span class="mono">data/metrics.json</span> dosyasından, ABD değerleri <span class="mono">kaynak_kod/abd/abd_hat.py</span> çıktısından okunur. Yöntem seçimi her iki ülkede de aynı önceden yazılmış ölçütle (en düşük ay × bölge WAPE) yapıldı.</p>
+  </section>
+
+  <div class="grid2">
+    <section class="box" aria-labelledby="mapT">
+      <div class="row" style="justify-content:space-between">
+        <h2 id="mapT" class="lbl" style="margin:0">Yangın olayları haritası</h2>
+        <div class="row"><label for="ySel" class="small dim">Yıl</label><select id="ySel"></select><span id="mapN" class="small dim"></span></div>
+      </div>
+      <div id="abdMap" style="margin-top:8px"></div>
+      <p class="note">Her daire bir yangın olayı (ortak kümeleme, en az 3 tespit). Büyüklük tespit sayısına göre. Doğrulama tablosundaki bir satıra tıklayın: harita o yangına gider.</p>
+    </section>
+    <section class="box" aria-labelledby="yT">
+      <h2 id="yT" class="lbl">Yıllık tespit: sıçrama yapay mı?</h2>
+      <div id="yChart"></div>
+      <div class="leg"><span><i style="background:#9aa6b8"></i>Ham (MODIS + VIIRS)</span><span><i style="background:#f472b6"></i>Gerçek MODIS</span><span><i style="background:#5eead4"></i>Bizim MODIS-eşdeğer</span><span><i style="background:#f5b455"></i>Yangın olayı (kümeli)</span></div>
+      <h2 class="lbl" style="margin-top:14px">Takvim · yıl × ay</h2>
+      <div class="row"><select id="calSer"><option value="esdeger">MODIS-eşdeğer (düzeltilmiş)</option><option value="V_ham">Ham (MODIS + VIIRS)</option><option value="M_true">Gerçek MODIS</option><option value="olay">Yangın olayı</option></select><span class="small dim">renk: o ayın sayısı (tüm seriler aynı ölçekte)</span></div>
+      <div id="calWrap" style="margin-top:6px"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <section class="box" aria-labelledby="dT">
+      <h2 id="dT" class="lbl">Doğrulama: belgelenmiş büyük ABD yangınları</h2>
+      <div class="tblwrap"><table><thead><tr><th>Yangın</th><th>Eyalet</th><th>Başlangıç</th><th class="n">Tespit</th><th class="n">Süre (gün)</th><th class="n">Yılın sırası</th><th>Durum</th></tr></thead><tbody id="dBody"></tbody></table></div>
+      <p class="note">Eşleştirme: yangın noktasının 40 km çevresinde, başlangıçtan 7 gün önce ile 14 gün sonra arasındaki tespitlerin çoğunu taşıyan olay. "Yılın sırası": o yılın tüm olayları içinde tespit sayısına göre sıra. Liste 33 yangın; kaynaklar <span class="mono">veri_abd/belgelenmis_yanginlar_abd.json</span>.</p>
+    </section>
+    <section class="box" aria-labelledby="bT">
+      <h2 id="bT" class="lbl">Bölgeler (kaba boylam/enlem kutuları)</h2>
+      <table><thead><tr><th>Bölge</th><th class="n">Olay</th><th class="n">Pay</th><th style="width:40%"></th></tr></thead><tbody id="bBody"></tbody></table>
+      <h2 class="lbl" style="margin-top:14px">Kümeleme</h2>
+      <table><tbody id="kBody"></tbody></table>
+      <h2 class="lbl" style="margin-top:14px">Sınırlar</h2>
+      <ul class="note" style="padding-left:18px;margin:0">
+        <li>Temizlik yalnız NASA'nın kendi etiketiyle (statik kaynak, açık deniz, volkan). Türkiye'deki sanayi ve anız kuralları ABD için yeniden ayarlanmadı.</li>
+        <li>MODIS ile VIIRS'in çakıştığı yıllar 4 (2012–2015); Türkiye'de 14. Bu yüzden yalnız 3 yılla öğrenilen tabakalı oran, sabit orana yenildi.</li>
+        <li>Bölgeler eyalet sınırı değil, kaba boylam/enlem kutuları. Pasifik toprakları (Guam vb.) dışarıda.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<script src="vendor/leaflet.js"></script>
+<script src="data_abd/abd_data.js"></script>
+<script>
+(() => {
+  const A = window.ABD, M = A.metrics, fmt = (v, d = 0) => Number(v).toLocaleString("tr-TR", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const pct = v => (v > 0 ? "+" : v < 0 ? "−" : "") + "%" + fmt(Math.abs(v), 1);
+  const $ = id => document.getElementById(id);
+  const H = M.harmonizasyon, R = H.yontemler[H.kazanan], J = M.sicrama, D = M.dogrulama;
+  $("kHam").textContent = pct(J.ham_pct);
+  $("kEsd").textContent = pct(J.esdeger_pct);
+  $("kEsdSub").textContent = "gerçek MODIS: " + pct(J.modis_gercek_pct) + " · fark " + fmt(Math.abs(J.esdeger_eksi_modis_pct), 1) + " puan";
+  $("kLoyo").textContent = "%" + fmt(R.yillik_mape, 1);
+  $("kLoyoSub").textContent = "yıllık ortalama hata · ay × bölge R² " + fmt(R.ay_bolge_r2, 2);
+  $("kDog").textContent = D.eslesen + " / " + D.yangin_sayisi;
+
+  /* Türkiye karşılaştırması: data/metrics.json (http sunucusunda), yoksa sabit yedek değerler (2026-11 sürümü) */
+  const TR0 = { jump_raw_pct: 143.13, jump_harm_pct: -41.35, jump_modis_gercek_pct: -44.9, mape: 8.3, cift: 59201, dog: "16 / 20 en büyük olay", kaz: "tabakalı oran (bölge × mevsim × FRP)" };
+  function cmp(T) {
+    const us = [
+      ["Ham 2012 sıçraması", pct(T.jump_raw_pct), pct(J.ham_pct)],
+      ["Gerçek MODIS, aynı dönem", pct(T.jump_modis_gercek_pct), pct(J.modis_gercek_pct)],
+      ["Bizim düzeltilmiş seri", pct(T.jump_harm_pct), pct(J.esdeger_pct)],
+      ["Düzeltme ile gerçek arasındaki fark", fmt(Math.abs(T.jump_harm_pct - T.jump_modis_gercek_pct), 1) + " puan", fmt(Math.abs(J.esdeger_eksi_modis_pct), 1) + " puan"],
+      ["Yıllık LOYO hatası", "%" + fmt(T.mape, 1), "%" + fmt(R.yillik_mape, 1)],
+      ["Önlenen çift sayım (olay)", fmt(T.cift), fmt(M.kumeleme.cift_sayim)],
+      ["Belgelenmiş yangın doğrulaması", T.dog, D.eslesen + " / " + D.yangin_sayisi + " belgelenmiş yangın"],
+      ["Seçilen harmonizasyon yöntemi", T.kaz, H.kazanan.startsWith("ii") ? "tabakalı oran" : "sabit oran (4 çakışma yılı)"],
+    ];
+    $("cmpBody").innerHTML = us.map(r => `<tr><td>${r[0]}</td><td class="n tr">${r[1]}</td><td class="n us">${r[2]}</td></tr>`).join("");
+  }
+  cmp(TR0);
+  fetch("data/metrics.json").then(r => r.ok ? r.json() : null).then(j => {
+    if (!j || !j.metrics) return; const g = k => j.metrics[k] && j.metrics[k].value;
+    const T = { ...TR0 }; ["jump_raw_pct", "jump_harm_pct", "jump_modis_gercek_pct"].forEach(k => { if (typeof g(k) === "number") T[k] = g(k); });
+    cmp(T);
+  }).catch(() => {});
+
+  /* Yıllık grafik (SVG) */
+  const Y = Object.keys(M.yillik).map(Number).sort();
+  (function chart() {
+    const W = 640, Hh = 300, l = 62, r = 14, t = 14, b = 30;
+    const S = [["ham", "#9aa6b8", "6 4"], ["modis", "#f472b6", ""], ["esdeger", "#5eead4", ""], ["olay", "#f5b455", "2 3"]];
+    const mx = Math.max(...Y.map(y => M.yillik[y].ham)) * 1.08;
+    const X = i => l + i * (W - l - r) / (Y.length - 1), YY = v => t + (Hh - t - b) * (1 - v / mx);
+    let s = `<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Yıllık tespit sayıları 2009-2015">`;
+    for (let k = 0; k <= 4; k++) { const v = mx / 4 * k; s += `<line x1="${l}" x2="${W - r}" y1="${YY(v)}" y2="${YY(v)}" stroke="#1b2630"/><text x="${l - 6}" y="${YY(v) + 4}" fill="#a3afbc" font-size="11" text-anchor="end">${fmt(v / 1000)} B</text>`; }
+    Y.forEach((y, i) => s += `<text x="${X(i)}" y="${Hh - 10}" fill="#a3afbc" font-size="11" text-anchor="middle">${y}</text>`);
+    const x12 = (X(2) + X(3)) / 2; s += `<line x1="${x12}" x2="${x12}" y1="${t}" y2="${Hh - b}" stroke="#fff8" stroke-dasharray="4 4"/><text x="${x12 + 5}" y="${t + 12}" fill="#e6edf3" font-size="11">VIIRS katıldı</text>`;
+    S.forEach(([k, c, d]) => {
+      s += `<polyline fill="none" stroke="${c}" stroke-width="${k === "esdeger" ? 3.5 : 2.2}" ${d ? `stroke-dasharray="${d}"` : ""} points="${Y.map((y, i) => X(i) + "," + YY(M.yillik[y][k])).join(" ")}"/>`;
+      Y.forEach((y, i) => s += `<circle cx="${X(i)}" cy="${YY(M.yillik[y][k])}" r="3" fill="${c}"><title>${y} · ${k}: ${fmt(M.yillik[y][k])}</title></circle>`);
+    });
+    $("yChart").innerHTML = s + "</svg>";
+  })();
+
+  /* Takvim matrisi */
+  const AY = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
+  const al = A.aylik, val = (ser, y, m) => { for (let i = 0; i < al.yil.length; i++) if (al.yil[i] === y && al.ay[i] === m) return ser === "V_ham" ? al.M_true[i] + al.V_raw[i] : al[ser][i]; return 0; };
+  const vir = t => { const st = [[68, 1, 84], [59, 82, 139], [33, 145, 140], [94, 201, 98], [253, 231, 37]]; const x = Math.max(0, Math.min(.9999, t)) * 4, i = Math.floor(x), f = x - i; return "rgb(" + st[i].map((c, k) => Math.round(c + (st[i + 1][k] - c) * f)).join(",") + ")"; };
+  let calMax = 0; Y.forEach(y => { for (let m = 1; m <= 12; m++) calMax = Math.max(calMax, val("V_ham", y, m)); });
+  function cal() {
+    const ser = $("calSer").value, cw = 46, ch = 26, l = 40, t = 18, W = l + cw * 12 + 4, Hh = t + ch * Y.length + 4;
+    let s = `<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Aylık takvim">`;
+    AY.forEach((a, i) => s += `<text x="${l + i * cw + cw / 2}" y="12" fill="#a3afbc" font-size="10" text-anchor="middle">${a}</text>`);
+    Y.forEach((y, r) => {
+      s += `<text x="${l - 6}" y="${t + r * ch + ch / 2 + 4}" fill="#a3afbc" font-size="11" text-anchor="end">${y}</text>`;
+      for (let m = 1; m <= 12; m++) { const v = val(ser, y, m), c = vir(Math.sqrt(v / calMax)); s += `<rect x="${l + (m - 1) * cw + 1}" y="${t + r * ch + 1}" width="${cw - 2}" height="${ch - 2}" rx="3" fill="${c}"><title>${AY[m - 1]} ${y}: ${fmt(v)}</title></rect>`; if (v > calMax * .02) s += `<text x="${l + (m - 1) * cw + cw / 2}" y="${t + r * ch + ch / 2 + 4}" font-size="9" text-anchor="middle" fill="${v / calMax > .3 ? "#111" : "#eee"}">${v >= 1000 ? fmt(v / 1000, 0) + "B" : fmt(v)}</text>`; }
+    });
+    $("calWrap").innerHTML = s + "</svg>";
+  }
+  $("calSer").addEventListener("change", cal); cal();
+
+  /* Harita */
+  const map = L.map("abdMap", { preferCanvas: true, center: [41, -105], zoom: 3.5, zoomSnap: .5, minZoom: 2 });
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OpenStreetMap contributors · NASA FIRMS", maxZoom: 14 }).addTo(map);
+  const lay = L.layerGroup().addTo(map), rend = L.canvas({ padding: .3 });
+  const ys = $("ySel"); ["Tümü (≥ 50 tespit)", ...Y].forEach(y => { const o = document.createElement("option"); o.value = y; o.textContent = y; ys.appendChild(o); });
+  ys.value = 2013;
+  function draw() {
+    lay.clearLayers(); const y = +ys.value || 0; let n = 0;
+    for (const e of A.olaylar) {
+      if (y ? e[2] !== y : e[4] < 50) continue; n++;
+      const c = e[4] >= 1000 ? "#ff3b4f" : e[4] >= 100 ? "#f2701d" : e[4] >= 20 ? "#f5b455" : "#ffe08a";
+      L.circleMarker([e[0], e[1]], { renderer: rend, radius: Math.min(16, 1.6 + Math.sqrt(e[4]) * .35), color: c, weight: 0, fillOpacity: .55, fillColor: c })
+        .bindTooltip(`${e[2]}-${String(e[3]).padStart(2, "0")} · ${fmt(e[4])} tespit · ΣFRP ${fmt(e[5])} MW`).addTo(lay);
+    }
+    $("mapN").textContent = fmt(n) + " olay";
+  }
+  ys.addEventListener("change", draw); draw();
+  const pin = L.layerGroup().addTo(map);
+
+  /* Doğrulama tablosu */
+  $("dBody").innerHTML = D.liste.map((d, i) => {
+    const ok = d.durum === "eslesti", guclu = ok && d.yil_sirasi <= 50 && d.uzaklik_km <= 30;
+    const st = !ok ? '<span class="yok">bulunamadı</span>' : guclu ? '<span class="ok">eşleşti</span>' : '<span class="zay">zayıf eşleşme</span>';
+    return `<tr class="tik" data-i="${i}"><td>${d.ad}</td><td>${d.eyalet}</td><td>${d.baslangic}</td><td class="n">${ok ? fmt(d.tespit) : "–"}</td><td class="n">${ok ? fmt(d.sure_sa / 24, 1) : "–"}</td><td class="n">${ok ? fmt(d.yil_sirasi) : "–"}</td><td>${st}</td></tr>`;
+  }).join("");
+  $("dBody").addEventListener("click", ev => {
+    const tr = ev.target.closest("tr"); if (!tr) return; const d = D.liste[+tr.dataset.i];
+    ys.value = +d.baslangic.slice(0, 4); draw(); pin.clearLayers();
+    L.circle([d.lat, d.lon], { radius: 40000, color: "#5eead4", weight: 2, fill: false, dashArray: "6 6" }).bindTooltip(d.ad + " · belgelenmiş konum (40 km)").addTo(pin);
+    map.flyTo([d.lat, d.lon], 7.5, { duration: .8 }); $("abdMap").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  /* Bölge ve kümeleme */
+  const bm = Math.max(...M.bolge.map(b => b.olay));
+  $("bBody").innerHTML = M.bolge.map(b => `<tr><td>${b.bolge}</td><td class="n">${fmt(b.olay)}</td><td class="n">%${fmt(b.pay_pct, 1)}</td><td><div class="bar" style="width:${b.olay / bm * 100}%"></div></td></tr>`).join("");
+  const K = M.kumeleme;
+  $("kBody").innerHTML = [["Temiz tespit (NASA tip 0)", fmt(K.nokta)], ["Ortak kümeleme → yangın olayı", fmt(K.olay_ortak)], ["Ayrı kümeleme (uydular ayrı)", fmt(K.olay_ayri)],
+    ["Önlenen çift sayım", fmt(K.cift_sayim)], ["Kural (Türkiye ile aynı)", K.kural], ["Hesap süresi", fmt(K.sure_sn, 1) + " sn"]]
+    .map(r => `<tr><td class="dim">${r[0]}</td><td class="n">${r[1]}</td></tr>`).join("");
+})();
+</script>
+</body>
+</html>
