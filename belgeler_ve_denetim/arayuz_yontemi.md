@@ -35,7 +35,7 @@ Tasarım dili `referans/STIL_NOTU.md` dosyasındaki Figma Make spesifikasyonuna 
   - İkincil Vurgu: `#a99cff` / `#8b7cf6` (Mor, kümelenmiş olay çizgisi ve ikincil özet kart vurgu şeridi)
   - Uyarı Tonu: `#f5b455` (Kehribar/Altın, NRT dönemi, kısmi ay ve geçiş bayrakları)
 - **Düzen Mimarisi (`.top`, `.cards`, `.layout`, `.tabs`):**
-  - Üst başlıkta (`.top`) uygulama adı, Bilimsel Seri Hızlı Anahtarı (`#sciModeBtn`), Hızlı CSV İndirme düğmesi (`#quickExportBtn`), Veri ve Yöntem paneli (`#infoBtn`), Sade Mod / Jüri Modu (`#juriBtn`) ve TR/EN dil değiştirici (`#langBtn`) yer alır.
+  - Üst başlıkta (`.top`) uygulama adı, Bilimsel Seri Hızlı Anahtarı (`#sciModeBtn`), Hızlı CSV İndirme düğmesi (`#quickExportBtn`), Veri ve Yöntem paneli (`#infoBtn`), Sade Mod (`#juriBtn`) ve TR/EN dil değiştirici (`#langBtn`) yer alır.
   - 4 adet telemetri özet kartı (`.cards` / `.kart` — üst vurgu şeritli ve `tabular-nums` tipografisiyle):
     1. `Toplam yangın olayı` (`#cTotal`)
     2. `En yoğun aylar` (`#cTop`)
@@ -48,7 +48,7 @@ Tasarım dili `referans/STIL_NOTU.md` dosyasındaki Figma Make spesifikasyonuna 
 ## 3. Bilimsel Seri Seçimi ve Kararı (Yusuf'un Soru 3 Cevabı)
 
 ### Basitçe
-Jüri size "Ekranda hangi seriyi gösteriyorsunuz? MODIS mi, VIIRS mi?" diye sorduğunda cevabınız şudur:
+Biri size "Ekranda hangi seriyi gösteriyorsunuz? MODIS mi, VIIRS mi?" diye sorduğunda cevabınız şudur:
 > *"Bilimsel standartlara uygun olarak iki farklı ihtiyacı tek ekranda buluşturduk: 20 yıllık tarihsel karşılaştırmalar, trendler ve anomali tespiti için **MODIS-Eşdeğer Seri** varsayılandır. Çünkü 2000–2011 arasında gökyüzünde VIIRS yoktu; geçmişle bugünü ancak eşdeğer tabanda kıyaslayabiliriz. Fakat son yılların ayrıntılı uzamsal detayını ve küçük yangınları incelemek isteyen uzmanlar için **Ham VIIRS ve Üçlü Sınıf Katmanları** haritada ve ayarlarda anında açılabilir."*
 
 ### Teknik olarak

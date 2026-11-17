@@ -521,7 +521,7 @@ Bu bölüm, hakem gözüyle bulunan dört zayıf noktayı ve her biri için ne y
 - (i0) eforsuz: ay × bölge WAPE 52,68;
 - (i) eforlu: 30,64.
 
-(ii)'nin bölge × mevsim × FRP sınıfı katmanları ek kazanç getirmedi. (ii) "üstün" olduğu için değil, uygulama birimi (ay × bölge, olay birimi) için ana yöntem kaldı. Jüriye mesajımız şu: basit, fiziğe dayalı bir düzeltme işi görüyor. Yıllık Türkiye eğilimi için (i) de savunulabilir; (i) ile hesaplanmış sıçrama değeri belgelerde ayrıca raporlanmadığı için burada verilmiyor (belgede yok).
+(ii)'nin bölge × mevsim × FRP sınıfı katmanları ek kazanç getirmedi. (ii) "üstün" olduğu için değil, uygulama birimi (ay × bölge, olay birimi) için ana yöntem kaldı. Mesajımız şu: basit, fiziğe dayalı bir düzeltme işi görüyor. Yıllık Türkiye eğilimi için (i) de savunulabilir; (i) ile hesaplanmış sıçrama değeri belgelerde ayrıca raporlanmadığı için burada verilmiyor (belgede yok).
 
 ### 10.3 2026 Aqua yörünge kayması
 
@@ -587,7 +587,7 @@ Bu bölüm, hakem gözüyle bulunan dört zayıf noktayı ve her biri için ne y
 - Giglio, L., Schroeder, W., Justice, C. O. (2016). The collection 6 MODIS active fire detection algorithm and fire products. *Remote Sensing of Environment*, 178, 31–41.
 - Schroeder, W., Oliva, P., Giglio, L., Csiszar, I. A. (2014). The New VIIRS 375 m active fire detection data product: algorithm description and initial assessment. *Remote Sensing of Environment*, 143, 85–96.
 
-**Proje belgeleri:** `belgeler_ve_denetim/yontem_ozeti.md`; `belgeler_ve_denetim/{temizlik,kumeleme,harmonizasyon,takvim,arayuz}_yontemi.md` (yontem_ozeti üzerinden); `belgeler_ve_denetim/bulgular.md` (F2-07, F1-05, F2-09 ...); `belgeler_ve_denetim/gercek_dogrulama.md` ve `.json`; `arayuz/data/metrics.json`; `arayuz/i18n/sci_tr.json`; `raporlar/calisma_prensibi.md`; `raporlar/juri_sunum.md`.
+**Proje belgeleri:** `belgeler_ve_denetim/yontem_ozeti.md`; `belgeler_ve_denetim/{temizlik,kumeleme,harmonizasyon,takvim,arayuz}_yontemi.md` (yontem_ozeti üzerinden); `belgeler_ve_denetim/bulgular.md` (F2-07, F1-05, F2-09 ...); `belgeler_ve_denetim/gercek_dogrulama.md` ve `.json`; `arayuz/data/metrics.json`; `arayuz/i18n/sci_tr.json`; `raporlar/calisma_prensibi.md`.
 
 **Bağımsız kaynaklar** (gerçek dünya doğrulaması; `gercek_dogrulama.json` genel bölümü):
 

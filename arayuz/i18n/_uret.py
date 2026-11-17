@@ -8,7 +8,7 @@ K = {
 "pal.label": ("Palet", "Palette"),
 "cvd.label": ("Renk körlüğü simülasyonu", "Colour-blindness simulation"),
 "cvd.none": ("Yok", "None"),
-"juri.btn": ("Jüri modu", "Jury mode"),
+"juri.btn": ("Sade mod", "Simple mode"),
 "hon.source": ("Veri: events.parquet ve points.parquet, üretim {gen} (FIRMS MODIS C6.1 + VIIRS)", "Data: events.parquet and points.parquet, built {gen} (FIRMS MODIS C6.1 + VIIRS)"),
 "hon.range": ("Veri aralığı: {a} … {b}", "Data range: {a} … {b}"),
 "hon.sensors": ("Sensör kapsamı: Terra tüm dönem; Aqua {aqua}; SNPP {snpp}; N20 {n20}; N21 {n21}", "Sensor coverage: Terra throughout; Aqua {aqua}; SNPP {snpp}; N20 {n20}; N21 {n21}"),
@@ -207,7 +207,7 @@ K.update({
 "warn.partial": ("Not: {y} tamamlanmamış yıl. Statik veri; son veri {d}; son aylar NRT (hızlı ön sürüm: sonradan düzeltilebilen yaklaşık veri) niteliğindedir.", "Note: {y} is incomplete. Static data; last data {d}; the latest months are NRT (near-real-time, a fast preliminary release that may be corrected later)."),
 "warn.label": ("Etiketler: yangın olayı sayıları ölçüldü; uydu farkı giderilmiş seri ve bantları tahmini.", "Labels: event counts are measured; the satellite-difference-corrected series and its bands are estimated."),
 "warn.nobase": ("Harita zemini çevrimdışıdır (yalnız il sınırları); isteğe bağlı çevrimiçi zemin internet ister.", "The base map is offline (province outlines only); optional online tiles need internet."),
-"juri.btn": ("Sade mod", "Simple mode"), "juri.tip": ("Jüri modu: teknik ayrıntıları gizler", "Jury mode: hides technical details"),
+"juri.btn": ("Sade mod", "Simple mode"), "juri.tip": ("Sade mod: teknik ayrıntıları gizler", "Simple mode: hides technical details"),
 "cards.title": ("Özet kartları", "Summary cards"),
 "card.total.t": ("Kümelenmiş sıcak nokta olayı", "Clustered hot-spot events"),
 "card.total.s": ("{reg}, {a} … {b}; aynı yangını gören tüm uydu kayıtları tek olay sayıldı.", "{reg}, {a} … {b}; all satellite records of the same fire count as one event."),
@@ -336,7 +336,7 @@ K.update({
 "tour.s8": ("Haritada bir ile tıkla, o il seçilsin. Daire ya da çokgen çizerek kendi bölgeni de seçebilirsin.", "Click a province on the map to select it. You can also draw a circle or polygon to select your own area."),
 "tour.s9": ("FRP'si en yüksek olaylar burada. Birine tıkla, harita oraya uçsun ve ayrıntısı alta gelsin. Varsayılan ölçüt tepe FRP (MW); bir numara 2021 Antalya (Manavgat) olayı!", "The events with the highest FRP are listed here. Click one and the map flies there, with its details shown below. The default measure is peak FRP (MW); number one is the 2021 Antalya (Manavgat) event!"),
 "tour.s10": ("Burada 2012'de yeni uydu (VIIRS) eklenince ham sayının neden sahte biçimde fırladığını ve nasıl düzelttiğimizi görürsün. Altta tek bir yangının adım adım birleşmesi var.", "Here you can see why the raw count falsely jumped when the new satellite (VIIRS) was added in 2012, and how we corrected it. Below is a step-by-step view of how a single fire was merged."),
-"tour.s11": ("Tablo ve grafikleri buradan indirebilirsin. Sade mod jüri sunumu için ayrıntıları gizler, EN düğmesi dili değiştirir. İyi keşifler!", "You can download the tables and charts from here. Simple mode hides technical details for jury presentations, and the EN button switches the language. Happy exploring!"),
+"tour.s11": ("Tablo ve grafikleri buradan indirebilirsin. Sade mod teknik ayrıntıları gizler, EN düğmesi dili değiştirir. İyi keşifler!", "You can download the tables and charts from here. Simple mode hides technical details, and the EN button switches the language. Happy exploring!"),
 })
 K.update({
 "card.cur.few": ("Bu ay {v} olay, normal (medyan) {med}. Sayı az olduğu için yüzde verilmiyor.", "{v} events this month; normal (median) {med}. Too few events for a meaningful percentage."),
@@ -415,7 +415,7 @@ K.update({  # --- tour --- v3: açıklayıcı tur metinleri
 "tour.a9b": ("2012 sıçrama modu aynı haritayı üç aşamada gösterir: ham tespit sahte fırlar, kümeleme çoğunu siler, düzeltme kalanı giderir. Oynat düğmesiyle yıl yıl izleyebilirsin.", "Jump mode shows the same map in three stages: raw detections spike falsely, clustering removes most of it, correction removes the rest. Use the play button to watch it year by year."),
 "tour.a10": ("2012'de yeni uydu (VIIRS) eklenince ham sayı sahte biçimde fırladı. Bu grafikte ham, kümelenmiş ve düzeltilmiş seriyi üst üste görürsün; düzeltilmiş çizgi sıçramayı yok eder.", "When the new satellite (VIIRS) arrived in 2012 the raw count jumped falsely. This chart overlays the raw, clustered and corrected series; the corrected line removes the jump."),
 "tour.a10b": ("Burada bilimsel anlatım var: fizik, formüller, doğrulama. Üstteki Basit/Uzman düğmesiyle dili sadeleştirir ya da ayrıntıya girersin. İstersen şimdi 'Lintu ile bilimsel tur'u başlat.", "This is the scientific explanation: physics, formulas, validation. The Simple/Expert toggle at the top simplifies the wording or goes into detail. Start the 'Science tour with Lintu' when you are ready."),
-"tour.a11": ("Tablo ve grafikleri buradan indirirsin. Sade mod jüri sunumu için ayrıntıları gizler, EN düğmesi dili değiştirir. İyi keşifler!", "Download tables and charts here. Simple mode hides details for the jury presentation and the EN button switches language. Happy exploring!"),
+"tour.a11": ("Tablo ve grafikleri buradan indirirsin. Sade mod teknik ayrıntıları gizler, EN düğmesi dili değiştirir. İyi keşifler!", "Download tables and charts here. Simple mode hides technical details and the EN button switches language. Happy exploring!"),
 # --- calendar ---
 "cal.view": ("Görünüm", "View"),
 "cal.view_aria": ("Takvim görünümü", "Calendar view"),

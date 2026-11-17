@@ -44,7 +44,7 @@ Wilson aralığının üst sınırı (%13,3) şu anlama gelir: 0/25 gözlemi, ge
 - n=25/tabaka küçüktür; bu sonuç yalnızca "haber araması bu olaylar için pozitif örnek üretmedi" bilgisini verir.
 - Konum adları otomatik ters coğrafi kodlamadandır, bazı köy/mahalle adları yanlış olabilir; arama yalnızca birkaç sorguyla sınırlıdır (olay başına ~1-2 sorgu).
 - Bu belge, `gercek_dogrulama.*` sonucunu (20 büyük olayın 16'sı eşleşiyor, 3'ü kısmi) **değiştirmez**; onu tamamlar: büyük olaylarda dış doğrulama güçlü, küçük olaylarda haberle doğrulama bu yöntemle mümkün olmadı.
-- Jüriye önerilen dürüst ifade: "Küçük ve orta olayların kesinliği haber kayıtlarıyla ölçülemedi (0/50 eşleşme, 95% GA üst sınırı %13/tabaka; küçük yangınlar haberleşmez). Bu olayların büyük çoğunluğu tarım arazisi üzerinde olduğundan 'tarla/anız yangını veya tarımsal yakma' olarak yorumlanır ve uygulamada 'anız' bayrağı ile ayrılır."
+- Önerilen dürüst ifade: "Küçük ve orta olayların kesinliği haber kayıtlarıyla ölçülemedi (0/50 eşleşme, 95% GA üst sınırı %13/tabaka; küçük yangınlar haberleşmez). Bu olayların büyük çoğunluğu tarım arazisi üzerinde olduğundan 'tarla/anız yangını veya tarımsal yakma' olarak yorumlanır ve uygulamada 'anız' bayrağı ile ayrılır."
 
 ## Öneriler (yapılmadı)
 

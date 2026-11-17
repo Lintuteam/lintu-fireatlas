@@ -1,13 +1,19 @@
+<p align="center"><img src="demo/lintu_logo.png" alt="Lintu logo" width="140"></p>
+
 # Lintu FireAtlas: Fire Activity Calendar (Türkiye + USA)
 
-**Team Lintu · NASA Space Apps Challenge 2026**
-**Challenge:** Harmonization of MODIS and VIIRS Hot Spots
+**Team Lintu · built for NASA Space Apps Challenge 2026** (challenge: Harmonization of MODIS and VIIRS Hot Spots)
 
 26 years of NASA FIRMS fire detections from two satellites (MODIS 2000–2026, VIIRS 2012–2026), merged into one consistent calendar and map of fire activity in Türkiye.
 
-- **Live app:** https://lintuteam.github.io/lintu-fireatlas/ (works on phones too)
+### 🔥 [Open the live app → lintuteam.github.io/lintu-fireatlas](https://lintuteam.github.io/lintu-fireatlas/)
+
+Free, no sign-up, works on phones. Turkish and English.
+
 - **USA view:** https://lintuteam.github.io/lintu-fireatlas/arayuz/abd.html (or the **ABD** button in the app header)
 - **Demo (7 slides):** [demo/Lintu_Demo_7_Slides.pdf](demo/Lintu_Demo_7_Slides.pdf)
+
+![The app's start screen: key numbers and the four-step solution](docs/img/overview.png)
 
 > This is a record of **past fire activity**, not a fire-risk forecast. A satellite hot spot is not always a fire.
 
@@ -55,6 +61,12 @@ An independent re-computation, written separately from the pipeline code, reprod
 - **Mobile:** single-column layout on phones; the filter panel folds into a "Süzgeçler / Filters" button.
 - **Türkiye | ABD switch:** the USA validation view (`arayuz/abd.html`) with its own map, calendar and documented-fire table.
 
+## Screenshots
+
+| Fire activity calendar | Heat map (zoomed out) | Single fire events (zoomed in) |
+|---|---|---|
+| ![Calendar of fire events by year and month](docs/img/calendar.png) | ![Heat map of fire activity over Türkiye](docs/img/map-heat.png) | ![Single fire events near Antalya and Manavgat, sized by fire power](docs/img/map-events.png) |
+
 ## Run it locally
 
 The app is a static web page; it needs a local web server because it loads data files.
@@ -76,6 +88,7 @@ Then open http://localhost:8765. On Windows you can also double-click `BASLAT_AR
 | `belgeler_ve_denetim/` | Method documents, audit log, validation results |
 | `raporlar/` | Reports (working principle, maths and physics) |
 | `demo/` | 7-slide demo deck (PDF and PPTX) |
+| `docs/img/` | Screenshots used in this README |
 
 Raw FIRMS files (~127 MB) are not included. Download them from https://firms.modaps.eosdis.nasa.gov/download/ (MODIS C6.1 and VIIRS 375 m for Türkiye). Some documents in the folders above are in Turkish.
 

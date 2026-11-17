@@ -2,7 +2,7 @@
 
 Uretim: 2026-11-14. Makine-okunur karsiligi: `resmi_istatistik_karsilastirma.json`; grafik verisi: `resmi_istatistik_karsilastirma_grafik.csv`.
 
-## Ozet (juri icin)
+## Özet
 
 - Bizim HAM temiz olay sayisi (tarla dahil) OGM orman yangini sayisiyla/alaniyla anlamli uyusmuyor; bunu saklamiyoruz. Uyumlastirilmis MODIS-esdeger olay sayisi OGM sayisiyla r = -0,06 (n=22) verir. Ham MODIS+VIIRS sayisinin r = 0,70 gorunen uyumu zamandaki artis egilimi ve 2012 VIIRS kirilimindan gelir; 2001-2011 (yalniz MODIS donemi) r = -0,21.
 - Bizim seri ile OGM yanan alani arasindaki en iyi uyum, **orman-benzeri arazide (WorldCover agac+calilik >= %50) MODIS-yalniz FRP toplamidir**: n=25 yil (2001-2025), Pearson 0,99, Spearman 0,76; 2021 haric Pearson 0,96, Spearman 0,73; yalniz MODIS donemi 2001-2011 (n=11) Pearson 0,84, Spearman 0,66. En buyuk 5 yil bizde 2021, 2025, 2008, 2007, 2024; OGM'de 2021, 2025, 2008, 2024, 2020: dortu ortak.
