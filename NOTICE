@@ -1,0 +1,22 @@
+Lintu FireAtlas: Fire Activity Calendar
+Copyright (c) 2026 Team Lintu
+  Yusuf Emir Doğan, Tolga Küçüktürkmen, Tunahan Karataş,
+  Alperen Aydın Köysüren, Cemal Özdemir
+https://github.com/Lintuteam/lintu-fireatlas
+https://lintuteam.com
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, version 3 (see LICENSE).
+
+Any copy, fork or derived work must keep this notice and must credit
+"Team Lintu – Lintu FireAtlas" with a link to the repository above.
+
+Third-party components keep their own licenses:
+  - Leaflet (BSD-2-Clause), arayuz/vendor/
+  - NASA FIRMS active fire data (NASA open data policy)
+  - OpenStreetMap data (ODbL)
+  - ESA WorldCover 2021 (CC BY 4.0)
+
+The Lintu name, logo and mascot identify Team Lintu and are not licensed
+for use as another project's branding.

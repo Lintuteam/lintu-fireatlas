@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Veri yükleme, süzme ve toplama. Hiçbir sayı burada yazılı değil (K1): her şey data/ altındaki dosyalardan gelir.
    Basitçe: yıl dosyalarını indirir, seçili bölge/tarih/sensöre göre sayar.
    Teknik olarak: ikili sütun dosyaları -> typed array; tek döngüde süzme + toplama. */

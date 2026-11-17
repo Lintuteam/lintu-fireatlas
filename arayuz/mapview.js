@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Harita: Leaflet (yerel kopya), tuval katmanı, bölge seçimi (il tıklama, daire, çokgen).
    v2.1: izdüşüm bir kez hesaplanır (hızlı çizim); uzak görünümde yoğunluk ısı haritası, yakında noktalar. */
 "use strict";

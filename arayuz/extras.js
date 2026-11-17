@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* v2.2 eklentileri: takvim ayrıntısı (ay / yıl / gün), seçim etiketi, haritada 2012 sıçrama modu.
    main.js'teki S, MX, LASTITEMS, t, fill, esc, $, $$, goToEvent, refresh, showTab kullanılır. */
 "use strict";

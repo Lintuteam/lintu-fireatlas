@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* CSV üretimi (C17). Saf işlev: tarayıcıda window.CSVU, Node'da module.exports (tests/csv_check.py). */
 (function (root) {
   var BOM = "\uFEFF";

@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Birleştirme Laboratuvarı (U-13) ve hücre/olay müfettişi. Gerçek nokta tablosundan (points_<yıl>.bin) çalışır.
    Basitçe: bir MODIS karesi ve içine düşen VIIRS noktaları, adım adım "ham -> hücre -> toplam -> karar -> olay".
    Teknik olarak: MODIS ayak izi = scan x track dikdörtgeni (yön bilgisi yok, eksen hizalı YAKLAŞIK çizilir). */

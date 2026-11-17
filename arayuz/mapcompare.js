@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Harita sekmesi: (1) sınıf/tür açıklaması ve lejant, (2) küçük "MODIS-VIIRS birleştirme" haritası.
    Veri uydurulmaz: seçilen olayın gerçek ham noktaları lab.js inspectPoints ile (points_<yıl>.bin) okunur.
    Aşamalar: 1 ham iki uydu -> 2 her sensör ayrı kümelenmiş (zarf) -> 3 ortak küme (tek olay). Zarf = dışbükey çevreleyen çokgen (yaklaşık). */

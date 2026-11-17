@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Lintu: maskotla adım adım kullanım turu. Her adım bir öğeyi vurgular, gerekirse sekme değiştirir.
    Metinler i18n'den (tour.s1 … tour.s11). İlk açılışta bir kez kendiliğinden başlar. */
 "use strict";

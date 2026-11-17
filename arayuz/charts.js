@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Küçük SVG grafik yardımcıları (kütüphane yok; PNG/SVG indirme için nitelikler satır içi). */
 "use strict";
 const COL = { bg: "#0d141b", fg: "#e6edf3", muted: "#a3afbc", grid: "#1f2a35", accent: "#5eead4", purple: "#a99cff", warn: "#f5b455", line2: "#9fb3c8" };

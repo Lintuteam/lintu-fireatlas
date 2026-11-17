@@ -115,3 +115,17 @@ AI assistants were used to help write and debug code, draft documentation and pr
 | Cemal Özdemir | Product & partnerships | [@ercem3](https://github.com/ercem3) |
 
 Website: https://lintuteam.com
+
+## License
+
+Copyright © 2026 Team Lintu (Yusuf Emir Doğan, Tolga Küçüktürkmen, Tunahan Karataş, Alperen Aydın Köysüren, Cemal Özdemir).
+
+The code is open source under the **GNU Affero General Public License v3.0** ([LICENSE](LICENSE)). You are welcome to use, study and change it, on these conditions:
+
+- **Keep our name.** Keep the copyright notice and the [NOTICE](NOTICE) file, and credit "Team Lintu – Lintu FireAtlas" with a link to this repository.
+- **Stay open.** If you share a changed version, or run it as a public website or service, you must publish your full source code under AGPL-3.0 too.
+- **Mark your changes.** Say clearly that your version is changed and when.
+
+To cite this work, use the "Cite this repository" button on GitHub ([CITATION.cff](CITATION.cff)).
+
+Third-party parts keep their own licenses: NASA FIRMS data (NASA open data policy), OpenStreetMap data (ODbL), ESA WorldCover (CC BY 4.0), Leaflet (BSD-2-Clause, `arayuz/vendor/`). The Lintu name, logo and mascot are the team's identity and are not covered by the code license.

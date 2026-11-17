@@ -1,3 +1,4 @@
+/* Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas */
 /* Sade görünüm: referans/STIL_NOTU.md (koyu zemin, ince kenarlık, tek turkuaz vurgu). Veri renkleri palet seçicidendir. */
 :root { --bg:#070b10; --card:#0d141b; --bd:#1b2630; --fg:#e6edf3; --mut:#a3afbc; --acc:#5eead4; --warn:#f5b455; --pur:#a99cff; }
 * { box-sizing: border-box; }

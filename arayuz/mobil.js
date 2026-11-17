@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Mobil: süzgeç panelini açılır/kapanır yap (dar ekranda varsayılan kapalı). */
 (function () {
   const f = document.querySelector(".filters"); if (!f) return;

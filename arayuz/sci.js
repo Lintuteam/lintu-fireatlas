@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* "Nasıl çalışıyor?" sekmesi: bilimsel anlatım. İçerik i18n/sci_{dil}.json'dan gelir (adım başlığı, Lintu pozu,
    sade anlatım, formüller, sayılar = metrics.json anahtarları, ilgili ekran). Gerçek yangın doğrulama tablosu
    data/gercek_dogrulama.json'dan. Lintu bilim turu bu adımları sırayla vurgular. */

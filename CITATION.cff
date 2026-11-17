@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "Lintu FireAtlas: Fire Activity Calendar (MODIS–VIIRS harmonized fire record for Türkiye)"
+type: software
+authors:
+  - given-names: Yusuf Emir
+    family-names: Doğan
+  - given-names: Tolga
+    family-names: Küçüktürkmen
+  - given-names: Tunahan
+    family-names: Karataş
+  - given-names: Alperen Aydın
+    family-names: Köysüren
+  - given-names: Cemal
+    family-names: Özdemir
+repository-code: "https://github.com/Lintuteam/lintu-fireatlas"
+url: "https://lintuteam.github.io/lintu-fireatlas/"
+license: AGPL-3.0
+date-released: 2026-11-15
+keywords:
+  - NASA FIRMS
+  - MODIS
+  - VIIRS
+  - wildfire
+  - harmonization
+  - Türkiye

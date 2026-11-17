@@ -1,3 +1,4 @@
+// Lintu FireAtlas · © 2026 Team Lintu · AGPL-3.0 · https://github.com/Lintuteam/lintu-fireatlas
 /* Arayüz denetleyicisi. Ekrandaki her sayı D (data/ dosyaları) veya metrics.json'dan hesaplanır (K1, C14). */
 "use strict";
 const S = { lang: "tr", pal: "viridis", cvd: "none", sade: false, region: { type: "tr" }, from: 0, to: 0, sensor: "all", statuses: new Set([0]), minFrp: 0,
