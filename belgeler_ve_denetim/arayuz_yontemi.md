@@ -35,7 +35,7 @@ Tasarım dili `referans/STIL_NOTU.md` dosyasındaki Figma Make spesifikasyonuna 
   - İkincil Vurgu: `#a99cff` / `#8b7cf6` (Mor, kümelenmiş olay çizgisi ve ikincil özet kart vurgu şeridi)
   - Uyarı Tonu: `#f5b455` (Kehribar/Altın, NRT dönemi, kısmi ay ve geçiş bayrakları)
 - **Düzen Mimarisi (`.top`, `.cards`, `.layout`, `.tabs`):**
-  - Üst başlıkta (`.top`) uygulama adı, Bilimsel Seri Hızlı Anahtarı (`#sciModeBtn`), Hızlı CSV İndirme düğmesi (`#quickExportBtn`), Veri ve Yöntem paneli (`#infoBtn`), Sade Mod (`#juriBtn`) ve TR/EN dil değiştirici (`#langBtn`) yer alır.
+  - Üst başlıkta (`.top`) uygulama adı, Bilimsel Seri Hızlı Anahtarı (`#sciModeBtn`), Hızlı CSV İndirme düğmesi (`#quickExportBtn`), Veri ve Yöntem paneli (`#infoBtn`), Sade Mod (`#sadeBtn`) ve TR/EN dil değiştirici (`#langBtn`) yer alır.
   - 4 adet telemetri özet kartı (`.cards` / `.kart` — üst vurgu şeritli ve `tabular-nums` tipografisiyle):
     1. `Toplam yangın olayı` (`#cTotal`)
     2. `En yoğun aylar` (`#cTop`)

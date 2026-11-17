@@ -59,7 +59,7 @@ Yönergedeki (`../yönerge (1).txt`) ek beklentiler: FIRMS API'ye 10 dakikada 5.
 - **U-21** İş bittiğinde sistem **otomatik olarak üç rapor** üretsin:
   1. **Çalışma prensibi raporu:** uygulama nasıl çalışıyor, her kural ve yöntem (Yusuf'un öğrenmesi için, "Basitçe / Teknik olarak").
   2. **Doğruluk raporu:** ne kadar doğru, bağımsız yeniden hesap, kalibrasyon dışı doğrulama, sıçrama metriği, duyarlılık, referans karşılaştırma, hangi kontroller geçti, nelerin doğrulanmadığı.
-  3. **Jüri sunum raporu:** jüriye anlatım akışı, demo senaryoları, NASA gereksinim eşlemesi, yapılan/yapılmayan dürüst tablo, beklenen jüri soruları ve cevapları.
+  3. **Sunum raporu:** anlatım akışı, demo senaryoları, NASA gereksinim eşlemesi, yapılan/yapılmayan dürüst tablo, beklenen sorular ve cevapları.
   Raporlar şablondan üretilir, sayıları `metrics.json`'dan alır, çözülmemiş yer tutucu varsa üretim başarısız olur.
 
 ## C. Bilinen eksikler (mevcut durumdan çıkarıldı)

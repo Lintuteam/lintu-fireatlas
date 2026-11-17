@@ -63,6 +63,6 @@
   "not": "Bağımsız denetçi, {{yh_girdi|t}} girdiyi yeniden hesapladı ({{yh_fark_sifir}} tanesinde fark 0); tek sayı kaynağı metrics.json."},
  "U-20": {"durum": "yapıldı", "kanit": ["tools/check_all.py", "src/app/tests/tutarlilik_check.py"],
   "not": "C14 (ekran = hesap), C15 (Math.random ve sabit metrik taraması), C16 (simülasyon izolasyonu) geçti; kalibrasyon ve test LOYO ile ayrıldı (C09)."},
- "U-21": {"durum": "yapıldı", "kanit": ["tools/build_reports.py", "reports/SABLON_calisma_prensibi.md", "reports/SABLON_dogruluk_raporu.md", "reports/SABLON_juri_sunum.md"],
+ "U-21": {"durum": "yapıldı", "kanit": ["tools/build_reports.py", "reports/SABLON_calisma_prensibi.md", "reports/SABLON_dogruluk_raporu.md", "reports/SABLON_sunum_raporu.md"],
   "not": "Üç rapor şablondan, metrics.json'dan üretilir; çözülmemiş yer tutucu varsa üretim durur (C22). HTML üretilir; PDF için tarayıcıdan yazdırma."}
 }

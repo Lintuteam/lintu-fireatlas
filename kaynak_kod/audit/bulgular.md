@@ -35,7 +35,7 @@ Bağımsız yeniden hesap: `audit/f1/xlsx_oku.py` (27 xlsx openpyxl ile, `raw_al
 
 ### F1-06 · DÜŞÜK · belgeler — **KAPANDI (F4)**
 - **Gözlem:** `data/README.md` ve `audit/veri_envanteri.md` binlik ayırıcıyı "1,414,674" (EN), `docs/04` "1.414.674" (TR) yazıyor. `build_points.py` docstring'i "59 ham kaynak dosyası" diyor (59 = tekil `source_file`, xlsx sayısı 27); belirsiz.
-- **Neden önemli:** C22 belge-sayı taraması iki biçimi de ayrıştırmalı; jüriye "59 dosya mı 27 mi" sorusu.
+- **Neden önemli:** C22 belge-sayı taraması iki biçimi de ayrıştırmalı; okuyucuya "59 dosya mı 27 mi" sorusu.
 - **Öneri:** Tek biçim (TR) ve "27 xlsx, içinde 59 kaynak CSV" ifadesi.
 - **Sorumlu:** veri-hatti.
 
@@ -57,7 +57,7 @@ Kapsam: `src/{cleaning,clustering,harmonize,analytics}`, `data/processed/{points
 
 ### F2-01 · YÜKSEK · `data/processed/agg/harmonized.parquet`, `monthly.parquet` (olay eşdeğeri vs tespit eşdeğeri) — K8 — **KAPANDI (F4)**
 - **Gözlem:** Olay eşdeğeri = "en az bir MODIS tespiti içeren olay" (`olay.py` docstring); tanım gereği ≤ MODIS tespit eşdeğeri. 2012–2025'te `birim=olay, duzey=ay_il` bölgeye toplanınca `birim=tespit, duzey=ay_bolge` değerini **98/1.252 bölge×ay hücresinde aşıyor** (temiz_aniz: 93), en fazla +8, oran en çok 2,0 (ör. 2017-07 İç Anadolu olay 46 > tespit 40; 2024-04 İç Anadolu 86 > 84). TR düzeyinde 6 ay (2014-04: 129 > 125; 2026-04, 2026-05 dahil). Gerçek MODIS tarafında aynı karşılaştırma 0 ihlal (sağlama). Kanıt: `audit/f2/yeniden_hesap_f2.py` (`f2_k8_*`) + ayrı pandas sorgusu (harmonized.parquet `ana_seri`, 2012–2025 tamamı `viirs_modis_esdeger`).
-- **Neden önemli:** Yayımlanan iki seri birlikte okunduğunda mantıksız sayı (olay > tespit) — sabit oran tuzağıyla (B-04) aynı sınıf; jüri yan yana görürse modeli sorgular.
+- **Neden önemli:** Yayımlanan iki seri birlikte okunduğunda mantıksız sayı (olay > tespit) — sabit oran tuzağıyla (B-04) aynı sınıf; okuyucu yan yana görürse modeli sorgular.
 - **Öneri:** Olay eşdeğerini tespit eşdeğeriyle tutarlı kıl (ör. olay = min(olay_tahmin, tespit_tahmin) + bayrak, ya da olay/tespit oranını modelleyip tespit eşdeğerinden türet); kontrolü `test_harmonize.py`'a ekle (ihlal 0).
 - **Sorumlu:** harmonizasyon.
 
@@ -75,7 +75,7 @@ Kapsam: `src/{cleaning,clustering,harmonize,analytics}`, `data/processed/{points
 
 ### F2-04 · ORTA · 2026 rejimi ve "mevcut ay 0,127" — `agg/current_month.parquet`, `monthly.parquet`, `docs/harmonizasyon_yontemi.md §4` — **KAPANDI (F5)** — uyarılar F4'te kapandı; 2026 eşdeğer sapmasının arayüz kısmı F4-01 ile F5'te kapandı (tek durum; aşağıdaki "F1–F2 Kapanış" tablosu da bununla uyumlu).
 - **Gözlem:** (a) Kasım 2026 ilk 12 gün MODIS ham 67 (Aqua 43, Terra 24) vs 2019–2025 aynı günler 485–945. Düşüş iki sensörde birlikte (VIIRS uydu-başına oran 0,243; N20/N21 günlük sayıları 26 Ekim'den itibaren aynı anda düşüyor) → kısmen gerçek (hava) etkisi; MODIS'in ek ~2 kat düşüklüğü sensöre bağlı görünüyor. Aqua gündüz geçiş medyanı 10,70 UTC (2015) → 11,92 (2025) → **12,65 (2026)**; Terra 8,55 → 7,33. Aqua–VIIRS |Δt| ≤ 60 dk kalibrasyon çifti payı 2012–2023 ~%85 → 2025 %49 → **2026 %18**. 2026'da eşdeğer seri gerçek MODIS'ten çok sapıyor: E/M 0,13–3,39; gerçek MODIS bant dışında **4/10 ay** (2026-01: 18 < 34; 04: 339 > 215; 05: 489 > 186; 10: 507 < 566). LOYO bant kapsaması 0,92 iddiasına karşı 2026'da ~0,6. (b) `current_month.parquet` TR satırlarının `uyari` alanı yalnız `sensor_gecis_yili`; `kismi_ay_ilk_D_gun` yalnız sorgu anında (`query.py:111`) ekleniyor, **NRT ve yörünge kayması uyarısı hiçbir yerde yok**. Etiket `tahmini` doğru. Belge kaymayı "2020 sonrası, modellenmedi" diye geçiyor; asıl hızlanma 2024+.
-- **Neden önemli:** "Kasım 2026 tarihsel medyanın 0,127 katı (yüzdelik 4,3)" jüriye olağandışı düşük aktivite diye okunur; büyük kısmı sensör ömrü sonu + NRT etkisi olabilir. MODIS bitince (Terra 2027-01, Aqua ~2027-09; docs/02) seri tamamen bu kalibrasyona dayanacak.
+- **Neden önemli:** "Kasım 2026 tarihsel medyanın 0,127 katı (yüzdelik 4,3)" okuyucuya olağandışı düşük aktivite diye okunur; büyük kısmı sensör ömrü sonu + NRT etkisi olabilir. MODIS bitince (Terra 2027-01, Aqua ~2027-09; docs/02) seri tamamen bu kalibrasyona dayanacak.
 - **Öneri:** current_month'a kalıcı `nrt`, `modis_yorunge_kaymasi` (geçiş saati eşiği config'te) ve `kismi_ay` uyarıları; 2026 için eşdeğer–gerçek MODIS bant uyumu metriği (`harm_2026_bant_kapsama`); belgeye yıllık geçiş saati tablosu ve çift payı düşüşü. MODIS-sonrası için kalibrasyon yıllarını 2012–2023 ile sınırlayan varyant sınansın.
 - **Sorumlu:** takvim-analiz (uyarılar), harmonizasyon (2026 bant, kayma), veri-hatti (NRT bayrağı).
 
@@ -91,7 +91,7 @@ Kapsam: `src/{cleaning,clustering,harmonize,analytics}`, `data/processed/{points
 
 ### F2-07 · DÜŞÜK · C10 inceltmesi (koordinatör kararı) — `docs/03` C10, `audit/degisim_gunlugu.md` — **KAPANDI (F4)**
 - **Gözlem:** Gerekçe geçerli: gerçek MODIS (−44,9) de eski doğal aralığın [−39,3, 92,61] dışında; eski ölçüt kusursuz bir harmonizasyonu da reddederdi. Ama değişiklik sonuç görüldükten sonra yapıldı (post-hoc) ve yeni ölçüt büyük ölçüde C09'un tekrarıdır: artık = (2012–14 LOYO tahmin − gerçek)/2009–11 ort. ≈ 0,55 × 2012–14 ortalama yıllık hata (9,28; 5,05; 5,69 → 3,6). Ayrıca 3 yıllık ortalama, yıllık %95 aralıkla kıyaslanıyor (gevşek). Benim eşdeğer testim: aynı tanımla 2013–2023 tüm 3+3 pencerelerin artık dağılımı [−10,43, +4,62]; 2012 değeri 3,55 bu aralıkta → **sonuç sağlam**. `degisim_gunlugu`ndaki sayılar (ham +116,2, harmonize −49,6, MODIS −51,5, aralık [−40,2, 94,0]) ilk teslim (type 0/−1) sayılarıdır; bugünkü metrics'ten farklı ve bu not edilmemiş.
-- **Öneri:** C10 karşılaştırma aralığı = 3 yıllık pencere artık dağılımı; günlüğe "sayılar ilk teslimden, güncel: …" notu; jüri dili: "sıçrama kayboldu" değil, "harmonize seri 2012'deki gerçek MODIS düşüşünü 3,6 puan farkla izliyor; ham seri +143 % sensör eklenmesinden".
+- **Öneri:** C10 karşılaştırma aralığı = 3 yıllık pencere artık dağılımı; günlüğe "sayılar ilk teslimden, güncel: …" notu; önerilen ifade: "sıçrama kayboldu" değil, "harmonize seri 2012'deki gerçek MODIS düşüşünü 3,6 puan farkla izliyor; ham seri +143 % sensör eklenmesinden".
 - **Sorumlu:** koordinatör.
 
 ### F2-08 · DÜŞÜK · Tarım zinciri "33 olay" — `docs/kumeleme_yontemi.md:110`, `src/clustering/build_events.py:458` — **KAPANDI (F4)**
@@ -151,7 +151,7 @@ Kontroller: `python tools/check_all.py` → GEÇTİ 22, KALDI 0, ATLANDI 3 (C22,
 
 ### F4-01 · YÜKSEK · TR "son tam ay" kutusu 2026'da eşdeğer seriyi gösteriyor, iki sensörün kendi verisiyle çelişiyor — `src/app/core.js:160`, `src/analytics/query.py:195-206` — **KAPANDI (F5)**
 - **Gözlem:** TR açılışında mevcut ay kutusu `modis_esdeger` seçiyor: Ekim 2026 = 903, tarihsel medyanın **%170**'i. Aynı ay gerçek ölçümler: `modis_temiz` 507/579 = **0,876**, `viirs_temiz_ub` 0,944, `viirs_ham_ub` 0,875 (`current_month.parquet`). Bölgede daha uç: İç Anadolu eşdeğer 2,38×. Ayrışma yorumu (`ayrisma_yorum`) yalnız MODIS serileri için ve yalnız "MODIS düşük" yönünde çalışıyor; `modis_esdeger` satırında boş → ekranda uyarı yok. `harm_2026_bant_kapsama`=0,545 (eşdeğer bandı 2026'da gerçek MODIS'i ayların yarısında kaçırıyor) arayüzde hiç gösterilmiyor. Matris de aynı yönde (olay_esdeger Ekim 2026 705 vs medyan 381).
-- **Neden önemli:** Jürinin ilk göreceği "bu ay" cümlesi, kalibrasyon dışı (Aqua kayması, çift payı 0,182) bir modelin ürettiği ve iki sensörün de doğrulamadığı "normalin 1,7 katı" iddiası. K5, şüpheli sonuç.
+- **Neden önemli:** Kullanıcının ilk göreceği "bu ay" cümlesi, kalibrasyon dışı (Aqua kayması, çift payı 0,182) bir modelin ürettiği ve iki sensörün de doğrulamadığı "normalin 1,7 katı" iddiası. K5, şüpheli sonuç.
 - **Öneri:** 2026 (veya `harm_2026_bant_kapsama` < `equiv_band_kapsama_ay_tr`) için mevcut ay kutusunda ölçülen seriyi (modis_temiz + viirs_temiz_ub) öne al, eşdeğeri ikincil ve "kalibrasyon dışı" rozetiyle göster; ayrışma yorumunu eşdeğer serisine ve iki yöne genişlet; 2026 satırına bant kapsama uyarısı.
 - **Sorumlu:** takvim-analiz (query.py yorum), arayuz-harita (seri önceliği/rozet), harmonizasyon (2026 geçerlilik sınırı).
 
@@ -228,7 +228,7 @@ Faz 1 (veri hattı) ve Faz 2 (temizlik, kümeleme, harmonizasyon, takvim-analiz)
 - **Abartı taraması:** "yapay zekâ" yalnız "yapay zekayla temizlendi değil" olumsuzlamasında; "risk" yalnız "risk değildir" tanımında; "hatasız/mükemmel" 0; "kusursuz" yalnız "kusursuz değil".
 - **C25:** 33 kimliğin tamamı eşlenmiş (28 yapıldı, 5 kısmen); tüm kanıt yolları diskte var. N-05 ve U-16 F4-01 kapanınca `build_reports.py` ile "yapıldı" oldu; aşağıdaki F5-01/F5-02 bu kararı bozmuyor (özellik var, demo metni eksik).
 
-### F5-01 · ORTA · Jüri demo senaryoları 2 ve 5 uygulamada yazıldığı gibi yürümüyor — **KAPANDI** (`reports/demo_senaryolari.json`, `src/app/main.js`)
+### F5-01 · ORTA · Demo senaryoları 2 ve 5 uygulamada yazıldığı gibi yürümüyor — **KAPANDI** (`reports/demo_senaryolari.json`, `src/app/main.js`)
 - **Gözlem ve kapanış:** `reports/demo_senaryolari.json` adımlarına `#dateResetBtn` (tarih sıfırlama), `#maxEvBtn` (en büyük olaya gitme) ve Senaryo 5 için `MODIS tespit (temiz)` seri seçimi eklendi; `src/app/main.js:378-381` içinde olayda bulunmayan bir durum (ör. `Sanayi`) seçilince ham nokta katmanı (`rawToggle`) kendiliğinden açılır ve `refreshRaw()` bölge/durum süzgeciyle çalışır.
 
 ### F5-02 · ORTA · Ham kod metni ve EN ondalık raporda ve ekranda — **KAPANDI** (`tools/build_reports.py`, `src/app/main.js:169-181`)

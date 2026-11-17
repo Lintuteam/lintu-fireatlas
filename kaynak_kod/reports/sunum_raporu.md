@@ -1,9 +1,9 @@
-# Jüri Sunum Raporu
+# Sunum Raporu
 
 Veri sürümü: FIRMS MODIS C6.1 + VIIRS 375 m, 2000–2026 (son gün 2026-11-12), 1.414.674 nokta, veri şeması v1, `reports/metrics.json` üretimi 2026-11-13T09:07:17Z · Üretim tarihi: 2026-11-13 09:42 UTC
 Denetim durumu: check_all: 25 geçti, 0 kaldı, 0 atlandı; denetçi bulguları: açık yüksek 0, açık orta 0, açık düşük 5 — denetçi kapısı açık yüksek bulgu içermiyor
 
-> Bu rapor Yusuf'un jüriye anlatması içindir. Konuşma metni önce **Basitçe** (benzetme), ardından **Teknik olarak** verilir. Her sayı `reports/metrics.json` kimliğiyle izlenir; yanındaki etiket **ölçüldü / tahmini / doğrulanmadı**dır (K5). Yapılmayanlar gizlenmez (§7, §9). "Aktivite" = tarihsel hotspot yoğunluğudur; hotspot yangın değildir, risk tahmini yapılmaz.
+> Bu rapor sunumda anlatım içindir. Konuşma metni önce **Basitçe** (benzetme), ardından **Teknik olarak** verilir. Her sayı `reports/metrics.json` kimliğiyle izlenir; yanındaki etiket **ölçüldü / tahmini / doğrulanmadı**dır (K5). Yapılmayanlar gizlenmez (§7, §9). "Aktivite" = tarihsel hotspot yoğunluğudur; hotspot yangın değildir, risk tahmini yapılmaz.
 
 ## 1. Tek cümle
 
@@ -48,7 +48,7 @@ Her slaytın kullandığı sayılar `metrics.json` kimliğiyle verilmiştir.
 
 ## 5. Canlı demo senaryoları (gerçek veriden otomatik seçildi)
 
-Hepsi gerçek veridendir; sahte veri yoktur ve jüri modunda "SİMÜLASYON" rozeti kapalıdır (C16). Seçim kuralları `tools/build_rapor_metrikleri.py` içinde olup veri değişirse kendiliğinden güncellenir. **Başlatma:** `src/app/baslat.bat` çalıştırılır (yerel sunucu, internet gerekmez); tarayıcı http://localhost:8765/index.html adresini açar. Üstteki `#sciModeBtn` ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") Soru 3 kararı gereği varsayılan bilimsel seriyi tek tıkla ham olay serisiyle karşılaştırır; `#quickExportBtn` hızlı CSV indirir; "Sade mod" teknik ayrıntıları gizler; dil düğmesi TR/EN.
+Hepsi gerçek veridendir; sahte veri yoktur ve sade modda "SİMÜLASYON" rozeti kapalıdır (C16). Seçim kuralları `tools/build_rapor_metrikleri.py` içinde olup veri değişirse kendiliğinden güncellenir. **Başlatma:** `src/app/baslat.bat` çalıştırılır (yerel sunucu, internet gerekmez); tarayıcı http://localhost:8765/index.html adresini açar. Üstteki `#sciModeBtn` ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") Soru 3 kararı gereği varsayılan bilimsel seriyi tek tıkla ham olay serisiyle karşılaştırır; `#quickExportBtn` hızlı CSV indirir; "Sade mod" teknik ayrıntıları gizler; dil düğmesi TR/EN.
 
 ### Senaryo 1 — Çok tespit, az olay günü (birleştirmenin değeri)
 
@@ -150,7 +150,7 @@ Beklenen: ★ sırası (medyan): Haz > Eyl > Ağu (ölçüldü); medyanlar [1.21
 | U-18 | FIRMS'in verdiği veri yetmeyebilir. FIRMS API ile otomatik çekme ve ek veri kaynaklarını değerlendir: uydu ... | kısmen | `src/pipeline/firms_api.py`, `src/cleaning/worldcover.py`, `docs/ek_kaynaklar.md` | ESA WorldCover kullanıldı (ölçüldü). FIRMS API betiği hazır ama çalıştırılmadı; swath ve STA maskesi toplu olarak bulunamadı (kapsam çıkarım, STA yok (doğrulanmadı)); MCD64A1 kullanılmadı. |
 | U-19 | Ajanlar sık sık kontrol yapsın; veride ve belgelerde uyuşmazlık olup olmadığı sürekli denetlensin. Tek doğr... | yapıldı | `tools/check_all.py`, `audit/bulgular.md`, `audit/yeniden_hesap.json`, `reports/metrics.json` | Bağımsız denetçi, 97 karşılaştırma (ölçüldü) girdiyi yeniden hesapladı (93 tanesinde fark 0); tek sayı kaynağı metrics.json. |
 | U-20 | Ekranda sabit yazılmış metrik, rastgele üretilmiş veri (ör. sahte bulut) ve aynı veriyle kalibre edip test ... | yapıldı | `tools/check_all.py`, `src/app/tests/tutarlilik_check.py` | C14 (ekran = hesap), C15 (Math.random ve sabit metrik taraması), C16 (simülasyon izolasyonu) geçti; kalibrasyon ve test LOYO ile ayrıldı (C09). |
-| U-21 | İş bittiğinde sistem otomatik olarak üç rapor üretsin: | yapıldı | `tools/build_reports.py`, `reports/SABLON_calisma_prensibi.md`, `reports/SABLON_dogruluk_raporu.md`, `reports/SABLON_juri_sunum.md` | Üç rapor şablondan, metrics.json'dan üretilir; çözülmemiş yer tutucu varsa üretim durur (C22). HTML üretilir; PDF için tarayıcıdan yazdırma. |
+| U-21 | İş bittiğinde sistem otomatik olarak üç rapor üretsin: | yapıldı | `tools/build_reports.py`, `reports/SABLON_calisma_prensibi.md`, `reports/SABLON_dogruluk_raporu.md`, `reports/SABLON_sunum_raporu.md` | Üç rapor şablondan, metrics.json'dan üretilir; çözülmemiş yer tutucu varsa üretim durur (C22). HTML üretilir; PDF için tarayıcıdan yazdırma. |
 
 ## 7. Yapıldı / kısmen / yapılmadı
 
@@ -199,9 +199,9 @@ Otomatik eklenenler (`audit/check_results.json` ve `audit/bulgular.md`; güzelle
 - Açık denetim bulgusu **F4-04** (düşük, kısmen): Görüntü kusurları (doğrulanmadı)
 - Açık denetim bulgusu **F5-03** (düşük, açık): Etiket (C24) — türetilmiş sonuç "ölçüldü" (doğrulanmadı)
 
-## 8. Muhtemel jüri soruları ve kanıtlı cevaplar
+## 8. Muhtemel sorular ve kanıtlı cevaplar
 
-Sorular `audit/juri_sorulari.md` dosyasından (denetçi provası); cevaplar ve sayılar bu raporda `metrics.json`'dan yeniden çekilmiştir. Her cevabın sonunda kullanılan metrik kimlikleri ve denetçinin durum notu vardır.
+Sorular `audit/soru_cevap.md` dosyasından (denetçi provası); cevaplar ve sayılar bu raporda `metrics.json`'dan yeniden çekilmiştir. Her cevabın sonunda kullanılan metrik kimlikleri ve denetçinin durum notu vardır.
 
 ### Soru 1. Harmonizasyon gerçekten işe yarıyor mu?
 
@@ -346,7 +346,7 @@ Sorular `audit/juri_sorulari.md` dosyasından (denetçi provası); cevaplar ve s
 
 ## 9. Cevaplanamayan sorular (eksikler)
 
-Aşağıdakiler için elimizde yeterli kanıt yoktur; jüri sorarsa "bunu doğrulayamadık" denmelidir.
+Aşağıdakiler için elimizde yeterli kanıt yoktur; biri sorarsa "bunu doğrulayamadık" denmelidir.
 
 - Soru 12: MODIS bittiğinde ne olacak? — ****kısmen eksik** (MODIS-sonrası doğrulama yok; F4-01)**
 

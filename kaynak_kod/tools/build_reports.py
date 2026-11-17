@@ -11,11 +11,11 @@ Teknik olarak
                      b = birim ekle      t = birim + etiket
                      yuzde = oranı yüzdeye çevir (0,478 -> %47,8)
                      ay = ay numaralarını ad yap ([8,9,6] -> Ağu > Eyl > Haz)
-  Noktalı anahtarlar (meta.*, kontrol.*, gereksinim.*, juri.*, sinirlar.*, ...) kod
+  Noktalı anahtarlar (meta.*, kontrol.*, gereksinim.*, sunum.*, sinirlar.*, ...) kod
   tarafında üretilen bloklardır (kontrol sonuçları, bulgular, tablolar). Bunlar da
   yalnız `audit/`, `reports/metrics.json`, `src/config/esikler.json` ve
   `reports/*.json` veri dosyalarından türetilir; sayı yazılmaz.
-  Çıktı: reports/{calisma_prensibi,dogruluk_raporu,juri_sunum}.md ve .html
+  Çıktı: reports/{calisma_prensibi,dogruluk_raporu,sunum_raporu}.md ve .html
   (PDF için bu ortamda kütüphane yok: HTML, tarayıcıdan "PDF olarak yazdır" ile
   PDF'e çevrilir; baskı stili hazırdır).
 Kullanım:  python tools/build_reports.py
@@ -34,7 +34,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
 AUDIT = ROOT / "audit"
 DOCS = ROOT / "docs"
-OUTPUTS = ["calisma_prensibi", "dogruluk_raporu", "juri_sunum"]
+OUTPUTS = ["calisma_prensibi", "dogruluk_raporu", "sunum_raporu"]
 LABELS = ("ölçüldü", "tahmini", "doğrulanmadı")
 AYLAR = ["", "Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
 NO_UNIT = {"", "oran", "0/1", "ay no", "kimlik", "yıl", "TR günü", "il"}
@@ -184,9 +184,9 @@ def acik(b, level):
     return [x for x in b if x["seviye"] == level and x["durum"] != "kapandı"]
 
 
-def parse_juri_sorulari() -> tuple[list[dict], str]:
+def parse_soru_cevap() -> tuple[list[dict], str]:
     rows, tail = [], ""
-    for ln in (AUDIT / "juri_sorulari.md").read_text(encoding="utf-8").splitlines():
+    for ln in (AUDIT / "soru_cevap.md").read_text(encoding="utf-8").splitlines():
         if ln.startswith("| ") and re.match(r"^\|\s*\d+\s*\|", ln):
             cells = [c.strip() for c in ln.strip().strip("|").split("|")]
             rows.append({"n": int(cells[0]), "soru": cells[1], "durum": cells[-1]})
@@ -438,14 +438,14 @@ def b_gereksinim(which):
 
 
 def b_soru_cevap(which):
-    rows, tail = parse_juri_sorulari()
-    tmpl = (REPORTS / "SABLON_juri_soru_cevap.md").read_text(encoding="utf-8")
+    rows, tail = parse_soru_cevap()
+    tmpl = (REPORTS / "SABLON_soru_cevap.md").read_text(encoding="utf-8")
     parts = re.split(r"^## S(\d+)\s*$", tmpl, flags=re.M)
     ans = {int(parts[i]): parts[i + 1].strip() for i in range(1, len(parts) - 1, 2)}
     out, eksik = [], []
     for r in rows:
         if r["n"] not in ans:
-            ERRORS.append(f"jüri sorusu {r['n']} için şablonda cevap yok")
+            ERRORS.append(f"soru {r['n']} için şablonda cevap yok")
             continue
         used: list = []
         body = render(ans[r["n"]], used)
@@ -507,8 +507,8 @@ BLOCKS.update({
     "duyarlilik.kumeleme": lambda: b_duyarlilik("kumeleme"), "duyarlilik.temizlik": lambda: b_duyarlilik("temizlik"),
     "huni.tablo": b_huni,
     "gereksinim.tablo": lambda: b_gereksinim("tablo"), "gereksinim.durum_tablosu": lambda: b_gereksinim("durum"),
-    "juri.soru_cevap": lambda: b_soru_cevap("soru_cevap"), "juri.cevaplanamayan": lambda: b_soru_cevap("cevaplanamayan"),
-    "juri.slayt_iskeleti": b_slayt, "juri.demo_senaryolari": b_demo,
+    "sunum.soru_cevap": lambda: b_soru_cevap("soru_cevap"), "sunum.cevaplanamayan": lambda: b_soru_cevap("cevaplanamayan"),
+    "sunum.slayt_iskeleti": b_slayt, "sunum.demo_senaryolari": b_demo,
 })
 
 

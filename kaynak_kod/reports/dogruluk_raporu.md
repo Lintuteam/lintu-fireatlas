@@ -220,12 +220,12 @@ C14 kontrolü kodda "statik tarama"dır; çalışma anı karşılaştırması de
 
 ## 9. Doğrulanmayanlar ve bilinen sınırlar
 
-**Basitçe:** Burası "bilmediğimiz şeyler" listesidir; güzelleştirilmedi. Jüri sorarsa ilk önce buradan cevap verilir.
+**Basitçe:** Burası "bilmediğimiz şeyler" listesidir; güzelleştirilmedi. Biri sorarsa ilk önce buradan cevap verilir.
 
 | # | Konu | Etiket | Açıklama | Kaynak |
 |---|---|---|---|---|
 | 1 | 2026 için MODIS-eşdeğer seri güvenilmez | doğrulanmadı | Aqua öğle geçişi 10,7 UTC (2015) iken 12,65 UTC'ye (2026) kaydı; Aqua ile VIIRS'in eşzamanlı çift payı 0,839 iken 0,182 değerine düştü. Eşdeğer bandın 2026'da gerçek MODIS'i kapsama oranı 0,545 (ölçüldü); LOYO döneminde 0,9226 (ölçüldü). Son tam ayda eşdeğer seri oranı 1,697 kat (tahmini) verirken iki sensörün kendi ölçümü 0,876 kat (ölçüldü) (MODIS) ve 0,944 kat (tahmini) (VIIRS): çelişki. Yörünge kaymasını gidermeyen ('kaymasız') bir kalibrasyon varyantı ölçülmedi. | docs/harmonizasyon_yontemi.md §4; audit/bulgular.md F4-01 |
-| 2 | MODIS bittikten sonra serinin doğruluğu | doğrulanmadı | Terra/Aqua sona erince seri yalnız 2012–2025 kalibrasyonuna dayanır. Bu rejimin bağımsız doğrulaması yoktur; çünkü karşılaştırılacak gerçek MODIS kalmayacak. Aylık ülke hata bandı [−59,57 ; 74,99] % (tahmini) geniştir. | audit/juri_sorulari.md soru 12 |
+| 2 | MODIS bittikten sonra serinin doğruluğu | doğrulanmadı | Terra/Aqua sona erince seri yalnız 2012–2025 kalibrasyonuna dayanır. Bu rejimin bağımsız doğrulaması yoktur; çünkü karşılaştırılacak gerçek MODIS kalmayacak. Aylık ülke hata bandı [−59,57 ; 74,99] % (tahmini) geniştir. | audit/soru_cevap.md soru 12 |
 | 3 | Sensör farkı çözüldü iddiası yok | tahmini | Harmonize seri, gerçek MODIS'in aynı penceredeki değişimini 3,55 yüzde puan (tahmini) farkla izliyor. Bu fark LOYO yıllık %95 hata aralığı [−23,49 ; 9,51] % (tahmini) içinde; ama harmonize sıçrama, geçiş dışı doğal yıllık değişim aralığı [−39,3 ; 92,61] % (tahmini) içinde değil (içinde mi: hayır (tahmini)), çünkü gerçek MODIS de bu aralığın dışında. C10 ölçütü ilk sonuç görüldükten sonra inceltildi (audit/degisim_gunlugu.md); bu bir yöntem seçimidir ve sonuca göre ayarlanmış olabileceği kabul edilir. | docs/03_KABUL_KRITERLERI.md C10; audit/degisim_gunlugu.md; audit/bulgular.md F2-07 |
 | 4 | (ii) ile (i) yöntemleri ayırt edilemez | ölçüldü | Ay×bölge WAPE: (i) 30,64 % (ölçüldü), (ii) 30,63 % (ölçüldü); fark %95 aralığı [−2,97 ; 4,26] yüzde puan (tahmini). Yıllık toplamda (i) daha iyi (MAPE 4,83 % (ölçüldü) karşı 8,33 % (ölçüldü)). Asıl kazanç gözlem eforu (uydu sayısı) normalizasyonudur; (ii)'nin (i)'den üstün olduğu iddia edilmez. Kazanan seçimi LOYO sonuçları üzerinde yapıldığı için hata hafif iyimser olabilir. | docs/harmonizasyon_yontemi.md §5 |
 | 5 | Anız için yer doğrulaması yok | doğrulanmadı | Anız etiketi kural tabanlıdır ve yalnız dolaylı kanıtla sınandı: ESA WorldCover'da anız noktalarının %79,3 ekili alanda (ölçüldü), kaba ulusal hasat penceresiyle uyum %74,2 (tahmini). Saha, yanmış alan (MCD64A1) veya AFAD/OGM kaydıyla karşılaştırma yapılmadı. Ay tek başına anızı ayırmaz (LOYO kaldıraç 0,928 (ölçüldü)). | docs/temizlik_yontemi.md §6, §10 |
@@ -241,7 +241,7 @@ C14 kontrolü kodda "statik tarama"dır; çalışma anı karşılaştırması de
 | 15 | FIRMS API ile otomatik çekme çalıştırılmadı | doğrulanmadı | `src/pipeline/firms_api.py` betiği hazır (kota 5000 işlem/10 dk'ya uygun) fakat API anahtarı yok ve çalıştırılmadı. Veri, elle indirilmiş 1.414.674 satırlık arşivden gelir; son gün 2026-11-12. | docs/ek_kaynaklar.md |
 | 16 | Terra'nın 2026 durumu belirsiz | doğrulanmadı | Mevcut durum belgesindeki 'Mart 2026'da beklemeye alındı' iddiası doğrulanamadı; veride Terra tespiti son güne kadar sürüyor. Planlı bitiş tarihleri ikincil kaynaktan, doğrulanmadı. | docs/ek_kaynaklar.md |
 | 17 | Zaman: sabit UTC+3 | tahmini | TR günü her yıl için sabit UTC+3 alınır; 2016 öncesi kış saati (UTC+2) etkisi 21:00–21:59 UTC tespitlerini ertesi güne kaydırır, etkisi küçük kabul edildi (denetçi örneklemle ölçebilir). | audit/degisim_gunlugu.md F1 |
-| 18 | Mevcut ay kutusu ve 2026 kısmi yıl | doğrulanmadı | Son veri günü 2026-11-12; mevcut ay 12 gün (ölçüldü) kısmidir ve NRT payı 100 % (ölçüldü). Mevcut ay oranı MODIS 0,127 kat (tahmini), VIIRS 0,243 kat (tahmini); MODIS'in ek düşüşünün nedeni (sensör ömrü sonu, NRT, yörünge kayması) doğrulanmadı. | audit/juri_sorulari.md soru 13 |
+| 18 | Mevcut ay kutusu ve 2026 kısmi yıl | doğrulanmadı | Son veri günü 2026-11-12; mevcut ay 12 gün (ölçüldü) kısmidir ve NRT payı 100 % (ölçüldü). Mevcut ay oranı MODIS 0,127 kat (tahmini), VIIRS 0,243 kat (tahmini); MODIS'in ek düşüşünün nedeni (sensör ömrü sonu, NRT, yörünge kayması) doğrulanmadı. | audit/soru_cevap.md soru 13 |
 | 19 | Harita zemini çevrimiçi | ölçüldü | Uygulama internet olmadan açılır (C21, kütüphaneler yerelde); yalnız isteğe bağlı çevrimiçi harita zemini internet ister, yoksa il sınırları görünür. | src/app/i18n/tr.json map.tilewarn; check_all C21 |
 | 20 | Hotspot yangın değildir; risk tahmini yoktur | ölçüldü | Gösterilen şey tarihsel hotspot/olay aktivitesidir. Gelecekteki yangın riski veya tehlikesi tahmin edilmez (K14). Nokta sayısı yangın sayısı değildir: 1.414.674 noktadan 471.978 olay çıkar. | CLAUDE.md K14 |
 
@@ -292,7 +292,7 @@ Açık yüksek: 0 · Açık orta: 0 · Açık düşük: 5 · Kapanan: 23 (kaynak
 | F4-02 | orta | kapandı | Mevcut ay kutusu matristeki seriyi izlemiyor — `core.js:160` |
 | F4-03 | düşük | kapandı | Aynı büyüklük ekranda iki farklı değer — `main.js:230` |
 | F4-04 | düşük | kısmen | Görüntü kusurları |
-| F5-01 | orta | kapandı | Jüri demo senaryoları 2 ve 5 uygulamada yazıldığı gibi yürümüyor |
+| F5-01 | orta | kapandı | Demo senaryoları 2 ve 5 uygulamada yazıldığı gibi yürümüyor |
 | F5-02 | orta | kapandı | Ham kod metni ve EN ondalık raporda ve ekranda |
 | F5-03 | düşük | açık | Etiket (C24) — türetilmiş sonuç "ölçüldü" |
 | F5-04 | düşük | kapandı | F4-04 kalıntıları |

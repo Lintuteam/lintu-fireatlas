@@ -144,7 +144,7 @@ C14 kontrolü kodda "statik tarama"dır; çalışma anı karşılaştırması de
 
 ## 9. Doğrulanmayanlar ve bilinen sınırlar
 
-**Basitçe:** Burası "bilmediğimiz şeyler" listesidir; güzelleştirilmedi. Jüri sorarsa ilk önce buradan cevap verilir.
+**Basitçe:** Burası "bilmediğimiz şeyler" listesidir; güzelleştirilmedi. Biri sorarsa ilk önce buradan cevap verilir.
 
 {{sinirlar.dogrulanmayan}}
 

@@ -437,7 +437,7 @@ def c21_cevrimdisi():
 # --------------------------------------------------------------------------- #
 # Belgelerle tutarlılık
 # --------------------------------------------------------------------------- #
-GENERATED = ["calisma_prensibi.md", "dogruluk_raporu.md", "juri_sunum.md"]
+GENERATED = ["calisma_prensibi.md", "dogruluk_raporu.md", "sunum_raporu.md"]
 
 
 def c22_belge_sayilari():
@@ -479,7 +479,7 @@ def c24_durustluk_etiketi():
 
 def c25_gereksinim_eslemesi():
     ids = sorted(set(re.findall(r"\b([NU]-\d{2})\b", ISTEKLER.read_text(encoding="utf-8"))))
-    rep = REPORTS / "juri_sunum.md"
+    rep = REPORTS / "sunum_raporu.md"
     if (m := missing(rep)):
         return skip(m + f" ({len(ids)} kimlik eşlenmeyi bekliyor)")
     t = rep.read_text(encoding="utf-8")

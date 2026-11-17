@@ -33,7 +33,7 @@
 |---|---|---|
 | C14 | Ekran = hesap | Arayüzde görünen her sayı `reports/metrics.json` veya veri tablosundan gelen değerle birebir eşit (tolerans 0) |
 | C15 | Yasak kalıp taraması | Arayüz kodunda `Math.random`, tohumlu rastgele, sabit yazılmış metrik (R², yüzde, oran) yok |
-| C16 | Simülasyon izolasyonu | Simüle veri yalnızca `tests/` altında; ekranda "SİMÜLASYON" rozeti; jüri modunda kapalı |
+| C16 | Simülasyon izolasyonu | Simüle veri yalnızca `tests/` altında; ekranda "SİMÜLASYON" rozeti; sade modda kapalı |
 | C17 | CSV | Sütunlar, UTF-8 BOM, formül enjeksiyonu önlemi, UTC ve TR zaman sütunları |
 | C18 | TR/EN | İki sözlüğün anahtar kümesi aynı |
 | C19 | Erişilebilirlik | Klavyeyle gezinme, `aria` etiketleri, renk körlüğü simülasyonuyla ayırt edilebilirlik, kontrast oranı ölçülür ve raporlanır |

@@ -57,5 +57,5 @@ Testler: JS testleri (`tests/core.test.js`) ve Python testleri (`pipeline/test_b
 - NASA, Terra MODIS'in Ocak 2027'de, Aqua MODIS'in yaklaşık Eylül 2027'de biteceğini planlıyor: https://atmosphere.copernicus.eu/drifting-away-modis-cams-global-fire-assimilation-system
 - Suomi NPP'nin FIRMS aktif yangın verisi üretimi 2 Kasım 2026'da duruyor (yerine NOAA-20 ve NOAA-21): https://www.earthdata.nasa.gov/news/blog/transitioning-from-s-npp-viirs-omps-what-nasa-firms-users-need-know
 - FIRMS uydu geçiş şeridi (swath outline) ürünü yayımlıyor: https://www.earthdata.nasa.gov/news/blog/new-firms-data-product-satellite-swath-outlines
-- Bu bilgiler jüri için güçlü bir gerekçe: harmonizasyon, MODIS'ten VIIRS'e geçişte sürekli bir seri kurmanın tam kendisi. Kullanmadan önce bağlantıları yeniden kontrol et.
+- Bu bilgiler güçlü bir gerekçe: harmonizasyon, MODIS'ten VIIRS'e geçişte sürekli bir seri kurmanın tam kendisi. Kullanmadan önce bağlantıları yeniden kontrol et.
 - FIRMS API kota ve tarih aralığı sınırları **doğrulanmadı**; resmî dokümandan teyit et.

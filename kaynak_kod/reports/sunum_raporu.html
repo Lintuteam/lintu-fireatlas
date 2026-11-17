@@ -1,4 +1,4 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>juri_sunum</title><style>:root{--bg:#070b10;--card:#0d141b;--line:#1b2630;--tx:#e6edf3;--dim:#7b8794;--ac:#5eead4}
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>sunum_raporu</title><style>:root{--bg:#070b10;--card:#0d141b;--line:#1b2630;--tx:#e6edf3;--dim:#7b8794;--ac:#5eead4}
 body{background:var(--bg);color:var(--tx);font:15px/1.6 Inter,system-ui,sans-serif;margin:0}
 main{max-width:980px;margin:0 auto;padding:24px 16px}
 h1,h2,h3{font-weight:500}h2{border-top:1px solid var(--line);padding-top:18px;margin-top:28px}
@@ -9,9 +9,9 @@ th{background:var(--card);color:var(--dim);font:600 11.5px ui-monospace,monospac
 blockquote{border-left:3px solid var(--ac);margin:12px 0;padding:2px 14px;color:var(--dim);background:var(--card)}
 strong{color:#fff}
 @media print{:root{--bg:#fff;--card:#f3f5f7;--line:#c9d1d9;--tx:#111;--dim:#444;--ac:#0b6b5f}strong{color:#000}}
-</style></head><body><main><h1>Jüri Sunum Raporu</h1>
+</style></head><body><main><h1>Sunum Raporu</h1>
 <p>Veri sürümü: FIRMS MODIS C6.1 + VIIRS 375 m, 2000–2026 (son gün 2026-11-12), 1.414.674 nokta, veri şeması v1, <code>reports/metrics.json</code> üretimi 2026-11-13T09:07:17Z · Üretim tarihi: 2026-11-13 09:42 UTC Denetim durumu: check_all: 25 geçti, 0 kaldı, 0 atlandı; denetçi bulguları: açık yüksek 0, açık orta 0, açık düşük 5 — denetçi kapısı açık yüksek bulgu içermiyor</p>
-<blockquote>Bu rapor Yusuf'un jüriye anlatması içindir. Konuşma metni önce <strong>Basitçe</strong> (benzetme), ardından <strong>Teknik olarak</strong> verilir. Her sayı <code>reports/metrics.json</code> kimliğiyle izlenir; yanındaki etiket <strong>ölçüldü / tahmini / doğrulanmadı</strong>dır (K5). Yapılmayanlar gizlenmez (§7, §9). "Aktivite" = tarihsel hotspot yoğunluğudur; hotspot yangın değildir, risk tahmini yapılmaz.</blockquote>
+<blockquote>Bu rapor sunumda anlatım içindir. Konuşma metni önce <strong>Basitçe</strong> (benzetme), ardından <strong>Teknik olarak</strong> verilir. Her sayı <code>reports/metrics.json</code> kimliğiyle izlenir; yanındaki etiket <strong>ölçüldü / tahmini / doğrulanmadı</strong>dır (K5). Yapılmayanlar gizlenmez (§7, §9). "Aktivite" = tarihsel hotspot yoğunluğudur; hotspot yangın değildir, risk tahmini yapılmaz.</blockquote>
 <h2>1. Tek cümle</h2>
 <p>"MODIS ve VIIRS aynı dili konuşmuyor; biz VIIRS'i MODIS'in diline çevirip hem yapay sıçramayı (143,13 % (ölçüldü)) hem de yangın olmayan ısı kaynaklarını ayırdık, hiçbir noktayı silmeden ve neyi doğrulayamadığımızı açıkça yazarak."</p>
 <h2>2. Sorun</h2>
@@ -43,7 +43,7 @@ strong{color:#fff}
 <tr><td>10</td><td>Dürüst sınırlar</td><td>2026 eşdeğer bandı gerçek MODIS'i ayların yalnız %54,5 kadarında kapsıyor; tesis yakalama 0,4777 (tahmini); anız için yer doğrulaması yok; ekran okuyucu testi yok.</td><td><code>harm_2026_bant_kapsama</code> = 0,545 (ölçüldü); <code>ref_recall</code> = 0,4777 (tahmini); <code>temizlik_aniz_loyo_kaldirac</code> = 0,928 (ölçüldü); <code>aqua_viirs_esz_cift_payi_2026</code> = 0,182 (ölçüldü); <code>a11y_klavye_oran</code> = 0,884 (ölçüldü); <code>temizlik_sta_maskesi_karsilastirma</code> = yok (doğrulanmadı)</td></tr>
 </tbody></table>
 <h2>5. Canlı demo senaryoları (gerçek veriden otomatik seçildi)</h2>
-<p>Hepsi gerçek veridendir; sahte veri yoktur ve jüri modunda "SİMÜLASYON" rozeti kapalıdır (C16). Seçim kuralları <code>tools/build_rapor_metrikleri.py</code> içinde olup veri değişirse kendiliğinden güncellenir. <strong>Başlatma:</strong> <code>src/app/baslat.bat</code> çalıştırılır (yerel sunucu, internet gerekmez); tarayıcı http://localhost:8765/index.html adresini açar. Üstteki <code>#sciModeBtn</code> ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") Soru 3 kararı gereği varsayılan bilimsel seriyi tek tıkla ham olay serisiyle karşılaştırır; <code>#quickExportBtn</code> hızlı CSV indirir; "Sade mod" teknik ayrıntıları gizler; dil düğmesi TR/EN.</p>
+<p>Hepsi gerçek veridendir; sahte veri yoktur ve sade modda "SİMÜLASYON" rozeti kapalıdır (C16). Seçim kuralları <code>tools/build_rapor_metrikleri.py</code> içinde olup veri değişirse kendiliğinden güncellenir. <strong>Başlatma:</strong> <code>src/app/baslat.bat</code> çalıştırılır (yerel sunucu, internet gerekmez); tarayıcı http://localhost:8765/index.html adresini açar. Üstteki <code>#sciModeBtn</code> ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") Soru 3 kararı gereği varsayılan bilimsel seriyi tek tıkla ham olay serisiyle karşılaştırır; <code>#quickExportBtn</code> hızlı CSV indirir; "Sade mod" teknik ayrıntıları gizler; dil düğmesi TR/EN.</p>
 <h3>Senaryo 1 — Çok tespit, az olay günü (birleştirmenin değeri)</h3>
 <p>Seçim kuralı (<code>tools/build_rapor_metrikleri.py</code>): o gün başlayan olayların toplam tespit sayısının olay sayısına oranı en büyük gün (en az 500 tespit). Seçilen gün: <strong>2021-07-28</strong>.</p>
 <p>Tıklama sırası (<code>src/app/baslat.bat</code>, tarayıcıda http://localhost:8765/index.html):</p>
@@ -129,7 +129,7 @@ strong{color:#fff}
 <tr><td>U-18</td><td>FIRMS'in verdiği veri yetmeyebilir. FIRMS API ile otomatik çekme ve ek veri kaynaklarını değerlendir: uydu ...</td><td>kısmen</td><td><code>src/pipeline/firms_api.py</code>, <code>src/cleaning/worldcover.py</code>, <code>docs/ek_kaynaklar.md</code></td><td>ESA WorldCover kullanıldı (ölçüldü). FIRMS API betiği hazır ama çalıştırılmadı; swath ve STA maskesi toplu olarak bulunamadı (kapsam çıkarım, STA yok (doğrulanmadı)); MCD64A1 kullanılmadı.</td></tr>
 <tr><td>U-19</td><td>Ajanlar sık sık kontrol yapsın; veride ve belgelerde uyuşmazlık olup olmadığı sürekli denetlensin. Tek doğr...</td><td>yapıldı</td><td><code>tools/check_all.py</code>, <code>audit/bulgular.md</code>, <code>audit/yeniden_hesap.json</code>, <code>reports/metrics.json</code></td><td>Bağımsız denetçi, 97 karşılaştırma (ölçüldü) girdiyi yeniden hesapladı (93 tanesinde fark 0); tek sayı kaynağı metrics.json.</td></tr>
 <tr><td>U-20</td><td>Ekranda sabit yazılmış metrik, rastgele üretilmiş veri (ör. sahte bulut) ve aynı veriyle kalibre edip test ...</td><td>yapıldı</td><td><code>tools/check_all.py</code>, <code>src/app/tests/tutarlilik_check.py</code></td><td>C14 (ekran = hesap), C15 (Math.random ve sabit metrik taraması), C16 (simülasyon izolasyonu) geçti; kalibrasyon ve test LOYO ile ayrıldı (C09).</td></tr>
-<tr><td>U-21</td><td>İş bittiğinde sistem otomatik olarak üç rapor üretsin:</td><td>yapıldı</td><td><code>tools/build_reports.py</code>, <code>reports/SABLON_calisma_prensibi.md</code>, <code>reports/SABLON_dogruluk_raporu.md</code>, <code>reports/SABLON_juri_sunum.md</code></td><td>Üç rapor şablondan, metrics.json'dan üretilir; çözülmemiş yer tutucu varsa üretim durur (C22). HTML üretilir; PDF için tarayıcıdan yazdırma.</td></tr>
+<tr><td>U-21</td><td>İş bittiğinde sistem otomatik olarak üç rapor üretsin:</td><td>yapıldı</td><td><code>tools/build_reports.py</code>, <code>reports/SABLON_calisma_prensibi.md</code>, <code>reports/SABLON_dogruluk_raporu.md</code>, <code>reports/SABLON_sunum_raporu.md</code></td><td>Üç rapor şablondan, metrics.json'dan üretilir; çözülmemiş yer tutucu varsa üretim durur (C22). HTML üretilir; PDF için tarayıcıdan yazdırma.</td></tr>
 </tbody></table>
 <h2>7. Yapıldı / kısmen / yapılmadı</h2>
 <p>Toplam 33 istek: <strong>yapıldı 28</strong>, <strong>kısmen 5</strong>, <strong>yapılmadı 0</strong>. Durum değerlendirmesi kanıt dosyasının varlığına ve açık denetim bulgularına bağlanmıştır (kanıt yolu yoksa üretim durur).</p>
@@ -177,8 +177,8 @@ strong{color:#fff}
 <li>Açık denetim bulgusu <strong>F4-04</strong> (düşük, kısmen): Görüntü kusurları (doğrulanmadı)</li>
 <li>Açık denetim bulgusu <strong>F5-03</strong> (düşük, açık): Etiket (C24) — türetilmiş sonuç "ölçüldü" (doğrulanmadı)</li>
 </ul>
-<h2>8. Muhtemel jüri soruları ve kanıtlı cevaplar</h2>
-<p>Sorular <code>audit/juri_sorulari.md</code> dosyasından (denetçi provası); cevaplar ve sayılar bu raporda <code>metrics.json</code>'dan yeniden çekilmiştir. Her cevabın sonunda kullanılan metrik kimlikleri ve denetçinin durum notu vardır.</p>
+<h2>8. Muhtemel sorular ve kanıtlı cevaplar</h2>
+<p>Sorular <code>audit/soru_cevap.md</code> dosyasından (denetçi provası); cevaplar ve sayılar bu raporda <code>metrics.json</code>'dan yeniden çekilmiştir. Her cevabın sonunda kullanılan metrik kimlikleri ve denetçinin durum notu vardır.</p>
 <h3>Soru 1. Harmonizasyon gerçekten işe yarıyor mu?</h3>
 <p><strong>Basitçe:</strong> Evet, ve bunu "sınav sorusunu önceden görmeden" sınadık: her yılı sırayla saklayıp kalan yıllardan öğrendik. <strong>Kanıt:</strong> Yıllık MAPE 8,33 % (ölçüldü), R² 0,8716 (ölçüldü), sapma 0,55 % (ölçüldü). Efor düzeltmesi olmayan tek oran aynı testte MAPE 42,12 % (ölçüldü), R² −1,7204 (ölçüldü) verdi. Yıllık %95 hata aralığı [−23,49 ; 9,51] % (tahmini): yani tek bir yılın tahmini yine de yaklaşık bu aralıkta şaşabilir.</p>
 <p><em>Denetçi durumu:</em> cevaplanabilir. <em>metrics.json kimlikleri:</em> loyo_mape, loyo_r2, loyo_bias, harm_i0_yillik_mape, harm_i0_yillik_r2, loyo_ci95</p>
@@ -240,7 +240,7 @@ strong{color:#fff}
 <p><strong>Basitçe:</strong> Uygulama bir klasörü çift tıklayıp internet kesikken bile açılacak kadar bağımsızdır; filtre değiştiğinde saniyenin dörtte birinde yeniden hesaplar. <strong>Kanıt:</strong> Dış CDN bağlantısı sıfırdır (C21); 27 yıllık 302.863 olay (ölçüldü) temiz olayda eşik değişimi ortalama 0,253 s (ölçüldü) sürer (C20); minimum WCAG kontrast 4,59 (ölçüldü) ve renk körlüğü dE en az 14,0 (C19). <strong>Doğrulanmayan:</strong> Ekran okuyucuyla elle tarayıcı testi yapılmadı (<code>doğrulanmadı</code>).</p>
 <p><em>Denetçi durumu:</em> cevaplanabilir (ekran okuyucu doğrulanmadı). <em>metrics.json kimlikleri:</em> perf_olay_sayisi, perf_esik_degisimi_sn, a11y_kontrast_min</p>
 <h2>9. Cevaplanamayan sorular (eksikler)</h2>
-<p>Aşağıdakiler için elimizde yeterli kanıt yoktur; jüri sorarsa "bunu doğrulayamadık" denmelidir.</p>
+<p>Aşağıdakiler için elimizde yeterli kanıt yoktur; biri sorarsa "bunu doğrulayamadık" denmelidir.</p>
 <ul>
 <li>Soru 12: MODIS bittiğinde ne olacak? — **<strong>kısmen eksik</strong> (MODIS-sonrası doğrulama yok; F4-01)**</li>
 </ul>

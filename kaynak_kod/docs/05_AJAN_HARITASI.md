@@ -10,7 +10,7 @@ Ana oturum **koordinatördür** ve alt ajanları `.claude/agents/` altından ça
 | `kumeleme` | Sensör duyarlı eşleştirme, geçişe bağlı boşluk kuralı, D/H duyarlılığı | U-10..U-12 | `src/clustering/` |
 | `takvim-analiz` | Yıl×ay matrisi, ay medyanı, aktivite sıralaması, anomali, tarih aralığı | U-16, N-05..N-07 | `src/analytics/` |
 | `arayuz-harita` | Harita katmanları, birleştirme laboratuvarı, müfettiş, sıçrama grafiği, erişilebilirlik | U-13, U-14, U-17 | `src/app/` |
-| `denetci` | Bağımsız yeniden hesap, uyuşmazlık taraması, jüri sorusu provası | U-19, U-20 | `audit/` |
+| `denetci` | Bağımsız yeniden hesap, uyuşmazlık taraması, olası soru provası | U-19, U-20 | `audit/` |
 | `rapor-yazari` | `metrics.json` ve üç rapor | U-21 | `tools/`, `reports/` |
 
 ## Sıra ve bağımlılık
@@ -23,7 +23,7 @@ F2 harmonizasyon ┐
    kumeleme      ┘        -> denetci (doğruluk testleri C01-C13)
 F3 takvim-analiz ┐ paralel
    arayuz-harita ┘        -> denetci (C14-C21)
-F4 denetci: tam denetim, jüri sorusu provası
+F4 denetci: tam denetim, olası soru provası
 F5 rapor-yazari: metrics.json ve üç rapor -> denetci (C22-C25)
 ```
 

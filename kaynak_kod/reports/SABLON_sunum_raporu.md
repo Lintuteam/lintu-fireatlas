@@ -1,9 +1,9 @@
-# Jüri Sunum Raporu
+# Sunum Raporu
 
 Veri sürümü: {{meta.veri_surumu}} · Üretim tarihi: {{meta.uretim_tarihi}}
 Denetim durumu: {{meta.denetim_durumu}}
 
-> Bu rapor Yusuf'un jüriye anlatması içindir. Konuşma metni önce **Basitçe** (benzetme), ardından **Teknik olarak** verilir. Her sayı `reports/metrics.json` kimliğiyle izlenir; yanındaki etiket **ölçüldü / tahmini / doğrulanmadı**dır (K5). Yapılmayanlar gizlenmez (§7, §9). "Aktivite" = tarihsel hotspot yoğunluğudur; hotspot yangın değildir, risk tahmini yapılmaz.
+> Bu rapor sunumda anlatım içindir. Konuşma metni önce **Basitçe** (benzetme), ardından **Teknik olarak** verilir. Her sayı `reports/metrics.json` kimliğiyle izlenir; yanındaki etiket **ölçüldü / tahmini / doğrulanmadı**dır (K5). Yapılmayanlar gizlenmez (§7, §9). "Aktivite" = tarihsel hotspot yoğunluğudur; hotspot yangın değildir, risk tahmini yapılmaz.
 
 ## 1. Tek cümle
 
@@ -33,13 +33,13 @@ Denetim durumu: {{meta.denetim_durumu}}
 
 Her slaytın kullandığı sayılar `metrics.json` kimliğiyle verilmiştir.
 
-{{juri.slayt_iskeleti}}
+{{sunum.slayt_iskeleti}}
 
 ## 5. Canlı demo senaryoları (gerçek veriden otomatik seçildi)
 
-Hepsi gerçek veridendir; sahte veri yoktur ve jüri modunda "SİMÜLASYON" rozeti kapalıdır (C16). Seçim kuralları `tools/build_rapor_metrikleri.py` içinde olup veri değişirse kendiliğinden güncellenir. **Başlatma:** `src/app/baslat.bat` çalıştırılır (yerel sunucu, internet gerekmez); tarayıcı http://localhost:8765/index.html adresini açar. Üstteki `#sciModeBtn` ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") Soru 3 kararı gereği varsayılan bilimsel seriyi tek tıkla ham olay serisiyle karşılaştırır; `#quickExportBtn` hızlı CSV indirir; "Sade mod" teknik ayrıntıları gizler; dil düğmesi TR/EN.
+Hepsi gerçek veridendir; sahte veri yoktur ve sade modda "SİMÜLASYON" rozeti kapalıdır (C16). Seçim kuralları `tools/build_rapor_metrikleri.py` içinde olup veri değişirse kendiliğinden güncellenir. **Başlatma:** `src/app/baslat.bat` çalıştırılır (yerel sunucu, internet gerekmez); tarayıcı http://localhost:8765/index.html adresini açar. Üstteki `#sciModeBtn` ("MODİS-Eşdeğer (Bilimsel)" ↔ "Ham Olay Serisi") Soru 3 kararı gereği varsayılan bilimsel seriyi tek tıkla ham olay serisiyle karşılaştırır; `#quickExportBtn` hızlı CSV indirir; "Sade mod" teknik ayrıntıları gizler; dil düğmesi TR/EN.
 
-{{juri.demo_senaryolari}}
+{{sunum.demo_senaryolari}}
 
 ## 6. NASA gereksinim eşlemesi (C25)
 
@@ -56,17 +56,17 @@ Hepsi gerçek veridendir; sahte veri yoktur ve jüri modunda "SİMÜLASYON" roze
 
 {{sinirlar.liste}}
 
-## 8. Muhtemel jüri soruları ve kanıtlı cevaplar
+## 8. Muhtemel sorular ve kanıtlı cevaplar
 
-Sorular `audit/juri_sorulari.md` dosyasından (denetçi provası); cevaplar ve sayılar bu raporda `metrics.json`'dan yeniden çekilmiştir. Her cevabın sonunda kullanılan metrik kimlikleri ve denetçinin durum notu vardır.
+Sorular `audit/soru_cevap.md` dosyasından (denetçi provası); cevaplar ve sayılar bu raporda `metrics.json`'dan yeniden çekilmiştir. Her cevabın sonunda kullanılan metrik kimlikleri ve denetçinin durum notu vardır.
 
-{{juri.soru_cevap}}
+{{sunum.soru_cevap}}
 
 ## 9. Cevaplanamayan sorular (eksikler)
 
-Aşağıdakiler için elimizde yeterli kanıt yoktur; jüri sorarsa "bunu doğrulayamadık" denmelidir.
+Aşağıdakiler için elimizde yeterli kanıt yoktur; biri sorarsa "bunu doğrulayamadık" denmelidir.
 
-{{juri.cevaplanamayan}}
+{{sunum.cevaplanamayan}}
 
 ## 10. Kapanış
 

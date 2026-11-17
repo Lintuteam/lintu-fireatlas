@@ -18,7 +18,7 @@ def parse(s):
     s = s.replace('−', '-').replace('.', '').replace(',', '.')
     return float(s)
 items = []
-for f in ['calisma_prensibi', 'dogruluk_raporu', 'juri_sunum']:
+for f in ['calisma_prensibi', 'dogruluk_raporu', 'sunum_raporu']:
     t = (R/f'reports/{f}.md').read_text(encoding='utf-8')
     for mt in pat.finditer(t):
         items.append((f, mt.group(1), mt.group(2) or '', mt.group(3), t[max(0, mt.start()-60):mt.end()].replace('\n', ' ')))

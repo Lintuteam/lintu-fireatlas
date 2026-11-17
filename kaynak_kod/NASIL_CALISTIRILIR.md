@@ -1,6 +1,6 @@
 # Kaynak kod: veri hattını baştan çalıştırma
 
-Bu klasör, `arayuz/` içindeki uygulamanın kullandığı her sayıyı ham NASA FIRMS verisinden üreten kodun tamamıdır. Jüri ya da hakem buradan tüm sonuçları yeniden üretebilir ve kabul testlerini (C01–C25) çalıştırabilir.
+Bu klasör, `arayuz/` içindeki uygulamanın kullandığı her sayıyı ham NASA FIRMS verisinden üreten kodun tamamıdır. Herkes buradan tüm sonuçları yeniden üretebilir ve kabul testlerini (C01–C25) çalıştırabilir.
 
 | Klasör | İçerik |
 |---|---|

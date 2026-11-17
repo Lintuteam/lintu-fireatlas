@@ -22,7 +22,7 @@
   "toplam_data_mb_nokta_dahil": 96.7,
   "nokta_dosyalari": "yalnız ham katman/müfettiş/laboratuvar için yıl bazlı, istek üzerine yüklenir (C20)"
  },
- "yontem_notu": "Süreler bu makinede tek ölçümdür; jüri makinesinde farklı olabilir.",
+ "yontem_notu": "Süreler bu makinede tek ölçümdür; başka bir makinede farklı olabilir.",
  "yol": "hazır takvim tabloları (cal_<birim>.json, yalnız seçili birim yüklenir) + olay süzgeci değişince tarayıcı içi yeniden süzme; açılış serisi olay_esdeger",
  "olcum_surumu": "sadeleştirilmiş arayüz (koroplet, 4 sekme)"
 }

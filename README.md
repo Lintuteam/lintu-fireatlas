@@ -106,12 +106,12 @@ AI assistants were used to help write and debug code, draft documentation and pr
 
 ## Team Lintu
 
-| Name | Role |
-|---|---|
-| Yusuf Emir Doğan | Team captain |
-| Tolga Küçüktürkmen | AI & NLP |
-| Tunahan Karataş | Interface & data |
-| Alperen Aydın Köysüren | UI/UX design |
-| Cemal Özdemir | Product & partnerships |
+| Name | Role | GitHub |
+|---|---|---|
+| Yusuf Emir Doğan | Team captain | [@yusufemir4](https://github.com/yusufemir4) |
+| Tolga Küçüktürkmen | AI & NLP | [@08tolga05-coder](https://github.com/08tolga05-coder) |
+| Tunahan Karataş | Interface & data | [@yavuztuna1016-gif](https://github.com/yavuztuna1016-gif) |
+| Alperen Aydın Köysüren | UI/UX design | [@alperenmfl40-droid](https://github.com/alperenmfl40-droid) |
+| Cemal Özdemir | Product & partnerships | [@ercem3](https://github.com/ercem3) |
 
 Website: https://lintuteam.com

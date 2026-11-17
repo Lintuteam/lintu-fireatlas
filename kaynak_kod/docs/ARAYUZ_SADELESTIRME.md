@@ -1,6 +1,6 @@
 # Arayüz sadeleştirme görevi (koordinatör, 2026-11-13)
 
-Kullanıcı geri bildirimi: "Görüntü kötü, kafa karıştırıyor, açıklayıcı değil." Hedef kitle: jüri ve konuya yeni biri. Kural: **ilk 10 saniyede ne gördüğünü anlasın.** Veri, hesap ve sayı kaynakları DEĞİŞMEZ (K1, C14 — her sayı yine metrics.json / agg'den). Yalnız sunum.
+Kullanıcı geri bildirimi: "Görüntü kötü, kafa karıştırıyor, açıklayıcı değil." Hedef kitle: konuya yeni biri. Kural: **ilk 10 saniyede ne gördüğünü anlasın.** Veri, hesap ve sayı kaynakları DEĞİŞMEZ (K1, C14 — her sayı yine metrics.json / agg'den). Yalnız sunum.
 
 ## Koordinatörün gördüğü sorunlar (ekran görüntüsünden)
 1. **Bozuk çeviri anahtarları ekranda:** `app.telemetry`, `btn.scimode_eq`, `btn.quick_export`, `hud.events`, `hud.unit_events`, `hud.joint`, `hud.jump`, `tab.map_short`… i18n'de karşılığı yok. Hiçbir ham anahtar ekrana çıkmamalı (bir test ekle: DOM'da `xxx.yyy` biçimli görünür metin = 0).
@@ -17,7 +17,7 @@ Kullanıcı geri bildirimi: "Görüntü kötü, kafa karıştırıyor, açıklay
 - **Solda sabit süzgeç paneli** (Bölge, Tarih aralığı; "Gelişmiş" kapalı). Sağda içerik.
 - **Sekmeler (sıra):** 1) Takvim (varsayılan — NASA'nın ana isteği), 2) Harita, 3) Uydular nasıl birleştirildi (sıçrama grafiği + Birleştirme Laboratuvarı tek sekmede, adım adım anlatımlı), 4) İndir (CSV/PNG). "Piksel büyümesi" bu üçüncü sekmenin içinde küçük bir kart olsun.
 - **Her sekmenin üstünde 1 cümle "Bu ekran ne gösteriyor?"** ve okuma ipucu.
-- **Jüri modu = sade mod:** gelişmiş süzgeçler ve teknik ayrıntılar gizli; kartlar ve takvim öne çıkar.
+- **Sade mod:** gelişmiş süzgeçler ve teknik ayrıntılar gizli; kartlar ve takvim öne çıkar.
 - Uyarılar (yalnız Terra 2000–2002, 2026 kısmi/NRT, eşdeğer güvenilmez) ilgili grafiğin yanında küçük, sarı, tek cümlelik not; üstte yığın hâlinde değil.
 - Monospace yalnız küçük etiketlerde; açıklama metinleri normal yazı tipinde, okunur boyutta (≥14px).
 - Erişilebilirlik korunur (klavye, aria, kontrast, palet seçici "Gelişmiş" içinde).

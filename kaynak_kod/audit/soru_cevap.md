@@ -1,4 +1,4 @@
-# Jüri sorusu provası (F4 denetçi, 2026-11-13)
+# Olası sorular provası (F4 denetçi, 2026-11-13)
 
 Her cevaptaki sayı `reports/metrics.json` anahtarıyla verilir (değer · etiket). Cevabı destekleyecek kanıt yoksa **cevaplanamaz/eksik** yazılır. Sayılar denetçinin bu tarihte okuduğu metrics.json'dandır; rapor yazarı metrics'ten yeniden çekmelidir.
 

@@ -1,6 +1,6 @@
 /* Arayüz denetleyicisi. Ekrandaki her sayı D (data/ dosyaları) veya metrics.json'dan hesaplanır (K1, C14). */
 "use strict";
-const S = { lang: "tr", pal: "viridis", cvd: "none", juri: false, region: { type: "tr" }, from: 0, to: 0, sensor: "all", statuses: new Set([0]), minFrp: 0,
+const S = { lang: "tr", pal: "viridis", cvd: "none", sade: false, region: { type: "tr" }, from: 0, to: 0, sensor: "all", statuses: new Set([0]), minFrp: 0,
   metric: "count", aggSeries: "olay_esdeger", mmode: "abs", tab: "map", year: 0, tiles: false, vis: [true, true, true, true], frpSize: false, rawOn: false, ft: "noaniz", norepeat: false, anizIl: false, sanKaldir: false, sanGoster: false };
 const FT_ST = { all: [0, 6], noaniz: [0], aniz: [6] }; // yangın türü -> dahil durumlar (0 temiz, 6 anız)
 let TOP = [], TOPMODE = "max"; // "max" = tepe FRP (frp_max), "sum" = FRP toplamı (uydu sayısına bağlı)
@@ -41,7 +41,7 @@ function toggleSciMode() {
   } else { S.aggSeries = target; }
   refresh();
 }
-async function loadDicts() { for (const l of ["tr", "en"]) DICT[l] = await getJSON(`i18n/${l}.json?v=2.5.3`); }
+async function loadDicts() { for (const l of ["tr", "en"]) DICT[l] = await getJSON(`i18n/${l}.json?v=2.7`); }
 
 /* ---------- "Veri ve yöntem" paneli ve uyarılar (dürüstlük: kaynak, aralık, sensör kapsamı, etiketler) ---------- */
 function honesty() {
@@ -55,7 +55,7 @@ function honesty() {
   const ly = dayYMD(D.dataLast);
   if (D.dataLast < dateToDay(ly[0] + "-12-31")) w.push(fill("warn.partial", { y: ly[0], d: dayISO(D.dataLast) }));
   $("#warnBar").textContent = w.join(" ");
-  $("#simBadge").hidden = !(D.man.simulated && !S.juri);
+  $("#simBadge").hidden = !(D.man.simulated && !S.sade);
 }
 
 /* ---------- süzgeç denetimleri ---------- */
@@ -496,7 +496,7 @@ function exportJump() {
 /* ---------- başlatma ---------- */
 function bind() {
   $("#langBtn").onclick = () => { S.lang = S.lang === "tr" ? "en" : "tr"; buildControls(); applyI18n(); refresh(); labRender(); setStatusMsg(); if (S.tab === "sci") SCI.render(); };
-  $("#juriBtn").onclick = e => { S.juri = !S.juri; e.currentTarget.setAttribute("aria-pressed", String(S.juri)); document.body.classList.toggle("juri", S.juri); honesty(); };
+  $("#sadeBtn").onclick = e => { S.sade = !S.sade; e.currentTarget.setAttribute("aria-pressed", String(S.sade)); document.body.classList.toggle("sade", S.sade); honesty(); };
   $("#infoBtn").onclick = e => { const p = $("#infoPanel"); p.hidden = !p.hidden; e.currentTarget.setAttribute("aria-expanded", String(!p.hidden)); };
   $("#palSel").onchange = e => { S.pal = e.target.value; refresh(); };
   $("#cvdSel").onchange = e => { S.cvd = e.target.value; document.body.dataset.cvd = S.cvd; };
